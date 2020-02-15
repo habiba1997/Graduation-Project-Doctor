@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "741431616249",
+    "firebase_url": "https://fortify-72739.firebaseio.com",
+    "project_id": "fortify-72739",
+    "storage_bucket": "fortify-72739.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741431616249:android:a8d9899bc3ce1e75acf828",
+        "android_client_info": {
+          "package_name": "app.fortify.fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741431616249-lmqt12j9h4spi39kae2ioftr2nuiq0d5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSbKhYbn3_VZK7uKKFm9q4GmiydIRi-ws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741431616249-lmqt12j9h4spi39kae2ioftr2nuiq0d5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

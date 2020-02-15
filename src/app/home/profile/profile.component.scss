@@ -1,0 +1,108 @@
+
+.cont{
+  height: 100%;
+  width: 100%;
+  margin: -10%;
+}
+
+// .container {
+//     position: relative;
+//     text-align: center;
+//     color: white;
+//     height: 100%;
+//     width: 100%;
+//     margin: 0px;
+//     padding: 0%;
+//   }
+  .centered {
+    position: absolute;
+    margin-left: 50%;
+    transform: translate(-30%, -40%);
+    color: black;
+    // text-align: center;
+    // margin-top:-100%;
+    // font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .avat{
+    width:100% !important;  
+    height : 100% !important;  
+    max-width: 150px !important;  
+    max-height: 150px !important; 
+  }
+  .space{
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+  .it{
+    padding-top: 2%; 
+    }
+  .grad  {
+    --background: linear-gradient(
+    to bottom,
+    #0a5279 0%,
+    #80d3cb 100%)
+    
+}
+
+ .back{
+    margin-top: 50%;
+    margin-left: 10%;
+  }
+  
+  .edit{
+      margin-left: 7%;
+      margin-top: 90%;
+    }
+  .pad{
+    margin-left: 10%;
+    padding-right: 3%;
+  }
+  .wrapper {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    background-image: linear-gradient(to top, rgb(80, 185, 182) 0%, #ffffff 100%);
+    overflow: hidden;
+    border-radius: 20%;
+  }
+  
+  .wave {
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    top: -25%;
+    left: 50%;
+    margin-left: -500px;
+    margin-top: -500px;
+    border-radius: 35%;
+    background: rgba(255, 255, 255, .75);
+    animation: wave 15s infinite linear;
+  }
+  
+  @keyframes wave {
+    from { transform: rotate(0deg);}
+    from { transform: rotate(360deg);}
+  }
+  .myrow{
+    padding-bottom: 60%;
+  }
+  .Srow{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    margin-left: 100%;
+    margin-top: 130%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(to bottom, rgb(80, 185, 182) 0%, #ffffff 100%);
+    overflow: hidden;
+    border-radius: 20%;
+  }
+  .fab{
+    margin-bottom: 3%;
+  }
+  

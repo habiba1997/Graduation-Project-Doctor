@@ -1,0 +1,108 @@
+<ion-content>
+<div *ngIf="showSplash" class="myBackground">
+    <div>
+    <img src="/assets/giphy.gif">
+</div> 
+</div> 
+  <ion-grid class="background">
+    <ion-row>
+      <ion-col >
+          <ion-button  (click)= "clear()" color="light" shape ="round" >
+              <ion-icon name="arrow-round-back"></ion-icon>
+              Logout
+              </ion-button>
+            <!-- <img class ="icon"src="assets/talin.png" > -->
+  
+            <div class="center">
+
+              <ion-avatar class="avat" >
+                  <img src="assets/talin.png" (click)="NavigateMe('home/Myprofile')">
+             </ion-avatar>
+            </div>
+            <h1 class="middle-text user-name">{{doctorName}}</h1>
+  
+              
+      </ion-col>
+
+    </ion-row>
+  </ion-grid >
+  <ion-row class="main-card">
+    <ion-grid>
+      <ion-row>
+          <ion-col col-6 >
+              <div class="mini-card" (click)="NavigateMe('home/doctorList')" >
+                <div class="center" >
+                    <img class="icon" src="assets/vitals2.png">
+
+                </div>
+                
+                <div class="middle-text">
+                  Schedule
+                </div>
+
+                  
+              </div>
+            </ion-col>
+            <ion-col col-6 >
+              <div  class="mini-card">
+                  <div class="center" >
+                      <img class="icon" src="assets/clock.png">
+  
+                  </div>
+                  
+                  <div class="middle-text">
+                     Add Patient
+                  </div>
+              </div>
+            </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-6 >
+              <div class="mini-card" (click)="addPatient()">
+                  <div class="center" >
+                      <img class="icon" src="assets/addDoc.jpeg">
+  
+                  </div>
+                  
+                  <div class="middle-text">
+                     Conversations
+                  </div>
+              </div>
+            </ion-col>
+            <ion-col col-6 >
+              <div  class="mini-card" (click)="newMessage()" >
+                  <div class="center" >
+                      <img class="icon" src="assets/message.png">
+  
+                  </div>
+                  
+                  <div class="middle-text">
+                     New Message
+                  </div>
+              </div>
+            </ion-col>
+
+      </ion-row>
+      
+    </ion-grid>
+  </ion-row>
+
+   <app-fab></app-fab>
+
+
+
+</ion-content>
+<!-- <ion-content>
+  <ion-grid>
+    <ion-row>
+          
+              <app-tab>
+          
+              </app-tab>
+            
+     
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+
+

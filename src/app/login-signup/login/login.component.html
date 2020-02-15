@@ -1,0 +1,61 @@
+<ion-content>
+<div *ngIf="showSplash" class="myBackground">
+    <div>
+    <img src="/assets/giphy.gif">
+</div> 
+</div> 
+<div *ngIf="!showSplash">
+  <ion-grid >
+    <ion-row>
+      <ion-col>
+           
+  
+               <ion-button  (click)= "backClick()" color="light" shape ="round" >
+                 <ion-icon name="arrow-round-back"></ion-icon>
+               </ion-button>       
+            
+
+      </ion-col>
+      <ion-col >
+        <h1 style="height: 80px;"></h1> 
+        <img class = "space" src="/assets/logo02.png"/>
+        <h1 class="fat-free">Log In</h1>
+        
+      </ion-col>
+        <ion-col >
+            <img src="/assets/path-6.png"/>
+        </ion-col>
+
+    </ion-row>
+    
+  
+  </ion-grid>
+
+        <div class="marginTop">
+        
+
+
+       
+          <div class="centric">
+              <ion-card>
+                <ion-item>
+                    <ion-input required placeholder="Enter Email" type="email" #EmailInput></ion-input>
+                  </ion-item>
+                </ion-card>
+           
+            </div>
+          <div class="centric">
+            <ion-card>
+              <ion-item>
+ 
+                  <ion-input required placeholder="Enter Password" type="password" #PasswordInput></ion-input>
+                </ion-item>
+              </ion-card>
+          </div>
+       
+        </div>
+         
+
+   <div class="marginTop centric"> <ion-button style="height: 40px; "class="marginTop button"  shape="round" (click)="login(EmailInput.value, PasswordInput.value)" color="light">Log In</ion-button></div>      
+</div>
+</ion-content>

@@ -1,0 +1,28 @@
+
+
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="vitalClick()">
+      <ion-icon name="fitness"></ion-icon>
+      <ion-label>My Vitals</ion-label>
+      <!-- <ion-badge>6</ion-badge> -->
+    </ion-tab-button>
+
+    <ion-tab-button (click)="homeClick()">
+      <ion-icon name="person"></ion-icon> 
+      <ion-label>Homepage</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="dlistClick()" >
+        <ion-icon name="medkit"></ion-icon>
+       <ion-label>My doctors</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="tlistClick()">
+      <ion-icon name="body"></ion-icon>
+      <ion-label>My trainer</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+

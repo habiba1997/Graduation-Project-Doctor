@@ -1,0 +1,14 @@
+
+<ion-fab vertical="bottom" horizontal="end" edge slot="fixed" class="outer"  > 
+    <ion-fab-button color ="Medium">
+        <ion-icon name="menu" ></ion-icon> 
+       
+    </ion-fab-button>
+    <ion-fab-list side="start" >
+    <ion-fab-button (click)="vitalClick()"><ion-icon name="fitness"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="homeClick()"><ion-icon name="person"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="dlistClick()"><ion-icon name="medkit"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="tlistClick()"><ion-icon name="body"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="outClick()"><ion-icon name="power"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>

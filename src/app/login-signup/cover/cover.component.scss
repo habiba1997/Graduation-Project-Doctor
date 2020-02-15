@@ -1,0 +1,42 @@
+.cover {
+    background-image: url(/assets/cover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  height: 100%;
+          }
+    
+     .clover {
+    
+      background-image: url(/assets/clover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    }
+    
+    .fat-free {
+      text-align: center;
+      font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
+      color: #ffffff;
+    
+    }
+    
+  .buttons{
+  
+          margin-top: 20%;
+          
+      
+    }
+    
+    .button{
+      margin: 2% 0%;
+      display: block;
+      width: 65%;
+      font-weight: 12%;
+     
+    }
+  
+    .btnDiv{
+      display: flex;
+      justify-content: center;
+    }
