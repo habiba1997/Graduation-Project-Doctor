@@ -12,17 +12,20 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
+  private myAge:number;
   private mobile:String;
   private myName:String;
-  private experience : number;
-  private doctorName:String;
+  private patientAge:number;
+  private patientName:String;
+  private patientAddress:String;
+  private myAddress:String;
   private notEnable: boolean;
   private code :any;
   private showSplash: boolean; 
 
   constructor(private navigation:NavigationService,
     private datastream: DatastreamingService,
-    private editProfileDoctor: HttpService,
+    private editPatientService: HttpService,
     private savedata:AlertController
     ) { }
 
@@ -31,20 +34,26 @@ export class ProfileComponent implements OnInit {
     // this.showSplash = true;
     // timer(3000).subscribe(()=> this.showSplash = false);
     // this.patientName =this.datastream.getPatientName();
-    this.doctorName =this.datastream.getDoctorName();
-    this.experience =this.datastream.getDoctorYearsOfExperience();
-    this.mobile = this.datastream.getDoctorMobile();
-    this.code="doctor1";
+    this.patientName =this.datastream.getPatientName();
+    this.patientAge =this.datastream.getPatientAge();
+    this.patientAddress=this.datastream.getPatientAddress();
+    this.mobile = this.datastream.getPatientMobile();
+    this.code="patient1";
   
-    console.log("name  "+this.doctorName)
-    console.log("myAge "+ this.experience);
+    console.log("name  "+this.patientName)
+    console.log("myAge "+ this.patientAge);
+    console.log("myName "+ this.myName);
 
   }
   backClick(){
+    console.log("must navigate to patient list")
     this.navigation.navigateTo('home');
 
   }
+ vitalClick(){
+  this.navigation.navigateTo('home/vitals');
 
+ }
  edit(){
   this.notEnable=false;
   // this.patientName="";
@@ -53,12 +62,12 @@ export class ProfileComponent implements OnInit {
   // this.myAddress="";
   // this.myAge=null;
   // this.myName="";
-  // console.log("myAge "+ this.myAge);
+  console.log("myAge "+ this.myAge);
   console.log("myName "+ this.myName);
 
  }
  
-async save(name: String,yearsExperience:number, token: String){
+async save(name: String,age: number, address:String, token: String){
   
   const alert =this.savedata.create({
     header: 'Are you sure you want to save edits?',
@@ -69,9 +78,12 @@ async save(name: String,yearsExperience:number, token: String){
      [ {text:'Cancel',
     
      handler: async data => {
-       this.doctorName="";
-      this.myName = this.datastream.getDoctorName();
-     this.experience = this.datastream.getDoctorYearsOfExperience();
+       this.patientName="";
+      this.patientAge=null;
+      this.patientAddress="";
+      this.myName = this.datastream.getPatientName();
+     this.myAge = this.datastream.getPatientAge();
+     this.myAddress=this.datastream.getPatientAddress();
      this.notEnable=true;
  
      }
@@ -83,10 +95,10 @@ async save(name: String,yearsExperience:number, token: String){
          
         this.notEnable=true;
         token = this.datastream.getToken();
-      //  console.log("myAge "+ age);
-      //   console.log("myName "+ name);
-      //   console.log("myAddress "+ address);
-         this.editProfileDoctor.editDoctorProfile(name,yearsExperience,token).subscribe(
+       console.log("myAge "+ age);
+        console.log("myName "+ name);
+        console.log("myAddress "+ address);
+         this.editPatientService.editPatientProfile(name,age,address,token).subscribe(
        response=>{
       // this.datastream.setToken(response.token);
       console.log("http request to Change patient Data: "+ JSON.stringify(response));
@@ -112,11 +124,16 @@ async save(name: String,yearsExperience:number, token: String){
   }
 
  changeName(){
-  this.doctorName="";
+  this.patientName="";
   
  }
- changeExperience(){
-  this.experience=null;
+ changeAge(){
+  this.patientAge=null;
+  
+ }
+ changeAddress(){
+  this.patientAddress="";
+
   
  }
 

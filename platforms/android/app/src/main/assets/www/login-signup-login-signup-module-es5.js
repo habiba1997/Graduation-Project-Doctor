@@ -328,14 +328,21 @@
     var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @ionic-native/fcm/ngx */
+    "./node_modules/@ionic-native/fcm/ngx/index.js");
 
     let LoginComponent = class LoginComponent {
-      constructor(nav, http, datastream, men, addController) {
+      constructor(nav, http, datastream, men, addController, fcm) {
         this.nav = nav;
         this.http = http;
         this.datastream = datastream;
         this.men = men;
         this.addController = addController;
+        this.fcm = fcm;
       }
 
       ngOnInit() {
@@ -352,7 +359,17 @@
           // timer
           this.showSplash = true; // timer
 
-          Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["timer"])(10000).subscribe(() => this.showSplash = false); //Use Token To get Doctor Data
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["timer"])(10000).subscribe(() => this.showSplash = false); //recieveing Token For Development Only FOR NOW
+
+          this.fcm.getToken().then(fcmtoken => {
+            this.http.editFCMToken(fcmtoken, res.token).subscribe(data => {
+              console.log(JSON.stringify(data));
+            }, err => {
+              alert("ERROR in updating FCM token: " + JSON.stringify(err));
+            });
+          }, err => {
+            alert("ERROR in getting FCM token: " + JSON.stringify(err));
+          }); //Use Token To get Doctor Data
 
           console.log("Token: " + res.token);
           this.datastream.setToken(res.token);
@@ -454,6 +471,8 @@
       type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"]
     }, {
       type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]
+    }, {
+      type: _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_7__["FCM"]
     }];
 
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -464,7 +483,7 @@
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./login.component.scss */
       "./src/app/login-signup/login/login.component.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_home_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"], src_app_home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]])], LoginComponent);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_home_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"], src_app_home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_7__["FCM"]])], LoginComponent);
     /***/
   }
 }]);

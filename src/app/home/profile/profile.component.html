@@ -20,7 +20,7 @@
           <div >
               <h1 class="centered">
                 <ion-input clearInput #Name disabled={{notEnable}} (ionChange)="changeName()" #Name [(ngModel)]="myName" floating>
-                     {{doctorName}}
+                     {{patientName}}
                  </ion-input>
                </h1>
                <div class="space">
@@ -39,18 +39,18 @@
          <ion-item class = "it" color="sub.severityLevel">
               <ion-icon name="contacts" class="pad"></ion-icon>
              
-              <ion-input  (ionChange)="changeExperience()" type="tel" clearInput readonly=false [(ngModel)]="experience" #Experience maxlength="2"   disabled={{notEnable}}>
-                 Experience: {{experience}} 
+              <ion-input  (ionChange)="changeAge()" type="tel" clearInput readonly=false [(ngModel)]="myAge" #Age maxlength="2"   disabled={{notEnable}}>
+                 Age: {{patientAge}} 
               </ion-input>
           </ion-item >
-          <!-- <ion-item color="sub.severityLevel" >
+          <ion-item color="sub.severityLevel" >
             <ion-icon name="business" class="pad"></ion-icon>
              
               <ion-input  clearInput  [(ngModel)]="myAddress" (ionChange)="changeAddress()" #Address  disabled={{notEnable}}  floating>
                  Adress: {{patientAddress}} 
               </ion-input>
               
-          </ion-item> -->
+          </ion-item>
 
           <ion-item  color="sub.severityLevel" >
           <ion-icon name="call" class="pad"></ion-icon>

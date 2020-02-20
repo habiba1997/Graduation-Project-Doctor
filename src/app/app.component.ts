@@ -25,7 +25,7 @@ export class AppComponent {
     private nav : NavigationService,
     private datastream : DatastreamingService,
     public fcm : FCM,
-    private editPatientService: HttpService,
+    private http: HttpService,
 
   ) {
     this.initializeApp();
@@ -66,6 +66,21 @@ export class AppComponent {
             })
             await this.datastore.getDoctorToken().then((token)=>{
                that.datastream.setToken(token);
+               //recieveing Token For Development Only FOR NOW
+                this.fcm.getToken().then((fcmtoken)=>{
+                  this.http.editFCMToken(fcmtoken, token).subscribe((data)=>
+                  {
+                    console.log(JSON.stringify(data));
+                  }, 
+                  err=>{
+                    alert("ERROR in updating FCM token: "+JSON.stringify(err));
+
+                  });
+
+                },
+                (err)=>{
+                  alert("ERROR in getting FCM token: "+JSON.stringify(err));
+                });
             })
             await this.datastore.getPatientList().then((doctorList)=>{
                that.datastream.restoreStreamDatalist(doctorList); 
@@ -79,22 +94,13 @@ export class AppComponent {
        this.statusBar.styleLightContent();
        this.splashScreen.hide();
 
-      //recieveing Token
-      this.fcm.getToken().then((token)=>{
-        console.log("fcmToken: "+ token);
-        localStorage.setItem("fcmToken",token);
-      },
-      (err)=>{
-        alert("ERROR: "+JSON.stringify(err));
-      });
+      
 
       //recieveing notification
       this.fcm.onNotification().subscribe((data)=>
       {
         if(data.wasTapped)
-        {
-
-        }
+        {}
         else
         {
           alert("Data Message:"+ data.body);
@@ -103,19 +109,19 @@ export class AppComponent {
       });
 
       //updating token if updated
-      this.fcm.onTokenRefresh().subscribe((token)=>
-      {
-        localStorage.setItem("fcmtoken",token);
-        this.editPatientService.editFCMToken(token, this.datastream.getToken()).subscribe(
-          response=>{
-         console.log("http request to Change patient Data: "+ JSON.stringify(response));         
-       }, 
-       err =>
-       {
-         alert("HTTP Edit profile Error:"+ err.error.message);
-         console.log('HTTP Edit profile Error: ', err.error.message);
-       });
-      });
+      // this.fcm.onTokenRefresh().subscribe((token)=>
+      // {
+      //   localStorage.setItem("fcmtoken",token);
+      //   this.editPatientService.editFCMToken(token, this.datastream.getToken()).subscribe(
+      //     response=>{
+      //    console.log("http request to Change patient Data: "+ JSON.stringify(response));         
+      //  }, 
+      //  err =>
+      //  {
+      //    alert("HTTP Edit profile Error:"+ err.error.message);
+      //    console.log('HTTP Edit profile Error: ', err.error.message);
+      //  });
+      // });
      
     
 

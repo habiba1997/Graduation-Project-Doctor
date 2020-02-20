@@ -867,7 +867,7 @@
     "./src/app/home/HttPService/http.service.ts");
 
     let AppComponent = class AppComponent {
-      constructor(platform, splashScreen, statusBar, datastore, nav, datastream, fcm, editPatientService) {
+      constructor(platform, splashScreen, statusBar, datastore, nav, datastream, fcm, http) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
@@ -875,7 +875,7 @@
         this.nav = nav;
         this.datastream = datastream;
         this.fcm = fcm;
-        this.editPatientService = editPatientService;
+        this.http = http;
         this.navigate = [{
           title: "Home",
           url: "home",
@@ -919,7 +919,17 @@
                 case 5:
                   _context.next = 7;
                   return this.datastore.getDoctorToken().then(token => {
-                    that.datastream.setToken(token);
+                    that.datastream.setToken(token); //recieveing Token For Development Only FOR NOW
+
+                    this.fcm.getToken().then(fcmtoken => {
+                      this.http.editFCMToken(fcmtoken, token).subscribe(data => {
+                        console.log(JSON.stringify(data));
+                      }, err => {
+                        alert("ERROR in updating FCM token: " + JSON.stringify(err));
+                      });
+                    }, err => {
+                      alert("ERROR in getting FCM token: " + JSON.stringify(err));
+                    });
                   });
 
                 case 7:
@@ -938,14 +948,7 @@
             }, _callee, this);
           })));
           this.statusBar.styleLightContent();
-          this.splashScreen.hide(); //recieveing Token
-
-          this.fcm.getToken().then(token => {
-            console.log("fcmToken: " + token);
-            localStorage.setItem("fcmToken", token);
-          }, err => {
-            alert("ERROR: " + JSON.stringify(err));
-          }); //recieveing notification
+          this.splashScreen.hide(); //recieveing notification
 
           this.fcm.onNotification().subscribe(data => {
             if (data.wasTapped) {} else {
@@ -953,16 +956,19 @@
               console.log(JSON.stringify(data));
             }
           }); //updating token if updated
-
-          this.fcm.onTokenRefresh().subscribe(token => {
-            localStorage.setItem("fcmtoken", token);
-            this.editPatientService.editFCMToken(token, this.datastream.getToken()).subscribe(response => {
-              console.log("http request to Change patient Data: " + JSON.stringify(response));
-            }, err => {
-              alert("HTTP Edit profile Error:" + err.error.message);
-              console.log('HTTP Edit profile Error: ', err.error.message);
-            });
-          });
+          // this.fcm.onTokenRefresh().subscribe((token)=>
+          // {
+          //   localStorage.setItem("fcmtoken",token);
+          //   this.editPatientService.editFCMToken(token, this.datastream.getToken()).subscribe(
+          //     response=>{
+          //    console.log("http request to Change patient Data: "+ JSON.stringify(response));         
+          //  }, 
+          //  err =>
+          //  {
+          //    alert("HTTP Edit profile Error:"+ err.error.message);
+          //    console.log('HTTP Edit profile Error: ', err.error.message);
+          //  });
+          // });
         });
       } // vitalClick(){
       //   this.nav.navigateTo('home/vitals');
@@ -1188,9 +1194,8 @@
 
     let HttpService = class HttpService {
       constructor(http) {
-        this.http = http; // Java_Host_Port = "http://ec2-18-204-209-87.compute-1.amazonaws.com:8080";
-
-        this.Java_Host_Port = "https://fbddaec2.ngrok.io";
+        this.http = http;
+        this.Java_Host_Port = "http://ec2-18-204-209-87.compute-1.amazonaws.com:8080";
         this.Node_host = "http://ec2-3-15-156-222.us-east-2.compute.amazonaws.com:3000/";
         this.httpOptions = {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
@@ -1261,7 +1266,7 @@
         const httpOption = {
           headers: this.httpGetTokenOptions(token)
         };
-        const url = this.Java_Host_Port + "/doctor/updateProfile";
+        const url = this.Java_Host_Port + "/doctor/updateToken";
         return this.http.post(url, {
           "fcmtoken": fcmtoken
         }, httpOption);
