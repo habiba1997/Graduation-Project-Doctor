@@ -803,7 +803,7 @@ let AppComponent = class AppComponent {
                             this.http.editFCMToken(fcmtoken, token).subscribe((data) => {
                                 console.log(JSON.stringify(data));
                             }, err => {
-                                alert("ERROR in updating FCM token: " + JSON.stringify(err));
+                                alert("Haven't Updated FCM Token");
                             });
                         }, (err) => {
                             alert("ERROR in getting FCM token: " + JSON.stringify(err));
@@ -819,26 +819,15 @@ let AppComponent = class AppComponent {
             this.splashScreen.hide();
             //recieveing notification
             this.fcm.onNotification().subscribe((data) => {
-                if (data.wasTapped) { }
+                if (data.wasTapped) {
+                    alert("Data Tapped Message:" + data.body);
+                    console.log("Tapped: " + JSON.stringify(data));
+                }
                 else {
                     alert("Data Message:" + data.body);
                     console.log(JSON.stringify(data));
                 }
             });
-            //updating token if updated
-            // this.fcm.onTokenRefresh().subscribe((token)=>
-            // {
-            //   localStorage.setItem("fcmtoken",token);
-            //   this.editPatientService.editFCMToken(token, this.datastream.getToken()).subscribe(
-            //     response=>{
-            //    console.log("http request to Change patient Data: "+ JSON.stringify(response));         
-            //  }, 
-            //  err =>
-            //  {
-            //    alert("HTTP Edit profile Error:"+ err.error.message);
-            //    console.log('HTTP Edit profile Error: ', err.error.message);
-            //  });
-            // });
         });
     }
     // vitalClick(){
@@ -978,7 +967,7 @@ __webpack_require__.r(__webpack_exports__);
 let HttpService = class HttpService {
     constructor(http) {
         this.http = http;
-        this.Java_Host_Port = "http://ec2-18-204-209-87.compute-1.amazonaws.com:8080";
+        this.Java_Host_Port = "http://7c3f5e62.ngrok.io";
         this.Node_host = "http://ec2-3-15-156-222.us-east-2.compute.amazonaws.com:3000/";
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
@@ -1275,7 +1264,7 @@ let DatastreamingService = class DatastreamingService {
         let patient = new src_app_model_patientData__WEBPACK_IMPORTED_MODULE_4__["patientData"];
         patient.patientId = pat.patientId;
         patient.name = pat.name;
-        patient.email = pat.email;
+        // patient.email= pat.email;
         patient.age = pat.age;
         patient.address = pat.address;
         patient.mobile = pat.mobile;
@@ -1307,7 +1296,7 @@ let DatastreamingService = class DatastreamingService {
         this.doctor.name = doctorData.user.name;
         this.doctor.mobile = doctorData.user.mobile;
         this.doctor.user_id = doctorData.user.id;
-        this.doctor.email = doctorData.user.email;
+        //  this.doctor.email = doctorData.user.email;
         this.doctor.password = doctorData.user.password,
             this.doctor.type = doctorData.user.type;
         this.doctor.timestamp = doctorData.user.timestamp;
@@ -1319,7 +1308,7 @@ let DatastreamingService = class DatastreamingService {
         this.doctor.mobile = mydoc.mobile;
         this.doctor.name = mydoc.name;
         this.doctor.user_id = mydoc.user_id;
-        this.doctor.email = mydoc.email;
+        //  this.doctor.email = mydoc.email;
         this.doctor.password = mydoc.password,
             this.doctor.type = mydoc.type;
         this.doctor.timestamp = mydoc.timestamp;

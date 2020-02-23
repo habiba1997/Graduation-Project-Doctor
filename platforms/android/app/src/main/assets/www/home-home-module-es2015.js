@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n<div *ngIf=\"showSplash\" class=\"myBackground\">\n    <div>\n    <img src=\"/assets/giphy.gif\">\n</div> \n</div> \n  <ion-grid class=\"background\">\n    <ion-row>\n      <ion-col >\n          <ion-button  (click)= \"clear()\" color=\"light\" shape =\"round\" >\n              <ion-icon name=\"arrow-round-back\"></ion-icon>\n              Logout\n              </ion-button>\n            <!-- <img class =\"icon\"src=\"assets/talin.png\" > -->\n  \n            <div class=\"center\">\n\n              <ion-avatar class=\"avat\" >\n                  <img src=\"assets/talin.png\" (click)=\"NavigateMe('home/Myprofile')\">\n             </ion-avatar>\n            </div>\n            <h1 class=\"middle-text user-name\">{{doctorName}}</h1>\n  \n              \n      </ion-col>\n\n    </ion-row>\n  </ion-grid >\n  <ion-row class=\"main-card\">\n    <ion-grid>\n      <ion-row>\n          <ion-col col-6 >\n              <div class=\"mini-card\" (click)=\"NavigateMe('home/doctorList')\" >\n                <div class=\"center\" >\n                    <img class=\"icon\" src=\"assets/vitals2.png\">\n\n                </div>\n                \n                <div class=\"middle-text\">\n                  Schedule\n                </div>\n\n                  \n              </div>\n            </ion-col>\n            <ion-col col-6 >\n              <div  class=\"mini-card\">\n                  <div class=\"center\" >\n                      <img class=\"icon\" src=\"assets/clock.png\">\n  \n                  </div>\n                  \n                  <div class=\"middle-text\">\n                     Add Patient\n                  </div>\n              </div>\n            </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-6 >\n              <div class=\"mini-card\" (click)=\"addPatient()\">\n                  <div class=\"center\" >\n                      <img class=\"icon\" src=\"assets/addDoc.jpeg\">\n  \n                  </div>\n                  \n                  <div class=\"middle-text\">\n                     Conversations\n                  </div>\n              </div>\n            </ion-col>\n            <ion-col col-6 >\n              <div  class=\"mini-card\" (click)=\"newMessage()\" >\n                  <div class=\"center\" >\n                      <img class=\"icon\" src=\"assets/message.png\">\n  \n                  </div>\n                  \n                  <div class=\"middle-text\">\n                     New Message\n                  </div>\n              </div>\n            </ion-col>\n\n      </ion-row>\n      \n    </ion-grid>\n  </ion-row>\n\n   <app-fab></app-fab>\n\n\n\n</ion-content>\n<!-- <ion-content>\n  <ion-grid>\n    <ion-row>\n          \n              <app-tab>\n          \n              </app-tab>\n            \n     \n    </ion-row>\n  </ion-grid>\n</ion-content> -->\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n<div *ngIf=\"showSplash\" class=\"myBackground\">\n    <div>\n    <img src=\"/assets/giphy.gif\">\n</div> \n</div> \n  <ion-grid class=\"background\">\n    <ion-row>\n      <ion-col >\n          <ion-button  (click)= \"clear()\" color=\"light\" shape =\"round\" >\n              <ion-icon name=\"arrow-round-back\"></ion-icon>\n              Logout\n              </ion-button>\n            <!-- <img class =\"icon\"src=\"assets/talin.png\" > -->\n  \n            <div class=\"center\">\n\n              <ion-avatar class=\"avat\" >\n                  <img src=\"assets/talin.png\" (click)=\"NavigateMe('home/Myprofile')\">\n             </ion-avatar>\n            </div>\n            <h1 class=\"middle-text user-name\">{{doctorName}}</h1>\n  \n              \n      </ion-col>\n\n    </ion-row>\n  </ion-grid >\n  <ion-row class=\"main-card\">\n    <ion-grid>\n      <ion-row>\n          <ion-col col-6 >\n              <div class=\"mini-card\" (click)=\"NavigateMe('home/doctorList')\" >\n                <div class=\"center\" >\n                    <img class=\"icon\" src=\"assets/vitals2.png\">\n\n                </div>\n                \n                <div class=\"middle-text\">\n                  Schedule\n                </div>\n\n                  \n              </div>\n            </ion-col>\n            <ion-col col-6 >\n              <div  class=\"mini-card\" (click)=\"addPatient()\">\n                  <div class=\"center\" >\n                      <img class=\"icon\" src=\"assets/clock.png\">\n  \n                  </div>\n                  \n                  <div class=\"middle-text\">\n                     Add Patient\n                  </div>\n              </div>\n            </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-6 >\n              <div class=\"mini-card\">\n                  <div class=\"center\" >\n                      <img class=\"icon\" src=\"assets/addDoc.jpeg\">\n  \n                  </div>\n                  \n                  <div class=\"middle-text\">\n                     Conversations\n                  </div>\n              </div>\n            </ion-col>\n            <ion-col col-6 >\n              <div  class=\"mini-card\" (click)=\"newMessage()\" >\n                  <div class=\"center\" >\n                      <img class=\"icon\" src=\"assets/message.png\">\n  \n                  </div>\n                  \n                  <div class=\"middle-text\">\n                     New Message\n                  </div>\n              </div>\n            </ion-col>\n\n      </ion-row>\n      \n    </ion-grid>\n  </ion-row>\n\n   <app-fab></app-fab>\n\n\n\n</ion-content>\n<!-- <ion-content>\n  <ion-grid>\n    <ion-row>\n          \n              <app-tab>\n          \n              </app-tab>\n            \n     \n    </ion-row>\n  </ion-grid>\n</ion-content> -->\n\n\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content >\n  <div class=\"background\">\n\n  <ion-grid >\n    <ion-row>\n    <ion-button class=\"back\" (click)= \"backClick()\"  shape=\"round\" color=\"light\">\n              <ion-icon name=\"arrow-round-back\"></ion-icon>\n              \n          </ion-button>\n      <ion-col size=\"12\">\n        <div class=\"center\">\n            <h1 class=\"middle-text\">My Patients</h1>\n        </div>\n        \n\n      </ion-col>\n    </ion-row>\n    <ion-row *ngFor=\"let item of patientRow; let i=index\">\n      <ion-grid >\n        <ion-row >\n          <ion-col size=\"1\">\n\n          </ion-col>\n          <ion-col size=\"10\" class=\"card\" >\n            <ion-grid  >\n              <ion-row >\n                <!-- <ion-col size=\"4\">\n                    <img  class=\"small-icon\" [src]=\"item.img\">\n\n                </ion-col> -->\n                <ion-col size=\"8\">\n                  Doctor Id: {{item.patientId}} <br>\n                  Dr/ {{item.name}} <br>\n                  Mobile: {{item.mobile}} <br>\n\n                  Email: {{item.email}} <br>\n                  Age: {{item.age}} <br>\n                  Address: {{item.address}} <br>\n             </ion-col>\n\n              </ion-row>\n            </ion-grid>\n            \n\n\n\n\n\n\n\n\n\n\n      \n          </ion-col>\n          <ion-col size=\"1\">\n       \n          </ion-col>\n        </ion-row>\n      </ion-grid>\n\n\n\n\n\n\n\n\n\n    </ion-row>\n  </ion-grid>\n</div>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content >\n  <div class=\"background\">\n\n  <ion-grid >\n    <ion-row>\n    <ion-button class=\"back\" (click)= \"backClick()\"  shape=\"round\" color=\"light\">\n              <ion-icon name=\"arrow-round-back\"></ion-icon>\n              \n          </ion-button>\n      <ion-col size=\"12\">\n        <div class=\"center\">\n            <h1 class=\"middle-text\">My Patients</h1>\n        </div>\n        \n\n      </ion-col>\n    </ion-row>\n    <ion-row *ngFor=\"let item of patientRow; let i=index\">\n      <ion-grid >\n        <ion-row >\n          <ion-col size=\"1\">\n\n          </ion-col>\n          <ion-col size=\"10\" class=\"card\" >\n            <ion-grid  >\n              <ion-row >\n                <!-- <ion-col size=\"4\">\n                    <img  class=\"small-icon\" [src]=\"item.img\">\n\n                </ion-col> -->\n                <ion-col size=\"8\">\n                  Doctor Id: {{item.patientId}} <br>\n                  Dr/ {{item.name}} <br>\n                  Mobile: {{item.mobile}} <br>\n\n                  Age: {{item.age}} <br>\n                  Address: {{item.address}} <br>\n             </ion-col>\n\n              </ion-row>\n            </ion-grid>\n            \n\n\n\n\n\n\n\n\n\n\n      \n          </ion-col>\n          <ion-col size=\"1\">\n       \n          </ion-col>\n        </ion-row>\n      </ion-grid>\n\n\n\n\n\n\n\n\n\n    </ion-row>\n  </ion-grid>\n</div>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content class=\"cont\" >\n<div *ngIf=\"showSplash\" class=\"myBackground\">\n    <div>\n    <img src=\"/assets/giphy.gif\">\n</div> \n</div> \n  <ion-grid>\n    <ion-row class =\"myrow\" >\n      <ion-col size=\"12\">\n        <div class=\"wrapper\" >\n          <div class=\"wave\"></div>\n          <div>\n          \n          <ion-button class=\"back\" (click)= \"backClick()\"  shape=\"round\" color=\"sub.severityLevel\" style=\"color:black\">\n              <ion-icon name=\"arrow-round-back\" ></ion-icon>\n              \n          </ion-button>\n          </div>\n\n          <div >\n              <h1 class=\"centered\">\n                <ion-input clearInput #Name disabled={{notEnable}} (ionChange)=\"changeName()\" #Name [(ngModel)]=\"myName\" floating>\n                     {{doctorName}}\n                 </ion-input>\n               </h1>\n               <div class=\"space\">\n                   <ion-avatar class=\"avat\"  >\n                    <img src=\"assets/images.jpg\" >\n                   </ion-avatar>\n               </div>\n           </div>\n           \n        </div>\n      </ion-col>\n     </ion-row>\n     <ion-row>\n        <ion-col size=\"6\">\n        <div class=\"Srow\">\n         <ion-item class = \"it\" color=\"sub.severityLevel\">\n              <ion-icon name=\"contacts\" class=\"pad\"></ion-icon>\n             \n              <ion-input  (ionChange)=\"changeExperience()\" type=\"tel\" clearInput readonly=false [(ngModel)]=\"experience\" #Experience maxlength=\"2\"   disabled={{notEnable}}>\n                 Experience: {{experience}} \n              </ion-input>\n          </ion-item >\n          <!-- <ion-item color=\"sub.severityLevel\" >\n            <ion-icon name=\"business\" class=\"pad\"></ion-icon>\n             \n              <ion-input  clearInput  [(ngModel)]=\"myAddress\" (ionChange)=\"changeAddress()\" #Address  disabled={{notEnable}}  floating>\n                 Adress: {{patientAddress}} \n              </ion-input>\n              \n          </ion-item> -->\n\n          <ion-item  color=\"sub.severityLevel\" >\n          <ion-icon name=\"call\" class=\"pad\"></ion-icon>\n              <ion-label>\n                Mobile: {{mobile}}\n              </ion-label>\n            </ion-item>\n  \n            <ion-item  color=\"sub.severityLevel\" >\n                <ion-icon name=\"alarm\" class=\"pad\"></ion-icon>  \n                <ion-label>\n                  Coming session Date:12/12/2019      \n                </ion-label>\n               <ion-icon name=\"construct\" ></ion-icon>\n                </ion-item>\n\n            <ion-item color=\"sub.severityLevel\" >\n                  <ion-icon name=\"clock\" class=\"pad\"></ion-icon>\n                  \n                    Latest session Date:12/12/2019\n                  \n                </ion-item>\n  \n                <ion-item  color=\"sub.severityLevel\" (click)= \"vitalClick()\">\n                    <ion-icon name=\"fitness\" class=\"pad\"></ion-icon>\n                   \n                      Vitals\n                    \n                  </ion-item>\n         \n        </div>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"edit\">\n        <ion-col size=\"4\">\n        <ion-button shape=\"round\" (click)=\"edit()\" color=\"sub.severityLevel\" style=\"color:black\"> Edit </ion-button>\n        </ion-col>\n         <ion-col size=\"4\" class=\"cancel\">\n        <ion-button  shape=\"round\" (click)=\"save(Name.value,Age.value,Address.value)\" color=\"sub.severityLevel\" style=\"color:black\"> Save </ion-button>\n        </ion-col>\n        <ion-col size =\"4\" class=\"fab\">\n            <app-fab></app-fab>\n\n        </ion-col>\n    \n    </ion-row>\n\n  </ion-grid>\n  </ion-content>\n  \n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content class=\"cont\" >\n<div *ngIf=\"showSplash\" class=\"myBackground\">\n    <div>\n    <img src=\"/assets/giphy.gif\">\n</div> \n</div> \n  <ion-grid>\n    <ion-row class =\"myrow\" >\n      <ion-col size=\"12\">\n        <div class=\"wrapper\" >\n          <div class=\"wave\"></div>\n          <div>\n          \n          <ion-button class=\"back\" (click)= \"backClick()\"  shape=\"round\" color=\"sub.severityLevel\" style=\"color:black\">\n              <ion-icon name=\"arrow-round-back\" ></ion-icon>\n              \n          </ion-button>\n          </div>\n\n          <div >\n              <h1 class=\"centered\">\n                <ion-input clearInput #Name disabled={{notEnable}} (ionChange)=\"changeName()\" #Name [(ngModel)]=\"myName\" floating>\n                     {{doctorName}}\n                 </ion-input>\n               </h1>\n               <div class=\"space\">\n                   <ion-avatar class=\"avat\"  >\n                    <img src=\"assets/images.jpg\" >\n                   </ion-avatar>\n               </div>\n           </div>\n           \n        </div>\n      </ion-col>\n     </ion-row>\n     <ion-row>\n        <ion-col size=\"6\">\n        <div class=\"Srow\">\n       \n          <ion-item color=\"sub.severityLevel\" >\n            <ion-icon name=\"business\" class=\"pad\"></ion-icon>\n             \n              <ion-input  clearInput  [(ngModel)]=\"myYears\" (ionChange)=\"changeExp()\" #Years  disabled={{notEnable}}  floating>\n                 Years of Experience: {{years_experience}} \n              </ion-input>\n              \n          </ion-item>\n\n          <ion-item  color=\"sub.severityLevel\" >\n          <ion-icon name=\"call\" class=\"pad\"></ion-icon>\n              <ion-label>\n                Mobile: {{mobile}}\n              </ion-label>\n            </ion-item>\n  \n            <ion-item  color=\"sub.severityLevel\" >\n                <ion-icon name=\"alarm\" class=\"pad\"></ion-icon>  \n                <ion-label>\n                  Coming session Date:12/12/2019      \n                </ion-label>\n               <ion-icon name=\"construct\" ></ion-icon>\n                </ion-item>\n\n            <ion-item color=\"sub.severityLevel\" >\n                  <ion-icon name=\"clock\" class=\"pad\"></ion-icon>\n                  \n                    Latest session Date:12/12/2019\n                  \n                </ion-item>\n  \n         \n        </div>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"edit\">\n        <ion-col size=\"4\">\n        <ion-button shape=\"round\" (click)=\"edit()\" color=\"sub.severityLevel\" style=\"color:black\"> Edit </ion-button>\n        </ion-col>\n         <ion-col size=\"4\" class=\"cancel\">\n        <ion-button  shape=\"round\" (click)=\"save(Name.value,Years.value)\" color=\"sub.severityLevel\" style=\"color:black\"> Save </ion-button>\n        </ion-col>\n        <ion-col size =\"4\" class=\"fab\">\n            <app-fab></app-fab>\n\n        </ion-col>\n    \n    </ion-row>\n\n  </ion-grid>\n  </ion-content>\n  \n\n");
 
 /***/ }),
 
@@ -323,18 +323,18 @@ let HomePage = class HomePage {
                             mobile = "+20" + mobile;
                             yield this.http.addPatient(mobile, token)
                                 .subscribe((response) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                                console.log("http request to add patinet responce: " + JSON.stringify(response));
+                                // console.log("http request to add patinet responce: "+ JSON.stringify(response));
                                 // timer
                                 this.showSplash = true;
                                 // timer
                                 Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["timer"])(10000).subscribe(() => this.showSplash = false);
-                                this.datastream.clearPatientList();
-                                response.forEach(element => {
-                                    this.datastream.addToPatientList(element);
-                                });
-                                yield this.datastream.savePatientListToDataStore();
-                                console.log('HTTP request completed.');
-                                this.navigation.navigateTo('home/doctorList');
+                                //  this.datastream.clearPatientList();
+                                //  response.forEach(element => {
+                                //      this.datastream.addToPatientList(element);
+                                //    }); 
+                                //  await this.datastream.savePatientListToDataStore();
+                                console.log('HTTP request completed.' + response.toString());
+                                //  this.navigation.navigateTo('home/doctorList'); 
                             }), err => {
                                 this.presentAlert('HTTP Add Patient Error: ', err.error.message);
                             }, () => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -546,27 +546,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileComponent = class ProfileComponent {
-    constructor(navigation, datastream, editProfileDoctor, savedata) {
+    constructor(navigation, datastream, editPatientService, savedata) {
         this.navigation = navigation;
         this.datastream = datastream;
-        this.editProfileDoctor = editProfileDoctor;
+        this.editPatientService = editPatientService;
         this.savedata = savedata;
     }
     ngOnInit() {
         this.notEnable = true;
-        // this.showSplash = true;
-        // timer(3000).subscribe(()=> this.showSplash = false);
-        // this.patientName =this.datastream.getPatientName();
         this.doctorName = this.datastream.getDoctorName();
-        this.experience = this.datastream.getDoctorYearsOfExperience();
+        this.years_experience = this.datastream.getDoctorYearsOfExperience();
         this.mobile = this.datastream.getDoctorMobile();
-        this.code = "doctor1";
+        this.code = "patient1";
         console.log("name  " + this.doctorName);
-        console.log("myAge " + this.experience);
+        console.log("myName " + this.myName);
     }
     backClick() {
+        console.log("must navigate to patient list");
         this.navigation.navigateTo('home');
     }
+    //  vitalClick(){
+    //   this.navigation.navigateTo('home/vitals');
+    //  }
     edit() {
         this.notEnable = false;
         // this.patientName="";
@@ -575,10 +576,10 @@ let ProfileComponent = class ProfileComponent {
         // this.myAddress="";
         // this.myAge=null;
         // this.myName="";
-        // console.log("myAge "+ this.myAge);
+        console.log("Years " + this.myYears);
         console.log("myName " + this.myName);
     }
-    save(name, yearsExperience, token) {
+    save(name, years_experience) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const alert = this.savedata.create({
                 header: 'Are you sure you want to save edits?',
@@ -586,8 +587,9 @@ let ProfileComponent = class ProfileComponent {
                 buttons: [{ text: 'Cancel',
                         handler: (data) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
                             this.doctorName = "";
+                            this.years_experience = null;
                             this.myName = this.datastream.getDoctorName();
-                            this.experience = this.datastream.getDoctorYearsOfExperience();
+                            this.myYears = this.datastream.getDoctorYearsOfExperience();
                             this.notEnable = true;
                         })
                     },
@@ -595,11 +597,10 @@ let ProfileComponent = class ProfileComponent {
                         text: 'Save',
                         handler: (data) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
                             this.notEnable = true;
-                            token = this.datastream.getToken();
-                            //  console.log("myAge "+ age);
-                            //   console.log("myName "+ name);
-                            //   console.log("myAddress "+ address);
-                            this.editProfileDoctor.editDoctorProfile(name, yearsExperience, token).subscribe(response => {
+                            const token = this.datastream.getToken();
+                            console.log("myName " + name);
+                            console.log("myYears " + years_experience);
+                            this.editPatientService.editDoctorProfile(name, years_experience, token).subscribe(response => {
                                 // this.datastream.setToken(response.token);
                                 console.log("http request to Change patient Data: " + JSON.stringify(response));
                                 // this.datastream.changePatientData(response);
@@ -616,8 +617,8 @@ let ProfileComponent = class ProfileComponent {
     changeName() {
         this.doctorName = "";
     }
-    changeExperience() {
-        this.experience = null;
+    changeExp() {
+        this.years_experience = null;
     }
 };
 ProfileComponent.ctorParameters = () => [

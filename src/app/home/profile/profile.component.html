@@ -20,7 +20,7 @@
           <div >
               <h1 class="centered">
                 <ion-input clearInput #Name disabled={{notEnable}} (ionChange)="changeName()" #Name [(ngModel)]="myName" floating>
-                     {{patientName}}
+                     {{doctorName}}
                  </ion-input>
                </h1>
                <div class="space">
@@ -36,18 +36,12 @@
      <ion-row>
         <ion-col size="6">
         <div class="Srow">
-         <ion-item class = "it" color="sub.severityLevel">
-              <ion-icon name="contacts" class="pad"></ion-icon>
-             
-              <ion-input  (ionChange)="changeAge()" type="tel" clearInput readonly=false [(ngModel)]="myAge" #Age maxlength="2"   disabled={{notEnable}}>
-                 Age: {{patientAge}} 
-              </ion-input>
-          </ion-item >
+       
           <ion-item color="sub.severityLevel" >
             <ion-icon name="business" class="pad"></ion-icon>
              
-              <ion-input  clearInput  [(ngModel)]="myAddress" (ionChange)="changeAddress()" #Address  disabled={{notEnable}}  floating>
-                 Adress: {{patientAddress}} 
+              <ion-input  clearInput  [(ngModel)]="myYears" (ionChange)="changeExp()" #Years  disabled={{notEnable}}  floating>
+                 Years of Experience: {{years_experience}} 
               </ion-input>
               
           </ion-item>
@@ -74,12 +68,6 @@
                   
                 </ion-item>
   
-                <ion-item  color="sub.severityLevel" (click)= "vitalClick()">
-                    <ion-icon name="fitness" class="pad"></ion-icon>
-                   
-                      Vitals
-                    
-                  </ion-item>
          
         </div>
         </ion-col>
@@ -89,7 +77,7 @@
         <ion-button shape="round" (click)="edit()" color="sub.severityLevel" style="color:black"> Edit </ion-button>
         </ion-col>
          <ion-col size="4" class="cancel">
-        <ion-button  shape="round" (click)="save(Name.value,Age.value,Address.value)" color="sub.severityLevel" style="color:black"> Save </ion-button>
+        <ion-button  shape="round" (click)="save(Name.value,Years.value)" color="sub.severityLevel" style="color:black"> Save </ion-button>
         </ion-col>
         <ion-col size ="4" class="fab">
             <app-fab></app-fab>

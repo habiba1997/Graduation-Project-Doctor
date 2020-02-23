@@ -5,7 +5,7 @@ export class MyDoctor{
   user_id: number;
   name: String;
   mobile: String;
-  email: String;
+  // email: String;
   password: String;
   type:String;
   timestamp: String;

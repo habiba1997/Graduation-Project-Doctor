@@ -23,7 +23,7 @@ export class DatastreamingService {
     let patient = new patientData;
     patient.patientId = pat.patientId;
     patient.name = pat.name;
-    patient.email= pat.email;
+    // patient.email= pat.email;
     patient.age = pat.age;
     patient.address = pat.address;
     patient.mobile = pat.mobile;
@@ -60,7 +60,7 @@ export class DatastreamingService {
      this.doctor.name = doctorData.user.name;
      this.doctor.mobile = doctorData.user.mobile;
      this.doctor.user_id = doctorData.user.id;
-     this.doctor.email = doctorData.user.email;
+    //  this.doctor.email = doctorData.user.email;
      this.doctor.password = doctorData.user.password,
      this.doctor.type = doctorData.user.type;
      this.doctor.timestamp = doctorData.user.timestamp;
@@ -74,7 +74,7 @@ export class DatastreamingService {
      this.doctor.mobile = mydoc.mobile;
      this.doctor.name = mydoc.name;
      this.doctor.user_id = mydoc.user_id;
-     this.doctor.email = mydoc.email;
+    //  this.doctor.email = mydoc.email;
      this.doctor.password = mydoc.password,
      this.doctor.type = mydoc.type;
      this.doctor.timestamp = mydoc.timestamp;

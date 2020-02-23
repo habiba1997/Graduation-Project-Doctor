@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
     // password = "beebz1997";
     let that = this;
     console.log(email,password);
-    
+    let  mobile = email.val.replace(/^0+/, '');
+    mobile= "+20"+mobile;
     // Loggining In
     this.http.Login(email, password).subscribe( 
        

@@ -66,14 +66,15 @@ export class AppComponent {
             })
             await this.datastore.getDoctorToken().then((token)=>{
                that.datastream.setToken(token);
-               //recieveing Token For Development Only FOR NOW
+               
+                //recieveing Token For Development Only FOR NOW
                 this.fcm.getToken().then((fcmtoken)=>{
                   this.http.editFCMToken(fcmtoken, token).subscribe((data)=>
                   {
                     console.log(JSON.stringify(data));
                   }, 
                   err=>{
-                    alert("ERROR in updating FCM token: "+JSON.stringify(err));
+                    alert("Haven't Updated FCM Token");
 
                   });
 
@@ -99,8 +100,11 @@ export class AppComponent {
       //recieveing notification
       this.fcm.onNotification().subscribe((data)=>
       {
-        if(data.wasTapped)
-        {}
+        if (data.wasTapped) 
+        {
+          alert("Data Tapped Message:"+ data.body);
+          console.log("Tapped: "+ JSON.stringify(data));
+        }
         else
         {
           alert("Data Message:"+ data.body);
@@ -108,21 +112,7 @@ export class AppComponent {
         }
       });
 
-      //updating token if updated
-      // this.fcm.onTokenRefresh().subscribe((token)=>
-      // {
-      //   localStorage.setItem("fcmtoken",token);
-      //   this.editPatientService.editFCMToken(token, this.datastream.getToken()).subscribe(
-      //     response=>{
-      //    console.log("http request to Change patient Data: "+ JSON.stringify(response));         
-      //  }, 
-      //  err =>
-      //  {
-      //    alert("HTTP Edit profile Error:"+ err.error.message);
-      //    console.log('HTTP Edit profile Error: ', err.error.message);
-      //  });
-      // });
-     
+      
     
 
      });

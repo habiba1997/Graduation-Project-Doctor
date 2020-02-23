@@ -101,19 +101,19 @@ getDocList()
         await this.http.addPatient(mobile,token)
         .subscribe(
           async response=>{
-            console.log("http request to add patinet responce: "+ JSON.stringify(response));
+            // console.log("http request to add patinet responce: "+ JSON.stringify(response));
                 // timer
                this.showSplash = true;
                 // timer
                timer(10000).subscribe(()=> this.showSplash = false);
-               this.datastream.clearPatientList();
-               response.forEach(element => {
-                   this.datastream.addToPatientList(element);
+              //  this.datastream.clearPatientList();
+              //  response.forEach(element => {
+              //      this.datastream.addToPatientList(element);
                    
-                 }); 
-               await this.datastream.savePatientListToDataStore();
-               console.log('HTTP request completed.');
-               this.navigation.navigateTo('home/doctorList'); 
+              //    }); 
+              //  await this.datastream.savePatientListToDataStore();
+               console.log('HTTP request completed.'+ response.toString());
+              //  this.navigation.navigateTo('home/doctorList'); 
           }, 
           err =>
           {
