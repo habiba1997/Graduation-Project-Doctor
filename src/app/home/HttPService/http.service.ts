@@ -10,7 +10,7 @@ import { UpVitals } from '../DataModels';
 export class HttpService {
   
  
-  Java_Host_Port = "http://7c3f5e62.ngrok.io";
+  Java_Host_Port = "http://cbacea72.ngrok.io";
 
   Node_host ="http://ec2-3-15-156-222.us-east-2.compute.amazonaws.com:3000/";
   constructor(private http:HttpClient) { 

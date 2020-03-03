@@ -31,16 +31,14 @@ export class LoginComponent implements OnInit {
     }
 
 
-   login(email,password)
+   login(mobile,password)
     {
-    // email ="beebz@mail.com";
-    // password = "beebz1997";
+ 
     let that = this;
-    console.log(email,password);
-    let  mobile = email.val.replace(/^0+/, '');
+    console.log(mobile,password);
+    mobile = mobile.replace(/^0+/, '');
     mobile= "+20"+mobile;
-    // Loggining In
-    this.http.Login(email, password).subscribe( 
+    this.http.Login(mobile, password).subscribe( 
        
        res=>{
          // timer

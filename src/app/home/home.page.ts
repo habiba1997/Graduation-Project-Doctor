@@ -95,25 +95,15 @@ getDocList()
         handler: async data => {
         
         let token = this.datastream.getToken();
-        console.log("Phone Number: " + data.val);
         let  mobile = data.val.replace(/^0+/, '');
         mobile= "+20"+mobile;
-        await this.http.addPatient(mobile,token)
-        .subscribe(
-          async response=>{
-            // console.log("http request to add patinet responce: "+ JSON.stringify(response));
-                // timer
-               this.showSplash = true;
-                // timer
-               timer(10000).subscribe(()=> this.showSplash = false);
-              //  this.datastream.clearPatientList();
-              //  response.forEach(element => {
-              //      this.datastream.addToPatientList(element);
-                   
-              //    }); 
-              //  await this.datastream.savePatientListToDataStore();
+        console.log("Phone Number: " + mobile);
+        this.http.addPatient(mobile,token).subscribe(
+          response=>{
+               console.log("resoince add");
+              //  this.showSplash = true;
+              //  timer(10000).subscribe(()=> this.showSplash = false);
                console.log('HTTP request completed.'+ response.toString());
-              //  this.navigation.navigateTo('home/doctorList'); 
           }, 
           err =>
           {

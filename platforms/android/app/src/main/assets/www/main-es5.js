@@ -1185,7 +1185,7 @@
     let HttpService = class HttpService {
       constructor(http) {
         this.http = http;
-        this.Java_Host_Port = "http://7c3f5e62.ngrok.io";
+        this.Java_Host_Port = "https://9dbd113c.ngrok.io";
         this.Node_host = "http://ec2-3-15-156-222.us-east-2.compute.amazonaws.com:3000/";
         this.httpOptions = {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
