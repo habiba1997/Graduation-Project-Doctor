@@ -82,7 +82,8 @@ export class LoginComponent implements OnInit {
                     this.datastream.clearPatientList();
                     await response.forEach(element => {
                       this.datastream.addToPatientList(element);
-                    });                  
+                    }); 
+                                    
                   }, 
                   err =>
                   {

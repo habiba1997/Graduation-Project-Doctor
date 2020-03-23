@@ -19,7 +19,7 @@
                   <img src="assets/talin.png" (click)="NavigateMe('home/Myprofile')">
              </ion-avatar>
             </div>
-            <h1 class="middle-text user-name">{{doctorName}}</h1>
+            <!-- <h1 class="middle-text user-name">{{doctorName}}</h1> -->
   
               
       </ion-col>
@@ -37,7 +37,7 @@
                 </div>
                 
                 <div class="middle-text">
-                  Schedule
+                  Patient List
                 </div>
 
                   
@@ -46,7 +46,7 @@
             <ion-col col-6 >
               <div  class="mini-card" (click)="addPatient()">
                   <div class="center" >
-                      <img class="icon" src="assets/clock.png">
+                      <img class="icon" src="assets/addDoc.jpeg">
   
                   </div>
                   
@@ -58,9 +58,9 @@
       </ion-row>
       <ion-row>
           <ion-col col-6 >
-              <div class="mini-card">
+              <div class="mini-card" (click)="conv(NavigateMe('home/conversation'))">
                   <div class="center" >
-                      <img class="icon" src="assets/addDoc.jpeg">
+                      <img class="icon" src="assets/message.png">
   
                   </div>
                   
@@ -70,7 +70,7 @@
               </div>
             </ion-col>
             <ion-col col-6 >
-              <div  class="mini-card" (click)="newMessage()" >
+              <div  class="mini-card" (click)="newMessage(NavigateMe('home/message'))" >
                   <div class="center" >
                       <img class="icon" src="assets/message.png">
   

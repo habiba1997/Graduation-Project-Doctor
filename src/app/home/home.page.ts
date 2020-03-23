@@ -4,7 +4,7 @@ import { NavigationService } from './NavService/navigation.service';
 import { DatastreamingService } from '../services/datastream/datastreaming.service';
 import { AlertController, ActionSheetController} from '@ionic/angular';
 import { HttpService } from './HttPService/http.service';
-import { timer } from 'rxjs';
+import { InteractionService } from '../services/datacommunication/interaction.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { timer } from 'rxjs';
 })
 export class HomePage implements OnInit {
 
-  doctorName: String;
+  // doctorName: String;
   val: string;
   // timer
   showSplash 
@@ -23,20 +23,21 @@ export class HomePage implements OnInit {
     private datastream: DatastreamingService, 
     private http: HttpService,
     private addController : AlertController,
-    private docList:ActionSheetController
+    private docList:ActionSheetController,
+
     ) {
     }
 
 
     ngOnInit()
     {
-      this.doctorName =this.datastream.getDoctorName();
-      if(this.doctorName==undefined )
-      {
-        this.presentAlert('HTTP DataStream Error: ', "My Doctor Name is Null");
-        this.navigation.navigateTo('cover');
-      }  
-      this.getDocList();
+      // this.doctorName =this.datastream.getDoctorName();
+      // if(this.doctorName==undefined )
+      // {
+      //   this.presentAlert('HTTP DataStream Error: ', "My Doctor Name is Null");
+      //   this.navigation.navigateTo('cover');
+      // }  
+      // this.getDocList();
     }
 
 getDocList()
@@ -71,8 +72,6 @@ getDocList()
   }
 
   
-
-
   async addPatient(){
   
     const alert =this.addController.create({

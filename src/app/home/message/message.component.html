@@ -1,3 +1,51 @@
-<p>
-  message works!
-</p>
+<ion-content >
+ <ion-grid class= "cont" >
+  <ion-row>
+       <ion-toolbar align-items-center>   
+        Send A New Message to: Dr. {{Reciever_from_pat_list}}
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    
+      </ion-toolbar>
+    
+   </ion-row>
+    <ion-row > 
+     <ion-col size="10">
+     <ion-item>
+      <ion-input [(ngModel)]="Subject_from_input" placeholder="Type your Subject here..." class="sub"> </ion-input>
+      </ion-item>
+     </ion-col>
+     </ion-row>
+
+     <ion-row>
+       <ion-col size ="12">
+          
+        <div class="loader">
+           <div > 
+               <img src="assets/chat.png" >
+
+           </div>
+               
+        </div>
+    
+       </ion-col>
+     </ion-row>
+     
+   
+   <ion-row class="spaces" align-items-center no-padding no-margin>
+     <ion-col size="10">
+        <ion-item>
+            <ion-textarea [(ngModel)]="Content_from_text_area" placeholder="Type your Message here..."  cols ="8" rows="2" class="typing"></ion-textarea>
+        </ion-item>
+     </ion-col>
+     <ion-col size="2">
+     <ion-button class="btn" color="sub.severityLevel" (click)="send()">
+        <ion-icon name="paper-plane" ></ion-icon>
+        </ion-button>
+     </ion-col>
+   </ion-row>
+
+  </ion-grid>
+
+</ion-content>

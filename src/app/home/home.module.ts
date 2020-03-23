@@ -12,7 +12,11 @@ import { FabComponent } from './fab/fab.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PatientListComponent } from './patientList/patient-list.component';
 import { MessageComponent } from './message/message.component';
-
+import { ChatComponent } from './chat/chat.component';
+import { ConversationsComponent } from './conversations/conversations.component';
+import { ConvListComponent } from './conv-list/conv-list.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { AutosizeModule } from 'ngx-autosize';
 
 @NgModule({
   imports: [
@@ -20,6 +24,7 @@ import { MessageComponent } from './message/message.component';
     FormsModule,
     IonicModule,
     HttpClientModule,
+    AutosizeModule,
     RouterModule.forChild([
     
       
@@ -39,15 +44,45 @@ import { MessageComponent } from './message/message.component';
       {
         path: 'message',
         component: MessageComponent
+      },
+      {
+        path: 'chat',
+        component: ChatComponent
+      } 
+      ,
+      {
+        path: 'schedule',
+        component: ScheduleComponent
+      } 
+      ,
+      {
+        path: 'conversation',
+        component: ConversationsComponent,
+        children:[
+          {
+            path: 'convList',
+            component: ConvListComponent
+          }
+         ]  
       }
-
       
+
     ])
   ],
   providers: [
     NavigationService,
     HttpService, 
   ],
-  declarations: [HomePage,PatientListComponent,TabComponent,FabComponent,ProfileComponent,MessageComponent]
+  declarations: [HomePage,
+    PatientListComponent,
+    TabComponent,
+    FabComponent,
+    ProfileComponent,
+    MessageComponent,
+    ChatComponent,
+    ConversationsComponent,
+    ConvListComponent,
+    ScheduleComponent
+  ]
 })
 export class HomePageModule {}

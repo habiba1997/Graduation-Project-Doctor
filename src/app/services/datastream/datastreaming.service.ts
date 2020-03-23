@@ -18,20 +18,22 @@ export class DatastreamingService {
   {
     this.patientList=[];
   }
-  addToPatientList(pat)
+  addToPatientList(element)
   {
-    let patient = new patientData;
-    patient.patientId = pat.patientId;
-    patient.name = pat.name;
-    // patient.email= pat.email;
-    patient.age = pat.age;
-    patient.address = pat.address;
-    patient.mobile = pat.mobile;
+    const patient = new patientData;
+    patient.patientId = element[0];
+    patient.name = element[1];
+    patient.fcmtoken=element[2];
+    patient.mobile = element[3];
+    patient.age = element[4];
+    patient.address = element[5];
+    patient.relationId=element[6];
+    
     this.patientList.push(patient);
-    console.log(this.patientList);
   }
   savePatientListToDataStore()
   {
+    console.log("save patient List in datastore from login: ", this.patientList);
     this.dataStore.savePatientList(this.patientList);
   }
 

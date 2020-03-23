@@ -1,0 +1,107 @@
+.cont{
+    background-color:white;
+    // height: 100%;
+    // width: 100%;
+    border: thick solid rgb(60, 184, 184);
+    // border-radius: 10%;
+  }
+.typing{
+    width :100%;
+    border: thick solid rgb(60, 184, 184);
+    border-radius: 20%;
+    resize: none;
+
+}
+.tool{
+    border: thick solid rgb(60, 184, 184);
+    border-radius: 20%;
+}
+.sub{
+    width :100%;
+    border: thick solid rgb(60, 184, 184);
+    border-radius: 20%;
+ }
+.spaces{
+    margin-top: 120%;
+}
+.btn{
+  //   margin-right: 10%;
+  //   margin-top: 5%;
+    --padding-start:1em;
+    --padding-end: 1em;
+    color: rgb(60, 184, 184);
+}
+.message{
+  padding: 10%;
+  border-radius: 10%;
+  margin-bottom: 4%;
+  white-space: pre-wrap;
+}
+.mySender{
+ 
+  background-color: white; 
+  border: thick solid rgb(60, 184, 184);
+  border-radius: 20%;
+  color: black;
+
+}
+.myReciever{
+  background-color: rgb(60, 184, 184); 
+  border: thick solid white;
+  border-radius: 20%;
+  color: black;
+}
+.time{
+  color: black;
+  font-size: small;
+  margin-right: 5%;
+}
+.Cspace{
+    margin-left: 5%;
+}
+.Sspace{
+    margin-left: 2%;
+}
+.speech-bubble {
+	position: relative;
+  // background: rgb(60, 184, 184);
+  background-color: white; 
+  border: thick solid rgb(60, 184, 184);
+	border-radius: .4em;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 1em solid transparent;
+	border-left-color: rgb(60, 184, 184);
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -0.3em;
+	margin-right: -1em;
+}
+
+.speech-bubbleR {
+	position: relative;
+	background:  rgb(60, 184, 184);
+	border-radius: .4em;
+}
+
+.speech-bubbleR:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 0.906em solid transparent;
+	border-right-color:  rgb(60, 184, 184);
+	border-left: 0;
+	border-bottom: -50%;
+	margin-top: -0.453em;
+	margin-left: -0.906em;
+}

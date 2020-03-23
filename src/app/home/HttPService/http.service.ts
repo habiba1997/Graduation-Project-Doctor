@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UpVitals } from '../DataModels';
+import { newMessage } from 'src/app/model/newMessage';
 
+import { Reply } from 'src/app/model/conv'
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  
+
  
   Java_Host_Port = "http://ec2-52-91-212-167.compute-1.amazonaws.com:8080";
 
@@ -122,8 +123,40 @@ getDoctorUsingToken(token): Observable<any>
      
 
  }
- 
+ getInbox(user_id,offset){
+  const Url =this.Node_host+"api/users/threads/inbox/"+user_id+"/"+offset;
+  console.log("URL",Url);
+  return this.http.get<any>(Url, this.httpOptions);
 
+ }
+ getSent(user_id,offset){
+  const Url =this.Node_host+"api/users/threads/sent/"+user_id+"/"+offset;
+  console.log("URL",Url);
+  return this.http.get<any>(Url, this.httpOptions);
+ }
+
+ postThread(data:newMessage,sender_id:number){
+  const Url =this.Node_host+"api/users/threads/"+sender_id;
+  let thread=JSON.stringify(data);
+  console.log("JSON Thread_data",thread);
+  console.log("URL",Url);
+  return this.http.post<any>(Url, thread, this.httpOptions);
+
+ }
+ postReply(data:Reply,id:number){
+  const Url =this.Node_host+"api/users/threads/msg/"+id;
+  let reply=JSON.stringify(data);
+  console.log("JSON Thread_data",reply);
+  console.log("URL",Url);
+  return this.http.post<any>(Url, reply, this.httpOptions);
+ }
+ getReplies(thread_id,offset){
+  const Url =this.Node_host+"api/users/threads/replies/"+thread_id+"/"+offset;
+  console.log("URL",Url);
+  return this.http.get<any>(Url, this.httpOptions);
+
+ }
+ 
 }
 
 
