@@ -3,8 +3,8 @@ import { NavigationService } from '../NavService/navigation.service';
 import { HttpService } from '../HttPService/http.service';
 import { InteractionService } from 'src/app/services/datacommunication/interaction.service';
 import { IonContent, ActionSheetController } from '@ionic/angular';
-import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
 import { patientData } from 'src/app/model/patientData';
+import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
 
 @Component({
   selector: 'app-conversations',
@@ -18,7 +18,6 @@ export class ConversationsComponent implements OnInit {
      ,private dataInteraction:InteractionService
      ,private patList:ActionSheetController,
      private datastream: DatastreamingService, 
-    //  private intComp:InteractionService
      ) { }
      
      private patientsArray = new Array<patientData>();

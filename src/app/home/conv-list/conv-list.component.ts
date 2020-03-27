@@ -151,16 +151,26 @@ loadData(event){
     }
 //////////////////////////////////////////////////////////////////  
   /////////// to reply on specific thread 
-  reply(thread_id){
-    console.log(thread_id);
-    this.interactionCommunication.getThreadIdfromMessageorConvListtoChat(thread_id);
-    /////////////////////////////////////////////////////////////////////////reply/////////////////////////////////// 
+  async reply(thread_id){
+    console.log("REPLIESSSS IN CONVLIST");
+    console.log("Thread ID: ", thread_id);
+    
     this.httpService.getReplies(thread_id,0).subscribe((res)=>{
-           this.interactionCommunication.sendMSG(res);
-           console.log("replies",res);
 
-    }); 
-      this.navigation.navigateTo('home/chat');
+            this.interactionCommunication.sendMSG(res);
+            console.log("replies",res);
+
+      this.interactionCommunication.getThreadIdfromMessageorConvListtoChat(thread_id).then(()=>{
+              this.navigation.navigateTo('home/chat');
+            });
+
+      });
+    
+    
+    
+      /////////////////////////////////////////////////////////////////////////reply/////////////////////////////////// 
+    
+      // this.navigation.navigateTo('home/chat');
  
     // let date=new Date().toLocaleString();
 

@@ -41,7 +41,7 @@ export class InteractionService {
     console.log(doctorListfromconv);
 
   }
-  getThreadIdfromMessageorConvListtoChat(id){
+  async getThreadIdfromMessageorConvListtoChat(id){
     this.communication.next(id);
     console.log(id);
   }

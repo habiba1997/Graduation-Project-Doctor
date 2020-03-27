@@ -1,15 +1,18 @@
 <ion-content [scrollEvents]="true" class="cont">
- <ion-grid>
+
+  <ion-grid>
      <ion-row >
         <ion-toolbar class="tool" align-items-center> 
-            Dr. {{recievername}}
+           {{patName}}
          <ion-buttons slot="start">
             <ion-back-button defaultHref="home" (click)="goConv()"></ion-back-button>
          </ion-buttons>
         </ion-toolbar>
      </ion-row>
+
+
      <ion-row *ngFor="let newMsgs of newMessages">
-         <ion-col offset="3" size="9" *ngIf="currentUser === newMsgs.sender_id ">
+         <ion-col offset="3" size="9" *ngIf="newMsgs.sender_id===dId ">
          <div  class="speech-bubble">
            
           
@@ -19,9 +22,8 @@
           </div>
          </div>
          </ion-col>
-          <ion-col  size="9" *ngIf="currentUser !== newMsgs.sender_id">
-         <div color="sub.severityLevel" class="speech-bubbleR">
-           
+         <ion-col  size="9" *ngIf="newMsgs.sender_id!==dId ">
+          <div color="sub.severityLevel" class="speech-bubbleR">
           
           <p class ="Cspace">{{newMsgs.msg_body}}</p><br>
           <div class="time" text-right>
@@ -31,6 +33,7 @@
          </ion-col>
     
      </ion-row>
+
   </ion-grid>
 </ion-content>
 <ion-footer>
@@ -42,7 +45,7 @@
          </ion-item>
        </ion-col>
        <ion-col size="2">
-         <ion-button class="btn" color="sub.severityLevel"  [disabled]="replyContent===''" (click)="sendReply(tId)">
+         <ion-button class="btn" color="sub.severityLevel"  [disabled]="replyContent===''" (click)="sendReplyFun()">
             <ion-icon name="paper-plane" ></ion-icon>
          </ion-button>
        </ion-col>

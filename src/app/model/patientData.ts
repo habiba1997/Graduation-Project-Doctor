@@ -2,11 +2,11 @@
 export class patientData{
 
       patientId: number;
-      name: String;
-      fcmtoken:String;
+      name: string;
+      fcmtoken:string;
       age:number;
-      address: String;
-      mobile: String;
+      address: string;
+      mobile: string;
       relationId: number;
     
   }  

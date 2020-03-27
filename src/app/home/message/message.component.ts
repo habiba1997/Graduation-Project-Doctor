@@ -4,6 +4,7 @@ import { NavigationService } from '../NavService/navigation.service';
 import { newMessage } from 'src/app/model/newMessage';
 import { AlertController } from '@ionic/angular';
 import { HttpService } from '../HttPService/http.service';
+import { Reply } from 'src/app/model/conv';
 import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
 import { patientData } from 'src/app/model/patientData';
 
@@ -15,7 +16,8 @@ import { patientData } from 'src/app/model/patientData';
 export class MessageComponent implements OnInit {
 
 
-  constructor(private navigation:NavigationService,
+  constructor(
+  private navigation:NavigationService,
   // private docList:ActionSheetController,
   private addController : AlertController,
   private interactiveCommunication:InteractionService,
@@ -27,11 +29,13 @@ export class MessageComponent implements OnInit {
 
 
   private Subject_from_input:string;
-  private Content_from_text_area:String;
-  private Reciever_from_pat_list:String;
+  private Content_from_text_area:string;
+  private Reciever_from_pat_list:string;
   private newMessages :  newMessage[]=[];
+  private data :Reply;
   private doctorId:number;
   private thread:newMessage;
+  
   private patientRow : patientData;
   private doctorName : String;
 
@@ -87,7 +91,6 @@ export class MessageComponent implements OnInit {
     }
     else{
       this.thread={
-
         reciever_id :this.patientRow.patientId,
         msg_subject :this.Subject_from_input,
         created_date:new Date().toLocaleString(),
@@ -105,33 +108,38 @@ export class MessageComponent implements OnInit {
    
    
   //post new message in data base
-   
-  //  this.data={
-  //   sender_id:this.patientId,
-  //   reciever_id:this.thread.reciever_id,
-  //   msg_body:this.thread.msg_body,
-  //   created_date:new Date().toLocaleString()
-  //  };
+   this.data={
+    sender_id:this.doctorId,
+    reciever_id:this.thread.reciever_id,
+    msg_body:this.thread.msg_body,
+    created_date:new Date().toLocaleString()
+   };
+
 
   //  console.log("tthread"+this.thread.reciever_name)
   //  console.log("data"+this.data.sender_id)
    this.httpService.postThread(this.thread,this.doctorId).subscribe((res)=>{
     console.log("new thread data",res);
      
-     this.interactiveCommunication.getThreadIdfromMessageorConvListtoChat(res.insertId);
+    this.interactiveCommunication.getThreadIdfromMessageorConvListtoChat(res.insertId);
      
-  //  this.httpService.postReply(this.data,res.insertId).subscribe((msg)=>{
-  //   console.log("first thread message",msg);
 
-  //   });
+     console.log("hey tehre:", this.data);
+   this.httpService.postReply(this.data,res.insertId).subscribe((msg)=>{
+    console.log("heyyyyloo");
+    console.log("first thread message",msg);
+    console.log("NAVIGATIOM11");
+
+  this.navigation.navigateTo('home/chat');
+
+    });
 
     
    });
 
   //send message content to chat component
   this.interactiveCommunication.sendMSG(this.newMessages);
-  
-   this.navigation.navigateTo('home/chat');
+  console.log("NAVIGATIOM");
 
   }
  console.log(this.Content_from_text_area);
