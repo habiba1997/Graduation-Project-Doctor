@@ -104,9 +104,18 @@ getDocList()
               //  timer(10000).subscribe(()=> this.showSplash = false);
                console.log('HTTP request completed.'+ response.toString());
           }, 
-          err =>
-          {
-            this.presentAlert('HTTP Add Patient Error: ', err.error.message);
+            err =>
+            { let errorMessage ="";
+            if(err.error.message==null)
+            {
+              errorMessage   = "Error in Connection";
+            }
+            else{
+              errorMessage=err.error.message;
+            }
+            console.log('HTTP Add Patient Error: ', errorMessage);
+            this.presentAlert('HTTP Error: ',errorMessage);
+            // this.presentAlert('HTTP Add Patient Error: ', err.error.message);
           },
           async () => 
           {

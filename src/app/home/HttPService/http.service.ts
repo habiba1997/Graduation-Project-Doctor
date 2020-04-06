@@ -11,7 +11,7 @@ import { Reply } from 'src/app/model/conv'
 export class HttpService {
 
  
-  Java_Host_Port = "http://ec2-52-91-212-167.compute-1.amazonaws.com:8080";
+  Java_Host_Port = "http://ec2-18-233-165-61.compute-1.amazonaws.com:8080";
 
   Node_host ="http://ec2-3-20-227-97.us-east-2.compute.amazonaws.com:3000/";
   constructor(private http:HttpClient) { 

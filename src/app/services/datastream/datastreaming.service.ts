@@ -33,7 +33,7 @@ export class DatastreamingService {
   }
   savePatientListToDataStore()
   {
-    console.log("save patient List in datastore from login: ", this.patientList);
+    console.log("save patient List in datastore from login: ", JSON.stringify(this.patientList));
     this.dataStore.savePatientList(this.patientList);
   }
 

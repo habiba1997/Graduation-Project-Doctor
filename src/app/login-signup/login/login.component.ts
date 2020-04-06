@@ -76,26 +76,26 @@ export class LoginComponent implements OnInit {
                 await that.datastream.setDoctor(doctordata);
 
                 //Get Doctor List
-                await  this.http.getPatientList(res.token)
-                .subscribe(
-                  async response=>{
-                    this.datastream.clearPatientList();
-                    await response.forEach(element => {
-                      this.datastream.addToPatientList(element);
-                    }); 
+                // await  this.http.getPatientList(res.token)
+                // .subscribe(
+                //   async response=>{
+                //     this.datastream.clearPatientList();
+                //     await response.forEach(element => {
+                //       this.datastream.addToPatientList(element);
+                //     }); 
                                     
-                  }, 
-                  err =>
-                  {
-                    console.log('HTTP Patient List Error: ', err.error.message);
-                    this.presentAlert('HTTP Patient List Error: ', err.error.message);
-                  },
-                  () => 
-                  {
-                    this.datastream.savePatientListToDataStore();
-                    console.log('HTTP request completed.');
-                  }
-                );
+                //   }, 
+                //   err =>
+                //   {
+                //     console.log('HTTP Patient List Error: ', err.error.message);
+                //     this.presentAlert('HTTP Patient List Error: ', err.error.message);
+                //   },
+                //   () => 
+                //   {
+                //     this.datastream.savePatientListToDataStore();
+                //     console.log('HTTP request completed.');
+                //   }
+                // );
 
 
             that.nav.navigateTo('home');
