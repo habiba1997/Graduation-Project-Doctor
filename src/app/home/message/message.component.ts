@@ -50,7 +50,7 @@ export class MessageComponent implements OnInit {
     this.interactiveCommunication.data.subscribe(
       (docData)=> { 
         that.patientRow=docData;
-        console.log(docData)
+        console.log("doc data ",docData)
 
         console.log(this.patientRow)
         that.setDocList();
@@ -112,7 +112,10 @@ export class MessageComponent implements OnInit {
     sender_id:this.doctorId,
     reciever_id:this.thread.reciever_id,
     msg_body:this.thread.msg_body,
-    created_date:new Date().toLocaleString()
+    created_date:new Date().toLocaleString(),
+    thread_subject:this.Subject_from_input,
+    fcm_token:this.patientRow.fcmtoken
+   
    };
 
 

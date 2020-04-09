@@ -14,5 +14,7 @@ export interface Reply{
     sender_id: number,
     reciever_id	:number,
     msg_body:String,
-    created_date: string
+    created_date: string,
+    thread_subject:string,
+    fcm_token:string
 }

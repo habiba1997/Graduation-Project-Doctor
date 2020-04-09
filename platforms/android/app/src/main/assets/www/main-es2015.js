@@ -443,7 +443,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <ion-app>\n  <ion-router-outlet id=\"menu-content\"></ion-router-outlet>\n</ion-app> -->\n<ion-app>\n  <ion-menu color=\"sub.severityLevel\" side=\"start\" menuId=\"first\" contentId=\"content1\" type=\"overlay\" >\n   <ion-header >\n          <ion-toolbar> \n            <ion-menu-toggle auto-hide=\"false\" >\n              \n                <ion-item >\n                  \n                  <ion-avatar slot=\"start\">\n                    <img src=\"assets/images.jpg\">\n                  </ion-avatar>\n                  <ion-label>  {{myName}} </ion-label>\n                 </ion-item > \n             </ion-menu-toggle >\n          </ion-toolbar>\n        </ion-header>\n        <ion-content  >\n          <ion-list >\n           \n            \n            <ion-menu-toggle auto-hide=\"false\" >\n              \n                <ion-item >\n                     \n                   <ion-label shape=\"round\" (click)= \"vitalClick()\" expand=\"full\" >\n                    <ion-icon name=\"fitness\"></ion-icon>\n                        Vitals\n                   </ion-label>\n                  \n      \n                </ion-item> \n              </ion-menu-toggle>\n              <br>\n            <ion-menu-toggle auto-hide=\"false\" >\n              \n              <ion-item>\n                   \n                 <ion-label shape=\"round\" (click)= \"homeClick()\" expand=\"full\"  >\n                 <ion-icon name=\"person\"></ion-icon>\n                  Profile\n                 </ion-label>\n                \n    \n              </ion-item> \n            </ion-menu-toggle>\n            <br>\n              <ion-menu-toggle auto-hide=\"false\" >\n              \n                <ion-item>\n                     \n                   <ion-label shape=\"round\" (click)= \"dlistClick()\" expand=\"full\" >\n                    <ion-icon name=\"medkit\"></ion-icon>\n                    My doctors\n                   </ion-label>\n      \n                </ion-item> \n              </ion-menu-toggle>\n              <br>\n              <ion-menu-toggle auto-hide=\"false\" >\n              \n                <ion-item>\n                 \n                     \n                   <ion-label shape=\"round\" (click)= \"homClick()\" expand=\"full\" >\n                   <ion-icon name=\"body\"></ion-icon>\n                    Homepage\n                   </ion-label>\n                 \n      \n                </ion-item> \n              </ion-menu-toggle>\n              <br>\n              <ion-menu-toggle auto-hide=\"false\" >\n              \n                  <ion-item>\n                       \n                     <ion-label shape=\"round\" (click)= \"outClick()\" expand=\"full\" class = \"grad\">\n                     <ion-icon name=\"power\"></ion-icon>\n                      Log out\n                     </ion-label>\n        \n                  </ion-item> \n                </ion-menu-toggle>\n          </ion-list>\n        \n        </ion-content>\n      \n    </ion-menu>\n<ion-router-outlet id=\"content1\"></ion-router-outlet>\n</ion-app>\n\n  ");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <ion-app>\r\n  <ion-router-outlet id=\"menu-content\"></ion-router-outlet>\r\n</ion-app> -->\r\n<ion-app>\r\n  <ion-menu color=\"sub.severityLevel\" side=\"start\" menuId=\"first\" contentId=\"content1\" type=\"overlay\" >\r\n   <ion-header >\r\n          <ion-toolbar> \r\n            <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item >\r\n                  \r\n                  <ion-avatar slot=\"start\">\r\n                    <img src=\"assets/images.jpg\">\r\n                  </ion-avatar>\r\n                  <ion-label>  {{myName}} </ion-label>\r\n                 </ion-item > \r\n             </ion-menu-toggle >\r\n          </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content  >\r\n          <ion-list >\r\n           \r\n            \r\n            <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item >\r\n                     \r\n                   <ion-label shape=\"round\" (click)= \"vitalClick()\" expand=\"full\" >\r\n                    <ion-icon name=\"fitness\"></ion-icon>\r\n                        Vitals\r\n                   </ion-label>\r\n                  \r\n      \r\n                </ion-item> \r\n              </ion-menu-toggle>\r\n              <br>\r\n            <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n              <ion-item>\r\n                   \r\n                 <ion-label shape=\"round\" (click)= \"homeClick()\" expand=\"full\"  >\r\n                 <ion-icon name=\"person\"></ion-icon>\r\n                  Profile\r\n                 </ion-label>\r\n                \r\n    \r\n              </ion-item> \r\n            </ion-menu-toggle>\r\n            <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item>\r\n                     \r\n                   <ion-label shape=\"round\" (click)= \"dlistClick()\" expand=\"full\" >\r\n                    <ion-icon name=\"medkit\"></ion-icon>\r\n                    My doctors\r\n                   </ion-label>\r\n      \r\n                </ion-item> \r\n              </ion-menu-toggle>\r\n              <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item>\r\n                 \r\n                     \r\n                   <ion-label shape=\"round\" (click)= \"homClick()\" expand=\"full\" >\r\n                   <ion-icon name=\"body\"></ion-icon>\r\n                    Homepage\r\n                   </ion-label>\r\n                 \r\n      \r\n                </ion-item> \r\n              </ion-menu-toggle>\r\n              <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                  <ion-item>\r\n                       \r\n                     <ion-label shape=\"round\" (click)= \"outClick()\" expand=\"full\" class = \"grad\">\r\n                     <ion-icon name=\"power\"></ion-icon>\r\n                      Log out\r\n                     </ion-label>\r\n        \r\n                  </ion-item> \r\n                </ion-menu-toggle>\r\n          </ion-list>\r\n        \r\n        </ion-content>\r\n      \r\n    </ion-menu>\r\n<ion-router-outlet id=\"content1\"></ion-router-outlet>\r\n</ion-app>\r\n\r\n  ");
 
 /***/ }),
 
@@ -721,7 +721,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".grad {\n  --background: linear-gradient(\n  to bottom,\n  #0a5279 0%,\n  #80d3cb 100%) ;\n}\n\n.opp {\n  opacity: 0.6;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2hhYmliYS9HUC9HcmFkdWF0aW9uLVByb2plY3QtRG9jdG9yL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSTs7O2dCQUFBO0FDSUo7O0FERUE7RUFDSSxZQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZ3JhZCAge1xuICAgIC0tYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KFxuICAgIHRvIGJvdHRvbSxcbiAgICAjMGE1Mjc5IDAlLFxuICAgICM4MGQzY2IgMTAwJSlcbiAgICBcbn1cbi5vcHB7XG4gICAgb3BhY2l0eTogMC42O1xufVxuIiwiLmdyYWQge1xuICAtLWJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcbiAgdG8gYm90dG9tLFxuICAjMGE1Mjc5IDAlLFxuICAjODBkM2NiIDEwMCUpIDtcbn1cblxuLm9wcCB7XG4gIG9wYWNpdHk6IDAuNjtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".grad {\n  --background: linear-gradient(\r\n    to bottom,\r\n    #0a5279 0%,\r\n    #80d3cb 100%)\r\n    \r\n; }\n\n.opp {\n  opacity: 0.6; }\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NvaGlsYS9Eb2N1bWVudHMvR1AtVGFza3MvRG9jdG9yX1BsYXRmb3JtL0dyYWR1YXRpb24tUHJvamVjdC1Eb2N0b3Ivc3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJOzs7OztBQ0VKLEVBQUU7O0FBRUY7RURKaUIsWUFLaEIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ncmFkICB7XHJcbiAgICAtLWJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcclxuICAgIHRvIGJvdHRvbSxcclxuICAgICMwYTUyNzkgMCUsXHJcbiAgICAjODBkM2NiIDEwMCUpXHJcbiAgICBcclxufVxyXG4ub3Bwe1xyXG4gICAgb3BhY2l0eTogMC42O1xyXG59XHJcbiIsIi5ncmFkIHtcbiAgLS1iYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoXHJcbiAgICB0byBib3R0b20sXHJcbiAgICAjMGE1Mjc5IDAlLFxyXG4gICAgIzgwZDNjYiAxMDAlKVxyXG4gICAgXHJcbjsgfVxuXG4ub3BwIHtcbiAgb3BhY2l0eTogMC42OyB9XG4iXX0= */");
 
 /***/ }),
 
@@ -967,8 +967,8 @@ __webpack_require__.r(__webpack_exports__);
 let HttpService = class HttpService {
     constructor(http) {
         this.http = http;
-        this.Java_Host_Port = "https://9dbd113c.ngrok.io";
-        this.Node_host = "http://ec2-3-15-156-222.us-east-2.compute.amazonaws.com:3000/";
+        this.Java_Host_Port = "https://2311ca43.ngrok.io";
+        this.Node_host = "http://28157aac.ngrok.io/";
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'Content-Type': 'application/json',
@@ -1036,6 +1036,35 @@ let HttpService = class HttpService {
         return this.http.post(url, {
             "fcmtoken": fcmtoken
         }, httpOption);
+    }
+    getInbox(user_id, offset) {
+        const Url = this.Node_host + "api/users/threads/inbox/" + user_id + "/" + offset;
+        console.log("URL", Url);
+        return this.http.get(Url, this.httpOptions);
+    }
+    getSent(user_id, offset) {
+        const Url = this.Node_host + "api/users/threads/sent/" + user_id + "/" + offset;
+        console.log("URL", Url);
+        return this.http.get(Url, this.httpOptions);
+    }
+    postThread(data, sender_id) {
+        const Url = this.Node_host + "api/users/threads/" + sender_id;
+        let thread = JSON.stringify(data);
+        console.log("JSON Thread_data", thread);
+        console.log("URL", Url);
+        return this.http.post(Url, thread, this.httpOptions);
+    }
+    postReply(data, id) {
+        const Url = this.Node_host + "api/users/threads/msg/" + id;
+        let reply = JSON.stringify(data);
+        console.log("JSON Thread_data", reply);
+        console.log("URL", Url);
+        return this.http.post(Url, reply, this.httpOptions);
+    }
+    getReplies(thread_id, offset) {
+        const Url = this.Node_host + "api/users/threads/replies/" + thread_id + "/" + offset;
+        console.log("URL", Url);
+        return this.http.get(Url, this.httpOptions);
     }
 };
 HttpService.ctorParameters = () => [
@@ -1260,18 +1289,19 @@ let DatastreamingService = class DatastreamingService {
     clearPatientList() {
         this.patientList = [];
     }
-    addToPatientList(pat) {
-        let patient = new src_app_model_patientData__WEBPACK_IMPORTED_MODULE_4__["patientData"];
-        patient.patientId = pat.patientId;
-        patient.name = pat.name;
-        // patient.email= pat.email;
-        patient.age = pat.age;
-        patient.address = pat.address;
-        patient.mobile = pat.mobile;
+    addToPatientList(element) {
+        const patient = new src_app_model_patientData__WEBPACK_IMPORTED_MODULE_4__["patientData"];
+        patient.patientId = element[0];
+        patient.name = element[1];
+        patient.fcmtoken = element[2];
+        patient.mobile = element[3];
+        patient.age = element[4];
+        patient.address = element[5];
+        patient.relationId = element[6];
         this.patientList.push(patient);
-        console.log(this.patientList);
     }
     savePatientListToDataStore() {
+        console.log("save patient List in datastore from login: ", JSON.stringify(this.patientList));
         this.dataStore.savePatientList(this.patientList);
     }
     restoreStreamDatalist(patientList) {
@@ -1415,7 +1445,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/habiba/GP/Graduation-Project-Doctor/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/sohila/Documents/GP-Tasks/Doctor_Platform/Graduation-Project-Doctor/src/main.ts */"./src/main.ts");
 
 
 /***/ })

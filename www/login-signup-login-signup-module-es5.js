@@ -15,7 +15,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-content>\n  <div class=\"cover\">\n  <ion-grid >\n    <ion-row>\n\n        <ion-col>\n        <img src=\"assets/clover.png\"/>\n        </ion-col>\n\n        <ion-col>\n        </ion-col>\n\n        <ion-col>\n        </ion-col>\n\n    </ion-row>\n    <ion-row>\n          <ion-col>\n          </ion-col>\n\n          <ion-col> \n                <img src=\"assets/logo02.png\"/>\n                <h1 class=\"fat-free\">Fat Free</h1>\n          </ion-col>\n          <ion-col>\n          </ion-col>\n    </ion-row>\n  \n    \n    <ion-row>\n\n      <ion-col>\n        <div class=\"buttons\">\n          <div class=\"btnDiv\">\n             <ion-button class=\"button\"   shape=\"round\" (click)=\"login()\"  color=\"light\" >Login</ion-button>\n\n          </div>\n        \n        </div>\n         \n\n      </ion-col>\n\n          \n    </ion-row>\n\n\n</ion-grid>\n</div>\n</ion-content>\n\n\n";
+    __webpack_exports__["default"] = "<ion-content>\r\n  <div class=\"cover\">\r\n  <ion-grid >\r\n    <ion-row>\r\n\r\n        <ion-col>\r\n        <img src=\"assets/clover.png\"/>\r\n        </ion-col>\r\n\r\n        <ion-col>\r\n        </ion-col>\r\n\r\n        <ion-col>\r\n        </ion-col>\r\n\r\n    </ion-row>\r\n    <ion-row>\r\n          <ion-col>\r\n          </ion-col>\r\n\r\n          <ion-col> \r\n                <img src=\"assets/logo02.png\"/>\r\n                <h1 class=\"fat-free\">Fat Free</h1>\r\n          </ion-col>\r\n          <ion-col>\r\n          </ion-col>\r\n    </ion-row>\r\n  \r\n    \r\n    <ion-row>\r\n\r\n      <ion-col>\r\n        <div class=\"buttons\">\r\n          <div class=\"btnDiv\">\r\n             <ion-button class=\"button\"   shape=\"round\" (click)=\"login()\"  color=\"light\" >Login</ion-button>\r\n\r\n          </div>\r\n        \r\n        </div>\r\n         \r\n\r\n      </ion-col>\r\n\r\n          \r\n    </ion-row>\r\n\r\n\r\n</ion-grid>\r\n</div>\r\n</ion-content>\r\n\r\n\r\n";
     /***/
   },
 
@@ -35,7 +35,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-content>\n<div *ngIf=\"showSplash\" class=\"myBackground\">\n    <div>\n    <img src=\"/assets/giphy.gif\">\n</div> \n</div> \n<div *ngIf=\"!showSplash\">\n  <ion-grid >\n    <ion-row>\n      <ion-col>\n           \n  \n               <ion-button  (click)= \"backClick()\" color=\"light\" shape =\"round\" >\n                 <ion-icon name=\"arrow-round-back\"></ion-icon>\n               </ion-button>       \n            \n\n      </ion-col>\n      <ion-col >\n        <h1 style=\"height: 80px;\"></h1> \n        <img class = \"space\" src=\"/assets/logo02.png\"/>\n        <h1 class=\"fat-free\">Log In</h1>\n        \n      </ion-col>\n        <ion-col >\n            <img src=\"/assets/path-6.png\"/>\n        </ion-col>\n\n    </ion-row>\n    \n  \n  </ion-grid>\n\n        <div class=\"marginTop\">\n        \n\n\n       \n          <div class=\"centric\">\n              <ion-card>\n                <ion-item>\n                    <ion-input required placeholder=\"Enter Phone Number\" type=\"email\" #EmailInput></ion-input>\n                  </ion-item>\n                </ion-card>\n           \n            </div>\n          <div class=\"centric\">\n            <ion-card>\n              <ion-item>\n \n                  <ion-input required placeholder=\"Enter Password\" type=\"password\" #PasswordInput></ion-input>\n                </ion-item>\n              </ion-card>\n          </div>\n       \n        </div>\n         \n\n   <div class=\"marginTop centric\"> <ion-button style=\"height: 40px; \"class=\"marginTop button\"  shape=\"round\" (click)=\"login(EmailInput.value, PasswordInput.value)\" color=\"light\">Log In</ion-button></div>      \n</div>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-content>\r\n<div *ngIf=\"showSplash\" class=\"myBackground\">\r\n    <div>\r\n    <img src=\"/assets/giphy.gif\">\r\n</div> \r\n</div> \r\n<div *ngIf=\"!showSplash\">\r\n  <ion-grid >\r\n    <ion-row>\r\n      <ion-col>\r\n           \r\n  \r\n               <ion-button  (click)= \"backClick()\" color=\"light\" shape =\"round\" >\r\n                 <ion-icon name=\"arrow-round-back\"></ion-icon>\r\n               </ion-button>       \r\n            \r\n\r\n      </ion-col>\r\n      <ion-col >\r\n        <h1 style=\"height: 80px;\"></h1> \r\n        <img class = \"space\" src=\"/assets/logo02.png\"/>\r\n        <h1 class=\"fat-free\">Log In</h1>\r\n        \r\n      </ion-col>\r\n        <ion-col >\r\n            <img src=\"/assets/path-6.png\"/>\r\n        </ion-col>\r\n\r\n    </ion-row>\r\n    \r\n  \r\n  </ion-grid>\r\n\r\n        <div class=\"marginTop\">\r\n        \r\n\r\n\r\n       \r\n          <div class=\"centric\">\r\n              <ion-card>\r\n                <ion-item>\r\n                    <ion-input required placeholder=\"Enter Phone Number\" type=\"email\" #EmailInput></ion-input>\r\n                  </ion-item>\r\n                </ion-card>\r\n           \r\n            </div>\r\n          <div class=\"centric\">\r\n            <ion-card>\r\n              <ion-item>\r\n \r\n                  <ion-input required placeholder=\"Enter Password\" type=\"password\" #PasswordInput></ion-input>\r\n                </ion-item>\r\n              </ion-card>\r\n          </div>\r\n       \r\n        </div>\r\n         \r\n\r\n   <div class=\"marginTop centric\"> <ion-button style=\"height: 40px; \"class=\"marginTop button\"  shape=\"round\" (click)=\"login(EmailInput.value, PasswordInput.value)\" color=\"light\">Log In</ion-button></div>      \r\n</div>\r\n</ion-content>\r\n";
     /***/
   },
 
@@ -55,7 +55,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".cover {\n  background-image: url(/assets/cover.png);\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 100%;\n}\n\n.clover {\n  background-image: url(/assets/clover.png);\n  background-position: center;\n  background-repeat: no-repeat;\n}\n\n.fat-free {\n  text-align: center;\n  font-family: \"Times New Roman\", Times, serif;\n  font-weight: bold;\n  color: #ffffff;\n}\n\n.buttons {\n  margin-top: 20%;\n}\n\n.button {\n  margin: 2% 0%;\n  display: block;\n  width: 65%;\n  font-weight: 12%;\n}\n\n.btnDiv {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2hhYmliYS9HUC9HcmFkdWF0aW9uLVByb2plY3QtRG9jdG9yL3NyYy9hcHAvbG9naW4tc2lnbnVwL2NvdmVyL2NvdmVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi1zaWdudXAvY292ZXIvY292ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSx3Q0FBQTtFQUNBLDJCQUFBO0VBQ0EsNEJBQUE7RUFDRixZQUFBO0FDQ0Y7O0FERUs7RUFFQyx5Q0FBQTtFQUNGLDJCQUFBO0VBQ0EsNEJBQUE7QUNBSjs7QURJSTtFQUNFLGtCQUFBO0VBQ0EsNENBQUE7RUFDQSxpQkFBQTtFQUNBLGNBQUE7QUNETjs7QURLRTtFQUVRLGVBQUE7QUNIVjs7QURRSTtFQUNFLGFBQUE7RUFDQSxjQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0FDTE47O0FEU0k7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSx3QkFBQTtVQUFBLHVCQUFBO0FDTk4iLCJmaWxlIjoic3JjL2FwcC9sb2dpbi1zaWdudXAvY292ZXIvY292ZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY292ZXIge1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL2NvdmVyLnBuZyk7XG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGhlaWdodDogMTAwJTtcbiAgICAgICAgICB9XG4gICAgXG4gICAgIC5jbG92ZXIge1xuICAgIFxuICAgICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKC9hc3NldHMvY2xvdmVyLnBuZyk7XG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgXG4gICAgfVxuICAgIFxuICAgIC5mYXQtZnJlZSB7XG4gICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICBmb250LWZhbWlseTogXCJUaW1lcyBOZXcgUm9tYW5cIiwgVGltZXMsIHNlcmlmO1xuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgICBjb2xvcjogI2ZmZmZmZjtcbiAgICBcbiAgICB9XG4gICAgXG4gIC5idXR0b25ze1xuICBcbiAgICAgICAgICBtYXJnaW4tdG9wOiAyMCU7XG4gICAgICAgICAgXG4gICAgICBcbiAgICB9XG4gICAgXG4gICAgLmJ1dHRvbntcbiAgICAgIG1hcmdpbjogMiUgMCU7XG4gICAgICBkaXNwbGF5OiBibG9jaztcbiAgICAgIHdpZHRoOiA2NSU7XG4gICAgICBmb250LXdlaWdodDogMTIlO1xuICAgICBcbiAgICB9XG4gIFxuICAgIC5idG5EaXZ7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgfSIsIi5jb3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL2NvdmVyLnBuZyk7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uY2xvdmVyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKC9hc3NldHMvY2xvdmVyLnBuZyk7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbn1cblxuLmZhdC1mcmVlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LWZhbWlseTogXCJUaW1lcyBOZXcgUm9tYW5cIiwgVGltZXMsIHNlcmlmO1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgY29sb3I6ICNmZmZmZmY7XG59XG5cbi5idXR0b25zIHtcbiAgbWFyZ2luLXRvcDogMjAlO1xufVxuXG4uYnV0dG9uIHtcbiAgbWFyZ2luOiAyJSAwJTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiA2NSU7XG4gIGZvbnQtd2VpZ2h0OiAxMiU7XG59XG5cbi5idG5EaXYge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbn0iXX0= */";
+    __webpack_exports__["default"] = ".cover {\n  background-image: url(/assets/cover.png);\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 100%; }\n\n.clover {\n  background-image: url(/assets/clover.png);\n  background-position: center;\n  background-repeat: no-repeat; }\n\n.fat-free {\n  text-align: center;\n  font-family: \"Times New Roman\", Times, serif;\n  font-weight: bold;\n  color: #ffffff; }\n\n.buttons {\n  margin-top: 20%; }\n\n.button {\n  margin: 2% 0%;\n  display: block;\n  width: 65%;\n  font-weight: 12%; }\n\n.btnDiv {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NvaGlsYS9Eb2N1bWVudHMvR1AtVGFza3MvRG9jdG9yX1BsYXRmb3JtL0dyYWR1YXRpb24tUHJvamVjdC1Eb2N0b3Ivc3JjL2FwcC9sb2dpbi1zaWdudXAvY292ZXIvY292ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSx3Q0FBd0M7RUFDeEMsMkJBQTJCO0VBQzNCLDRCQUE0QjtFQUM5QixZQUFZLEVBQUE7O0FBR1Q7RUFFQyx5Q0FBeUM7RUFDM0MsMkJBQTJCO0VBQzNCLDRCQUE0QixFQUFBOztBQUk1QjtFQUNFLGtCQUFrQjtFQUNsQiw0Q0FBNEM7RUFDNUMsaUJBQWlCO0VBQ2pCLGNBQWMsRUFBQTs7QUFJbEI7RUFFUSxlQUFlLEVBQUE7O0FBS3JCO0VBQ0UsYUFBYTtFQUNiLGNBQWM7RUFDZCxVQUFVO0VBQ1YsZ0JBQWdCLEVBQUE7O0FBSWxCO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isd0JBQXVCO1VBQXZCLHVCQUF1QixFQUFBIiwiZmlsZSI6InNyYy9hcHAvbG9naW4tc2lnbnVwL2NvdmVyL2NvdmVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvdmVyIHtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL2NvdmVyLnBuZyk7XHJcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XHJcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGhlaWdodDogMTAwJTtcclxuICAgICAgICAgIH1cclxuICAgIFxyXG4gICAgIC5jbG92ZXIge1xyXG4gICAgXHJcbiAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL2Nsb3Zlci5wbmcpO1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICAgIFxyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuZmF0LWZyZWUge1xyXG4gICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICAgIGZvbnQtZmFtaWx5OiBcIlRpbWVzIE5ldyBSb21hblwiLCBUaW1lcywgc2VyaWY7XHJcbiAgICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgICBjb2xvcjogI2ZmZmZmZjtcclxuICAgIFxyXG4gICAgfVxyXG4gICAgXHJcbiAgLmJ1dHRvbnN7XHJcbiAgXHJcbiAgICAgICAgICBtYXJnaW4tdG9wOiAyMCU7XHJcbiAgICAgICAgICBcclxuICAgICAgXHJcbiAgICB9XHJcbiAgICBcclxuICAgIC5idXR0b257XHJcbiAgICAgIG1hcmdpbjogMiUgMCU7XHJcbiAgICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgICB3aWR0aDogNjUlO1xyXG4gICAgICBmb250LXdlaWdodDogMTIlO1xyXG4gICAgIFxyXG4gICAgfVxyXG4gIFxyXG4gICAgLmJ0bkRpdntcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICB9Il19 */";
     /***/
   },
 
@@ -263,7 +263,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".cover {\n  background-image: url(/assets/path-6.png);\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 100%;\n}\n\n.clover {\n  background-image: url(/assets/clover.png);\n  background-position: center;\n  background-repeat: no-repeat;\n}\n\n.space {\n  display: block;\n}\n\n.fat-free {\n  -webkit-box-pack: center;\n          justify-content: center;\n  text-align: center;\n  font-family: \"Times New Roman\", Times, serif;\n  font-weight: bold;\n  color: #0b0c0b;\n  font-size: 450;\n  display: block;\n}\n\n.marginTop {\n  margin-top: 7%;\n}\n\n.button {\n  margin: 2% 0%;\n  display: block;\n  width: 65%;\n  font-weight: 12%;\n}\n\n.centric {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n}\n\nion-input {\n  margin: 0px 50px;\n  display: block;\n  font-weight: 12%;\n  border: 1px solid white;\n}\n\n.myBackground {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 999;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  background: #50b9b6;\n}\n\n.back {\n  height: 100%;\n  width: 20%;\n  margin-top: 2%;\n  margin-left: 2%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2hhYmliYS9HUC9HcmFkdWF0aW9uLVByb2plY3QtRG9jdG9yL3NyYy9hcHAvbG9naW4tc2lnbnVwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9sb2dpbi1zaWdudXAvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSx5Q0FBQTtFQUNBLDJCQUFBO0VBQ0EsNEJBQUE7RUFDQSxZQUFBO0FDQ0o7O0FER0s7RUFFQyx5Q0FBQTtFQUNGLDJCQUFBO0VBQ0EsNEJBQUE7QUNESjs7QURJSTtFQUNFLGNBQUE7QUNETjs7QURLSTtFQUNFLHdCQUFBO1VBQUEsdUJBQUE7RUFDQSxrQkFBQTtFQUNBLDRDQUFBO0VBQ0EsaUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7QUNGTjs7QURLRTtFQUVRLGNBQUE7QUNIVjs7QURRSTtFQUNFLGFBQUE7RUFDQSxjQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0FDTE47O0FEU0k7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSx3QkFBQTtVQUFBLHVCQUFBO0VBQ0Esa0JBQUE7QUNOTjs7QURTQTtFQUNFLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLGdCQUFBO0VBQ0EsdUJBQUE7QUNORjs7QURRQTtFQUNFLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxZQUFBO0VBQ0Esb0JBQUE7RUFBQSxhQUFBO0VBQ0EseUJBQUE7VUFBQSxtQkFBQTtFQUNBLHdCQUFBO1VBQUEsdUJBQUE7RUFDQSxtQkFBQTtBQ0xGOztBRFFFO0VBQ0UsWUFBQTtFQUNBLFVBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtBQ0xKIiwiZmlsZSI6InNyYy9hcHAvbG9naW4tc2lnbnVwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvdmVyIHtcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoL2Fzc2V0cy9wYXRoLTYucG5nKTtcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgICAgICAgfVxuICAgIFxuICAgXG4gICAgIC5jbG92ZXIge1xuICAgIFxuICAgICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKC9hc3NldHMvY2xvdmVyLnBuZyk7XG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgXG4gICAgfVxuICAgIC5zcGFjZXtcbiAgICAgIGRpc3BsYXk6IGJsb2NrO1xuXG4gICAgICAgIFxuICAgIH1cbiAgICAuZmF0LWZyZWUge1xuICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICBmb250LWZhbWlseTogXCJUaW1lcyBOZXcgUm9tYW5cIiwgVGltZXMsIHNlcmlmO1xuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgICBjb2xvcjogIzBiMGMwYjtcbiAgICAgIGZvbnQtc2l6ZTo0NTA7XG4gICAgICBkaXNwbGF5OiBibG9jaztcbiAgICB9XG4gICAgXG4gIC5tYXJnaW5Ub3B7XG4gIFxuICAgICAgICAgIG1hcmdpbi10b3A6IDclO1xuICAgICAgICAgIFxuICAgICAgXG4gICAgfVxuICAgIFxuICAgIC5idXR0b257XG4gICAgICBtYXJnaW46IDIlIDAlO1xuICAgICAgZGlzcGxheTogYmxvY2s7XG4gICAgICB3aWR0aDogNjUlO1xuICAgICAgZm9udC13ZWlnaHQ6IDEyJTtcbiAgICAgXG4gICAgfVxuICBcbiAgICAuY2VudHJpY3tcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICB9XG5cbmlvbi1pbnB1dCB7XG4gIG1hcmdpbjogMHB4IDUwcHg7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBmb250LXdlaWdodDogMTIlO1xuICBib3JkZXI6ICAxcHggc29saWQgd2hpdGU7XG59XG4ubXlCYWNrZ3JvdW5ke1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHdpZHRoOjEwMCU7XG4gIGhlaWdodDoxMDAlO1xuICB6LWluZGV4OiA5OTk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBiYWNrZ3JvdW5kOnJnYig4MCwgMTg1LCAxODIpO1xuICBcbiAgfVxuICAuYmFja3tcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgd2lkdGg6MjAlO1xuICAgIG1hcmdpbi10b3A6IDIlO1xuICAgIG1hcmdpbi1sZWZ0OiAyJTtcbiAgfVxuXG5cbiIsIi5jb3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL3BhdGgtNi5wbmcpO1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuLmNsb3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL2Nsb3Zlci5wbmcpO1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG59XG5cbi5zcGFjZSB7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuXG4uZmF0LWZyZWUge1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LWZhbWlseTogXCJUaW1lcyBOZXcgUm9tYW5cIiwgVGltZXMsIHNlcmlmO1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgY29sb3I6ICMwYjBjMGI7XG4gIGZvbnQtc2l6ZTogNDUwO1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuLm1hcmdpblRvcCB7XG4gIG1hcmdpbi10b3A6IDclO1xufVxuXG4uYnV0dG9uIHtcbiAgbWFyZ2luOiAyJSAwJTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiA2NSU7XG4gIGZvbnQtd2VpZ2h0OiAxMiU7XG59XG5cbi5jZW50cmljIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuaW9uLWlucHV0IHtcbiAgbWFyZ2luOiAwcHggNTBweDtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGZvbnQtd2VpZ2h0OiAxMiU7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHdoaXRlO1xufVxuXG4ubXlCYWNrZ3JvdW5kIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICB6LWluZGV4OiA5OTk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBiYWNrZ3JvdW5kOiAjNTBiOWI2O1xufVxuXG4uYmFjayB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDIwJTtcbiAgbWFyZ2luLXRvcDogMiU7XG4gIG1hcmdpbi1sZWZ0OiAyJTtcbn0iXX0= */";
+    __webpack_exports__["default"] = ".cover {\n  background-image: url(/assets/path-6.png);\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 100%; }\n\n.clover {\n  background-image: url(/assets/clover.png);\n  background-position: center;\n  background-repeat: no-repeat; }\n\n.space {\n  display: block; }\n\n.fat-free {\n  -webkit-box-pack: center;\n          justify-content: center;\n  text-align: center;\n  font-family: \"Times New Roman\", Times, serif;\n  font-weight: bold;\n  color: #0b0c0b;\n  font-size: 450;\n  display: block; }\n\n.marginTop {\n  margin-top: 7%; }\n\n.button {\n  margin: 2% 0%;\n  display: block;\n  width: 65%;\n  font-weight: 12%; }\n\n.centric {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%; }\n\nion-input {\n  margin: 0px 50px;\n  display: block;\n  font-weight: 12%;\n  border: 1px solid white; }\n\n.myBackground {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 999;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  background: #50b9b6; }\n\n.back {\n  height: 100%;\n  width: 20%;\n  margin-top: 2%;\n  margin-left: 2%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NvaGlsYS9Eb2N1bWVudHMvR1AtVGFza3MvRG9jdG9yX1BsYXRmb3JtL0dyYWR1YXRpb24tUHJvamVjdC1Eb2N0b3Ivc3JjL2FwcC9sb2dpbi1zaWdudXAvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSx5Q0FBeUM7RUFDekMsMkJBQTJCO0VBQzNCLDRCQUE0QjtFQUM1QixZQUFZLEVBQUE7O0FBSVg7RUFFQyx5Q0FBeUM7RUFDM0MsMkJBQTJCO0VBQzNCLDRCQUE0QixFQUFBOztBQUc1QjtFQUNFLGNBQWMsRUFBQTs7QUFJaEI7RUFDRSx3QkFBdUI7VUFBdkIsdUJBQXVCO0VBQ3ZCLGtCQUFrQjtFQUNsQiw0Q0FBNEM7RUFDNUMsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCxjQUFhO0VBQ2IsY0FBYyxFQUFBOztBQUdsQjtFQUVRLGNBQWMsRUFBQTs7QUFLcEI7RUFDRSxhQUFhO0VBQ2IsY0FBYztFQUNkLFVBQVU7RUFDVixnQkFBZ0IsRUFBQTs7QUFJbEI7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYix3QkFBdUI7VUFBdkIsdUJBQXVCO0VBQ3ZCLGtCQUFrQixFQUFBOztBQUd4QjtFQUNFLGdCQUFnQjtFQUNoQixjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLHVCQUF3QixFQUFBOztBQUUxQjtFQUNFLGtCQUFrQjtFQUNsQixXQUFVO0VBQ1YsWUFBVztFQUNYLFlBQVk7RUFDWixvQkFBYTtFQUFiLGFBQWE7RUFDYix5QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsbUJBQTRCLEVBQUE7O0FBRzVCO0VBQ0UsWUFBWTtFQUNaLFVBQVM7RUFDVCxjQUFjO0VBQ2QsZUFBZSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvbG9naW4tc2lnbnVwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvdmVyIHtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL3BhdGgtNi5wbmcpO1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgICAgICAgIH1cclxuICAgIFxyXG4gICBcclxuICAgICAuY2xvdmVyIHtcclxuICAgIFxyXG4gICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoL2Fzc2V0cy9jbG92ZXIucG5nKTtcclxuICAgIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcclxuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgICBcclxuICAgIH1cclxuICAgIC5zcGFjZXtcclxuICAgICAgZGlzcGxheTogYmxvY2s7XHJcblxyXG4gICAgICAgIFxyXG4gICAgfVxyXG4gICAgLmZhdC1mcmVlIHtcclxuICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgICAgZm9udC1mYW1pbHk6IFwiVGltZXMgTmV3IFJvbWFuXCIsIFRpbWVzLCBzZXJpZjtcclxuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICAgIGNvbG9yOiAjMGIwYzBiO1xyXG4gICAgICBmb250LXNpemU6NDUwO1xyXG4gICAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIH1cclxuICAgIFxyXG4gIC5tYXJnaW5Ub3B7XHJcbiAgXHJcbiAgICAgICAgICBtYXJnaW4tdG9wOiA3JTtcclxuICAgICAgICAgIFxyXG4gICAgICBcclxuICAgIH1cclxuICAgIFxyXG4gICAgLmJ1dHRvbntcclxuICAgICAgbWFyZ2luOiAyJSAwJTtcclxuICAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICAgIHdpZHRoOiA2NSU7XHJcbiAgICAgIGZvbnQtd2VpZ2h0OiAxMiU7XHJcbiAgICAgXHJcbiAgICB9XHJcbiAgXHJcbiAgICAuY2VudHJpY3tcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIH1cclxuXHJcbmlvbi1pbnB1dCB7XHJcbiAgbWFyZ2luOiAwcHggNTBweDtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBmb250LXdlaWdodDogMTIlO1xyXG4gIGJvcmRlcjogIDFweCBzb2xpZCB3aGl0ZTtcclxufVxyXG4ubXlCYWNrZ3JvdW5ke1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB3aWR0aDoxMDAlO1xyXG4gIGhlaWdodDoxMDAlO1xyXG4gIHotaW5kZXg6IDk5OTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYmFja2dyb3VuZDpyZ2IoODAsIDE4NSwgMTgyKTtcclxuICBcclxuICB9XHJcbiAgLmJhY2t7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB3aWR0aDoyMCU7XHJcbiAgICBtYXJnaW4tdG9wOiAyJTtcclxuICAgIG1hcmdpbi1sZWZ0OiAyJTtcclxuICB9XHJcblxyXG5cclxuIl19 */";
     /***/
   },
 
@@ -349,14 +349,12 @@
         this.men.enable(false);
       }
 
-      login(email, password) {
-        // email ="beebz@mail.com";
-        // password = "beebz1997";
+      login(mobile, password) {
         let that = this;
-        console.log(email, password);
-        var mobile = "+20" + email; // Loggining In
-
-        this.http.Login(email, password).subscribe(res => {
+        console.log(mobile, password);
+        mobile = mobile.replace(/^0+/, '');
+        mobile = "+20" + mobile;
+        this.http.Login(mobile, password).subscribe(res => {
           // timer
           this.showSplash = true; // timer
 
@@ -376,49 +374,42 @@
           this.datastream.setToken(res.token);
           this.http.getDoctorUsingToken(res.token).subscribe(doctordata => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee2() {
-            return regeneratorRuntime.wrap(function _callee2$(_context2) {
-              while (1) switch (_context2.prev = _context2.next) {
+          regeneratorRuntime.mark(function _callee() {
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
                 case 0:
                   console.log("doctor: " + JSON.stringify(doctordata));
-                  _context2.next = 3;
+                  _context.next = 3;
                   return that.datastream.setDoctor(doctordata);
 
                 case 3:
-                  _context2.next = 5;
-                  return this.http.getPatientList(res.token).subscribe(response => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-                  /*#__PURE__*/
-                  regeneratorRuntime.mark(function _callee() {
-                    return regeneratorRuntime.wrap(function _callee$(_context) {
-                      while (1) switch (_context.prev = _context.next) {
-                        case 0:
-                          this.datastream.clearPatientList();
-                          _context.next = 3;
-                          return response.forEach(element => {
-                            this.datastream.addToPatientList(element);
-                          });
-
-                        case 3:
-                        case "end":
-                          return _context.stop();
-                      }
-                    }, _callee, this);
-                  })), err => {
-                    console.log('HTTP Patient List Error: ', err.error.message);
-                    this.presentAlert('HTTP Patient List Error: ', err.error.message);
-                  }, () => {
-                    this.datastream.savePatientListToDataStore();
-                    console.log('HTTP request completed.');
-                  });
-
-                case 5:
+                  //Get Doctor List
+                  // await  this.http.getPatientList(res.token)
+                  // .subscribe(
+                  //   async response=>{
+                  //     this.datastream.clearPatientList();
+                  //     await response.forEach(element => {
+                  //       this.datastream.addToPatientList(element);
+                  //     }); 
+                  //   }, 
+                  //   err =>
+                  //   {
+                  //     console.log('HTTP Patient List Error: ', err.error.message);
+                  //     this.presentAlert('HTTP Patient List Error: ', err.error.message);
+                  //   },
+                  //   () => 
+                  //   {
+                  //     this.datastream.savePatientListToDataStore();
+                  //     console.log('HTTP request completed.');
+                  //   }
+                  // );
                   that.nav.navigateTo('home');
 
-                case 6:
+                case 4:
                 case "end":
-                  return _context2.stop();
+                  return _context.stop();
               }
-            }, _callee2, this);
+            }, _callee);
           })), err => {
             this.presentAlert('HTTP Doctor Data Error: ', err.error.message);
           }, () => console.log('HTTP get Doctor data request completed.'));
@@ -430,12 +421,12 @@
       presentAlert(subtitleString, messageString) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee3() {
+        regeneratorRuntime.mark(function _callee2() {
           var alert;
-          return regeneratorRuntime.wrap(function _callee3$(_context3) {
-            while (1) switch (_context3.prev = _context3.next) {
+          return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            while (1) switch (_context2.prev = _context2.next) {
               case 0:
-                _context3.next = 2;
+                _context2.next = 2;
                 return this.addController.create({
                   header: 'ERROR',
                   subHeader: subtitleString,
@@ -444,15 +435,15 @@
                 });
 
               case 2:
-                alert = _context3.sent;
-                _context3.next = 5;
+                alert = _context2.sent;
+                _context2.next = 5;
                 return alert.present();
 
               case 5:
               case "end":
-                return _context3.stop();
+                return _context2.stop();
             }
-          }, _callee3, this);
+          }, _callee2, this);
         }));
       }
 

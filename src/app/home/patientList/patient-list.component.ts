@@ -37,6 +37,7 @@ export class PatientListComponent implements OnInit {
         }); 
         this.patientRow = this.datastream.getPatientList();
         this.patientArrayList = this.patientRow;
+        console.log("patient list ",this.patientRow);
                         
       }, 
       err =>

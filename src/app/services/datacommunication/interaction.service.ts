@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { newMessage } from 'src/app/model/newMessage';
+import { Iconvs } from 'src/app/model/conv';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class InteractionService {
  private CoversationState = new BehaviorSubject(1);
  currentStateConversation = this.CoversationState.asObservable();
 
- private communication= new BehaviorSubject<number>(0);
+ private communication= new BehaviorSubject<Iconvs>(null);
  getId =this.communication.asObservable();
 
  private Edit= new BehaviorSubject<number>(0);
