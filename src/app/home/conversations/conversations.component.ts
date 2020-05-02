@@ -5,51 +5,57 @@ import { InteractionService } from 'src/app/services/datacommunication/interacti
 import { IonContent, ActionSheetController } from '@ionic/angular';
 import { patientData } from 'src/app/model/patientData';
 import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
+import {EventEmitterService} from "../../services/EventEmitterService/event-emitter.service";
 
 @Component({
   selector: 'app-conversations',
   templateUrl: './conversations.component.html',
   styleUrls: ['./conversations.component.scss'],
 })
-export class ConversationsComponent implements OnInit {
+export class ConversationsComponent  {
 
-  constructor(private navigation: NavigationService
-     , private httpService:HttpService
-     ,private dataInteraction:InteractionService
-     ,private patList:ActionSheetController,
-     private datastream: DatastreamingService, 
-     ) { }
+    constructor(private navigation: NavigationService
+        , private httpService:HttpService
+        ,private dataInteraction:InteractionService
+        ,private patList:ActionSheetController,
+                private datastream: DatastreamingService,
+                private  eventEmitterService:EventEmitterService,
+
+    ) {
+        console.log("conversations component constructor");
+    }
      
      private patientsArray = new Array<patientData>();
      private reciever:String;
 
 
 
+    async ionViewDidEnter() {
 
-  ngOnInit() {
-    this.dataInteraction.sendConversationState(0);
-    this.patientsArray = this.datastream.getPatientList(); 
-    console.log("pat: ",this.patientsArray[0]);
-    this.navigation.navigateTo('home/conversation/convList');
-  }
+        console.log("conversation component ion view did enter ");
+        this.patientsArray = this.datastream.getPatientList();
+        console.log("doctors array"+this.patientsArray[0]);
 
-  ngAfterViewInit(){
-    this.dataInteraction.sendConversationState(0);
-    this.patientsArray = this.datastream.getPatientList(); 
-    console.log("pat: ",this.patientsArray[0]);
-    this.navigation.navigateTo('home/conversation/convList');
-  }
-  
- inbox(){
-  console.log("inbox");
-  this.dataInteraction.sendConversationState(0);
- 
- }
- sent(){
-   console.log("sent");
-   this.dataInteraction.sendConversationState(1);
 
-}
+    }
+
+
+
+    inbox(){
+
+        console.log("inbox");
+        this.eventEmitterService.OnComponentCall(0);
+        console.log("inbox button triggered the state Function");
+
+
+    }
+    sent(){
+        console.log("sent");
+        this.eventEmitterService.OnComponentCall(1);
+        console.log("sent button triggered the state Function ");
+
+
+    }
 back(){
   this.navigation.navigateTo('home');
 }

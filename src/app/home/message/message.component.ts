@@ -93,7 +93,6 @@ export class MessageComponent implements OnInit {
       this.thread={
         reciever_id :this.patientRow.patientId,
         msg_subject :this.Subject_from_input,
-        created_date:new Date().toLocaleString(),
         is_readed:0,
         reciever_name:this.Reciever_from_pat_list,
         sender_name:this.doctorName,
@@ -112,7 +111,6 @@ export class MessageComponent implements OnInit {
     sender_id:this.doctorId,
     reciever_id:this.thread.reciever_id,
     msg_body:this.thread.msg_body,
-    created_date:new Date().toLocaleString(),
     thread_subject:this.Subject_from_input,
     fcm_token:this.patientRow.fcmtoken
    

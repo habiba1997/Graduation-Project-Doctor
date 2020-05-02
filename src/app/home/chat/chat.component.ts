@@ -126,7 +126,6 @@ export class ChatComponent implements OnInit {
                 sender_id:this.dId,
                 reciever_id:this.userToRecieve.patientId,
                 msg_body:this.replyContent,
-                created_date:new Date().toLocaleString(),
                 thread_subject:this.thread.msg_subject,
                 fcm_token:this.userToRecieve.fcmtoken
             }
@@ -154,7 +153,7 @@ export class ChatComponent implements OnInit {
   
     goConv(){
   
-     this.navigation.navigateTo("home/conversation/convList");
+     this.navigation.navigateTo("home/conversation");
   
     }
   }

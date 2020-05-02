@@ -967,8 +967,8 @@ __webpack_require__.r(__webpack_exports__);
 let HttpService = class HttpService {
     constructor(http) {
         this.http = http;
-        this.Java_Host_Port = "https://2311ca43.ngrok.io";
-        this.Node_host = "http://28157aac.ngrok.io/";
+        this.Java_Host_Port = "http://ec2-3-86-89-133.compute-1.amazonaws.com:8080";
+        this.Node_host = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/";
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'Content-Type': 'application/json',
