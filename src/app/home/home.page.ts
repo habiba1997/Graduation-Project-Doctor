@@ -12,7 +12,7 @@ import { InteractionService } from '../services/datacommunication/interaction.se
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage  {
 
   // doctorName: String;
   val: string;
@@ -29,16 +29,6 @@ export class HomePage implements OnInit {
     }
 
 
-    ngOnInit()
-    {
-      // this.doctorName =this.datastream.getDoctorName();
-      // if(this.doctorName==undefined )
-      // {
-      //   this.presentAlert('HTTP DataStream Error: ', "My Doctor Name is Null");
-      //   this.navigation.navigateTo('cover');
-      // }  
-      // this.getDocList();
-    }
 
 getDocList()
 {
@@ -117,10 +107,10 @@ getDocList()
             this.presentAlert('HTTP Error: ',errorMessage);
             // this.presentAlert('HTTP Add Patient Error: ', err.error.message);
           },
-          async () => 
+           () => 
           {
             console.log('HTTP to ADD Patient request completed.');
-  
+            this.navigation.navigateTo('home/doctorList')
           }
         );
         }

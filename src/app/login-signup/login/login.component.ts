@@ -62,42 +62,20 @@ export class LoginComponent implements OnInit {
           alert("ERROR in getting FCM token: "+JSON.stringify(err));
         });
 
-
-
-
         //Use Token To get Doctor Data
         console.log("Token: "+res.token);
         this.datastream.setToken(res.token);
         
         this.http.getDoctorUsingToken(res.token).subscribe(
-            async doctordata =>
+            doctordata =>
             {
                 console.log("doctor: "+JSON.stringify(doctordata));
-                await that.datastream.setDoctor(doctordata);
-
-                //Get Doctor List
-                // await  this.http.getPatientList(res.token)
-                // .subscribe(
-                //   async response=>{
-                //     this.datastream.clearPatientList();
-                //     await response.forEach(element => {
-                //       this.datastream.addToPatientList(element);
-                //     }); 
-                                    
-                //   }, 
-                //   err =>
-                //   {
-                //     console.log('HTTP Patient List Error: ', err.error.message);
-                //     this.presentAlert('HTTP Patient List Error: ', err.error.message);
-                //   },
-                //   () => 
-                //   {
-                //     this.datastream.savePatientListToDataStore();
-                //     console.log('HTTP request completed.');
-                //   }
-                // );
-
-
+                that.datastream.setDoctor(doctordata.mydoctor);
+                this.datastream.clearPatientList();
+                doctordata.patientArrayList.forEach(element => {
+                      this.datastream.addToPatientList(element);
+                    }); 
+      
             that.nav.navigateTo('home');
           },
           err => {

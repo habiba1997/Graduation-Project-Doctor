@@ -45,10 +45,7 @@ export class ProfileComponent implements OnInit {
     this.navigation.navigateTo('home');
 
   }
-//  vitalClick(){
-//   this.navigation.navigateTo('home/vitals');
 
-//  }
  edit(){
   this.notEnable=false;
   // this.patientName="";
@@ -90,11 +87,12 @@ async save(name: String, years_experience:number){
         const token = this.datastream.getToken();
         console.log("myName "+ name);
         console.log("myYears "+ years_experience);
-         this.editPatientService.editDoctorProfile(name,years_experience,token).subscribe(
+      
+    this.editPatientService.editDoctorProfile(name,years_experience,token).subscribe(
        response=>{
       // this.datastream.setToken(response.token);
       console.log("http request to Change patient Data: "+ JSON.stringify(response));
-      // this.datastream.changePatientData(response);
+      this.datastream.changeDoctorData(name,years_experience);
       
 
     }, 
