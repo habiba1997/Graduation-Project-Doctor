@@ -10,8 +10,6 @@ import { Reply } from 'src/app/model/conv'
 })
 export class HttpService {
 
-
-
     Java_Host_Port ="http://ec2-3-86-89-133.compute-1.amazonaws.com:8080";
     Node_host ="http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/";
 

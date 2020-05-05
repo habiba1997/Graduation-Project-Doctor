@@ -541,7 +541,6 @@ let ChatComponent = class ChatComponent {
             sender_id: this.dId,
             reciever_id: this.userToRecieve.patientId,
             msg_body: this.replyContent,
-            created_date: new Date().toLocaleString(),
             thread_subject: this.thread.msg_subject,
             fcm_token: this.userToRecieve.fcmtoken
         };
@@ -561,7 +560,7 @@ let ChatComponent = class ChatComponent {
         ////////////////////////////////////////////////////////////////////////////////////
     }
     goConv() {
-        this.navigation.navigateTo("home/conversation/convList");
+        this.navigation.navigateTo("home/conversation");
     }
 };
 ChatComponent.ctorParameters = () => [
@@ -622,6 +621,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/datacommunication/interaction.service */ "./src/app/services/datacommunication/interaction.service.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../NavService/navigation.service */ "./src/app/home/NavService/navigation.service.ts");
+/* harmony import */ var _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/EventEmitterService/event-emitter.service */ "./src/app/services/EventEmitterService/event-emitter.service.ts");
+
 
 
 
@@ -630,79 +631,118 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ConvListComponent = class ConvListComponent {
-    constructor(httpService, dataStream, navigation, interactionCommunication) {
+    constructor(httpService, DoctortData, navigation, eventEmitterService, dateInteraction, addController) {
         this.httpService = httpService;
-        this.dataStream = dataStream;
+        this.DoctortData = DoctortData;
         this.navigation = navigation;
-        this.interactionCommunication = interactionCommunication;
-        console.log("Constructor");
+        this.eventEmitterService = eventEmitterService;
+        this.dateInteraction = dateInteraction;
+        this.addController = addController;
+        console.log('convlist constructor');
     }
-    ionViewWillEnter() {
-        console.log("ionViewWillEnter");
-        console.log("this.scrolling", this.scrollPosition);
-        this.interactionCommunication.currentStateConversation.subscribe(state => {
-            this.docId = this.dataStream.getDoctorId();
-            console.log("doc_id", this.docId);
-            this.page = 0;
-            this.state = state;
-            if (this.state == 0) {
-                console.log("page", this.page);
-                console.log("interaction works");
-                this.httpService.getInbox(this.docId, this.page).subscribe((res) => {
-                    console.log("inbox ", res);
-                    this.convList = res;
-                    console.log("list ", this.convList);
-                });
+    ngOnInit() {
+        console.log('convlist oninit');
+        new Promise((resolve, reject) => {
+            this.docId = this.DoctortData.getDoctorId();
+            console.log('check patient id');
+            // tslint:disable-next-line:triple-equals
+            if (this.docId == undefined) {
+                reject('doctor id is undefined ');
             }
             else {
-                console.log("page", this.page);
-                this.httpService.getSent(this.docId, this.page).subscribe((res) => {
-                    console.log("sent ", res);
-                    this.convList = res;
-                    console.log("list sent", this.convList);
+                console.log('doctor id resolved');
+                console.log('doctor_id', this.docId);
+                resolve();
+            }
+        }).then(() => {
+            console.log('doctor id form convlist', this.docId);
+            this.GetData(0);
+            // at the fist time we need to assign the part of code we need to invoke every time the event emitter emits value
+            // tslint:disable-next-line:triple-equals
+            if (this.eventEmitterService.Subscribtion == undefined) {
+                console.log('subscribing to the event emitter');
+                // when the event emitter emits new value only the part of the code that the subscriber hold will be invoked
+                this.eventEmitterService.Subscribtion = this.eventEmitterService.FunctionCaller.subscribe((state) => {
+                    this.GetData(state);
+                    console.log('event emitter listener invoked');
                 });
             }
-            ///////////////////////////////////////////////////////////      
-            /////////// to create new thread 
-            //  this.thread={
-            //     reciever_id   :  29,
-            //     msg_subject   :  "postman4",
-            //     created_date  :  "2020-02-02",
-            //     is_readed     :  0,
-            //     reciever_name :  "sohaila",
-            //     sender_name   :  "ahmed",
-            //     msg_body      :  "Hello Doctor i want...."
-            //   }
-            //   this.data={
-            //     sender_id:this.patientId,
-            //     reciever_id:this.thread.reciever_id,
-            //     msg_body:this.thread.msg_body,
-            //     created_date:this.thread.created_date,
-            //   };
-            //   this.httpService.postThread(this.thread,this.patientId).subscribe((res)=>{
-            //     console.log("new thread data",res);
-            //   this.httpService.postReply(this.data,res.insertId).subscribe((msg)=>{
-            //     console.log("first thread message",msg);
-            //   });
-            //   });
-            ////////////////////////////////////////////////////////////
+        }).catch((err) => this.presentAlert('data stream error', err.message));
+    }
+    ionViewWillEnter() {
+        console.log('convlist ion view will enter');
+        console.log('this.scrolling', this.scrollPosition);
+    }
+    GetData(state) {
+        console.log('get data function');
+        this.page = 0;
+        if (state == 0) {
+            console.log('page', this.page);
+            console.log('interaction works');
+            this.httpService.getInbox(this.docId, this.page).subscribe((res) => {
+                console.log('inbox ', res);
+                this.convList = res;
+                console.log('list ', this.convList);
+            }, error1 => this.presentAlert('http error get inbox', error1.message));
+        }
+        else {
+            console.log('page', this.page);
+            this.httpService.getSent(this.docId, this.page).subscribe((res) => {
+                console.log('sent ', res);
+                this.convList = res;
+                console.log('list sent', this.convList);
+            }, error1 => this.presentAlert('http error get sent', error1.message));
+        }
+    }
+    presentAlert(subtitleString, messageString) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log('alert holding screen ');
+            const alert = yield this.addController.create({
+                header: 'ERROR',
+                subHeader: subtitleString,
+                message: messageString,
+                buttons: ['OK']
+            });
+            yield alert.present();
         });
     }
+    ///////////////////////////////////////////////////////////
+    /////////// to create new thread
+    //  this.thread={
+    //     reciever_id   :  29,
+    //     msg_subject   :  "postman4",
+    //     created_date  :  "2020-02-02",
+    //     is_readed     :  0,
+    //     reciever_name :  "sohaila",
+    //     sender_name   :  "ahmed",
+    //     msg_body      :  "Hello Doctor i want...."
+    //   }
+    //   this.data={
+    //     sender_id:this.patientId,
+    //     reciever_id:this.thread.reciever_id,
+    //     msg_body:this.thread.msg_body,
+    //     created_date:this.thread.created_date,
+    //   };
+    //   this.httpService.postThread(this.thread,this.patientId).subscribe((res)=>{
+    //     console.log("new thread data",res);
+    //   this.httpService.postReply(this.data,res.insertId).subscribe((msg)=>{
+    //     console.log("first thread message",msg);
+    //   });
+    //   });
+    ////////////////////////////////////////////////////////////
     ngAfterViewInit() {
-        this.interactionCommunication.currentStateConversation.subscribe(state => {
-            console.log("ngviewtinit");
-            this.ionContent.scrollToTop();
-        });
+        console.log('ngviewtinit');
+        this.ionContent.scrollToTop();
     }
     loadData(event) {
-        console.log("scrolling NOw");
+        console.log('scrolling NOw');
         this.page = this.page + 10;
-        console.log("event", event);
+        console.log('event', event);
         if (this.state == 0) {
-            console.log("page", this.page);
-            console.log("interaction works");
+            console.log('page', this.page);
+            console.log('interaction works');
             this.httpService.getInbox(this.docId, this.page).subscribe((res) => {
-                console.log("inbox ", res);
+                console.log('inbox ', res);
                 res.forEach(element => {
                     this.convList.push(element);
                 });
@@ -711,32 +751,32 @@ let ConvListComponent = class ConvListComponent {
             });
         }
         else {
-            console.log("page", this.page);
+            console.log('page', this.page);
             this.httpService.getSent(this.docId, this.page).subscribe((res) => {
-                console.log("sent ", res);
+                console.log('sent ', res);
                 res.forEach(element => {
                     this.convList.push(element);
                 });
                 event.target.complete();
-                console.log("New list sent", this.convList);
+                console.log('New list sent', this.convList);
                 return;
             });
         }
     }
-    //////////////////////////////////////////////////////////////////  
-    /////////// to reply on specific thread 
+    //////////////////////////////////////////////////////////////////
+    /////////// to reply on specific thread
     reply(thread) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            console.log("REPLIESSSS IN CONVLIST");
-            console.log("Thread ID: ", thread.thread_id);
+            console.log('REPLIESSSS IN CONVLIST');
+            console.log('Thread ID: ', thread.thread_id);
             this.httpService.getReplies(thread.thread_id, 0).subscribe((res) => {
-                this.interactionCommunication.sendMSG(res);
-                console.log("replies", res);
-                this.interactionCommunication.getThreadIdfromMessageorConvListtoChat(thread).then(() => {
+                this.dateInteraction.sendMSG(res);
+                console.log('replies', res);
+                this.dateInteraction.getThreadIdfromMessageorConvListtoChat(thread).then(() => {
                     this.navigation.navigateTo('home/chat');
                 });
             });
-            /////////////////////////////////////////////////////////////////////////reply/////////////////////////////////// 
+            /////////////////////////////////////////////////////////////////////////reply///////////////////////////////////
             // this.navigation.navigateTo('home/chat');
             // let date=new Date().toLocaleString();
             // console.log("current date ",new Date().toLocaleString());
@@ -756,7 +796,9 @@ ConvListComponent.ctorParameters = () => [
     { type: _HttPService_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] },
     { type: src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_3__["DatastreamingService"] },
     { type: _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"] },
-    { type: src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"] }
+    { type: _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__["EventEmitterService"] },
+    { type: src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonContent"], { static: false }),
@@ -771,7 +813,8 @@ ConvListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_HttPService_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"],
         src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_3__["DatastreamingService"],
         _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"],
-        src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"]])
+        _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__["EventEmitterService"],
+        src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]])
 ], ConvListComponent);
 
 
@@ -808,6 +851,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/datacommunication/interaction.service */ "./src/app/services/datacommunication/interaction.service.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/datastream/datastreaming.service */ "./src/app/services/datastream/datastreaming.service.ts");
+/* harmony import */ var _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/EventEmitterService/event-emitter.service */ "./src/app/services/EventEmitterService/event-emitter.service.ts");
+
 
 
 
@@ -816,33 +861,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ConversationsComponent = class ConversationsComponent {
-    constructor(navigation, httpService, dataInteraction, patList, datastream) {
+    constructor(navigation, httpService, dataInteraction, patList, datastream, eventEmitterService) {
         this.navigation = navigation;
         this.httpService = httpService;
         this.dataInteraction = dataInteraction;
         this.patList = patList;
         this.datastream = datastream;
+        this.eventEmitterService = eventEmitterService;
         this.patientsArray = new Array();
+        console.log("conversations component constructor");
     }
-    ngOnInit() {
-        this.dataInteraction.sendConversationState(0);
-        this.patientsArray = this.datastream.getPatientList();
-        console.log("pat: ", this.patientsArray[0]);
-        this.navigation.navigateTo('home/conversation/convList');
-    }
-    ngAfterViewInit() {
-        this.dataInteraction.sendConversationState(0);
-        this.patientsArray = this.datastream.getPatientList();
-        console.log("pat: ", this.patientsArray[0]);
-        this.navigation.navigateTo('home/conversation/convList');
+    ionViewDidEnter() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("conversation component ion view did enter ");
+            this.patientsArray = this.datastream.getPatientList();
+            console.log("doctors array" + this.patientsArray[0]);
+        });
     }
     inbox() {
         console.log("inbox");
-        this.dataInteraction.sendConversationState(0);
+        this.eventEmitterService.OnComponentCall(0);
+        console.log("inbox button triggered the state Function");
     }
     sent() {
         console.log("sent");
-        this.dataInteraction.sendConversationState(1);
+        this.eventEmitterService.OnComponentCall(1);
+        console.log("sent button triggered the state Function ");
     }
     back() {
         this.navigation.navigateTo('home');
@@ -903,7 +947,8 @@ ConversationsComponent.ctorParameters = () => [
     { type: _HttPService_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"] },
     { type: src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ActionSheetController"] },
-    { type: src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__["DatastreamingService"] }
+    { type: src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__["DatastreamingService"] },
+    { type: _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__["EventEmitterService"] }
 ];
 ConversationsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -915,7 +960,8 @@ ConversationsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _HttPService_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"],
         src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ActionSheetController"],
-        src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__["DatastreamingService"]])
+        src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__["DatastreamingService"],
+        _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__["EventEmitterService"]])
 ], ConversationsComponent);
 
 
@@ -1080,7 +1126,7 @@ HomePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                     component: _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_16__["ConversationsComponent"],
                     children: [
                         {
-                            path: 'convList',
+                            path: '',
                             component: _conv_list_conv_list_component__WEBPACK_IMPORTED_MODULE_17__["ConvListComponent"]
                         }
                     ]
@@ -1376,7 +1422,6 @@ let MessageComponent = class MessageComponent {
             this.thread = {
                 reciever_id: this.patientRow.patientId,
                 msg_subject: this.Subject_from_input,
-                created_date: new Date().toLocaleString(),
                 is_readed: 0,
                 reciever_name: this.Reciever_from_pat_list,
                 sender_name: this.doctorName,
@@ -1390,7 +1435,6 @@ let MessageComponent = class MessageComponent {
                 sender_id: this.doctorId,
                 reciever_id: this.thread.reciever_id,
                 msg_body: this.thread.msg_body,
-                created_date: new Date().toLocaleString(),
                 thread_subject: this.Subject_from_input,
                 fcm_token: this.patientRow.fcmtoken
             };
@@ -1803,6 +1847,39 @@ TabComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"]])
 ], TabComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/EventEmitterService/event-emitter.service.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/services/EventEmitterService/event-emitter.service.ts ***!
+  \***********************************************************************/
+/*! exports provided: EventEmitterService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventEmitterService", function() { return EventEmitterService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let EventEmitterService = class EventEmitterService {
+    constructor() {
+        this.FunctionCaller = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    OnComponentCall(state) {
+        this.FunctionCaller.emit(state);
+    }
+};
+EventEmitterService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], EventEmitterService);
 
 
 

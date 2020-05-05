@@ -781,7 +781,6 @@
           sender_id: this.dId,
           reciever_id: this.userToRecieve.patientId,
           msg_body: this.replyContent,
-          created_date: new Date().toLocaleString(),
           thread_subject: this.thread.msg_subject,
           fcm_token: this.userToRecieve.fcmtoken
         };
@@ -801,7 +800,7 @@
       }
 
       goConv() {
-        this.navigation.navigateTo("home/conversation/convList");
+        this.navigation.navigateTo("home/conversation");
       }
 
     };
@@ -914,85 +913,149 @@
     var _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../NavService/navigation.service */
     "./src/app/home/NavService/navigation.service.ts");
+    /* harmony import */
+
+
+    var _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../services/EventEmitterService/event-emitter.service */
+    "./src/app/services/EventEmitterService/event-emitter.service.ts");
 
     let ConvListComponent = class ConvListComponent {
-      constructor(httpService, dataStream, navigation, interactionCommunication) {
+      constructor(httpService, DoctortData, navigation, eventEmitterService, dateInteraction, addController) {
         this.httpService = httpService;
-        this.dataStream = dataStream;
+        this.DoctortData = DoctortData;
         this.navigation = navigation;
-        this.interactionCommunication = interactionCommunication;
-        console.log("Constructor");
+        this.eventEmitterService = eventEmitterService;
+        this.dateInteraction = dateInteraction;
+        this.addController = addController;
+        console.log('convlist constructor');
+      }
+
+      ngOnInit() {
+        console.log('convlist oninit');
+        new Promise((resolve, reject) => {
+          this.docId = this.DoctortData.getDoctorId();
+          console.log('check patient id'); // tslint:disable-next-line:triple-equals
+
+          if (this.docId == undefined) {
+            reject('doctor id is undefined ');
+          } else {
+            console.log('doctor id resolved');
+            console.log('doctor_id', this.docId);
+            resolve();
+          }
+        }).then(() => {
+          console.log('doctor id form convlist', this.docId);
+          this.GetData(0); // at the fist time we need to assign the part of code we need to invoke every time the event emitter emits value
+          // tslint:disable-next-line:triple-equals
+
+          if (this.eventEmitterService.Subscribtion == undefined) {
+            console.log('subscribing to the event emitter'); // when the event emitter emits new value only the part of the code that the subscriber hold will be invoked
+
+            this.eventEmitterService.Subscribtion = this.eventEmitterService.FunctionCaller.subscribe(state => {
+              this.GetData(state);
+              console.log('event emitter listener invoked');
+            });
+          }
+        }).catch(err => this.presentAlert('data stream error', err.message));
       }
 
       ionViewWillEnter() {
-        console.log("ionViewWillEnter");
-        console.log("this.scrolling", this.scrollPosition);
-        this.interactionCommunication.currentStateConversation.subscribe(state => {
-          this.docId = this.dataStream.getDoctorId();
-          console.log("doc_id", this.docId);
-          this.page = 0;
-          this.state = state;
-
-          if (this.state == 0) {
-            console.log("page", this.page);
-            console.log("interaction works");
-            this.httpService.getInbox(this.docId, this.page).subscribe(res => {
-              console.log("inbox ", res);
-              this.convList = res;
-              console.log("list ", this.convList);
-            });
-          } else {
-            console.log("page", this.page);
-            this.httpService.getSent(this.docId, this.page).subscribe(res => {
-              console.log("sent ", res);
-              this.convList = res;
-              console.log("list sent", this.convList);
-            });
-          } ///////////////////////////////////////////////////////////      
-          /////////// to create new thread 
-          //  this.thread={
-          //     reciever_id   :  29,
-          //     msg_subject   :  "postman4",
-          //     created_date  :  "2020-02-02",
-          //     is_readed     :  0,
-          //     reciever_name :  "sohaila",
-          //     sender_name   :  "ahmed",
-          //     msg_body      :  "Hello Doctor i want...."
-          //   }
-          //   this.data={
-          //     sender_id:this.patientId,
-          //     reciever_id:this.thread.reciever_id,
-          //     msg_body:this.thread.msg_body,
-          //     created_date:this.thread.created_date,
-          //   };
-          //   this.httpService.postThread(this.thread,this.patientId).subscribe((res)=>{
-          //     console.log("new thread data",res);
-          //   this.httpService.postReply(this.data,res.insertId).subscribe((msg)=>{
-          //     console.log("first thread message",msg);
-          //   });
-          //   });
-          ////////////////////////////////////////////////////////////
-
-        });
+        console.log('convlist ion view will enter');
+        console.log('this.scrolling', this.scrollPosition);
       }
 
+      GetData(state) {
+        console.log('get data function');
+        this.page = 0;
+
+        if (state == 0) {
+          console.log('page', this.page);
+          console.log('interaction works');
+          this.httpService.getInbox(this.docId, this.page).subscribe(res => {
+            console.log('inbox ', res);
+            this.convList = res;
+            console.log('list ', this.convList);
+          }, error1 => this.presentAlert('http error get inbox', error1.message));
+        } else {
+          console.log('page', this.page);
+          this.httpService.getSent(this.docId, this.page).subscribe(res => {
+            console.log('sent ', res);
+            this.convList = res;
+            console.log('list sent', this.convList);
+          }, error1 => this.presentAlert('http error get sent', error1.message));
+        }
+      }
+
+      presentAlert(subtitleString, messageString) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+        /*#__PURE__*/
+        regeneratorRuntime.mark(function _callee() {
+          var alert;
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) switch (_context.prev = _context.next) {
+              case 0:
+                console.log('alert holding screen ');
+                _context.next = 3;
+                return this.addController.create({
+                  header: 'ERROR',
+                  subHeader: subtitleString,
+                  message: messageString,
+                  buttons: ['OK']
+                });
+
+              case 3:
+                alert = _context.sent;
+                _context.next = 6;
+                return alert.present();
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }, _callee, this);
+        }));
+      } ///////////////////////////////////////////////////////////
+      /////////// to create new thread
+      //  this.thread={
+      //     reciever_id   :  29,
+      //     msg_subject   :  "postman4",
+      //     created_date  :  "2020-02-02",
+      //     is_readed     :  0,
+      //     reciever_name :  "sohaila",
+      //     sender_name   :  "ahmed",
+      //     msg_body      :  "Hello Doctor i want...."
+      //   }
+      //   this.data={
+      //     sender_id:this.patientId,
+      //     reciever_id:this.thread.reciever_id,
+      //     msg_body:this.thread.msg_body,
+      //     created_date:this.thread.created_date,
+      //   };
+      //   this.httpService.postThread(this.thread,this.patientId).subscribe((res)=>{
+      //     console.log("new thread data",res);
+      //   this.httpService.postReply(this.data,res.insertId).subscribe((msg)=>{
+      //     console.log("first thread message",msg);
+      //   });
+      //   });
+      ////////////////////////////////////////////////////////////
+
+
       ngAfterViewInit() {
-        this.interactionCommunication.currentStateConversation.subscribe(state => {
-          console.log("ngviewtinit");
-          this.ionContent.scrollToTop();
-        });
+        console.log('ngviewtinit');
+        this.ionContent.scrollToTop();
       }
 
       loadData(event) {
-        console.log("scrolling NOw");
+        console.log('scrolling NOw');
         this.page = this.page + 10;
-        console.log("event", event);
+        console.log('event', event);
 
         if (this.state == 0) {
-          console.log("page", this.page);
-          console.log("interaction works");
+          console.log('page', this.page);
+          console.log('interaction works');
           this.httpService.getInbox(this.docId, this.page).subscribe(res => {
-            console.log("inbox ", res);
+            console.log('inbox ', res);
             res.forEach(element => {
               this.convList.push(element);
             });
@@ -1000,37 +1063,37 @@
             return;
           });
         } else {
-          console.log("page", this.page);
+          console.log('page', this.page);
           this.httpService.getSent(this.docId, this.page).subscribe(res => {
-            console.log("sent ", res);
+            console.log('sent ', res);
             res.forEach(element => {
               this.convList.push(element);
             });
             event.target.complete();
-            console.log("New list sent", this.convList);
+            console.log('New list sent', this.convList);
             return;
           });
         }
-      } //////////////////////////////////////////////////////////////////  
-      /////////// to reply on specific thread 
+      } //////////////////////////////////////////////////////////////////
+      /////////// to reply on specific thread
 
 
       reply(thread) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee() {
-          return regeneratorRuntime.wrap(function _callee$(_context) {
-            while (1) switch (_context.prev = _context.next) {
+        regeneratorRuntime.mark(function _callee2() {
+          return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            while (1) switch (_context2.prev = _context2.next) {
               case 0:
-                console.log("REPLIESSSS IN CONVLIST");
-                console.log("Thread ID: ", thread.thread_id);
+                console.log('REPLIESSSS IN CONVLIST');
+                console.log('Thread ID: ', thread.thread_id);
                 this.httpService.getReplies(thread.thread_id, 0).subscribe(res => {
-                  this.interactionCommunication.sendMSG(res);
-                  console.log("replies", res);
-                  this.interactionCommunication.getThreadIdfromMessageorConvListtoChat(thread).then(() => {
+                  this.dateInteraction.sendMSG(res);
+                  console.log('replies', res);
+                  this.dateInteraction.getThreadIdfromMessageorConvListtoChat(thread).then(() => {
                     this.navigation.navigateTo('home/chat');
                   });
-                }); /////////////////////////////////////////////////////////////////////////reply/////////////////////////////////// 
+                }); /////////////////////////////////////////////////////////////////////////reply///////////////////////////////////
                 // this.navigation.navigateTo('home/chat');
                 // let date=new Date().toLocaleString();
                 // console.log("current date ",new Date().toLocaleString());
@@ -1046,9 +1109,9 @@
 
               case 3:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
-          }, _callee, this);
+          }, _callee2, this);
         }));
       }
 
@@ -1061,7 +1124,11 @@
     }, {
       type: _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"]
     }, {
+      type: _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__["EventEmitterService"]
+    }, {
       type: src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"]
+    }, {
+      type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]
     }];
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonContent"], {
@@ -1075,7 +1142,7 @@
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./conv-list.component.scss */
       "./src/app/home/conv-list/conv-list.component.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_HttPService_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_3__["DatastreamingService"], _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"], src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"]])], ConvListComponent);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_HttPService_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_3__["DatastreamingService"], _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"], _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__["EventEmitterService"], src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]])], ConvListComponent);
     /***/
   },
 
@@ -1160,39 +1227,54 @@
     var src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/services/datastream/datastreaming.service */
     "./src/app/services/datastream/datastreaming.service.ts");
+    /* harmony import */
+
+
+    var _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../services/EventEmitterService/event-emitter.service */
+    "./src/app/services/EventEmitterService/event-emitter.service.ts");
 
     let ConversationsComponent = class ConversationsComponent {
-      constructor(navigation, httpService, dataInteraction, patList, datastream) {
+      constructor(navigation, httpService, dataInteraction, patList, datastream, eventEmitterService) {
         this.navigation = navigation;
         this.httpService = httpService;
         this.dataInteraction = dataInteraction;
         this.patList = patList;
         this.datastream = datastream;
+        this.eventEmitterService = eventEmitterService;
         this.patientsArray = new Array();
+        console.log("conversations component constructor");
       }
 
-      ngOnInit() {
-        this.dataInteraction.sendConversationState(0);
-        this.patientsArray = this.datastream.getPatientList();
-        console.log("pat: ", this.patientsArray[0]);
-        this.navigation.navigateTo('home/conversation/convList');
-      }
+      ionViewDidEnter() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+        /*#__PURE__*/
+        regeneratorRuntime.mark(function _callee3() {
+          return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            while (1) switch (_context3.prev = _context3.next) {
+              case 0:
+                console.log("conversation component ion view did enter ");
+                this.patientsArray = this.datastream.getPatientList();
+                console.log("doctors array" + this.patientsArray[0]);
 
-      ngAfterViewInit() {
-        this.dataInteraction.sendConversationState(0);
-        this.patientsArray = this.datastream.getPatientList();
-        console.log("pat: ", this.patientsArray[0]);
-        this.navigation.navigateTo('home/conversation/convList');
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }, _callee3, this);
+        }));
       }
 
       inbox() {
         console.log("inbox");
-        this.dataInteraction.sendConversationState(0);
+        this.eventEmitterService.OnComponentCall(0);
+        console.log("inbox button triggered the state Function");
       }
 
       sent() {
         console.log("sent");
-        this.dataInteraction.sendConversationState(1);
+        this.eventEmitterService.OnComponentCall(1);
+        console.log("sent button triggered the state Function ");
       }
 
       back() {
@@ -1202,17 +1284,17 @@
       CreateNew() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee2() {
+        regeneratorRuntime.mark(function _callee4() {
           var actionSheetButtons, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, row, actionSheet;
 
-          return regeneratorRuntime.wrap(function _callee2$(_context2) {
-            while (1) switch (_context2.prev = _context2.next) {
+          return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            while (1) switch (_context4.prev = _context4.next) {
               case 0:
                 actionSheetButtons = [];
                 _iteratorNormalCompletion2 = true;
                 _didIteratorError2 = false;
                 _iteratorError2 = undefined;
-                _context2.prev = 4;
+                _context4.prev = 4;
 
                 for (_iterator2 = this.patientsArray[Symbol.iterator](); !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                   row = _step2.value;
@@ -1229,41 +1311,41 @@
                   });
                 }
 
-                _context2.next = 12;
+                _context4.next = 12;
                 break;
 
               case 8:
-                _context2.prev = 8;
-                _context2.t0 = _context2["catch"](4);
+                _context4.prev = 8;
+                _context4.t0 = _context4["catch"](4);
                 _didIteratorError2 = true;
-                _iteratorError2 = _context2.t0;
+                _iteratorError2 = _context4.t0;
 
               case 12:
-                _context2.prev = 12;
-                _context2.prev = 13;
+                _context4.prev = 12;
+                _context4.prev = 13;
 
                 if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
                   _iterator2.return();
                 }
 
               case 15:
-                _context2.prev = 15;
+                _context4.prev = 15;
 
                 if (!_didIteratorError2) {
-                  _context2.next = 18;
+                  _context4.next = 18;
                   break;
                 }
 
                 throw _iteratorError2;
 
               case 18:
-                return _context2.finish(15);
+                return _context4.finish(15);
 
               case 19:
-                return _context2.finish(12);
+                return _context4.finish(12);
 
               case 20:
-                _context2.next = 22;
+                _context4.next = 22;
                 return this.patList.create({
                   header: 'You want to send message to:',
                   buttons: actionSheetButtons //buttons: [{
@@ -1297,15 +1379,15 @@
                 });
 
               case 22:
-                actionSheet = _context2.sent;
-                _context2.next = 25;
+                actionSheet = _context4.sent;
+                _context4.next = 25;
                 return actionSheet.present();
 
               case 25:
               case "end":
-                return _context2.stop();
+                return _context4.stop();
             }
-          }, _callee2, this, [[4, 8, 12, 20], [13,, 15, 19]]);
+          }, _callee4, this, [[4, 8, 12, 20], [13,, 15, 19]]);
         }));
       }
 
@@ -1321,6 +1403,8 @@
       type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ActionSheetController"]
     }, {
       type: src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__["DatastreamingService"]
+    }, {
+      type: _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__["EventEmitterService"]
     }];
 
     ConversationsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1331,7 +1415,7 @@
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./conversations.component.scss */
       "./src/app/home/conversations/conversations.component.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"], _HttPService_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ActionSheetController"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__["DatastreamingService"]])], ConversationsComponent);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"], _HttPService_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], src_app_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_4__["InteractionService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ActionSheetController"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_6__["DatastreamingService"], _services_EventEmitterService_event_emitter_service__WEBPACK_IMPORTED_MODULE_7__["EventEmitterService"]])], ConversationsComponent);
     /***/
   },
 
@@ -1603,7 +1687,7 @@
         path: 'conversation',
         component: _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_16__["ConversationsComponent"],
         children: [{
-          path: 'convList',
+          path: '',
           component: _conv_list_conv_list_component__WEBPACK_IMPORTED_MODULE_17__["ConvListComponent"]
         }]
       }])],
@@ -1725,12 +1809,12 @@
       presentAlert(subtitleString, messageString) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee3() {
+        regeneratorRuntime.mark(function _callee5() {
           var alert;
-          return regeneratorRuntime.wrap(function _callee3$(_context3) {
-            while (1) switch (_context3.prev = _context3.next) {
+          return regeneratorRuntime.wrap(function _callee5$(_context5) {
+            while (1) switch (_context5.prev = _context5.next) {
               case 0:
-                _context3.next = 2;
+                _context5.next = 2;
                 return this.addController.create({
                   header: 'ERROR',
                   subHeader: subtitleString,
@@ -1739,25 +1823,25 @@
                 });
 
               case 2:
-                alert = _context3.sent;
-                _context3.next = 5;
+                alert = _context5.sent;
+                _context5.next = 5;
                 return alert.present();
 
               case 5:
               case "end":
-                return _context3.stop();
+                return _context5.stop();
             }
-          }, _callee3, this);
+          }, _callee5, this);
         }));
       }
 
       addPatient() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee6() {
+        regeneratorRuntime.mark(function _callee8() {
           var alert;
-          return regeneratorRuntime.wrap(function _callee6$(_context6) {
-            while (1) switch (_context6.prev = _context6.next) {
+          return regeneratorRuntime.wrap(function _callee8$(_context8) {
+            while (1) switch (_context8.prev = _context8.next) {
               case 0:
                 alert = this.addController.create({
                   header: 'Add your Patient',
@@ -1773,10 +1857,10 @@
                     text: 'Add',
                     handler: data => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
                     /*#__PURE__*/
-                    regeneratorRuntime.mark(function _callee5() {
+                    regeneratorRuntime.mark(function _callee7() {
                       var token, mobile;
-                      return regeneratorRuntime.wrap(function _callee5$(_context5) {
-                        while (1) switch (_context5.prev = _context5.next) {
+                      return regeneratorRuntime.wrap(function _callee7$(_context7) {
+                        while (1) switch (_context7.prev = _context7.next) {
                           case 0:
                             token = this.datastream.getToken();
                             mobile = data.val.replace(/^0+/, '');
@@ -1800,53 +1884,53 @@
                               this.presentAlert('HTTP Error: ', errorMessage); // this.presentAlert('HTTP Add Patient Error: ', err.error.message);
                             }, () => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
                             /*#__PURE__*/
-                            regeneratorRuntime.mark(function _callee4() {
-                              return regeneratorRuntime.wrap(function _callee4$(_context4) {
-                                while (1) switch (_context4.prev = _context4.next) {
+                            regeneratorRuntime.mark(function _callee6() {
+                              return regeneratorRuntime.wrap(function _callee6$(_context6) {
+                                while (1) switch (_context6.prev = _context6.next) {
                                   case 0:
                                     console.log('HTTP to ADD Patient request completed.');
 
                                   case 1:
                                   case "end":
-                                    return _context4.stop();
+                                    return _context6.stop();
                                 }
-                              }, _callee4);
+                              }, _callee6);
                             })));
 
                           case 5:
                           case "end":
-                            return _context5.stop();
+                            return _context7.stop();
                         }
-                      }, _callee5, this);
+                      }, _callee7, this);
                     }))
                   }, {
                     text: 'Cancel',
                     role: 'cancel'
                   }]
                 });
-                _context6.next = 3;
+                _context8.next = 3;
                 return alert;
 
               case 3:
-                _context6.sent.present();
+                _context8.sent.present();
 
               case 4:
               case "end":
-                return _context6.stop();
+                return _context8.stop();
             }
-          }, _callee6, this);
+          }, _callee8, this);
         }));
       }
 
       newMessage() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee7() {
+        regeneratorRuntime.mark(function _callee9() {
           var actionSheet;
-          return regeneratorRuntime.wrap(function _callee7$(_context7) {
-            while (1) switch (_context7.prev = _context7.next) {
+          return regeneratorRuntime.wrap(function _callee9$(_context9) {
+            while (1) switch (_context9.prev = _context9.next) {
               case 0:
-                _context7.next = 2;
+                _context9.next = 2;
                 return this.docList.create({
                   header: 'Message Type',
                   buttons: [{
@@ -1873,15 +1957,15 @@
                 });
 
               case 2:
-                actionSheet = _context7.sent;
-                _context7.next = 5;
+                actionSheet = _context9.sent;
+                _context9.next = 5;
                 return actionSheet.present();
 
               case 5:
               case "end":
-                return _context7.stop();
+                return _context9.stop();
             }
-          }, _callee7, this);
+          }, _callee9, this);
         }));
       }
 
@@ -2030,12 +2114,12 @@
       presentAlert(subtitleString, messageString) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee8() {
+        regeneratorRuntime.mark(function _callee10() {
           var alert;
-          return regeneratorRuntime.wrap(function _callee8$(_context8) {
-            while (1) switch (_context8.prev = _context8.next) {
+          return regeneratorRuntime.wrap(function _callee10$(_context10) {
+            while (1) switch (_context10.prev = _context10.next) {
               case 0:
-                _context8.next = 2;
+                _context10.next = 2;
                 return this.addController.create({
                   header: 'ERROR',
                   subHeader: subtitleString,
@@ -2044,15 +2128,15 @@
                 });
 
               case 2:
-                alert = _context8.sent;
-                _context8.next = 5;
+                alert = _context10.sent;
+                _context10.next = 5;
                 return alert.present();
 
               case 5:
               case "end":
-                return _context8.stop();
+                return _context10.stop();
             }
-          }, _callee8, this);
+          }, _callee10, this);
         }));
       }
 
@@ -2063,7 +2147,6 @@
           this.thread = {
             reciever_id: this.patientRow.patientId,
             msg_subject: this.Subject_from_input,
-            created_date: new Date().toLocaleString(),
             is_readed: 0,
             reciever_name: this.Reciever_from_pat_list,
             sender_name: this.doctorName,
@@ -2077,7 +2160,6 @@
             sender_id: this.doctorId,
             reciever_id: this.thread.reciever_id,
             msg_body: this.thread.msg_body,
-            created_date: new Date().toLocaleString(),
             thread_subject: this.Subject_from_input,
             fcm_token: this.patientRow.fcmtoken
           }; //  console.log("tthread"+this.thread.reciever_name)
@@ -2222,12 +2304,12 @@
         let token = this.datastream.getToken();
         this.http.getPatientList(token).subscribe(response => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee9() {
-          return regeneratorRuntime.wrap(function _callee9$(_context9) {
-            while (1) switch (_context9.prev = _context9.next) {
+        regeneratorRuntime.mark(function _callee11() {
+          return regeneratorRuntime.wrap(function _callee11$(_context11) {
+            while (1) switch (_context11.prev = _context11.next) {
               case 0:
                 this.datastream.clearPatientList();
-                _context9.next = 3;
+                _context11.next = 3;
                 return response.forEach(element => {
                   this.datastream.addToPatientList(element);
                 });
@@ -2239,9 +2321,9 @@
 
               case 6:
               case "end":
-                return _context9.stop();
+                return _context11.stop();
             }
-          }, _callee9, this);
+          }, _callee11, this);
         })), err => {
           let errorMessage = "";
 
@@ -2290,12 +2372,12 @@
       presentAlert(subtitleString, messageString) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee10() {
+        regeneratorRuntime.mark(function _callee12() {
           var alert;
-          return regeneratorRuntime.wrap(function _callee10$(_context10) {
-            while (1) switch (_context10.prev = _context10.next) {
+          return regeneratorRuntime.wrap(function _callee12$(_context12) {
+            while (1) switch (_context12.prev = _context12.next) {
               case 0:
-                _context10.next = 2;
+                _context12.next = 2;
                 return this.addController.create({
                   header: 'ERROR',
                   subHeader: subtitleString,
@@ -2304,15 +2386,15 @@
                 });
 
               case 2:
-                alert = _context10.sent;
-                _context10.next = 5;
+                alert = _context12.sent;
+                _context12.next = 5;
                 return alert.present();
 
               case 5:
               case "end":
-                return _context10.stop();
+                return _context12.stop();
             }
-          }, _callee10, this);
+          }, _callee12, this);
         }));
       }
 
@@ -2457,10 +2539,10 @@
       save(name, years_experience) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee13() {
+        regeneratorRuntime.mark(function _callee15() {
           var alert;
-          return regeneratorRuntime.wrap(function _callee13$(_context13) {
-            while (1) switch (_context13.prev = _context13.next) {
+          return regeneratorRuntime.wrap(function _callee15$(_context15) {
+            while (1) switch (_context15.prev = _context15.next) {
               case 0:
                 alert = this.savedata.create({
                   header: 'Are you sure you want to save edits?',
@@ -2469,9 +2551,9 @@
                     text: 'Cancel',
                     handler: data => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
                     /*#__PURE__*/
-                    regeneratorRuntime.mark(function _callee11() {
-                      return regeneratorRuntime.wrap(function _callee11$(_context11) {
-                        while (1) switch (_context11.prev = _context11.next) {
+                    regeneratorRuntime.mark(function _callee13() {
+                      return regeneratorRuntime.wrap(function _callee13$(_context13) {
+                        while (1) switch (_context13.prev = _context13.next) {
                           case 0:
                             this.doctorName = "";
                             this.years_experience = null;
@@ -2481,18 +2563,18 @@
 
                           case 5:
                           case "end":
-                            return _context11.stop();
+                            return _context13.stop();
                         }
-                      }, _callee11, this);
+                      }, _callee13, this);
                     }))
                   }, {
                     text: 'Save',
                     handler: data => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
                     /*#__PURE__*/
-                    regeneratorRuntime.mark(function _callee12() {
+                    regeneratorRuntime.mark(function _callee14() {
                       var token;
-                      return regeneratorRuntime.wrap(function _callee12$(_context12) {
-                        while (1) switch (_context12.prev = _context12.next) {
+                      return regeneratorRuntime.wrap(function _callee14$(_context14) {
+                        while (1) switch (_context14.prev = _context14.next) {
                           case 0:
                             this.notEnable = true;
                             token = this.datastream.getToken();
@@ -2507,23 +2589,23 @@
 
                           case 5:
                           case "end":
-                            return _context12.stop();
+                            return _context14.stop();
                         }
-                      }, _callee12, this);
+                      }, _callee14, this);
                     }))
                   }]
                 });
-                _context13.next = 3;
+                _context15.next = 3;
                 return alert;
 
               case 3:
-                _context13.sent.present();
+                _context15.sent.present();
 
               case 4:
               case "end":
-                return _context13.stop();
+                return _context15.stop();
             }
-          }, _callee13, this);
+          }, _callee15, this);
         }));
       }
 
@@ -2729,6 +2811,54 @@
   },
 
   /***/
+  "./src/app/services/EventEmitterService/event-emitter.service.ts":
+  /*!***********************************************************************!*\
+    !*** ./src/app/services/EventEmitterService/event-emitter.service.ts ***!
+    \***********************************************************************/
+
+  /*! exports provided: EventEmitterService */
+
+  /***/
+  function srcAppServicesEventEmitterServiceEventEmitterServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "EventEmitterService", function () {
+      return EventEmitterService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    let EventEmitterService = class EventEmitterService {
+      constructor() {
+        this.FunctionCaller = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+      }
+
+      OnComponentCall(state) {
+        this.FunctionCaller.emit(state);
+      }
+
+    };
+    EventEmitterService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])], EventEmitterService);
+    /***/
+  },
+
+  /***/
   "./src/app/services/datacommunication/interaction.service.ts":
   /*!*******************************************************************!*\
     !*** ./src/app/services/datacommunication/interaction.service.ts ***!
@@ -2803,18 +2933,18 @@
       getThreadIdfromMessageorConvListtoChat(id) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
         /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee14() {
-          return regeneratorRuntime.wrap(function _callee14$(_context14) {
-            while (1) switch (_context14.prev = _context14.next) {
+        regeneratorRuntime.mark(function _callee16() {
+          return regeneratorRuntime.wrap(function _callee16$(_context16) {
+            while (1) switch (_context16.prev = _context16.next) {
               case 0:
                 this.communication.next(id);
                 console.log(id);
 
               case 2:
               case "end":
-                return _context14.stop();
+                return _context16.stop();
             }
-          }, _callee14, this);
+          }, _callee16, this);
         }));
       }
 

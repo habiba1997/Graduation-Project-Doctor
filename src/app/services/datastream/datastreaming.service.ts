@@ -7,6 +7,7 @@ import { patientData } from 'src/app/model/patientData';
   providedIn: 'root'
 })
 export class DatastreamingService {
+ 
    doctor = new MyDoctor;
    token: string;
    patientList = new Array<patientData>();
@@ -110,8 +111,11 @@ export class DatastreamingService {
     return this.doctor.mobile;
    }
    
+   changeDoctorData(name,years_experience) {
+    this.doctor.years_experience = years_experience;
+    this.doctor.name = name;
+    this.dataStore.saveDoctprLocally(this.doctor);
 
-
-
+  }
 
 }
