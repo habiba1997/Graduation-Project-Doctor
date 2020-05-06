@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { NavigationService } from '../NavService/navigation.service';
 import { timer } from 'rxjs';
 import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
 import { HttpService } from '../HttPService/http.service';
-import { AlertController } from '@ionic/angular';
+import {AlertController, IonContent, IonSegment} from '@ionic/angular';
+
+
 
 
 @Component({
@@ -19,17 +21,25 @@ export class ProfileComponent implements OnInit {
   private myYears:number;
   private notEnable: boolean;
   private code :any;
-  private showSplash: boolean; 
-
+  private showSplash: boolean;
+  private FreeTimes:number[]=[0,1,2,4,5,6,7,8];
+  public showLeftButton: boolean;
+  public showRightButton: boolean;
+  @ViewChild(IonSegment,{static:false}) ionSegment: IonSegment;
   constructor(private navigation:NavigationService,
     private datastream: DatastreamingService,
     private editPatientService: HttpService,
     private savedata:AlertController
-    ) { }
+
+
+) {
+      console.log(this.FreeTimes);
+
+  }
 
   ngOnInit() {
     this.notEnable=true;
-    
+
     this.doctorName =this.datastream.getDoctorName();
    
     this.years_experience=this.datastream.getDoctorYearsOfExperience();
@@ -102,6 +112,7 @@ async save(name: String, years_experience:number){
     });
 
   }
+
       
    
   }
@@ -123,5 +134,14 @@ async save(name: String, years_experience:number){
 
   
  }
+    // Method that shows the next slide
+    public slideNext(): void {
+        console.log("scrolling value ",this.ionSegment.value);
+    }
+
+    // Method that shows the previous slide
+    public slidePrev(): void {
+        this.ionSegment.scrollable.valueOf()
+    }
 
 }

@@ -1,69 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row class="f-row">
+      <ion-col >
+        <ion-grid id="item">
+          <ion-row>
+            <ion-col size="4">
+              <ion-button (click)= "backClick()"  shape="round" color="light" >
+                <ion-icon name="arrow-round-back"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="8">
+              <h1>My Patients</h1>
+            </ion-col>
+          </ion-row>
+
+          <ion-row >
+            <ion-col size="12">
+              <ion-searchbar
+                      (ionInput)="filterList($event)"
+              ></ion-searchbar>
+
+            </ion-col>
+
+
+
+
+          </ion-row>
+        </ion-grid>
+
+
+
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
 <ion-content >
   <div class="background">
 
-  <ion-grid >
-    <ion-row>
-    <ion-button class="back" (click)= "backClick()"  shape="round" color="light">
-              <ion-icon name="arrow-round-back"></ion-icon>
-              
-          </ion-button>
-      <ion-col size="12">
-        <div class="center">
-            <h1 class="middle-text">My Patients</h1>
-        </div>
-        
+    <ion-grid class="grid">
+      <ion-row *ngFor="let item of patientArrayList; let i=index">
+        <ion-grid >
+          <!--        //first nested row-->
+          <ion-row >
+            <ion-col size="12" class="card" >
+              <ion-grid >
+                <!--          //second nested row    -->
+                <ion-row >
+                  <ion-col size="3">
+                    <img  class="small-icon" src="assets/doctor1.jpeg">
+                  </ion-col>
+                  <ion-col size="9">
 
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        
-        <ion-searchbar
-    showCancelButton
-    (ionInput)="filterList($event)"
-  ></ion-searchbar>
+                    <ion-grid  id="item2">
 
-      </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let patient of patientArrayList; let i=index">
-      <ion-grid >
-        <ion-row >
-          <ion-col size="1">
+                      <ion-row >
+                        <h3>{{item.name}}</h3>
+                      </ion-row>
+                      <ion-row>
 
-          </ion-col>
-          <ion-col size="10" class="card" >
-            <ion-grid  >
-              <ion-row >
-                <ion-col size="4">
-                    <img  class="small-icon" src="assets/patient.jpg">
-                </ion-col>
-                <ion-col size="8">
-                  <ion-row>
-                    <div color="dark" >
-                        <p style="font-weight: bold;"color="dark" > {{patient.name}} </p> 
-                        <p > {{patient.mobile}} </p>
-                    </div>
-                  </ion-row>  
-                <!-- </ion-row>
-                Doctor Id: {{item.patientId}} <br> -->
-                 <!-- Age: {{patient.age}} <br>
-                <ion-row>           -->
-                  <!-- <ion-row> {{patient.address}} </ion-row>  -->
+                      </ion-row>
 
-                </ion-col>
+                      <ion-row >
+                        <ion-col size="3"  sizeSm="1" >
 
-                 
-           
+                        </ion-col>
+                        <ion-col sizeLg="9" sizeMd="9" sizeSm="11">
+                          <ion-grid  >
+                            <ion-row >
+                              <ion-col>
+                                <ion-icon class="icon" name="chatboxes" size="large" ></ion-icon>
 
-              </ion-row>
-            </ion-grid>
-            
-          </ion-col>
-          <ion-col size="1">
-       
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+                              </ion-col>
+                              <ion-col>
+                                <ion-icon class="icon" name="call" size="large"></ion-icon>
+                              </ion-col>
+                              <ion-col>
+                                <ion-icon class="icon" name="calendar"size="large"></ion-icon>
+
+                              </ion-col>
+                            </ion-row>
+                          </ion-grid>
+
+
+
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-col>
+
+                </ion-row>
+                <!--              -->
+              </ion-grid>
+
+            </ion-col>
+          </ion-row>
+          <!--        -->
+        </ion-grid>
 
 
 
@@ -73,8 +107,25 @@
 
 
 
-    </ion-row>
-  </ion-grid>
-</div>
+      </ion-row>
+      <!--    -->
+    </ion-grid>
+  </div>
 
 </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
