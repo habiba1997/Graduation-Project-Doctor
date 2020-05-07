@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
 
   }
   backClick(){
-    console.log("must navigate to patient list")
+    console.log("must navigate to patient list");
     this.navigation.navigateTo('home');
 
   }
@@ -134,14 +134,7 @@ async save(name: String, years_experience:number){
 
   
  }
-    // Method that shows the next slide
-    public slideNext(): void {
-        console.log("scrolling value ",this.ionSegment.value);
-    }
 
-    // Method that shows the previous slide
-    public slidePrev(): void {
-        this.ionSegment.scrollable.valueOf()
-    }
+
 
 }

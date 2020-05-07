@@ -1,140 +1,90 @@
-<ion-header class="header">
-    <ion-toolbar>
-        <ion-row class="f-row">
-            <ion-col >
-                <ion-grid id="item">
-                    <ion-row>
-                        <ion-col size="5">
-                            <ion-button (click)= "backClick()"  shape="round" color="light" >
-                                <ion-icon name="arrow-round-back"></ion-icon>
-                            </ion-button>
-                        </ion-col>
-                        <ion-col size="7">
-                            <h1>Profile</h1>
-                        </ion-col>
-                    </ion-row>
-
-                    <ion-row >
-                        <ion-col  size="5">
-
-                            <img  class="profileImage" src="assets/doctor1.jpeg" align-self-sm-center>
-
-                        </ion-col>
-                        <ion-col size="7">
-                            <h1>
-                                {{doctorName}}
-                            </h1>
-                            <p class="disc">Nutrition Consultant at Nutrition Institution-Cairo</p>
-                            <div class="holder">
-                                <img class="docId" src="assets/id.png" >
-                            </div>
-
-                        </ion-col>
-
-                    </ion-row>
-                </ion-grid>
-
-
-
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-
-</ion-header>
-
-
 <ion-content class="cont" >
+    <div *ngIf="showSplash" class="myBackground">
+        <div>
+            <img src="/assets/giphy.gif">
+        </div>
+    </div>
     <ion-grid>
-
-<!--        Icons -->
-        <ion-row class="info">
-            <ion-col size="6" >
-                <div class="info-card" >
-                    <ion-icon   name="call" style="font-size:x-large; padding:10px 5px 5px 0px;"> </ion-icon>
-                    <p class="icon-disc">Phone Call</p>
-                </div>
-            </ion-col>
-                <ion-col size="6" >
-                    <div class="info-card" >
-                        <ion-icon   name="ribbon" style="font-size:x-large;padding:10px 5px 5px 0px;"> </ion-icon>
-                        <p class="icon-disc">Certificate</p>
-                    </div>
-                </ion-col>
-        </ion-row>
-
-        <ion-row class="info">
-            <ion-col size="6" >
-                <div class="info-card" >
-                    <ion-icon   name="chatboxes" style="font-size:x-large;padding:10px 5px 5px 0px;"> </ion-icon>
-                    <p class="icon-disc">Consultations</p>
-                </div>
-            </ion-col>
-            <ion-col size="6" >
-                <div class="info-card" >
-                    <ion-icon   name="cash" style="font-size:x-large;padding:10px 5px 5px 0px;"> </ion-icon>
-                    <p class="icon-disc">Fees: 300 LE</p>
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="info">
-            <ion-col size="6" >
-                <div class="info-card" >
-                    <ion-icon   name="calendar" style="font-size:x-large;padding:10px 5px 5px 0px;"> </ion-icon>
-                    <p class="icon-disc">Book Appointment</p>
-                </div>
-            </ion-col>
-        </ion-row>
-
-<!--        free Slots-->
-            <ion-row  >
-                <p style="color: rgba(0,0,0,0.75);padding-left: 3%;">Today's Free Slots</p>
-                <ion-segment scrollable="true" class="container" >
-                    <ion-col style="padding-right: 5%;" *ngFor="let item of FreeTimes; let i=index">
-                        <div class="card"> <p>10:30 AM To 12:30 PM</p></div>
-                    </ion-col>
-                </ion-segment>
-            </ion-row>
-<!--        -->
-<!--        Locations -->
-        <ion-row>
+        <ion-row class ="myrow" >
             <ion-col size="12">
-                <div class="location">
-                    <p style="font-size: large">Locations </p>
-                    <ion-icon name="pin" size="large"></ion-icon>
+                <div class="wrapper" >
+                    <div class="wave"></div>
+                    <div>
+
+                        <ion-button class="back" (click)= "backClick()"  shape="round" color="sub.severityLevel" style="color:black">
+                            <ion-icon name="arrow-round-back" ></ion-icon>
+
+                        </ion-button>
+                    </div>
+
+                    <div >
+                        <h1 class="centered">
+                            <ion-input clearInput #Name disabled={{notEnable}} (ionChange)="changeName()" #Name [(ngModel)]="myName" floating>
+                                {{doctorName}}
+                            </ion-input>
+                        </h1>
+                        <div class="space">
+                            <ion-avatar class="avat"  >
+                                <img src="assets/images.jpg" >
+                            </ion-avatar>
+                        </div>
+                    </div>
 
                 </div>
-                <ion-list>
-                <ion-item>
-                    <ion-label>Dokki: 17 Mesaha st,Cairo,Egypt</ion-label>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Misr Gdeda: 17 Marghany st,Cairo,Egypt</ion-label>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Mohandeseen: 17 Mesaha st,Cairo,Egypt</ion-label>
-                </ion-item>
-                </ion-list>
             </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col>
+            <ion-col size="6">
+                <div class="Srow">
 
+                    <ion-item color="sub.severityLevel" >
+                        <ion-icon name="business" class="pad"></ion-icon>
+
+                        <ion-input  clearInput  [(ngModel)]="myYears" (ionChange)="changeExp()" #Years  disabled={{notEnable}}  floating>
+                            Years of Experience: {{years_experience}}
+                        </ion-input>
+
+                    </ion-item>
+
+                    <ion-item  color="sub.severityLevel" >
+                        <ion-icon name="call" class="pad"></ion-icon>
+                        <ion-label>
+                            Mobile: {{mobile}}
+                        </ion-label>
+                    </ion-item>
+
+                    <ion-item  color="sub.severityLevel" >
+                        <ion-icon name="alarm" class="pad"></ion-icon>
+                        <ion-label>
+                            Coming session Date:12/12/2019
+                        </ion-label>
+                        <ion-icon name="construct" ></ion-icon>
+                    </ion-item>
+
+                    <ion-item color="sub.severityLevel" >
+                        <ion-icon name="clock" class="pad"></ion-icon>
+
+                        Latest session Date:12/12/2019
+
+                    </ion-item>
+
+
+                </div>
             </ion-col>
         </ion-row>
+        <ion-row class="edit">
+            <ion-col size="4">
+                <ion-button shape="round" (click)="edit()" color="sub.severityLevel" style="color:black"> Edit </ion-button>
+            </ion-col>
+            <ion-col size="4" class="cancel">
+                <ion-button  shape="round" (click)="save(Name.value,Years.value)" color="sub.severityLevel" style="color:black"> Save </ion-button>
+            </ion-col>
+            <ion-col size ="4" class="fab">
+                <app-fab></app-fab>
 
+            </ion-col>
 
-
+        </ion-row>
 
     </ion-grid>
-
-<div *ngIf="showSplash" class="myBackground">
-    <div>
-    <img src="/assets/giphy.gif">
-</div> 
-</div>
-    <div class="fab">
-        <app-fab></app-fab>
-    </div>
-  </ion-content>
-  
-
+</ion-content>
