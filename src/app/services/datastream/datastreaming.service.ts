@@ -28,7 +28,7 @@ export class DatastreamingService {
     patient.mobile = element[3];
     patient.age = element[4];
     patient.address = element[5];
-    patient.relationId=element[6];
+    patient.relationid=element[6];
     
     this.patientList.push(patient);
   }

@@ -68,20 +68,7 @@ export class AppComponent {
                that.datastream.setToken(token);
                
                 //recieveing Token For Development Only FOR NOW
-                this.fcm.getToken().then((fcmtoken)=>{
-                  this.http.editFCMToken(fcmtoken, token).subscribe((data)=>
-                  {
-                    console.log(JSON.stringify(data));
-                  }, 
-                  err=>{
-                    alert("Haven't Updated FCM Token");
-
-                  });
-
-                },
-                (err)=>{
-                  alert("ERROR in getting FCM token: "+JSON.stringify(err));
-                });
+                this.http.editFCMToken();
             })
             await this.datastore.getPatientList().then((doctorList)=>{
                that.datastream.restoreStreamDatalist(doctorList); 

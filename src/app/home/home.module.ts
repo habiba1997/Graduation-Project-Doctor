@@ -73,7 +73,8 @@ import { AutosizeModule } from 'ngx-autosize';
     NavigationService,
     HttpService, 
   ],
-  declarations: [HomePage,
+  declarations: [
+    HomePage,
     PatientListComponent,
     TabComponent,
     FabComponent,

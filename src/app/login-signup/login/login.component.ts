@@ -3,9 +3,6 @@ import { NavigationService } from 'src/app/home/NavService/navigation.service';
 import { HttpService } from 'src/app/home/HttPService/http.service';
 import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
 import { MenuController } from '@ionic/angular';
-import { AlertController} from '@ionic/angular';
-import { timer } from 'rxjs';
-import { FCM } from '@ionic-native/fcm/ngx';
 
 @Component({
   selector: 'app-login',
@@ -13,15 +10,13 @@ import { FCM } from '@ionic-native/fcm/ngx';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  showSplash: boolean;
+  showSplash: boolean=false;
 
   constructor(
     private nav:NavigationService,
      private http: HttpService,
      private datastream : DatastreamingService,
      private men:MenuController,
-     private addController : AlertController,
-     private fcm: FCM,
      
     ) { }
  
@@ -40,36 +35,20 @@ export class LoginComponent implements OnInit {
     mobile= "+20"+mobile;
     this.http.Login(mobile, password).subscribe( 
        
-       res=>{
-         // timer
+      tokenObj=>{    
         this.showSplash = true;
+
+         // timer
         // timer
-        timer(10000).subscribe(()=> this.showSplash = false);
-
+        // timer(10000).subscribe(()=> this.showSplash = false);
         //recieveing Token For Development Only FOR NOW
-        this.fcm.getToken().then((fcmtoken)=>{
-          this.http.editFCMToken(fcmtoken, res.token).subscribe((data)=>
-          {
-            console.log(JSON.stringify(data));
-          }, 
-          err=>{
-            alert("ERROR in updating FCM token: "+JSON.stringify(err));
-
-          });
-
-        },
-        (err)=>{
-          alert("ERROR in getting FCM token: "+JSON.stringify(err));
-        });
-
-        //Use Token To get Doctor Data
-        console.log("Token: "+res.token);
-        this.datastream.setToken(res.token);
+        console.log("Token: ",tokenObj.token);
+        this.datastream.setToken(tokenObj.token);
+        this.http.editFCMToken();
         
-        this.http.getDoctorUsingToken(res.token).subscribe(
+        this.http.getDoctorUsingToken().subscribe(
             doctordata =>
             {
-                console.log("doctor: "+JSON.stringify(doctordata));
                 that.datastream.setDoctor(doctordata.mydoctor);
                 this.datastream.clearPatientList();
                 doctordata.patientArrayList.forEach(element => {
@@ -79,32 +58,25 @@ export class LoginComponent implements OnInit {
             that.nav.navigateTo('home');
           },
           err => {
-             this.presentAlert('HTTP Doctor Data Error: ', err.error.message);
+            this.showSplash = false;
+             alert('HTTP Doctor Data Error: ' + err.error.message);
             
           },
-          () => console.log('HTTP get Doctor data request completed.')
+          () => {
+            this.showSplash = false;
+            console.log('HTTP get patient data request completed.');
+            console.log("patientData.doctorsArrayList: ",that.datastream.getPatientList());
+            console.log("patientData.myPatient Name: ",that.datastream.getDoctorName());
+            that.nav.navigateTo('home');
+          }
 
         )
       }, 
-      err =>{
-        this.presentAlert('HTTP Login Error: ', err.error.message);
-        
-      },
+      err =>alert('HTTP Login Error: '+ err.error.message),
       () => console.log('HTTP Login request completed.')
       
      );
    }
-
-    async presentAlert(subtitleString:string,messageString:string) {
-      const alert = await this.addController.create({
-        header: 'ERROR',
-        subHeader: subtitleString,
-        message: messageString,
-        buttons: ['OK']
-      });
-  
-      await alert.present();
-    }
 
     backClick(){
       this.nav.navigateTo('cover');

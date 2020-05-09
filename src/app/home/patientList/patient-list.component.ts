@@ -27,17 +27,11 @@ export class PatientListComponent implements OnInit {
   ngOnInit(){}
   ionViewWillEnter() {
     let that = this;
-    let token = this.datastream.getToken();
-    this.http.getPatientList(token)
-    .subscribe(
-      async response=>{
-        this.datastream.clearPatientList();
-        await response.forEach(element => {
-          this.datastream.addToPatientList(element);
-        }); 
-        this.patientRow = this.datastream.getPatientList();
-        this.patientArrayList = this.patientRow;
-        console.log("patient list ",this.patientRow);
+    this.datastream.clearPatientList();
+    this.http.getPatientList().subscribe(
+      (patient)=>{
+        
+        this.datastream.patientList.push(patient);
                         
       }, 
       err =>
@@ -50,10 +44,12 @@ export class PatientListComponent implements OnInit {
           errorMessage=err.error.message;
         }
         console.log('HTTP Patient List Error: ', errorMessage);
-        this.presentAlert('HTTP Error: ',errorMessage);
+        alert('HTTP Error: '+ errorMessage);
       },
       () => 
       {
+        this.patientRow = this.datastream.getPatientList();
+        this.patientArrayList = this.patientRow;
         this.datastream.savePatientListToDataStore();
         console.log('HTTP request completed.');
       }
@@ -94,14 +90,5 @@ export class PatientListComponent implements OnInit {
 
 
 
-  async presentAlert(subtitleString:string,messageString:string) {
-    const alert = await this.addController.create({
-      header: 'ERROR',
-      subHeader: subtitleString,
-      message: messageString,
-      buttons: ['OK']
-    });
-
-    await alert.present();
-  }
+ 
 }

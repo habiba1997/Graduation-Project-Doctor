@@ -4,7 +4,6 @@ import { NavigationService } from './NavService/navigation.service';
 import { DatastreamingService } from '../services/datastream/datastreaming.service';
 import { AlertController, ActionSheetController} from '@ionic/angular';
 import { HttpService } from './HttPService/http.service';
-import { InteractionService } from '../services/datacommunication/interaction.service';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class HomePage  {
   // doctorName: String;
   val: string;
   // timer
-  showSplash 
+  showSplash:boolean=false;
   constructor(
     private navigation:NavigationService, 
     private datastream: DatastreamingService, 
@@ -87,28 +86,29 @@ getDocList()
         let  mobile = data.val.replace(/^0+/, '');
         mobile= "+20"+mobile;
         console.log("Phone Number: " + mobile);
-        this.http.addPatient(mobile,token).subscribe(
+        this.http.addPatient(mobile).subscribe(
           response=>{
                console.log("resoince add");
-              //  this.showSplash = true;
-              //  timer(10000).subscribe(()=> this.showSplash = false);
+               this.showSplash = true;
                console.log('HTTP request completed.'+ response.toString());
           }, 
             err =>
-            { let errorMessage ="";
-            if(err.error.message==null)
-            {
-              errorMessage   = "Error in Connection";
-            }
-            else{
-              errorMessage=err.error.message;
-            }
-            console.log('HTTP Add Patient Error: ', errorMessage);
-            this.presentAlert('HTTP Error: ',errorMessage);
-            // this.presentAlert('HTTP Add Patient Error: ', err.error.message);
+            { 
+              this.showSplash = false;
+              let errorMessage ="";
+              if(err.error.message==null)
+              {
+                errorMessage   = "Error in Connection";
+              }
+              else{
+                errorMessage=err.error.message;
+              }
+              console.log('HTTP Add Patient Error: ', errorMessage);
+              this.presentAlert('HTTP Error: ',errorMessage);
           },
            () => 
           {
+            this.showSplash = false;
             console.log('HTTP to ADD Patient request completed.');
             this.navigation.navigateTo('home/doctorList')
           }

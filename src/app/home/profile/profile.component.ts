@@ -84,11 +84,10 @@ async save(name: String, years_experience:number){
       handler: async data => {
          
         this.notEnable=true;
-        const token = this.datastream.getToken();
         console.log("myName "+ name);
         console.log("myYears "+ years_experience);
       
-    this.editPatientService.editDoctorProfile(name,years_experience,token).subscribe(
+    this.editPatientService.editDoctorProfile(name,years_experience).subscribe(
        response=>{
       // this.datastream.setToken(response.token);
       console.log("http request to Change patient Data: "+ JSON.stringify(response));
