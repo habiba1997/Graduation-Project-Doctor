@@ -81,7 +81,6 @@ async CreateNew(){
     
   const actionSheet = await this.patList.create({
     header: 'You want to send message to:',
-    
      buttons:  actionSheetButtons 
 
       //buttons: [{

@@ -5,6 +5,7 @@ import { NavigationService } from '../NavService/navigation.service';
 import { patientData } from 'src/app/model/patientData';
 import { HttpService } from '../HttPService/http.service';
 import { AlertController} from '@ionic/angular';
+import {InteractionService} from "../../services/datacommunication/interaction.service";
 
 
 @Component({
@@ -20,7 +21,8 @@ export class PatientListComponent implements OnInit {
   constructor(private datastream : DatastreamingService, 
     private navigation : NavigationService, 
     private addController : AlertController,
-    private http: HttpService
+    private http: HttpService,
+              private dataShare:InteractionService
     ) {
       // this.patientRow = this.datastream.getPatientList();      
      } 
@@ -90,6 +92,11 @@ export class PatientListComponent implements OnInit {
   backClick(){
     this.navigation.navigateTo('home');
 
+  }
+  consultDoc(item:patientData){
+    this.dataShare.sendDoctorNamefromconvtoMessage(item);
+    console.log("doctor data from profile"+item);
+    this.navigation.navigateTo("home/message");
   }
 
 
