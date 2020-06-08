@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationService } from '../NavService/navigation.service';
+import {DatastreamingService} from "../../services/datastream/datastreaming.service";
 
 @Component({
   selector: 'app-fab',
@@ -8,7 +9,7 @@ import { NavigationService } from '../NavService/navigation.service';
 })
 export class FabComponent implements OnInit {
 
-  constructor(private navigation:NavigationService) { }
+  constructor(private navigation:NavigationService,    private datastream : DatastreamingService,) { }
 
   ngOnInit() {}
   // vitalClick(){
@@ -29,6 +30,7 @@ export class FabComponent implements OnInit {
   }
 
   outClick(){
+    this.datastream.clearData();
     this.navigation.navigateTo('cover');
     console.log("trainer list")
   }

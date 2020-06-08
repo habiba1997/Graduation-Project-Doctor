@@ -1,4 +1,4 @@
-import { Component,ViewChild, ElementRef, OnInit } from '@angular/core';
+import {Component, ViewChild, ElementRef, OnInit, OnDestroy, ChangeDetectorRef} from '@angular/core';
 import { HttpService } from '../HttPService/http.service';
 import { Iconvs, Reply } from 'src/app/model/conv';
 import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
@@ -14,8 +14,8 @@ import {EventEmitterService} from "../../services/EventEmitterService/event-emit
   templateUrl: './conv-list.component.html',
   styleUrls: ['./conv-list.component.scss'],
 })
-export class ConvListComponent implements OnInit  {
-  private convList:Iconvs[];
+export class ConvListComponent implements OnInit , OnDestroy {
+  private convList: any[];
   private docId:number;
   private page:number;
   private scrollPosition:number;
@@ -28,7 +28,7 @@ export class ConvListComponent implements OnInit  {
       private DoctortData: DatastreamingService,
       private navigation: NavigationService,
       private eventEmitterService: EventEmitterService,
-      private dateInteraction: InteractionService, private addController: AlertController) {
+      private dateInteraction: InteractionService, private addController: AlertController,private detectChange: ChangeDetectorRef) {
 
     console.log('convlist constructor');
   }
@@ -53,27 +53,32 @@ export class ConvListComponent implements OnInit  {
     }).then(() => {
       console.log('doctor id form convlist', this.docId);
       this.GetData(0);
+      this.state=0;
       // at the fist time we need to assign the part of code we need to invoke every time the event emitter emits value
       // tslint:disable-next-line:triple-equals
       if (this.eventEmitterService.Subscribtion == undefined) {
         console.log('subscribing to the event emitter');
         // when the event emitter emits new value only the part of the code that the subscriber hold will be invoked
         this.eventEmitterService.Subscribtion = this.eventEmitterService.FunctionCaller.subscribe((state: number) => {
+          this.state=state;
           this.GetData(state);
           console.log('event emitter listener invoked');
         });
       }
 
 
-    }).catch((err) => this.presentAlert('data stream error', err.message));
+    }).catch((err) => this.presentAlert('data stream error', err.message))
+        .finally(()=>{this.detectChange.detectChanges();console.log("finally");});
 
 
+  }
+  ngOnDestroy(): void {
+    this.eventEmitterService.Subscribtion=undefined;
   }
 
   ionViewWillEnter() {
 
     console.log('convlist ion view will enter');
-    console.log('this.scrolling', this.scrollPosition);
   }
 
 
@@ -83,20 +88,31 @@ export class ConvListComponent implements OnInit  {
     if (state == 0) {
       console.log('page', this.page);
       console.log('interaction works');
-      this.httpService.getInbox(this.docId, this.page).subscribe((res) => {
-        console.log('inbox ', res);
-        this.convList = res;
-        console.log('list ', this.convList);
-      }, error1 => this.presentAlert('http error get inbox', error1.message));
+      this.httpService.getInbox(this.docId, this.page).subscribe(res=>{
+            if(res.length){
+              this.convList=res;
+
+            }else {
+              this.convList=[res];
+
+            }
+
+            console.log("Get Inbox res",res)
+            ;this.detectChange.detectChanges();},
+          error1 =>{ alert("http error get inbox"+error1);console.log("error",error1);});
     } else {
       console.log('page', this.page);
-      this.httpService.getSent(this.docId, this.page).subscribe((res) => {
-        console.log('sent ', res);
-        this.convList = res;
-        console.log('list sent', this.convList);
+      this.httpService.getSent(this.docId, this.page).subscribe(res=>{
+            if(res.length){
+              this.convList=res;
 
-
-      }, error1 => this.presentAlert('http error get sent', error1.message));
+            }
+            else {
+              this.convList=[res];
+            }
+            console.log("Get sent res",res);
+            this.detectChange.detectChanges();}
+          , error1 => this.presentAlert('http error get sent', error1));
     }
 
   }
@@ -112,6 +128,20 @@ export class ConvListComponent implements OnInit  {
     });
 
     await alert.present();
+  }
+  doRefresh(event) {
+    console.log('Begin async operation');
+    new Promise((resolve, reject) => {
+      console.log("state",this.state);
+      this.GetData(this.state);
+      console.log('Async operation has ended');
+      resolve();
+
+    }).then(()=>{event.target.complete();this.detectChange.detectChanges();});
+
+
+
+
   }
 
 
@@ -198,14 +228,17 @@ export class ConvListComponent implements OnInit  {
     console.log('REPLIESSSS IN CONVLIST');
     console.log('Thread ID: ', thread.thread_id);
 
-    this.httpService.getReplies(thread.thread_id, 0).subscribe((res) => {
+    await this.httpService.getReplies(thread.thread_id, 0).subscribe((res) => {
 
-      this.dateInteraction.sendMSG(res);
+      let newThread={
+        newMessages:res,
+        thread:thread,
+        thread_id:thread.thread_id
+      };
+      this.dateInteraction.sendMSG(newThread);
       console.log('replies', res);
+      this.navigation.navigateTo('home/chat');
 
-      this.dateInteraction.getThreadIdfromMessageorConvListtoChat(thread).then(() => {
-        this.navigation.navigateTo('home/chat');
-      });
 
     });
 

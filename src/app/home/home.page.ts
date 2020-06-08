@@ -17,7 +17,7 @@ export class HomePage  {
   // doctorName: String;
   val: string;
   // timer
-  showSplash 
+  showSplash :boolean;
   constructor(
     private navigation:NavigationService, 
     private datastream: DatastreamingService, 
@@ -36,11 +36,7 @@ getDocList()
   console.log("Token to get patient list in home page: ",token);
 }
     
-  clear()
-  {
-        this.datastream.clearData();
-        this.navigation.navigateTo('cover');
-  }
+
 
     
   NavigateMe(path:string){
@@ -87,7 +83,7 @@ getDocList()
         let  mobile = data.val.replace(/^0+/, '');
         mobile= "+20"+mobile;
         console.log("Phone Number: " + mobile);
-        this.http.addPatient(mobile,token).subscribe(
+        this.http.addPatient(mobile).subscribe(
           response=>{
                console.log("resoince add");
               //  this.showSplash = true;

@@ -35,7 +35,7 @@ export class MessageComponent implements OnInit {
   private data :Reply;
   private doctorId:number;
   private thread:newMessage;
-  
+  private thread_id:number;
   private patientRow : patientData;
   private doctorName : String;
 
@@ -121,8 +121,8 @@ export class MessageComponent implements OnInit {
   //  console.log("data"+this.data.sender_id)
    this.httpService.postThread(this.thread,this.doctorId).subscribe((res)=>{
     console.log("new thread data",res);
-     
-    this.interactiveCommunication.getThreadIdfromMessageorConvListtoChat(res.insertId);
+    this.thread_id=res.insertId;
+
      
 
      console.log("hey tehre:", this.data);
@@ -139,7 +139,13 @@ export class MessageComponent implements OnInit {
    });
 
   //send message content to chat component
-  this.interactiveCommunication.sendMSG(this.newMessages);
+        let newThread={
+            newMessages:this.newMessages,
+            thread:this.thread,
+            thread_id:this.thread_id
+        };
+
+  this.interactiveCommunication.sendMSG(newThread);
   console.log("NAVIGATIOM");
 
   }

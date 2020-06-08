@@ -344,7 +344,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n            <ion-header >\r\n            <ion-toolbar class=\"header\">\r\n                <ion-buttons slot=\"start\">\r\n                <ion-button (click)=\"back()\" >\r\n                        <ion-icon name=\"arrow-round-back\"></ion-icon>\r\n                                   Back\r\n                               </ion-button>\r\n                </ion-buttons>\r\n                \r\n                <ion-buttons slot=\"end\">\r\n                \r\n                 <ion-button (click)=\"CreateNew()\">\r\n                  <ion-col class=\"Floating-icon\" (click)=\"CreateNew()\">\r\n                    <ion-icon name=\"create\" size=\"large\"  ></ion-icon>\r\n                                   </ion-col>\r\n                                    Create new\r\n                               </ion-button>\r\n                              \r\n                \r\n                   \r\n               \r\n                  \r\n                </ion-buttons>\r\n                \r\n                \r\n            </ion-toolbar>\r\n            <ion-toolbar>\r\n                <ion-grid>\r\n                        <ion-row>\r\n                             <ion-col size=\"8\">\r\n                                       <ion-title>My Consultations</ion-title>\r\n                                  </ion-col>\r\n                             <ion-col size=\"4\">\r\n                                       <img class=\"vital\" src=\"assets/vitals_n.png\" class=\"Floating-icon\">\r\n                                 </ion-col>     \r\n                            </ion-row>\r\n                         </ion-grid>\r\n\r\n               </ion-toolbar>\r\n\r\n            <ion-toolbar>\r\n            <ion-grid>\r\n                <ion-row>\r\n                    <ion-col size=\"6\" class=\"middle-text\">\r\n                            <ion-title (click)=\"inbox()\">Inbox</ion-title>\r\n\r\n                           </ion-col>\r\n                    <ion-col size=\"6\" class=\"middle-text\">\r\n                            <ion-title (click)=\"sent()\">Sent</ion-title>\r\n\r\n                           </ion-col>\r\n                    </ion-row>\r\n              </ion-grid>\r\n               \r\n            </ion-toolbar>\r\n            </ion-header>\r\n  \r\n <ion-content>\r\n  <ion-app>    \r\n\r\n  <ion-router-outlet></ion-router-outlet>  \r\n\r\n                </ion-app>\r\n                    </ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n            <ion-header >\r\n            <ion-toolbar class=\"header\">\r\n                \r\n                <ion-buttons slot=\"end\">\r\n                \r\n                 <ion-button (click)=\"CreateNew()\">\r\n                  <ion-col class=\"Floating-icon\" (click)=\"CreateNew()\">\r\n                    <ion-icon name=\"create\" size=\"large\"  ></ion-icon>\r\n                                   </ion-col>\r\n                                    Create new\r\n                               </ion-button>\r\n                              \r\n                \r\n                   \r\n               \r\n                  \r\n                </ion-buttons>\r\n                \r\n                \r\n            </ion-toolbar>\r\n            <ion-toolbar>\r\n                <ion-grid>\r\n                        <ion-row>\r\n                             <ion-col size=\"8\">\r\n                                       <ion-title>My Consultations</ion-title>\r\n                                  </ion-col>\r\n                             <ion-col size=\"4\">\r\n                                       <img class=\"vital\" src=\"assets/vitals_n.png\" class=\"Floating-icon\">\r\n                                 </ion-col>     \r\n                            </ion-row>\r\n                         </ion-grid>\r\n\r\n               </ion-toolbar>\r\n\r\n            <ion-toolbar>\r\n            <ion-grid>\r\n                <ion-row>\r\n                    <ion-col size=\"6\" class=\"middle-text\">\r\n                            <ion-title (click)=\"inbox()\">Inbox</ion-title>\r\n\r\n                           </ion-col>\r\n                    <ion-col size=\"6\" class=\"middle-text\">\r\n                            <ion-title (click)=\"sent()\">Sent</ion-title>\r\n\r\n                           </ion-col>\r\n                    </ion-row>\r\n              </ion-grid>\r\n               \r\n            </ion-toolbar>\r\n            </ion-header>\r\n  \r\n <ion-content>\r\n  <ion-app>    \r\n\r\n  <ion-router-outlet></ion-router-outlet>  \r\n\r\n                </ion-app>\r\n                    </ion-content>\r\n");
 
 /***/ }),
 
@@ -370,7 +370,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n<div *ngIf=\"showSplash\" class=\"myBackground\">\r\n    <div>\r\n    <img src=\"/assets/giphy.gif\">\r\n</div> \r\n</div> \r\n  <ion-grid class=\"background\">\r\n    <ion-row>\r\n      <ion-col >\r\n          <ion-button  (click)= \"clear()\" color=\"light\" shape =\"round\" >\r\n              <ion-icon name=\"arrow-round-back\"></ion-icon>\r\n              Logout\r\n              </ion-button>\r\n            <!-- <img class =\"icon\"src=\"assets/talin.png\" > -->\r\n  \r\n            <div class=\"center\">\r\n\r\n              <ion-avatar class=\"avat\" >\r\n                  <img src=\"assets/talin.png\" (click)=\"NavigateMe('home/Myprofile')\">\r\n             </ion-avatar>\r\n            </div>\r\n            <!-- <h1 class=\"middle-text user-name\">{{doctorName}}</h1> -->\r\n  \r\n              \r\n      </ion-col>\r\n\r\n    </ion-row>\r\n  </ion-grid >\r\n  <ion-row class=\"main-card\">\r\n    <ion-grid>\r\n      <ion-row>\r\n          <ion-col col-6 >\r\n              <div class=\"mini-card\" (click)=\"NavigateMe('home/doctorList')\" >\r\n                <div class=\"center\" >\r\n                    <img class=\"icon\" src=\"assets/vitals2.png\">\r\n\r\n                </div>\r\n                \r\n                <div class=\"middle-text\">\r\n                  Patient List\r\n                </div>\r\n\r\n                  \r\n              </div>\r\n            </ion-col>\r\n            <ion-col col-6 >\r\n              <div  class=\"mini-card\" (click)=\"addPatient()\">\r\n                  <div class=\"center\" >\r\n                      <img class=\"icon\" src=\"assets/addDoc.jpeg\">\r\n  \r\n                  </div>\r\n                  \r\n                  <div class=\"middle-text\">\r\n                     Add Patient\r\n                  </div>\r\n              </div>\r\n            </ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n          <ion-col col-6 >\r\n              <div class=\"mini-card\" (click)=\"NavigateMe('home/conversation')\">\r\n                  <div class=\"center\" >\r\n                      <img class=\"icon\" src=\"assets/message.png\">\r\n  \r\n                  </div>\r\n                  \r\n                  <div class=\"middle-text\">\r\n                     Conversations\r\n                  </div>\r\n              </div>\r\n            </ion-col>\r\n            <ion-col col-6 >\r\n              <div  class=\"mini-card\" (click)=\"newMessage(NavigateMe('home/message'))\" >\r\n                  <div class=\"center\" >\r\n                      <img class=\"icon\" src=\"assets/message.png\">\r\n  \r\n                  </div>\r\n                  \r\n                  <div class=\"middle-text\">\r\n                     New Message\r\n                  </div>\r\n              </div>\r\n            </ion-col>\r\n\r\n      </ion-row>\r\n      \r\n    </ion-grid>\r\n  </ion-row>\r\n\r\n   <app-fab></app-fab>\r\n\r\n\r\n\r\n</ion-content>\r\n<!-- <ion-content>\r\n  <ion-grid>\r\n    <ion-row>\r\n          \r\n              <app-tab>\r\n          \r\n              </app-tab>\r\n            \r\n     \r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content> -->\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n<div *ngIf=\"showSplash\" class=\"myBackground\">\r\n    <div>\r\n    <img src=\"/assets/giphy.gif\">\r\n</div> \r\n</div> \r\n  <ion-grid class=\"background\">\r\n    <ion-row>\r\n      <ion-col >\r\n\r\n            <!-- <img class =\"icon\"src=\"assets/talin.png\" > -->\r\n  \r\n            <div class=\"center\">\r\n\r\n              <ion-avatar class=\"avat\" >\r\n                  <img src=\"assets/talin.png\" (click)=\"NavigateMe('home/Myprofile')\">\r\n             </ion-avatar>\r\n            </div>\r\n            <h1 class=\"middle-text user-name\">{{datastream.doctor.name}}</h1>\r\n  \r\n              \r\n      </ion-col>\r\n\r\n    </ion-row>\r\n  </ion-grid >\r\n  <ion-row class=\"main-card\">\r\n    <ion-grid>\r\n      <ion-row>\r\n          <ion-col col-6 >\r\n              <div class=\"mini-card\" (click)=\"NavigateMe('home/doctorList')\" >\r\n                <div class=\"center\" >\r\n                    <img class=\"icon\" src=\"assets/vitals2.png\">\r\n\r\n                </div>\r\n                \r\n                <div class=\"middle-text\">\r\n                  Patient List\r\n                </div>\r\n\r\n                  \r\n              </div>\r\n            </ion-col>\r\n            <ion-col col-6 >\r\n              <div  class=\"mini-card\" (click)=\"addPatient()\">\r\n                  <div class=\"center\" >\r\n                      <img class=\"icon\" src=\"assets/addDoc.jpeg\">\r\n  \r\n                  </div>\r\n                  \r\n                  <div class=\"middle-text\">\r\n                     Add Patient\r\n                  </div>\r\n              </div>\r\n            </ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n          <ion-col col-6 >\r\n              <div class=\"mini-card\" (click)=\"NavigateMe('home/conversation')\">\r\n                  <div class=\"center\" >\r\n                      <img class=\"icon\" src=\"assets/message.png\">\r\n  \r\n                  </div>\r\n                  \r\n                  <div class=\"middle-text\">\r\n                     Conversations\r\n                  </div>\r\n              </div>\r\n            </ion-col>\r\n            <ion-col col-6 >\r\n              <div  class=\"mini-card\" (click)=\"newMessage(NavigateMe('home/message'))\" >\r\n                  <div class=\"center\" >\r\n                      <img class=\"icon\" src=\"assets/message.png\">\r\n  \r\n                  </div>\r\n                  \r\n                  <div class=\"middle-text\">\r\n                     New Message\r\n                  </div>\r\n              </div>\r\n            </ion-col>\r\n\r\n      </ion-row>\r\n      \r\n    </ion-grid>\r\n  </ion-row>\r\n\r\n   <app-fab></app-fab>\r\n\r\n\r\n\r\n</ion-content>\r\n<!-- <ion-content>\r\n  <ion-grid>\r\n    <ion-row>\r\n          \r\n              <app-tab>\r\n          \r\n              </app-tab>\r\n            \r\n     \r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content> -->\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -383,7 +383,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content >\r\n <ion-grid class= \"cont\" >\r\n  <ion-row>\r\n       <ion-toolbar align-items-center>   \r\n        Send A New Message to: Dr. {{Reciever_from_pat_list}}\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\r\n    </ion-buttons>\r\n    \r\n      </ion-toolbar>\r\n    \r\n   </ion-row>\r\n    <ion-row > \r\n     <ion-col size=\"10\">\r\n     <ion-item>\r\n      <ion-input [(ngModel)]=\"Subject_from_input\" placeholder=\"Type your Subject here...\" class=\"sub\"> </ion-input>\r\n      </ion-item>\r\n     </ion-col>\r\n     </ion-row>\r\n\r\n     <ion-row>\r\n       <ion-col size =\"12\">\r\n          \r\n        <div class=\"loader\">\r\n           <div > \r\n               <img src=\"assets/chat.png\" >\r\n\r\n           </div>\r\n               \r\n        </div>\r\n    \r\n       </ion-col>\r\n     </ion-row>\r\n     \r\n   \r\n   <ion-row class=\"spaces\" align-items-center no-padding no-margin>\r\n     <ion-col size=\"10\">\r\n        <ion-item>\r\n            <ion-textarea [(ngModel)]=\"Content_from_text_area\" placeholder=\"Type your Message here...\"  cols =\"8\" rows=\"2\" class=\"typing\"></ion-textarea>\r\n        </ion-item>\r\n     </ion-col>\r\n     <ion-col size=\"2\">\r\n     <ion-button class=\"btn\" color=\"sub.severityLevel\" (click)=\"send()\">\r\n        <ion-icon name=\"paper-plane\" ></ion-icon>\r\n        </ion-button>\r\n     </ion-col>\r\n   </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content >\r\n <ion-grid class= \"cont\" >\r\n  <ion-row>\r\n       <ion-toolbar align-items-center>   \r\n        Send A New Message to: {{Reciever_from_pat_list}}\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\r\n    </ion-buttons>\r\n    \r\n      </ion-toolbar>\r\n    \r\n   </ion-row>\r\n    <ion-row > \r\n     <ion-col size=\"10\">\r\n     <ion-item>\r\n      <ion-input [(ngModel)]=\"Subject_from_input\" placeholder=\"Type your Subject here...\" class=\"sub\"> </ion-input>\r\n      </ion-item>\r\n     </ion-col>\r\n     </ion-row>\r\n\r\n     <ion-row>\r\n       <ion-col size =\"12\">\r\n          \r\n        <div class=\"loader\">\r\n           <div > \r\n               <img src=\"assets/chat.png\" >\r\n\r\n           </div>\r\n               \r\n        </div>\r\n    \r\n       </ion-col>\r\n     </ion-row>\r\n     \r\n   \r\n   <ion-row class=\"spaces\" align-items-center no-padding no-margin>\r\n     <ion-col size=\"10\">\r\n        <ion-item>\r\n            <ion-textarea [(ngModel)]=\"Content_from_text_area\" placeholder=\"Type your Message here...\"  cols =\"8\" rows=\"2\" class=\"typing\"></ion-textarea>\r\n        </ion-item>\r\n     </ion-col>\r\n     <ion-col size=\"2\">\r\n     <ion-button class=\"btn\" color=\"sub.severityLevel\" (click)=\"send()\">\r\n        <ion-icon name=\"paper-plane\" ></ion-icon>\r\n        </ion-button>\r\n     </ion-col>\r\n   </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n</ion-content>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/patient-profile/patient-profile.component.html":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/patient-profile/patient-profile.component.html ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"spinnerState\" class=\"myBackground\">\n  <div>\n    <img src=\"/assets/giphy.gif\">\n  </div>\n</div>\n<ion-header no-border  >\n  <ion-toolbar text-center >\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>My Navigation Bar</ion-title>\n  </ion-toolbar>\n  <ion-toolbar text-center>\n    <div class=\"profile-img-frame\">\n    <div class=\"profile-img-holder\">\n      <img  class=\"profile-img\" src=\"assets/doctor1.jpeg\" alt=\"profile image\">\n    </div>\n    </div>\n    <ion-title>{{patientData.name}} </ion-title>\n  </ion-toolbar>\n    <ion-toolbar style=\"border-bottom-left-radius: 5%; border-bottom-right-radius: 5% \">\n    <div>\n      <ion-grid>\n        <ion-row>\n          <ion-col>\n            <div class=\"element\">\n              <ion-icon class=\"icon\" name=\"chatboxes\" size=\"large\" (click)=\"consultDoc()\"></ion-icon>\n            </div>\n          </ion-col>\n          <ion-col>\n            <div class=\"element\">\n              <ion-icon class=\"icon\" name=\"call\" size=\"large\" ></ion-icon>\n            </div>\n\n          </ion-col>\n          <ion-col>\n            <div class=\"element\">\n              <ion-icon class=\"icon\" name=\"calendar\" size=\"large\" ></ion-icon>\n            </div>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </div>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">My Navigation Bar</ion-title>\n    </ion-toolbar>\n  </ion-header>\n<!--  ////////////////////////////////////////////////////////////////-->\n  <div class=\"personal-data\" style=\"margin-top: 2%\"  >\n    <ion-grid>\n      <ion-row>\n        <ion-col style=\"border-right: 1px solid rgba(0,0,0,0.75);\">\n            <ion-item lines=\"none\" text-center>\n              <ion-avatar slot=\"start\">\n                <ion-icon name=\"person\" size=\"large\" style=\"color: #2cc67b\"></ion-icon>\n              </ion-avatar>\n              <ion-label>\n                <h2>Age</h2>\n                <h3>{{patientData.age}}</h3>\n              </ion-label>\n            </ion-item>\n        </ion-col>\n        <ion-col>\n          <ion-item lines=\"none\" text-center>\n            <ion-avatar slot=\"start\">\n              <ion-icon name=\"female\" size=\"large\" style=\"color: #2cc67b\"></ion-icon>\n            </ion-avatar>\n            <ion-label>\n              <h2>Gender</h2>\n              <h3>Female</h3>\n            </ion-label>\n          </ion-item>\n\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n<!--////////////////////////////////////////////////////  -->\n  <div class=\"personal-data\"  >\n    <ion-header >\n      <ion-toolbar style=\" --background : white; border-radius: 20% ;\" >\n        <ion-buttons slot=\"start\">\n          <ion-button>\n            <ion-icon name=\"pulse\" style=\" color:red\" size=\"large\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n        <ion-title  style=\" color: rgba(0,0,0,0.75);\">Vitals</ion-title>\n      </ion-toolbar>\n    </ion-header>\n      <ion-item>\n        <ion-avatar slot=\"start\">\n          <img src=\"assets/Iconawesome-weight.png\">\n        </ion-avatar>\n        <ion-label>\n          <h2>Finn</h2>\n          <h3>I'm a big deal</h3>\n          <p>Listen, I've had a pretty messed up day...</p>\n        </ion-label>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar slot=\"start\">\n          <img src=\"assets/Iconawesome-weight.png\">\n        </ion-avatar>\n        <ion-label>\n          <h2>Han</h2>\n          <h3>Look, kid...</h3>\n          <p>I've got enough on my plate as it is, and I...</p>\n        </ion-label>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar slot=\"start\">\n          <img src=\"assets/Iconawesome-weight.png\">\n        </ion-avatar>\n        <ion-label>\n          <h2>Rey</h2>\n          <h3>I can handle myself</h3>\n          <p>You will remove these restraints and leave...</p>\n        </ion-label>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar slot=\"start\">\n          <img src=\"assets/Iconawesome-weight.png\">\n        </ion-avatar>\n        <ion-label>\n          <h2>Luke</h2>\n          <h3>Your thoughts betray you</h3>\n          <p>I feel the good in you, the conflict...</p>\n        </ion-label>\n      </ion-item>\n\n  </div>\n<!--//////////////////////////////////////////////////////////////////////////////  -->\n  <div class=\"personal-data\"  >\n    <ion-header >\n      <ion-toolbar style=\" --background : white; border-radius: 20% ;\" >\n        <ion-buttons slot=\"start\">\n          <ion-button>\n            <ion-icon name=\"calendar\" style=\" color:dodgerblue\" size=\"large\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n        <ion-title  style=\" color: rgba(0,0,0,0.75);\">Upcoming Appointments</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    <ion-item>\n      <ion-avatar slot=\"start\">\n        <ion-icon name=\"clock\" size=\"large\" style=\"color: #2cc67b\"></ion-icon>\n      </ion-avatar>\n      <ion-label>\n        <h2>Finn</h2>\n        <h3>I'm a big deal</h3>\n        <p>Listen, I've had a pretty messed up day...</p>\n      </ion-label>\n    </ion-item>\n  </div>\n<!--  /////////////////////////////////////////////////////////////////-->\n  <div class=\"personal-data\"  >\n    <ion-header >\n      <ion-toolbar style=\" --background : white; border-radius: 20% ;\" >\n        <ion-buttons slot=\"start\">\n          <ion-button>\n            <ion-icon name=\"person\" size=\"large\" style=\"color: #0a5279\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n        <ion-title  style=\" color: rgba(0,0,0,0.75);\">Contacts</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    <ion-item>\n      <ion-avatar slot=\"start\">\n        <ion-icon name=\"call\" size=\"large\" style=\"color: #2cc67b\"></ion-icon>\n      </ion-avatar>\n      <ion-label>\n        <h2>Phone Number</h2>\n        <p>{{patientData.mobile}}</p>\n      </ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-avatar slot=\"start\">\n        <ion-icon name=\"mail\" size=\"large\" style=\"color: #2cc67b\"></ion-icon>\n      </ion-avatar>\n      <ion-label>\n        <h2>Email Address</h2>\n        <p>sohaila@gmail.com</p>\n      </ion-label>\n    </ion-item>\n  </div>\n\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -396,7 +409,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content >\r\n  <div class=\"background\">\r\n\r\n  <ion-grid >\r\n    <ion-row>\r\n    <ion-button class=\"back\" (click)= \"backClick()\"  shape=\"round\" color=\"light\">\r\n              <ion-icon name=\"arrow-round-back\"></ion-icon>\r\n              \r\n          </ion-button>\r\n      <ion-col size=\"12\">\r\n        <div class=\"center\">\r\n            <h1 class=\"middle-text\">My Patients</h1>\r\n        </div>\r\n        \r\n\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col size=\"12\">\r\n        \r\n        <ion-searchbar\r\n    showCancelButton\r\n    (ionInput)=\"filterList($event)\"\r\n  ></ion-searchbar>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row *ngFor=\"let patient of patientArrayList; let i=index\">\r\n      <ion-grid >\r\n        <ion-row >\r\n          <ion-col size=\"1\">\r\n\r\n          </ion-col>\r\n          <ion-col size=\"10\" class=\"card\" >\r\n            <ion-grid  >\r\n              <ion-row >\r\n                <ion-col size=\"4\">\r\n                    <img  class=\"small-icon\" src=\"assets/patient.jpg\">\r\n                </ion-col>\r\n                <ion-col size=\"8\">\r\n                  <ion-row>\r\n                    <div color=\"dark\" >\r\n                        <p style=\"font-weight: bold;\"color=\"dark\" > {{patient.name}} </p> \r\n                        <p > {{patient.mobile}} </p>\r\n                    </div>\r\n                  </ion-row>  \r\n                <!-- </ion-row>\r\n                Doctor Id: {{item.patientId}} <br> -->\r\n                 <!-- Age: {{patient.age}} <br>\r\n                <ion-row>           -->\r\n                  <!-- <ion-row> {{patient.address}} </ion-row>  -->\r\n\r\n                </ion-col>\r\n\r\n                 \r\n           \r\n\r\n              </ion-row>\r\n            </ion-grid>\r\n            \r\n          </ion-col>\r\n          <ion-col size=\"1\">\r\n       \r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-grid>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    </ion-row>\r\n  </ion-grid>\r\n</div>\r\n\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-row class=\"f-row\">\r\n      <ion-col >\r\n        <ion-grid id=\"item\">\r\n          <ion-row>\r\n            <ion-col size=\"4\">\r\n            </ion-col>\r\n            <ion-col size=\"8\">\r\n              <h1>My Patients</h1>\r\n            </ion-col>\r\n          </ion-row>\r\n\r\n          <ion-row >\r\n            <ion-col size=\"12\">\r\n              <ion-searchbar\r\n                      (ionInput)=\"filterList($event)\"\r\n              ></ion-searchbar>\r\n\r\n            </ion-col>\r\n\r\n\r\n\r\n\r\n          </ion-row>\r\n        </ion-grid>\r\n\r\n\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n<ion-content >\r\n  <div class=\"background\">\r\n\r\n    <ion-grid class=\"grid\">\r\n      <ion-row *ngFor=\"let item of patientArrayList; let i=index\">\r\n        <ion-grid >\r\n          <!--        //first nested row-->\r\n          <ion-row >\r\n            <ion-col size=\"12\" class=\"card\" >\r\n              <ion-grid >\r\n                <!--          //second nested row    -->\r\n                <ion-row >\r\n                  <ion-col size=\"3\">\r\n                    <img  class=\"small-icon\" src=\"assets/doctor1.jpeg\">\r\n                  </ion-col>\r\n                  <ion-col size=\"9\">\r\n\r\n                    <ion-grid  id=\"item2\">\r\n\r\n                      <ion-row (click)=\"GotoPatientProfile(item)\" >\r\n                        <h3>{{item.name}}</h3>\r\n                      </ion-row>\r\n                      <ion-row>\r\n\r\n                      </ion-row>\r\n\r\n                      <ion-row >\r\n                        <ion-col size=\"3\"  sizeSm=\"1\" >\r\n\r\n                        </ion-col>\r\n                        <ion-col sizeLg=\"9\" sizeMd=\"9\" sizeSm=\"11\">\r\n                          <ion-grid  >\r\n                            <ion-row >\r\n                              <ion-col (click)=\"consultDoc(item)\">\r\n                                <ion-icon class=\"icon\" name=\"chatboxes\" size=\"large\" ></ion-icon>\r\n\r\n                              </ion-col>\r\n                              <ion-col>\r\n                                <ion-icon class=\"icon\" name=\"call\" size=\"large\"></ion-icon>\r\n                              </ion-col>\r\n                              <ion-col>\r\n                                <ion-icon class=\"icon\" name=\"calendar\"size=\"large\"></ion-icon>\r\n\r\n                              </ion-col>\r\n                            </ion-row>\r\n                          </ion-grid>\r\n\r\n\r\n\r\n                        </ion-col>\r\n                      </ion-row>\r\n                    </ion-grid>\r\n                  </ion-col>\r\n\r\n                </ion-row>\r\n                <!--              -->\r\n              </ion-grid>\r\n\r\n            </ion-col>\r\n          </ion-row>\r\n          <!--        -->\r\n        </ion-grid>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n      </ion-row>\r\n      <!--    -->\r\n    </ion-grid>\r\n  </div>\r\n\r\n</ion-content>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -409,7 +422,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content class=\"cont\" >\r\n<div *ngIf=\"showSplash\" class=\"myBackground\">\r\n    <div>\r\n    <img src=\"/assets/giphy.gif\">\r\n</div> \r\n</div> \r\n  <ion-grid>\r\n    <ion-row class =\"myrow\" >\r\n      <ion-col size=\"12\">\r\n        <div class=\"wrapper\" >\r\n          <div class=\"wave\"></div>\r\n          <div>\r\n          \r\n          <ion-button class=\"back\" (click)= \"backClick()\"  shape=\"round\" color=\"sub.severityLevel\" style=\"color:black\">\r\n              <ion-icon name=\"arrow-round-back\" ></ion-icon>\r\n              \r\n          </ion-button>\r\n          </div>\r\n\r\n          <div >\r\n              <h1 class=\"centered\">\r\n                <ion-input clearInput #Name disabled={{notEnable}} (ionChange)=\"changeName()\" #Name [(ngModel)]=\"myName\" floating>\r\n                     {{doctorName}}\r\n                 </ion-input>\r\n               </h1>\r\n               <div class=\"space\">\r\n                   <ion-avatar class=\"avat\"  >\r\n                    <img src=\"assets/images.jpg\" >\r\n                   </ion-avatar>\r\n               </div>\r\n           </div>\r\n           \r\n        </div>\r\n      </ion-col>\r\n     </ion-row>\r\n     <ion-row>\r\n        <ion-col size=\"6\">\r\n        <div class=\"Srow\">\r\n       \r\n          <ion-item color=\"sub.severityLevel\" >\r\n            <ion-icon name=\"business\" class=\"pad\"></ion-icon>\r\n             \r\n              <ion-input  clearInput  [(ngModel)]=\"myYears\" (ionChange)=\"changeExp()\" #Years  disabled={{notEnable}}  floating>\r\n                 Years of Experience: {{years_experience}} \r\n              </ion-input>\r\n              \r\n          </ion-item>\r\n\r\n          <ion-item  color=\"sub.severityLevel\" >\r\n          <ion-icon name=\"call\" class=\"pad\"></ion-icon>\r\n              <ion-label>\r\n                Mobile: {{mobile}}\r\n              </ion-label>\r\n            </ion-item>\r\n  \r\n            <ion-item  color=\"sub.severityLevel\" >\r\n                <ion-icon name=\"alarm\" class=\"pad\"></ion-icon>  \r\n                <ion-label>\r\n                  Coming session Date:12/12/2019      \r\n                </ion-label>\r\n               <ion-icon name=\"construct\" ></ion-icon>\r\n                </ion-item>\r\n\r\n            <ion-item color=\"sub.severityLevel\" >\r\n                  <ion-icon name=\"clock\" class=\"pad\"></ion-icon>\r\n                  \r\n                    Latest session Date:12/12/2019\r\n                  \r\n                </ion-item>\r\n  \r\n         \r\n        </div>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row class=\"edit\">\r\n        <ion-col size=\"4\">\r\n        <ion-button shape=\"round\" (click)=\"edit()\" color=\"sub.severityLevel\" style=\"color:black\"> Edit </ion-button>\r\n        </ion-col>\r\n         <ion-col size=\"4\" class=\"cancel\">\r\n        <ion-button  shape=\"round\" (click)=\"save(Name.value,Years.value)\" color=\"sub.severityLevel\" style=\"color:black\"> Save </ion-button>\r\n        </ion-col>\r\n        <ion-col size =\"4\" class=\"fab\">\r\n            <app-fab></app-fab>\r\n\r\n        </ion-col>\r\n    \r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n  </ion-content>\r\n  \r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--<ion-content class=\"cont\" >-->\r\n<!--    <div *ngIf=\"showSplash\" class=\"myBackground\">-->\r\n<!--        <div>-->\r\n<!--            <img src=\"/assets/giphy.gif\">-->\r\n<!--        </div>-->\r\n<!--    </div>-->\r\n<!--    <ion-grid>-->\r\n<!--        <ion-row class =\"myrow\" >-->\r\n<!--            <ion-col size=\"12\">-->\r\n<!--                <div class=\"wrapper\" >-->\r\n<!--                    <div class=\"wave\"></div>-->\r\n<!--                    <div>-->\r\n\r\n<!--                        <ion-button class=\"back\" (click)= \"backClick()\"  shape=\"round\" color=\"sub.severityLevel\" style=\"color:black\">-->\r\n<!--                            <ion-icon name=\"arrow-round-back\" ></ion-icon>-->\r\n\r\n<!--                        </ion-button>-->\r\n<!--                    </div>-->\r\n\r\n<!--                    <div >-->\r\n<!--                        <h1 class=\"centered\">-->\r\n<!--                            <ion-input clearInput #Name disabled={{notEnable}} (ionChange)=\"changeName()\" #Name [(ngModel)]=\"myName\" floating>-->\r\n<!--                                {{doctorName}}-->\r\n<!--                            </ion-input>-->\r\n<!--                        </h1>-->\r\n<!--                        <div class=\"space\">-->\r\n<!--                            <ion-avatar class=\"avat\"  >-->\r\n<!--                                <img src=\"assets/images.jpg\" >-->\r\n<!--                            </ion-avatar>-->\r\n<!--                        </div>-->\r\n<!--                    </div>-->\r\n\r\n<!--                </div>-->\r\n<!--            </ion-col>-->\r\n<!--        </ion-row>-->\r\n<!--        <ion-row>-->\r\n<!--            <ion-col size=\"6\">-->\r\n<!--                <div class=\"Srow\">-->\r\n\r\n<!--                    <ion-item color=\"sub.severityLevel\" >-->\r\n<!--                        <ion-icon name=\"business\" class=\"pad\"></ion-icon>-->\r\n\r\n<!--                        <ion-input  clearInput  [(ngModel)]=\"myYears\" (ionChange)=\"changeExp()\" #Years  disabled={{notEnable}}  floating>-->\r\n<!--                            Years of Experience: {{years_experience}}-->\r\n<!--                        </ion-input>-->\r\n\r\n<!--                    </ion-item>-->\r\n\r\n<!--                    <ion-item  color=\"sub.severityLevel\" >-->\r\n<!--                        <ion-icon name=\"call\" class=\"pad\"></ion-icon>-->\r\n<!--                        <ion-label>-->\r\n<!--                            Mobile: {{mobile}}-->\r\n<!--                        </ion-label>-->\r\n<!--                    </ion-item>-->\r\n\r\n<!--                    <ion-item  color=\"sub.severityLevel\" >-->\r\n<!--                        <ion-icon name=\"alarm\" class=\"pad\"></ion-icon>-->\r\n<!--                        <ion-label>-->\r\n<!--                            Coming session Date:12/12/2019-->\r\n<!--                        </ion-label>-->\r\n<!--                        <ion-icon name=\"construct\" ></ion-icon>-->\r\n<!--                    </ion-item>-->\r\n\r\n<!--                    <ion-item color=\"sub.severityLevel\" >-->\r\n<!--                        <ion-icon name=\"clock\" class=\"pad\"></ion-icon>-->\r\n\r\n<!--                        Latest session Date:12/12/2019-->\r\n\r\n<!--                    </ion-item>-->\r\n\r\n\r\n<!--                </div>-->\r\n<!--            </ion-col>-->\r\n<!--        </ion-row>-->\r\n<!--        <ion-row class=\"edit\">-->\r\n<!--            <ion-col size=\"4\">-->\r\n<!--                <ion-button shape=\"round\" (click)=\"edit()\" color=\"sub.severityLevel\" style=\"color:black\"> Edit </ion-button>-->\r\n<!--            </ion-col>-->\r\n<!--            <ion-col size=\"4\" class=\"cancel\">-->\r\n<!--                <ion-button  shape=\"round\" (click)=\"save(Name.value,Years.value)\" color=\"sub.severityLevel\" style=\"color:black\"> Save </ion-button>-->\r\n<!--            </ion-col>-->\r\n<!--            <ion-col size =\"4\" class=\"fab\">-->\r\n<!--                <app-fab></app-fab>-->\r\n\r\n<!--            </ion-col>-->\r\n\r\n<!--        </ion-row>-->\r\n\r\n<!--    </ion-grid>-->\r\n<!--</ion-content>-->\r\n<div *ngIf=\"spinnerState\" class=\"myBackground\">\r\n    <div>\r\n        <img src=\"/assets/giphy.gif\">\r\n    </div>\r\n</div>\r\n<ion-content class=\"ion-content\">\r\n    <ion-grid>\r\n        <ion-row>\r\n            <ion-col size=\"3\" sizeLg=\"3\" sizeSm=\"1\" sizeMd=\"2\" sizeXs=\"2\"></ion-col>\r\n            <ion-col size=\"6\" sizeLg=\"6\" sizeMd=\"8\" sizeSm=\"10\" sizeXs=\"8\">\r\n                <ion-toolbar text-center>\r\n                    <p>My Profile</p>\r\n                    <div class=\"wrapper\">\r\n                        <div class=\"profile-img-frame\">\r\n                            <div class=\"profile-img-holder\">\r\n                                <img  class=\"profile-img\" src=\"assets/doctor1.jpeg\" alt=\"profile image\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"camera\">\r\n                            <ion-icon name=\"camera\"  color=\"white\" size=\"large\"></ion-icon>\r\n                        </div>\r\n                    </div>\r\n                    <p style=\"font-size: 0.9em\" class=\"paragraph\">{{InputData[0].value}} </p>\r\n                    <span style=\"font-size: 0.6em\">{{InputData[2].value}} </span>\r\n\r\n                </ion-toolbar>\r\n\r\n            </ion-col>\r\n            <ion-col size=\"3\" sizeLg=\"3\" sizeSm=\"1\" sizeMd=\"2\" sizeXs=\"2\"></ion-col>\r\n\r\n\r\n        </ion-row>\r\n        <ion-row class=\"inputs\">\r\n\r\n            <ion-item *ngFor=\"let item of InputData ;\" class=\"ion-input\">\r\n                <ion-label position=\"floating\">{{item.label}}</ion-label>\r\n                <ion-input [(ngModel)]=item.value  type=\"{{item.type}}\" #input  disabled=\"{{save_state}}\"></ion-input>\r\n            </ion-item>\r\n        </ion-row>\r\n        <ion-row  >\r\n            <ion-toolbar >\r\n                <div class=\"buttons-tool_bar\">\r\n                    <ion-buttons >\r\n                        <ion-button class=\"ion-button\" (click)=\"save()\" > save </ion-button>\r\n                        <ion-button class=\"ion-button\" (click)=\"edit()\"> Edit </ion-button>\r\n                    </ion-buttons>\r\n\r\n\r\n                </div>\r\n\r\n            </ion-toolbar>\r\n\r\n        </ion-row>\r\n\r\n    </ion-grid>\r\n\r\n\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -669,6 +682,9 @@ let ConvListComponent = class ConvListComponent {
             }
         }).catch((err) => this.presentAlert('data stream error', err.message));
     }
+    ngOnDestroy() {
+        this.eventEmitterService.Subscribtion = undefined;
+    }
     ionViewWillEnter() {
         console.log('convlist ion view will enter');
         console.log('this.scrolling', this.scrollPosition);
@@ -888,9 +904,6 @@ let ConversationsComponent = class ConversationsComponent {
         this.eventEmitterService.OnComponentCall(1);
         console.log("sent button triggered the state Function ");
     }
-    back() {
-        this.navigation.navigateTo('home');
-    }
     CreateNew() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let actionSheetButtons = [];
@@ -901,7 +914,7 @@ let ConversationsComponent = class ConversationsComponent {
                     handler: () => {
                         this.reciever = row.name;
                         console.log("Patient: " + this.reciever);
-                        this.dataInteraction.sendDoctorNamefromconvtoMessage(row);
+                        this.dataInteraction.sendPatientNamefromconvtoMessage(row);
                         console.log("row" + row);
                         this.navigation.navigateTo("home/message");
                     }
@@ -1066,6 +1079,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _conv_list_conv_list_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./conv-list/conv-list.component */ "./src/app/home/conv-list/conv-list.component.ts");
 /* harmony import */ var _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./schedule/schedule.component */ "./src/app/home/schedule/schedule.component.ts");
 /* harmony import */ var ngx_autosize__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-autosize */ "./node_modules/ngx-autosize/fesm2015/ngx-autosize.js");
+/* harmony import */ var _patient_profile_patient_profile_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./patient-profile/patient-profile.component */ "./src/app/home/patient-profile/patient-profile.component.ts");
+
 
 
 
@@ -1130,6 +1145,10 @@ HomePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                             component: _conv_list_conv_list_component__WEBPACK_IMPORTED_MODULE_17__["ConvListComponent"]
                         }
                     ]
+                },
+                {
+                    path: 'patient-profile',
+                    component: _patient_profile_patient_profile_component__WEBPACK_IMPORTED_MODULE_20__["PatientProfileComponent"]
                 }
             ])
         ],
@@ -1146,7 +1165,8 @@ HomePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _chat_chat_component__WEBPACK_IMPORTED_MODULE_15__["ChatComponent"],
             _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_16__["ConversationsComponent"],
             _conv_list_conv_list_component__WEBPACK_IMPORTED_MODULE_17__["ConvListComponent"],
-            _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_18__["ScheduleComponent"]
+            _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_18__["ScheduleComponent"],
+            _patient_profile_patient_profile_component__WEBPACK_IMPORTED_MODULE_20__["PatientProfileComponent"]
         ]
     })
 ], HomePageModule);
@@ -1198,22 +1218,9 @@ let HomePage = class HomePage {
         this.addController = addController;
         this.docList = docList;
     }
-    ngOnInit() {
-        // this.doctorName =this.datastream.getDoctorName();
-        // if(this.doctorName==undefined )
-        // {
-        //   this.presentAlert('HTTP DataStream Error: ', "My Doctor Name is Null");
-        //   this.navigation.navigateTo('cover');
-        // }  
-        // this.getDocList();
-    }
     getDocList() {
         const token = this.datastream.getToken();
         console.log("Token to get patient list in home page: ", token);
-    }
-    clear() {
-        this.datastream.clearData();
-        this.navigation.navigateTo('cover');
     }
     NavigateMe(path) {
         this.navigation.navigateTo(path);
@@ -1265,9 +1272,10 @@ let HomePage = class HomePage {
                                 console.log('HTTP Add Patient Error: ', errorMessage);
                                 this.presentAlert('HTTP Error: ', errorMessage);
                                 // this.presentAlert('HTTP Add Patient Error: ', err.error.message);
-                            }, () => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                            }, () => {
                                 console.log('HTTP to ADD Patient request completed.');
-                            }));
+                                this.navigation.navigateTo('home/doctorList');
+                            });
                         })
                     },
                     { text: 'Cancel',
@@ -1482,6 +1490,108 @@ MessageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/home/patient-profile/patient-profile.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/home/patient-profile/patient-profile.component.scss ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ion-toolbar {\n  --background: #2cc67b;\n  color: white;\n  font-family: Georgia, 'Times New Roman', Times, serif; }\n\n.profile-img-frame {\n  display: -webkit-box;\n  display: flex;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  width: 120px;\n  height: 120px;\n  min-height: 70px;\n  min-width: 70px;\n  margin: 1em auto;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center center;\n  border-radius: 50%;\n  box-shadow: inset 0 0 0 5px white; }\n\n.profile-img-holder {\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n  background-color: #2cc67b;\n  max-width: 100px;\n  max-height: 100px;\n  min-width: 70px;\n  min-height: 70px;\n  overflow: hidden; }\n\n.profile-img {\n  display: inline;\n  width: 100%;\n  height: auto; }\n\nion-col {\n  display: -webkit-box;\n  display: flex;\n  align-content: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  background-repeat: no-repeat;\n  -webkit-box-align: center;\n          align-items: center; }\n\n.element {\n  background-color: #2cc67b;\n  border-radius: 50%;\n  display: -webkit-box;\n  display: flex;\n  height: 50px;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  align-content: center;\n  width: 50px;\n  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.3); }\n\n.personal-data {\n  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.3), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);\n  z-index: 1;\n  padding: 2%;\n  border-radius: 10%; }\n\nion-item {\n  --border-radius:10%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NvaGlsYS9Eb2N1bWVudHMvR1AtVGFza3MvRG9jdG9yX1BsYXRmb3JtL0dyYWR1YXRpb24tUHJvamVjdC1Eb2N0b3Ivc3JjL2FwcC9ob21lL3BhdGllbnQtcHJvZmlsZS9wYXRpZW50LXByb2ZpbGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxxQkFBYTtFQUNiLFlBQVk7RUFDWixxREFBcUQsRUFBQTs7QUFFdkQ7RUFDSSxvQkFBYTtFQUFiLGFBQWE7RUFDZixxQkFBcUI7RUFDckIseUJBQW1CO1VBQW5CLG1CQUFtQjtFQUNuQix3QkFBdUI7VUFBdkIsdUJBQXVCO0VBQ3JCLFlBQVk7RUFDWixhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsc0JBQXNCO0VBQ3RCLDRCQUE0QjtFQUM1QixrQ0FBa0M7RUFDbEMsa0JBQWtCO0VBQ2xCLGlDQUFpQyxFQUFBOztBQUdyQztFQUNFLG9CQUFpQjtLQUFqQixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLHlCQUEwQjtFQUMxQixnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsZ0JBQWdCLEVBQUE7O0FBRWxCO0VBQ0UsZUFBZTtFQUNmLFdBQVc7RUFDWCxZQUFZLEVBQUE7O0FBSWQ7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixxQkFBcUI7RUFDckIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qiw0QkFBNEI7RUFDNUIseUJBQW1CO1VBQW5CLG1CQUFtQixFQUFBOztBQUVyQjtFQUNFLHlCQUEwQjtFQUMxQixrQkFBa0I7RUFDbEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIseUJBQW1CO1VBQW5CLG1CQUFtQjtFQUNuQixxQkFBcUI7RUFDckIsV0FBVztFQUNYLDJGQUVpRCxFQUFBOztBQUVuRDtFQUVFLDBGQUVpRDtFQUNqRCxVQUFVO0VBQ1YsV0FBVztFQUNiLGtCQUFrQixFQUFBOztBQUdsQjtFQUNFLG1CQUFnQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9wYXRpZW50LXByb2ZpbGUvcGF0aWVudC1wcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRvb2xiYXJ7XG4gIC0tYmFja2dyb3VuZDogIzJjYzY3YjtcbiAgY29sb3I6IHdoaXRlO1xuICBmb250LWZhbWlseTogR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIFRpbWVzLCBzZXJpZjtcbn1cbi5wcm9maWxlLWltZy1mcmFtZXtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIHdpZHRoOiAxMjBweDtcbiAgICBoZWlnaHQ6IDEyMHB4O1xuICAgIG1pbi1oZWlnaHQ6IDcwcHg7XG4gICAgbWluLXdpZHRoOiA3MHB4O1xuICAgIG1hcmdpbjogMWVtIGF1dG87XG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIGJveC1zaGFkb3c6IGluc2V0IDAgMCAwIDVweCB3aGl0ZTtcblxufVxuLnByb2ZpbGUtaW1nLWhvbGRlcntcbiAgb2JqZWN0LWZpdDogY292ZXI7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgYmFja2dyb3VuZC1jb2xvcjogICMyY2M2N2I7XG4gIG1heC13aWR0aDogMTAwcHg7XG4gIG1heC1oZWlnaHQ6IDEwMHB4O1xuICBtaW4td2lkdGg6IDcwcHg7XG4gIG1pbi1oZWlnaHQ6IDcwcHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4ucHJvZmlsZS1pbWd7XG4gIGRpc3BsYXk6IGlubGluZTtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogYXV0bztcblxuXG59XG5pb24tY29se1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLmVsZW1lbnQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMmNjNjdiIDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBoZWlnaHQ6IDUwcHg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIHdpZHRoOiA1MHB4O1xuICBib3gtc2hhZG93OlxuICAgICAgICAgIDEycHggMTJweCAxNnB4IDAgcmdiYSgwLCAwLCAwLCAwLjI1KSxcbiAgICAgICAgICAtOHB4IC04cHggMTJweCAwIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4zKTtcbn1cbi5wZXJzb25hbC1kYXRhe1xuICAvL2JveC1zaGFkb3c6IDFweCAycHggMTBweCAwcHggcmdiYSgwLDAsMCwwLjMpO1xuICBib3gtc2hhZG93OlxuICAgICAgICAgIDEycHggMTJweCAxNnB4IDAgcmdiYSgwLCAwLCAwLCAwLjMpICxcbiAgICAgICAgICAtOHB4IC04cHggMTJweCAwIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4zKSA7XG4gIHotaW5kZXg6IDE7XG4gIHBhZGRpbmc6IDIlO1xuYm9yZGVyLXJhZGl1czogMTAlO1xufVxuXG5pb24taXRlbXtcbiAgLS1ib3JkZXItcmFkaXVzOjEwJTtcbn1cbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/home/patient-profile/patient-profile.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/home/patient-profile/patient-profile.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: PatientProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatientProfileComponent", function() { return PatientProfileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/datacommunication/interaction.service */ "./src/app/services/datacommunication/interaction.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../NavService/navigation.service */ "./src/app/home/NavService/navigation.service.ts");
+
+
+
+
+
+let PatientProfileComponent = class PatientProfileComponent {
+    constructor(dataShare, addController, navigation) {
+        this.dataShare = dataShare;
+        this.addController = addController;
+        this.navigation = navigation;
+        this.spinnerState = true;
+    }
+    ngOnInit() {
+        console.log("Profile component Initiated");
+        new Promise((resolve, reject) => {
+            this.patientData = this.dataShare.getPatientData();
+            if (this.patientData == undefined) {
+                // this.presentAlert('Data Interaction Error','doctor data undefined');
+                reject('patient data undefined');
+            }
+            else {
+                resolve();
+            }
+        }).then(() => { this.spinnerState = false; console.log("patient data from profile", this.patientData); }).catch((err) => this.presentAlert('data stream error', err));
+    }
+    consultDoc() {
+        this.dataShare.sendPatientNamefromconvtoMessage(this.patientData);
+        console.log("doctor data from profile" + this.patientData);
+        this.navigation.navigateTo("home/message");
+    }
+    ngOnDestroy() {
+        console.log(" profile destroyed");
+    }
+    presentAlert(subtitleString, messageString) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log('alert holding screen ');
+            const alert = yield this.addController.create({
+                header: 'ERROR',
+                subHeader: subtitleString,
+                message: messageString,
+                buttons: [
+                    {
+                        text: 'Ok',
+                        handler: () => {
+                            this.spinnerState = false;
+                            this.navigation.navigateTo('home/doctorList');
+                        }
+                    },
+                ]
+            });
+            yield alert.present();
+        });
+    }
+};
+PatientProfileComponent.ctorParameters = () => [
+    { type: _services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_2__["InteractionService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] },
+    { type: _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_4__["NavigationService"] }
+];
+PatientProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-patient-profile',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./patient-profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/patient-profile/patient-profile.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./patient-profile.component.scss */ "./src/app/home/patient-profile/patient-profile.component.scss")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_2__["InteractionService"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"],
+        _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_4__["NavigationService"]])
+], PatientProfileComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/patientList/patient-list.component.scss":
 /*!**************************************************************!*\
   !*** ./src/app/home/patientList/patient-list.component.scss ***!
@@ -1491,7 +1601,7 @@ MessageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".middle-text {\n  text-align: center;\n  font-family: Georgia, 'Times New Roman', Times, serif;\n  margin-top: 10%;\n  margin-bottom: 2%;\n  font: 2em;\n  color: white; }\n\n.background {\n  background-image: -webkit-gradient(linear, left top, right bottom, from(#0a5279), to(#80d3cb));\n  background-image: linear-gradient(to bottom right, #0a5279, #80d3cb);\n  height: 100%;\n  overflow: scroll; }\n\n.small-icon {\n  width: 100%;\n  height: 100%; }\n\n.card {\n  background: white;\n  border-radius: 15px; }\n\n.back {\n  margin-top: 2%;\n  margin-left: 2%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NvaGlsYS9Eb2N1bWVudHMvR1AtVGFza3MvRG9jdG9yX1BsYXRmb3JtL0dyYWR1YXRpb24tUHJvamVjdC1Eb2N0b3Ivc3JjL2FwcC9ob21lL3BhdGllbnRMaXN0L3BhdGllbnQtbGlzdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLGtCQUFrQjtFQUNsQixxREFBcUQ7RUFDckQsZUFBYztFQUNkLGlCQUFpQjtFQUNqQixTQUFTO0VBQ1QsWUFBWSxFQUFBOztBQUlkO0VBQ0UsOEZBQW1FO0VBQW5FLG9FQUFtRTtFQUNuRSxZQUFZO0VBQ1osZ0JBQWdCLEVBQUE7O0FBRWxCO0VBQ0UsV0FBVztFQUNYLFlBQVcsRUFBQTs7QUFJZjtFQUNJLGlCQUFpQjtFQUNqQixtQkFBbUIsRUFBQTs7QUFFdkI7RUFDRSxjQUFjO0VBQ2QsZUFBZSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9wYXRpZW50TGlzdC9wYXRpZW50LWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuICAubWlkZGxlLXRleHR7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBmb250LWZhbWlseTogR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIFRpbWVzLCBzZXJpZjtcclxuICAgIG1hcmdpbi10b3A6MTAlO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMiU7XHJcbiAgICBmb250OiAyZW07XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBcclxuICAgXHJcbiAgfVxyXG4gIC5iYWNrZ3JvdW5ke1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIGJvdHRvbSByaWdodCwjMGE1Mjc5LCAjODBkM2NiKTtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIG92ZXJmbG93OiBzY3JvbGw7XHJcbiAgfVxyXG4gIC5zbWFsbC1pY29ue1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6MTAwJTtcclxuICAgXHJcbiAgICBcclxufVxyXG4uY2FyZHtcclxuICAgIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTVweDtcclxufVxyXG4uYmFja3tcclxuICBtYXJnaW4tdG9wOiAyJTtcclxuICBtYXJnaW4tbGVmdDogMiU7XHJcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("@font-face {\n  font-family: Forte;\n  src: url(/assets/fonts/FORTE.ttf); }\n\nion-content {\n  height: 100%;\n  width: 100%;\n  margin: 0px; }\n\n.grid {\n  display: grid;\n  grid-template-rows: auto;\n  grid-gap: 10px; }\n\n#item {\n  display: grid;\n  color: white;\n  font-family: Georgia, 'Times New Roman', Times, serif; }\n\n#item2 {\n  display: grid;\n  font-family: Georgia, 'Times New Roman', Times, serif; }\n\n.icon {\n  margin-bottom: -60%; }\n\n.middle-text {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  font-family: Georgia, 'Times New Roman', Times, serif;\n  font-size: larger; }\n\n.background {\n  height: 100%;\n  overflow: scroll; }\n\n.f-row {\n  background: #25b7d3;\n  margin: -5px;\n  font-size: 2em; }\n\n.small-icon {\n  width: 100%;\n  height: 100%; }\n\n.card {\n  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);\n  overflow: hidden;\n  color: rgba(0, 0, 0, 0.6);\n  font-family: 'Open Sans', Helvetica, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  background: white;\n  border-radius: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NvaGlsYS9Eb2N1bWVudHMvR1AtVGFza3MvRG9jdG9yX1BsYXRmb3JtL0dyYWR1YXRpb24tUHJvamVjdC1Eb2N0b3Ivc3JjL2FwcC9ob21lL3BhdGllbnRMaXN0L3BhdGllbnQtbGlzdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFrQjtFQUNsQixpQ0FBaUMsRUFBQTs7QUFHbkM7RUFDRSxZQUFZO0VBQ1osV0FBVztFQUNYLFdBQVcsRUFBQTs7QUFHYjtFQUNFLGFBQVk7RUFDWix3QkFBd0I7RUFDeEIsY0FBYSxFQUFBOztBQUlmO0VBQ0UsYUFBWTtFQUNaLFlBQVk7RUFDWixxREFBcUQsRUFBQTs7QUFFdkQ7RUFDRSxhQUFhO0VBQ2IscURBQXFELEVBQUE7O0FBR3ZEO0VBQ0UsbUJBQW1CLEVBQUE7O0FBSXJCO0VBQ0Usb0JBQVk7RUFBWixhQUFZO0VBQ1oseUJBQW1CO1VBQW5CLG1CQUFtQjtFQUNuQix3QkFBdUI7VUFBdkIsdUJBQXVCO0VBQ3ZCLHFEQUFxRDtFQUNyRCxpQkFBaUIsRUFBQTs7QUFJbkI7RUFFRSxZQUFZO0VBQ1osZ0JBQWdCLEVBQUE7O0FBR2xCO0VBQ0UsbUJBQW1CO0VBQ25CLFlBQVk7RUFDWixjQUFjLEVBQUE7O0FBRWhCO0VBQ0UsV0FBVztFQUNYLFlBQVcsRUFBQTs7QUFHYjtFQUNFLCtDQUE0QztFQUM1QyxnQkFBZ0I7RUFFaEIseUJBQXNCO0VBQ3RCLCtDQUErQztFQUMvQyxtQ0FBbUM7RUFDbkMsa0NBQWtDO0VBQ2xDLGlCQUFpQjtFQUNqQixtQkFBbUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcGF0aWVudExpc3QvcGF0aWVudC1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGZvbnQtZmFjZSB7XHJcbiAgZm9udC1mYW1pbHk6IEZvcnRlO1xyXG4gIHNyYzogdXJsKC9hc3NldHMvZm9udHMvRk9SVEUudHRmKTtcclxufVxyXG5cclxuaW9uLWNvbnRlbnR7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIG1hcmdpbjogMHB4O1xyXG59XHJcbi8vdG8gY29udHJvbCByb3dzIGhlaWdodFxyXG4uZ3JpZCB7XHJcbiAgZGlzcGxheTpncmlkO1xyXG4gIGdyaWQtdGVtcGxhdGUtcm93czogYXV0bztcclxuICBncmlkLWdhcDoxMHB4O1xyXG4gIC8vaGVpZ2h0OiBjYWxjKDEwMHZoIC0gMTBweCk7XHJcbn1cclxuXHJcbiNpdGVte1xyXG4gIGRpc3BsYXk6Z3JpZDtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC1mYW1pbHk6IEdlb3JnaWEsICdUaW1lcyBOZXcgUm9tYW4nLCBUaW1lcywgc2VyaWY7XHJcbn1cclxuI2l0ZW0yIHtcclxuICBkaXNwbGF5OiBncmlkO1xyXG4gIGZvbnQtZmFtaWx5OiBHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgVGltZXMsIHNlcmlmO1xyXG59XHJcblxyXG4uaWNvbntcclxuICBtYXJnaW4tYm90dG9tOiAtNjAlO1xyXG59XHJcblxyXG4vL3RpdGxlXHJcbi5taWRkbGUtdGV4dHtcclxuICBkaXNwbGF5OmZsZXg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBmb250LWZhbWlseTogR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIFRpbWVzLCBzZXJpZjtcclxuICBmb250LXNpemU6IGxhcmdlcjtcclxuXHJcbn1cclxuLy9tYWluIGJhY2tncm91bmRcclxuLmJhY2tncm91bmR7XHJcbiAgLy9iYWNrZ3JvdW5kOiAjZTdlN2U3O1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBvdmVyZmxvdzogc2Nyb2xsO1xyXG59XHJcbi8vZmlyc3Qgcm93XHJcbi5mLXJvd3tcclxuICBiYWNrZ3JvdW5kOiAjMjViN2QzO1xyXG4gIG1hcmdpbjogLTVweDtcclxuICBmb250LXNpemU6IDJlbTtcclxufVxyXG4uc21hbGwtaWNvbntcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6MTAwJTtcclxuICAvL21hcmdpbi10b3A6IDIwJTtcclxufVxyXG4uY2FyZHtcclxuICBib3gtc2hhZG93OiAxcHggMnB4IDEwcHggMHB4IHJnYmEoMCwwLDAsMC4zKTtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIC8vY29sb3I6ICMzYWEwODc7XHJcbiAgY29sb3I6IHJnYmEoMCwwLDAsMC42KTtcclxuICBmb250LWZhbWlseTogJ09wZW4gU2FucycsIEhlbHZldGljYSwgc2Fucy1zZXJpZjtcclxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcclxuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XHJcbn1cclxuLy9pb24gc2VhcmNoIGJhciBzdHlsZSBhdCBnbG9iYWwgc3R5bGUgc2hlZXRcclxuXHJcblxyXG4iXX0= */");
 
 /***/ }),
 
@@ -1511,6 +1621,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../NavService/navigation.service */ "./src/app/home/NavService/navigation.service.ts");
 /* harmony import */ var _HttPService_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../HttPService/http.service */ "./src/app/home/HttPService/http.service.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/datacommunication/interaction.service */ "./src/app/services/datacommunication/interaction.service.ts");
 
 
 // import { IDoctor } from '../DataModels';
@@ -1518,12 +1629,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 let PatientListComponent = class PatientListComponent {
-    constructor(datastream, navigation, addController, http) {
+    constructor(datastream, navigation, addController, http, dataShare) {
         this.datastream = datastream;
         this.navigation = navigation;
         this.addController = addController;
         this.http = http;
+        this.dataShare = dataShare;
         this.patientArrayList = new Array();
         this.patientRow = new Array();
         // this.patientRow = this.datastream.getPatientList();      
@@ -1574,8 +1688,15 @@ let PatientListComponent = class PatientListComponent {
             }
         });
     }
-    backClick() {
-        this.navigation.navigateTo('home');
+    consultDoc(item) {
+        this.dataShare.sendPatientNamefromconvtoMessage(item);
+        console.log("doctor data from profile" + item);
+        this.navigation.navigateTo("home/message");
+    }
+    GotoPatientProfile(item) {
+        this.dataShare.sendPatientData(item);
+        console.log("item from patient list", item);
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__await"])(this.navigation.navigateTo('home/patient-profile'));
     }
     presentAlert(subtitleString, messageString) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -1593,7 +1714,8 @@ PatientListComponent.ctorParameters = () => [
     { type: src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_2__["DatastreamingService"] },
     { type: _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"] },
-    { type: _HttPService_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"] }
+    { type: _HttPService_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"] },
+    { type: _services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_6__["InteractionService"] }
 ];
 PatientListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1604,7 +1726,8 @@ PatientListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_2__["DatastreamingService"],
         _NavService_navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"],
-        _HttPService_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"]])
+        _HttPService_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"],
+        _services_datacommunication_interaction_service__WEBPACK_IMPORTED_MODULE_6__["InteractionService"]])
 ], PatientListComponent);
 
 
@@ -1620,7 +1743,7 @@ PatientListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".cont {\n  height: 100%;\n  width: 100%;\n  margin: -10%; }\n\n.centered {\n  position: absolute;\n  margin-left: 50%;\n  -webkit-transform: translate(-30%, -40%);\n          transform: translate(-30%, -40%);\n  color: black; }\n\n.avat {\n  width: 100% !important;\n  height: 100% !important;\n  max-width: 150px !important;\n  max-height: 150px !important; }\n\n.space {\n  position: absolute;\n  margin-left: 10%;\n  margin-top: 10%; }\n\n.it {\n  padding-top: 2%; }\n\n.grad {\n  --background: linear-gradient(\r\n    to bottom,\r\n    #0a5279 0%,\r\n    #80d3cb 100%)\r\n    \r\n; }\n\n.back {\n  margin-top: 50%;\n  margin-left: 10%; }\n\n.edit {\n  margin-left: 7%;\n  margin-top: 90%; }\n\n.pad {\n  margin-left: 10%;\n  padding-right: 3%; }\n\n.wrapper {\n  width: 500px;\n  height: 500px;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  border-radius: 5px;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#50b9b6), to(#ffffff));\n  background-image: linear-gradient(to top, #50b9b6 0%, #ffffff 100%);\n  overflow: hidden;\n  border-radius: 20%; }\n\n.wave {\n  width: 1000px;\n  height: 1000px;\n  position: absolute;\n  top: -25%;\n  left: 50%;\n  margin-left: -500px;\n  margin-top: -500px;\n  border-radius: 35%;\n  background: rgba(255, 255, 255, 0.75);\n  -webkit-animation: wave 15s infinite linear;\n          animation: wave 15s infinite linear; }\n\n@-webkit-keyframes wave {\n  from {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  from {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes wave {\n  from {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  from {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n.myrow {\n  padding-bottom: 60%; }\n\n.Srow {\n  width: 500px;\n  height: 500px;\n  position: absolute;\n  margin-left: 100%;\n  margin-top: 130%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#50b9b6), to(#ffffff));\n  background-image: linear-gradient(to bottom, #50b9b6 0%, #ffffff 100%);\n  overflow: hidden;\n  border-radius: 20%; }\n\n.fab {\n  margin-bottom: 3%; }\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NvaGlsYS9Eb2N1bWVudHMvR1AtVGFza3MvRG9jdG9yX1BsYXRmb3JtL0dyYWR1YXRpb24tUHJvamVjdC1Eb2N0b3Ivc3JjL2FwcC9ob21lL3Byb2ZpbGUvcHJvZmlsZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9wcm9maWxlL3Byb2ZpbGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDRSxZQUFZO0VBQ1osV0FBVztFQUNYLFlBQVksRUFBQTs7QUFZWjtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsd0NBQWdDO1VBQWhDLGdDQUFnQztFQUNoQyxZQUFZLEVBQUE7O0FBS2Q7RUFDRSxzQkFBcUI7RUFDckIsdUJBQXdCO0VBQ3hCLDJCQUEyQjtFQUMzQiw0QkFBNEIsRUFBQTs7QUFFOUI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGVBQWUsRUFBQTs7QUFFakI7RUFDRSxlQUFlLEVBQUE7O0FBRWpCO0VBQ0U7Ozs7O0FDWkosRUFBRTs7QUFFRjtFRFVpQixlQUtoQjtFQ2JDLGdCQUFnQixFQUFFOztBQUVwQjtFRGVJLGVBQWE7RUNiZixlQUFlLEVBQUU7O0FBRW5CO0VEZ0JNLGdCQUFlO0VDZG5CLGlCQUFpQixFQUFFOztBQUVyQjtFRGdCSSxZQUFBO0VDZEYsYUFBYTtFRGdCYixrQkFBUztFQUNQLFNBQU87RUFDUCxRQUFRO0VBQ1Isd0NBQWtCO1VBQWxCLGdDQUFrQjtFQUNsQixrQkFBUztFQUNULDZGQUFRO0VBQVIsbUVBQVE7RUFDUixnQkFBVztFQUNYLGtCQUFrQixFQUFBOztBQ2J0QjtFRGdCSSxhQUFhO0VDZGYsY0FBYztFRGlCZCxrQkFBTTtFQUNKLFNBQU87RUFDUCxTQUFRO0VBQ1IsbUJBQWtCO0VBQ2xCLGtCQUFTO0VBQ1Qsa0JBQVM7RUFDVCxxQ0FBbUI7RUFDbkIsMkNBQWtCO1VBQWxCLG1DQUFrQixFQUFBOztBQ2R0QjtFRGlCSTtJQ2ZBLCtCQUF1QjtZQUF2Qix1QkFBdUIsRUFBRTtFRGtCM0I7SUFDRSxpQ0FBSTtZQUFKLHlCQUFJLEVBQUEsRUFBQTs7QUNyQlI7RURpQkk7SUNmQSwrQkFBdUI7WUFBdkIsdUJBQXVCLEVBQUU7RURrQjNCO0lBQ0UsaUNBQUk7WUFBSix5QkFBSSxFQUFBLEVBQUE7O0FDZlI7RUFDRSxtQkRlb0IsRUFBQTs7QUFFcEI7RUFDRSxZQUFBO0VDZEYsYUFBYTtFRGdCYixrQkFBSztFQUNILGlCQUFZO0VBQ1osZ0JBQWE7RUFDYix3Q0FBa0I7VUFBbEIsZ0NBQWtCO0VBQ2xCLDZGQUFpQjtFQUFqQixzRUFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGtCQUFXLEVBQUE7O0FDYmY7RURnQkksaUJBQWUsRUFBRyIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5jb250e1xyXG4gIGhlaWdodDogMTAwJTtcclxuICB3aWR0aDogMTAwJTtcclxuICBtYXJnaW46IC0xMCU7XHJcbn1cclxuXHJcbi8vIC5jb250YWluZXIge1xyXG4vLyAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4vLyAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4vLyAgICAgY29sb3I6IHdoaXRlO1xyXG4vLyAgICAgaGVpZ2h0OiAxMDAlO1xyXG4vLyAgICAgd2lkdGg6IDEwMCU7XHJcbi8vICAgICBtYXJnaW46IDBweDtcclxuLy8gICAgIHBhZGRpbmc6IDAlO1xyXG4vLyAgIH1cclxuICAuY2VudGVyZWQge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDUwJTtcclxuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC0zMCUsIC00MCUpO1xyXG4gICAgY29sb3I6IGJsYWNrO1xyXG4gICAgLy8gdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgLy8gbWFyZ2luLXRvcDotMTAwJTtcclxuICAgIC8vIGZvbnQtZmFtaWx5OiBHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgVGltZXMsIHNlcmlmO1xyXG4gIH1cclxuICAuYXZhdHtcclxuICAgIHdpZHRoOjEwMCUgIWltcG9ydGFudDsgIFxyXG4gICAgaGVpZ2h0IDogMTAwJSAhaW1wb3J0YW50OyAgXHJcbiAgICBtYXgtd2lkdGg6IDE1MHB4ICFpbXBvcnRhbnQ7ICBcclxuICAgIG1heC1oZWlnaHQ6IDE1MHB4ICFpbXBvcnRhbnQ7IFxyXG4gIH1cclxuICAuc3BhY2V7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBtYXJnaW4tbGVmdDogMTAlO1xyXG4gICAgbWFyZ2luLXRvcDogMTAlO1xyXG4gIH1cclxuICAuaXR7XHJcbiAgICBwYWRkaW5nLXRvcDogMiU7IFxyXG4gICAgfVxyXG4gIC5ncmFkICB7XHJcbiAgICAtLWJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcclxuICAgIHRvIGJvdHRvbSxcclxuICAgICMwYTUyNzkgMCUsXHJcbiAgICAjODBkM2NiIDEwMCUpXHJcbiAgICBcclxufVxyXG5cclxuIC5iYWNre1xyXG4gICAgbWFyZ2luLXRvcDogNTAlO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDEwJTtcclxuICB9XHJcbiAgXHJcbiAgLmVkaXR7XHJcbiAgICAgIG1hcmdpbi1sZWZ0OiA3JTtcclxuICAgICAgbWFyZ2luLXRvcDogOTAlO1xyXG4gICAgfVxyXG4gIC5wYWR7XHJcbiAgICBtYXJnaW4tbGVmdDogMTAlO1xyXG4gICAgcGFkZGluZy1yaWdodDogMyU7XHJcbiAgfVxyXG4gIC53cmFwcGVyIHtcclxuICAgIHdpZHRoOiA1MDBweDtcclxuICAgIGhlaWdodDogNTAwcHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICB0b3A6IDUwJTtcclxuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIHRvcCwgcmdiKDgwLCAxODUsIDE4MikgMCUsICNmZmZmZmYgMTAwJSk7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjAlO1xyXG4gIH1cclxuICBcclxuICAud2F2ZSB7XHJcbiAgICB3aWR0aDogMTAwMHB4O1xyXG4gICAgaGVpZ2h0OiAxMDAwcHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IC0yNSU7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICBtYXJnaW4tbGVmdDogLTUwMHB4O1xyXG4gICAgbWFyZ2luLXRvcDogLTUwMHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzUlO1xyXG4gICAgYmFja2dyb3VuZDogcmdiYSgyNTUsIDI1NSwgMjU1LCAuNzUpO1xyXG4gICAgYW5pbWF0aW9uOiB3YXZlIDE1cyBpbmZpbml0ZSBsaW5lYXI7XHJcbiAgfVxyXG4gIFxyXG4gIEBrZXlmcmFtZXMgd2F2ZSB7XHJcbiAgICBmcm9tIHsgdHJhbnNmb3JtOiByb3RhdGUoMGRlZyk7fVxyXG4gICAgZnJvbSB7IHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZyk7fVxyXG4gIH1cclxuICAubXlyb3d7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogNjAlO1xyXG4gIH1cclxuICAuU3Jvd3tcclxuICAgIHdpZHRoOiA1MDBweDtcclxuICAgIGhlaWdodDogNTAwcHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBtYXJnaW4tbGVmdDogMTAwJTtcclxuICAgIG1hcmdpbi10b3A6IDEzMCU7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byBib3R0b20sIHJnYig4MCwgMTg1LCAxODIpIDAlLCAjZmZmZmZmIDEwMCUpO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDIwJTtcclxuICB9XHJcbiAgLmZhYntcclxuICAgIG1hcmdpbi1ib3R0b206IDMlO1xyXG4gIH1cclxuICAiLCIuY29udCB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbjogLTEwJTsgfVxuXG4uY2VudGVyZWQge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIG1hcmdpbi1sZWZ0OiA1MCU7XG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlKC0zMCUsIC00MCUpO1xuICBjb2xvcjogYmxhY2s7IH1cblxuLmF2YXQge1xuICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxNTBweCAhaW1wb3J0YW50O1xuICBtYXgtaGVpZ2h0OiAxNTBweCAhaW1wb3J0YW50OyB9XG5cbi5zcGFjZSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbWFyZ2luLWxlZnQ6IDEwJTtcbiAgbWFyZ2luLXRvcDogMTAlOyB9XG5cbi5pdCB7XG4gIHBhZGRpbmctdG9wOiAyJTsgfVxuXG4uZ3JhZCB7XG4gIC0tYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KFxyXG4gICAgdG8gYm90dG9tLFxyXG4gICAgIzBhNTI3OSAwJSxcclxuICAgICM4MGQzY2IgMTAwJSlcclxuICAgIFxyXG47IH1cblxuLmJhY2sge1xuICBtYXJnaW4tdG9wOiA1MCU7XG4gIG1hcmdpbi1sZWZ0OiAxMCU7IH1cblxuLmVkaXQge1xuICBtYXJnaW4tbGVmdDogNyU7XG4gIG1hcmdpbi10b3A6IDkwJTsgfVxuXG4ucGFkIHtcbiAgbWFyZ2luLWxlZnQ6IDEwJTtcbiAgcGFkZGluZy1yaWdodDogMyU7IH1cblxuLndyYXBwZXIge1xuICB3aWR0aDogNTAwcHg7XG4gIGhlaWdodDogNTAwcHg7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogNTAlO1xuICB0b3A6IDUwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIHRvcCwgIzUwYjliNiAwJSwgI2ZmZmZmZiAxMDAlKTtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgYm9yZGVyLXJhZGl1czogMjAlOyB9XG5cbi53YXZlIHtcbiAgd2lkdGg6IDEwMDBweDtcbiAgaGVpZ2h0OiAxMDAwcHg7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAtMjUlO1xuICBsZWZ0OiA1MCU7XG4gIG1hcmdpbi1sZWZ0OiAtNTAwcHg7XG4gIG1hcmdpbi10b3A6IC01MDBweDtcbiAgYm9yZGVyLXJhZGl1czogMzUlO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNzUpO1xuICBhbmltYXRpb246IHdhdmUgMTVzIGluZmluaXRlIGxpbmVhcjsgfVxuXG5Aa2V5ZnJhbWVzIHdhdmUge1xuICBmcm9tIHtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTsgfVxuICBmcm9tIHtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSgzNjBkZWcpOyB9IH1cblxuLm15cm93IHtcbiAgcGFkZGluZy1ib3R0b206IDYwJTsgfVxuXG4uU3JvdyB7XG4gIHdpZHRoOiA1MDBweDtcbiAgaGVpZ2h0OiA1MDBweDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBtYXJnaW4tbGVmdDogMTAwJTtcbiAgbWFyZ2luLXRvcDogMTMwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byBib3R0b20sICM1MGI5YjYgMCUsICNmZmZmZmYgMTAwJSk7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGJvcmRlci1yYWRpdXM6IDIwJTsgfVxuXG4uZmFiIHtcbiAgbWFyZ2luLWJvdHRvbTogMyU7IH1cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-toolbar {\n  --background: #c2d8f3;\n  color: white;\n  font-family: Georgia, 'Times New Roman', Times, serif; }\n\n.ion-content {\n  --background: #c2d8f3;\n  font-size: 30px;\n  max-font-size: 30px;\n  min-font-size: 25px; }\n\n.fab {\n  margin-bottom: 3%; }\n\n.wrapper {\n  position: relative; }\n\n.profile-img-frame {\n  display: -webkit-box;\n  display: flex;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  width: 170px;\n  height: 170px;\n  min-height: 90px;\n  min-width: 90px;\n  margin: 1em auto;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center center;\n  border-radius: 50%;\n  box-shadow: inset 0 0 0 5px white; }\n\n.profile-img-holder {\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n  background-color: #2cc67b;\n  max-width: 150px;\n  max-height: 150px;\n  min-width: 100px;\n  min-height: 100px;\n  overflow: hidden; }\n\n.profile-img {\n  display: inline;\n  width: 100%;\n  height: auto; }\n\n.camera {\n  position: absolute;\n  top: 85%;\n  right: 30%;\n  display: -webkit-box;\n  display: flex;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n  width: 50px;\n  height: 50px;\n  background: linear-gradient(145deg, #d0e7ff, #afc2db);\n  box-shadow: 3px 3px 3px #9dafc5,\r -3px -3px 3px #e7ffff;\n  color: white; }\n\n.inputs {\n  display: -webkit-box;\n  display: flex;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center; }\n\n.ion-input {\n  margin-top: 2%;\n  margin-bottom: 2%;\n  margin-left: 7%;\n  margin-right: 7%;\n  border-radius: 15px;\n  width: 100%; }\n\n.buttons-tool_bar {\n  display: -webkit-box;\n  display: flex;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  width: 100%; }\n\n.ion-button {\n  border-radius: 15px;\n  display: -webkit-box;\n  display: flex;\n  height: 50px;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  align-content: center;\n  margin-left: 10%;\n  width: 100px;\n  background: linear-gradient(145deg, #d0e7ff, #afc2db);\n  box-shadow: 3px 3px 3px #9dafc5,\r -3px -3px 3px #e7ffff; }\n\n.paragraph {\n  padding: 0px;\n  margin-bottom: 0px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NvaGlsYS9Eb2N1bWVudHMvR1AtVGFza3MvRG9jdG9yX1BsYXRmb3JtL0dyYWR1YXRpb24tUHJvamVjdC1Eb2N0b3Ivc3JjL2FwcC9ob21lL3Byb2ZpbGUvcHJvZmlsZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9wcm9maWxlL3Byb2ZpbGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBeUdBO0VBQ0UscUJBQWE7RUFDYixZQUFZO0VBQ1oscURBQXNELEVBQUE7O0FBRXhEO0VBQ0UscUJBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLG1CQUFtQixFQUFBOztBQUlyQjtFQUNFLGlCQUFpQixFQUFBOztBQUVuQjtFQUNFLGtCQUFrQixFQUFBOztBQUVwQjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFCQUFxQjtFQUNyQix5QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsWUFBWTtFQUNaLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixzQkFBc0I7RUFDdEIsNEJBQTRCO0VBQzVCLGtDQUFrQztFQUNsQyxrQkFBa0I7RUFDbEIsaUNBQWlDLEVBQUE7O0FBSW5DO0VBQ0Usb0JBQWlCO0tBQWpCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIseUJBQTBCO0VBQzFCLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixnQkFBZ0IsRUFBQTs7QUFFbEI7RUFDRSxlQUFlO0VBQ2YsV0FBVztFQUNYLFlBQVksRUFBQTs7QUFJZDtFQUNFLGtCQUFrQjtFQUNsQixRQUFRO0VBQ1IsVUFBVTtFQUNWLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFCQUFxQjtFQUNyQix5QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxZQUFZO0VBQ1oscURBQXFEO0VBQ3JELHVEQUdEO0VDaEhDLFlBQVksRUFBRTs7QUFFaEI7RURpSEUsb0JBQWE7RUFBYixhQUFhO0VBQ2IscUJBQW1CO0VBQ25CLHlCQUFpQjtVQUFqQixtQkFBaUI7RUMvR2pCLHdCQUF1QjtVQUF2Qix1QkFBdUIsRUFBRTs7QUFFM0I7RURpSEUsY0FBYTtFQUNiLGlCQUFlO0VBQ2YsZUFBYztFQUNkLGdCQUFjO0VBQ2QsbUJBRUQ7RUNqSEMsV0FBVyxFQUFFOztBQUVmO0VEa0hFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFCQUFtQjtFQUNuQix5QkFBaUI7VUFBakIsbUJBQWlCO0VBQ2pCLHdCQUVEO1VBRkMsdUJBRUQ7RUNsSEMsV0FBVyxFQUFFOztBQUVmO0VEbUhFLG1CQUFhO0VBQ2Isb0JBQVk7RUFBWixhQUFZO0VBQ1osWUFBQTtFQUNBLHdCQUFtQjtVQUFuQix1QkFBbUI7RUFDbkIseUJBQWU7VUFBZixtQkFBZTtFQUNmLHFCQUFnQjtFQUNoQixnQkFBWTtFQUNaLFlBQVk7RUFDWixxREFBYTtFQ2pIYix1RERvSFEsRUFBQTs7QUNqSFY7RUFDRSxZQUFZO0VBQ1osa0JBQWtCLEVBQUUiLCJmaWxlIjoic3JjL2FwcC9ob21lL3Byb2ZpbGUvcHJvZmlsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8vXHJcbi8vLmNvbnR7XHJcbi8vICBoZWlnaHQ6IDEwMCU7XHJcbi8vICB3aWR0aDogMTAwJTtcclxuLy8gIG1hcmdpbjogLTEwJTtcclxuLy99XHJcbi8vXHJcbi8vLy8gLmNvbnRhaW5lciB7XHJcbi8vLy8gICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuLy8vLyAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4vLy8vICAgICBjb2xvcjogd2hpdGU7XHJcbi8vLy8gICAgIGhlaWdodDogMTAwJTtcclxuLy8vLyAgICAgd2lkdGg6IDEwMCU7XHJcbi8vLy8gICAgIG1hcmdpbjogMHB4O1xyXG4vLy8vICAgICBwYWRkaW5nOiAwJTtcclxuLy8vLyAgIH1cclxuLy8uY2VudGVyZWQge1xyXG4vLyAgcG9zaXRpb246IGFic29sdXRlO1xyXG4vLyAgbWFyZ2luLWxlZnQ6IDUwJTtcclxuLy8gIHRyYW5zZm9ybTogdHJhbnNsYXRlKC0zMCUsIC00MCUpO1xyXG4vLyAgY29sb3I6IGJsYWNrO1xyXG4vLyAgLy8gdGV4dC1hbGlnbjogY2VudGVyO1xyXG4vLyAgLy8gbWFyZ2luLXRvcDotMTAwJTtcclxuLy8gIC8vIGZvbnQtZmFtaWx5OiBHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgVGltZXMsIHNlcmlmO1xyXG4vL31cclxuLy8uYXZhdHtcclxuLy8gIHdpZHRoOjEwMCUgIWltcG9ydGFudDtcclxuLy8gIGhlaWdodCA6IDEwMCUgIWltcG9ydGFudDtcclxuLy8gIG1heC13aWR0aDogMTUwcHggIWltcG9ydGFudDtcclxuLy8gIG1heC1oZWlnaHQ6IDE1MHB4ICFpbXBvcnRhbnQ7XHJcbi8vfVxyXG4vLy5zcGFjZXtcclxuLy8gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuLy8gIG1hcmdpbi1sZWZ0OiAxMCU7XHJcbi8vICBtYXJnaW4tdG9wOiAxMCU7XHJcbi8vfVxyXG4vLy5pdHtcclxuLy8gIHBhZGRpbmctdG9wOiAyJTtcclxuLy99XHJcbi8vLmdyYWQgIHtcclxuLy8gIC0tYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KFxyXG4vLyAgICAgICAgICAgICAgICAgIHRvIGJvdHRvbSxcclxuLy8gICAgICAgICAgICAgICAgICAjMGE1Mjc5IDAlLFxyXG4vLyAgICAgICAgICAgICAgICAgICM4MGQzY2IgMTAwJSlcclxuLy9cclxuLy99XHJcbi8vXHJcbi8vLmJhY2t7XHJcbi8vICBtYXJnaW4tdG9wOiA1MCU7XHJcbi8vICBtYXJnaW4tbGVmdDogMTAlO1xyXG4vL31cclxuLy9cclxuLy8uZWRpdHtcclxuLy8gIG1hcmdpbi1sZWZ0OiA3JTtcclxuLy8gIG1hcmdpbi10b3A6IDkwJTtcclxuLy99XHJcbi8vLnBhZHtcclxuLy8gIG1hcmdpbi1sZWZ0OiAxMCU7XHJcbi8vICBwYWRkaW5nLXJpZ2h0OiAzJTtcclxuLy99XHJcbi8vLndyYXBwZXIge1xyXG4vLyAgd2lkdGg6IDUwMHB4O1xyXG4vLyAgaGVpZ2h0OiA1MDBweDtcclxuLy8gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuLy8gIGxlZnQ6IDUwJTtcclxuLy8gIHRvcDogNTAlO1xyXG4vLyAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XHJcbi8vICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbi8vICBiYWNrZ3JvdW5kLWltYWdlOiBsaW5lYXItZ3JhZGllbnQodG8gdG9wLCByZ2IoODAsIDE4NSwgMTgyKSAwJSwgI2ZmZmZmZiAxMDAlKTtcclxuLy8gIG92ZXJmbG93OiBoaWRkZW47XHJcbi8vICBib3JkZXItcmFkaXVzOiAyMCU7XHJcbi8vfVxyXG4vL1xyXG4vLy53YXZlIHtcclxuLy8gIHdpZHRoOiAxMDAwcHg7XHJcbi8vICBoZWlnaHQ6IDEwMDBweDtcclxuLy8gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuLy8gIHRvcDogLTI1JTtcclxuLy8gIGxlZnQ6IDUwJTtcclxuLy8gIG1hcmdpbi1sZWZ0OiAtNTAwcHg7XHJcbi8vICBtYXJnaW4tdG9wOiAtNTAwcHg7XHJcbi8vICBib3JkZXItcmFkaXVzOiAzNSU7XHJcbi8vICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIC43NSk7XHJcbi8vICBhbmltYXRpb246IHdhdmUgMTVzIGluZmluaXRlIGxpbmVhcjtcclxuLy99XHJcbi8vXHJcbi8vQGtleWZyYW1lcyB3YXZlIHtcclxuLy8gIGZyb20geyB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTt9XHJcbi8vICBmcm9tIHsgdHJhbnNmb3JtOiByb3RhdGUoMzYwZGVnKTt9XHJcbi8vfVxyXG4vLy5teXJvd3tcclxuLy8gIHBhZGRpbmctYm90dG9tOiA2MCU7XHJcbi8vfVxyXG4vLy5Tcm93e1xyXG4vLyAgd2lkdGg6IDUwMHB4O1xyXG4vLyAgaGVpZ2h0OiA1MDBweDtcclxuLy8gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuLy8gIG1hcmdpbi1sZWZ0OiAxMDAlO1xyXG4vLyAgbWFyZ2luLXRvcDogMTMwJTtcclxuLy8gIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xyXG4vLyAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIGJvdHRvbSwgcmdiKDgwLCAxODUsIDE4MikgMCUsICNmZmZmZmYgMTAwJSk7XHJcbi8vICBvdmVyZmxvdzogaGlkZGVuO1xyXG4vLyAgYm9yZGVyLXJhZGl1czogMjAlO1xyXG4vL31cclxuXHJcbmlvbi10b29sYmFye1xyXG4gIC0tYmFja2dyb3VuZDogI2MyZDhmMztcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC1mYW1pbHk6IEdlb3JnaWEsICdUaW1lcyBOZXcgUm9tYW4nLCBUaW1lcywgc2VyaWYgO1xyXG59XHJcbi5pb24tY29udGVudHtcclxuICAtLWJhY2tncm91bmQ6ICNjMmQ4ZjM7XHJcbiAgZm9udC1zaXplOiAzMHB4O1xyXG4gIG1heC1mb250LXNpemU6IDMwcHg7XHJcbiAgbWluLWZvbnQtc2l6ZTogMjVweDtcclxuXHJcblxyXG59XHJcbi5mYWJ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMyU7XHJcbn1cclxuLndyYXBwZXJ7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG59XHJcbi5wcm9maWxlLWltZy1mcmFtZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHdpZHRoOiAxNzBweDtcclxuICBoZWlnaHQ6IDE3MHB4O1xyXG4gIG1pbi1oZWlnaHQ6IDkwcHg7XHJcbiAgbWluLXdpZHRoOiA5MHB4O1xyXG4gIG1hcmdpbjogMWVtIGF1dG87XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIGJveC1zaGFkb3c6IGluc2V0IDAgMCAwIDVweCB3aGl0ZTtcclxuXHJcbn1cclxuXHJcbi5wcm9maWxlLWltZy1ob2xkZXJ7XHJcbiAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICAjMmNjNjdiO1xyXG4gIG1heC13aWR0aDogMTUwcHg7XHJcbiAgbWF4LWhlaWdodDogMTUwcHg7XHJcbiAgbWluLXdpZHRoOiAxMDBweDtcclxuICBtaW4taGVpZ2h0OiAxMDBweDtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcbi5wcm9maWxlLWltZ3tcclxuICBkaXNwbGF5OiBpbmxpbmU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG5cclxuXHJcbn1cclxuLmNhbWVyYXtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiA4NSU7XHJcbiAgcmlnaHQ6IDMwJTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICB3aWR0aDogNTBweDtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDE0NWRlZywgI2QwZTdmZiwgI2FmYzJkYik7XHJcbiAgYm94LXNoYWRvdzogIDNweCAzcHggM3B4ICM5ZGFmYzUsXHJcbiAgLTNweCAtM3B4IDNweCAjZTdmZmZmO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG4uaW5wdXRze1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYWxpZ24tY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuLmlvbi1pbnB1dHtcclxuICBtYXJnaW4tdG9wOiAyJTtcclxuICBtYXJnaW4tYm90dG9tOiAyJTtcclxuICBtYXJnaW4tbGVmdDogNyU7XHJcbiAgbWFyZ2luLXJpZ2h0OiA3JTtcclxuICBib3JkZXItcmFkaXVzOjE1cHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcblxyXG59XHJcbi5idXR0b25zLXRvb2xfYmFye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYWxpZ24tY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgd2lkdGg6IDEwMCU7XHJcblxyXG59XHJcbi5pb24tYnV0dG9uIHtcclxuICBib3JkZXItcmFkaXVzOiAxNXB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgaGVpZ2h0OiA1MHB4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgYWxpZ24tY29udGVudDogY2VudGVyO1xyXG4gIG1hcmdpbi1sZWZ0OiAxMCU7XHJcbiAgd2lkdGg6IDEwMHB4O1xyXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxNDVkZWcsICNkMGU3ZmYsICNhZmMyZGIpO1xyXG4gIGJveC1zaGFkb3c6ICAzcHggM3B4IDNweCAjOWRhZmM1LFxyXG4gIC0zcHggLTNweCAzcHggI2U3ZmZmZjtcclxufVxyXG4ucGFyYWdyYXBoe1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn1cclxuXHJcbiIsImlvbi10b29sYmFyIHtcbiAgLS1iYWNrZ3JvdW5kOiAjYzJkOGYzO1xuICBjb2xvcjogd2hpdGU7XG4gIGZvbnQtZmFtaWx5OiBHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgVGltZXMsIHNlcmlmOyB9XG5cbi5pb24tY29udGVudCB7XG4gIC0tYmFja2dyb3VuZDogI2MyZDhmMztcbiAgZm9udC1zaXplOiAzMHB4O1xuICBtYXgtZm9udC1zaXplOiAzMHB4O1xuICBtaW4tZm9udC1zaXplOiAyNXB4OyB9XG5cbi5mYWIge1xuICBtYXJnaW4tYm90dG9tOiAzJTsgfVxuXG4ud3JhcHBlciB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTsgfVxuXG4ucHJvZmlsZS1pbWctZnJhbWUge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICB3aWR0aDogMTcwcHg7XG4gIGhlaWdodDogMTcwcHg7XG4gIG1pbi1oZWlnaHQ6IDkwcHg7XG4gIG1pbi13aWR0aDogOTBweDtcbiAgbWFyZ2luOiAxZW0gYXV0bztcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBib3gtc2hhZG93OiBpbnNldCAwIDAgMCA1cHggd2hpdGU7IH1cblxuLnByb2ZpbGUtaW1nLWhvbGRlciB7XG4gIG9iamVjdC1maXQ6IGNvdmVyO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyY2M2N2I7XG4gIG1heC13aWR0aDogMTUwcHg7XG4gIG1heC1oZWlnaHQ6IDE1MHB4O1xuICBtaW4td2lkdGg6IDEwMHB4O1xuICBtaW4taGVpZ2h0OiAxMDBweDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjsgfVxuXG4ucHJvZmlsZS1pbWcge1xuICBkaXNwbGF5OiBpbmxpbmU7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IGF1dG87IH1cblxuLmNhbWVyYSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiA4NSU7XG4gIHJpZ2h0OiAzMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgd2lkdGg6IDUwcHg7XG4gIGhlaWdodDogNTBweDtcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDE0NWRlZywgI2QwZTdmZiwgI2FmYzJkYik7XG4gIGJveC1zaGFkb3c6IDNweCAzcHggM3B4ICM5ZGFmYzUsXHIgLTNweCAtM3B4IDNweCAjZTdmZmZmO1xuICBjb2xvcjogd2hpdGU7IH1cblxuLmlucHV0cyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7IH1cblxuLmlvbi1pbnB1dCB7XG4gIG1hcmdpbi10b3A6IDIlO1xuICBtYXJnaW4tYm90dG9tOiAyJTtcbiAgbWFyZ2luLWxlZnQ6IDclO1xuICBtYXJnaW4tcmlnaHQ6IDclO1xuICBib3JkZXItcmFkaXVzOiAxNXB4O1xuICB3aWR0aDogMTAwJTsgfVxuXG4uYnV0dG9ucy10b29sX2JhciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIHdpZHRoOiAxMDAlOyB9XG5cbi5pb24tYnV0dG9uIHtcbiAgYm9yZGVyLXJhZGl1czogMTVweDtcbiAgZGlzcGxheTogZmxleDtcbiAgaGVpZ2h0OiA1MHB4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgYWxpZ24tY29udGVudDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogMTAlO1xuICB3aWR0aDogMTAwcHg7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxNDVkZWcsICNkMGU3ZmYsICNhZmMyZGIpO1xuICBib3gtc2hhZG93OiAzcHggM3B4IDNweCAjOWRhZmM1LFxyIC0zcHggLTNweCAzcHggI2U3ZmZmZjsgfVxuXG4ucGFyYWdyYXBoIHtcbiAgcGFkZGluZzogMHB4O1xuICBtYXJnaW4tYm90dG9tOiAwcHg7IH1cbiJdfQ== */");
 
 /***/ }),
 
@@ -1652,74 +1775,96 @@ let ProfileComponent = class ProfileComponent {
         this.datastream = datastream;
         this.editPatientService = editPatientService;
         this.savedata = savedata;
+        this.spinnerState = true;
+        this.save_state = true;
     }
     ngOnInit() {
-        this.notEnable = true;
-        this.doctorName = this.datastream.getDoctorName();
-        this.years_experience = this.datastream.getDoctorYearsOfExperience();
-        this.mobile = this.datastream.getDoctorMobile();
-        this.code = "patient1";
-        console.log("name  " + this.doctorName);
-        console.log("myName " + this.myName);
+        new Promise((resolve, reject) => {
+            this.DataSet();
+            console.log("data set has ended");
+            if (this.InputData == undefined) {
+                reject("undefined User Data");
+            }
+            else {
+                resolve();
+            }
+        }).then(() => { this.spinnerState = false; console.log("resolved"); }).catch((err) => alert('data stream error' + err));
     }
-    backClick() {
-        console.log("must navigate to patient list");
-        this.navigation.navigateTo('home');
+    DataSet() {
+        console.log("data set has started");
+        this.InputData = [{
+                label: "Name",
+                value: this.datastream.getDoctorName(),
+                type: "string"
+            },
+            {
+                label: "Mobile",
+                value: this.datastream.getDoctorMobile(),
+                type: "number"
+            },
+            {
+                label: "Specialization",
+                value: "",
+                type: "string"
+            },
+            {
+                label: "Years of Experience",
+                value: this.datastream.getDoctorYearsOfExperience(),
+                type: "number"
+            },
+            {
+                label: "Clinic Address 1",
+                value: "",
+                type: "string"
+            },
+            {
+                label: "Clinic Address 2",
+                value: "",
+                type: "string"
+            },
+            {
+                label: "Clinic Address 3",
+                value: "",
+                type: "string"
+            },
+        ];
     }
-    //  vitalClick(){
-    //   this.navigation.navigateTo('home/vitals');
-    //  }
     edit() {
-        this.notEnable = false;
-        // this.patientName="";
-        // this.patientAge=null;
-        // this.patientAddress="";
-        // this.myAddress="";
-        // this.myAge=null;
-        // this.myName="";
-        console.log("Years " + this.myYears);
-        console.log("myName " + this.myName);
+        this.save_state = false;
     }
-    save(name, years_experience) {
+    save() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const alert = this.savedata.create({
                 header: 'Are you sure you want to save edits?',
                 animated: true,
                 buttons: [{ text: 'Cancel',
                         handler: (data) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                            this.doctorName = "";
-                            this.years_experience = null;
-                            this.myName = this.datastream.getDoctorName();
-                            this.myYears = this.datastream.getDoctorYearsOfExperience();
-                            this.notEnable = true;
+                            this.DataSet();
+                            this.save_state = true;
                         })
                     },
                     {
                         text: 'Save',
-                        handler: (data) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                            this.notEnable = true;
-                            const token = this.datastream.getToken();
-                            console.log("myName " + name);
-                            console.log("myYears " + years_experience);
-                            this.editPatientService.editDoctorProfile(name, years_experience, token).subscribe(response => {
+                        handler: async => {
+                            this.save_state = true;
+                            let token = this.datastream.getToken();
+                            console.log("data to save  ", this.InputData);
+                            //to delete after habiba solves thr cors error from back
+                            this.datastream.changeDoctorData(this.InputData[0].value, this.InputData[3].value);
+                            ////////////////////////////////////////////
+                            this.editPatientService.editDoctorProfile(this.InputData[0].value, this.InputData[3].value, token).subscribe(response => {
                                 // this.datastream.setToken(response.token);
                                 console.log("http request to Change patient Data: " + JSON.stringify(response));
-                                // this.datastream.changePatientData(response);
+                                this.datastream.changeDoctorData(this.InputData[0].value, this.InputData[3].value);
                             }, err => {
                                 console.log('HTTP Edit profile Error: ', err.error.message);
                             });
-                        })
+                        }
                     }
                 ]
             });
             (yield alert).present();
         });
-    }
-    changeName() {
-        this.doctorName = "";
-    }
-    changeExp() {
-        this.years_experience = null;
     }
 };
 ProfileComponent.ctorParameters = () => [
@@ -1728,6 +1873,10 @@ ProfileComponent.ctorParameters = () => [
     { type: _HttPService_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"] }
 ];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonSegment"], { static: false }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonSegment"])
+], ProfileComponent.prototype, "ionSegment", void 0);
 ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile',
@@ -1913,6 +2062,7 @@ let InteractionService = class InteractionService {
         this.getId = this.communication.asObservable();
         this.Edit = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](0);
         this.getName = this.Edit.asObservable();
+        this.patient = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
     }
     UpdateName(name) {
         this.Edit.next(name);
@@ -1926,15 +2076,21 @@ let InteractionService = class InteractionService {
         this.CoversationState.next(state);
         console.log(state);
     }
-    sendDoctorNamefromconvtoMessage(doctorListfromconv) {
-        this.getDocData.next(doctorListfromconv);
-        console.log(doctorListfromconv);
+    sendPatientNamefromconvtoMessage(patientListfromconv) {
+        this.getDocData.next(patientListfromconv);
+        console.log(patientListfromconv);
     }
     getThreadIdfromMessageorConvListtoChat(id) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             this.communication.next(id);
             console.log(id);
         });
+    }
+    sendPatientData(data) {
+        this.patient.next(data);
+    }
+    getPatientData() {
+        return this.patient.getValue();
     }
 };
 InteractionService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

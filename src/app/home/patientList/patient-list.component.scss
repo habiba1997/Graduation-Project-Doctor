@@ -1,3 +1,4 @@
+$blue:#25b7d3;
 @font-face {
   font-family: Forte;
   src: url(/assets/fonts/FORTE.ttf);
@@ -47,7 +48,7 @@ ion-content{
 }
 //first row
 .f-row{
-  background: linear-gradient(#7fddef 16%, #8de5d3 73%);
+  background: #25b7d3;
   margin: -5px;
   font-size: 2em;
 }

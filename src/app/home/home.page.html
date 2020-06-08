@@ -7,16 +7,13 @@
   <ion-grid class="background">
     <ion-row>
       <ion-col >
-          <ion-button  (click)= "clear()" color="light" shape ="round" >
-              <ion-icon name="arrow-round-back"></ion-icon>
-              Logout
-              </ion-button>
+
             <!-- <img class ="icon"src="assets/talin.png" > -->
   
             <div class="center">
 
               <ion-avatar class="avat" >
-                  <img src="assets/talin.png" (click)="NavigateMe('home/Myprofile')">
+                  <img src="{{datastream.doctor.profile_img}}" (click)="NavigateMe('home/Myprofile')">
              </ion-avatar>
             </div>
             <h1 class="middle-text user-name">{{datastream.doctor.name}}</h1>

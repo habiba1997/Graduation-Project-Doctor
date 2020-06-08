@@ -2,94 +2,97 @@
   <ion-router-outlet id="menu-content"></ion-router-outlet>
 </ion-app> -->
 <ion-app>
-  <ion-menu color="sub.severityLevel" side="start" menuId="first" contentId="content1" type="overlay" >
-   <ion-header >
-          <ion-toolbar> 
-            <ion-menu-toggle auto-hide="false" >
-              
-                <ion-item >
-                  
-                  <ion-avatar slot="start">
-                    <img src="assets/images.jpg">
-                  </ion-avatar>
-                  <ion-label>  {{myName}} </ion-label>
-                 </ion-item > 
-             </ion-menu-toggle >
-          </ion-toolbar>
+    <div *ngIf="showSplash" class="myBackground">
+        <div>
+            <img src="/assets/animation_splash.gif">
+        </div>
+    </div>
+    <ion-menu  side="start" menuId="first"   contentId="content1" type="overlay" >
+        <ion-header >
+            <ion-toolbar>
+                <ion-menu-toggle auto-hide="false" >
+
+                    <ion-item >
+
+                        <ion-avatar slot="start">
+                            <img src="assets/images.jpg">
+                        </ion-avatar>
+                        <ion-label>  </ion-label>
+                    </ion-item >
+                </ion-menu-toggle >
+            </ion-toolbar>
         </ion-header>
         <ion-content  >
-          <ion-list >
-           
-            
-            <ion-menu-toggle auto-hide="false" >
-              
-                <ion-item >
-                     
-                   <ion-label shape="round" (click)= "vitalClick()" expand="full" >
-                    <ion-icon name="fitness"></ion-icon>
-                        Vitals
-                   </ion-label>
-                  
-      
-                </ion-item> 
-              </ion-menu-toggle>
-              <br>
-            <ion-menu-toggle auto-hide="false" >
-              
-              <ion-item>
-                   
-                 <ion-label shape="round" (click)= "homeClick()" expand="full"  >
-                 <ion-icon name="person"></ion-icon>
-                  Profile
-                 </ion-label>
-                
-    
-              </ion-item> 
-            </ion-menu-toggle>
-            <br>
-              <ion-menu-toggle auto-hide="false" >
-              
-                <ion-item>
-                     
-                   <ion-label shape="round" (click)= "dlistClick()" expand="full" >
-                    <ion-icon name="medkit"></ion-icon>
-                    My doctors
-                   </ion-label>
-      
-                </ion-item> 
-              </ion-menu-toggle>
-              <br>
-              <ion-menu-toggle auto-hide="false" >
-              
-                <ion-item>
-                 
-                     
-                   <ion-label shape="round" (click)= "homClick()" expand="full" >
-                   <ion-icon name="body"></ion-icon>
-                    Homepage
-                   </ion-label>
-                 
-      
-                </ion-item> 
-              </ion-menu-toggle>
-              <br>
-              <ion-menu-toggle auto-hide="false" >
-              
-                  <ion-item>
-                       
-                     <ion-label shape="round" (click)= "outClick()" expand="full" class = "grad">
-                     <ion-icon name="power"></ion-icon>
-                      Log out
-                     </ion-label>
-        
-                  </ion-item> 
+            <ion-list >
+                <ion-menu-toggle auto-hide="false" >
+
+                    <ion-item (click)= "homeClick()">
+
+                        <ion-label shape="round"  expand="full"  >
+                            <ion-icon name="person"></ion-icon>
+                            Profile
+                        </ion-label>
+                    </ion-item>
+                    <ion-item (click)= "ConsultClick()">
+
+                        <ion-label shape="round"  expand="full"  >
+                            <ion-icon name="mail"></ion-icon>
+                            Consultations
+                        </ion-label>
+                    </ion-item>
                 </ion-menu-toggle>
-          </ion-list>
-        
+                <br>
+                <ion-menu-toggle auto-hide="false" >
+
+                    <ion-item (click)= "dlistClick()" >
+
+                        <ion-label shape="round" expand="full" >
+                            <ion-icon name="medkit"></ion-icon>
+                            My doctors
+                        </ion-label>
+
+                    </ion-item>
+                </ion-menu-toggle>
+                <br>
+                <ion-menu-toggle auto-hide="false" >
+
+                    <ion-item (click)= "homClick()" >
+
+
+                        <ion-label shape="round" expand="full" >
+                            <ion-icon name="body"></ion-icon>
+                            Homepage
+                        </ion-label>
+
+
+                    </ion-item>
+                </ion-menu-toggle>
+                <br>
+                <ion-menu-toggle auto-hide="false" >
+
+                    <ion-item (click)= "outClick()">
+
+                        <ion-label shape="round"  expand="full" class = "grad">
+                            <ion-icon name="power"></ion-icon>
+                            Log out
+                        </ion-label>
+
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+
         </ion-content>
-      
+
     </ion-menu>
-<ion-router-outlet id="content1"></ion-router-outlet>
+    <ion-toolbar class="menu-bar">
+        <ion-buttons slot="start">
+
+            <ion-button style="font-size: x-large"   (click)="openMenu()" >
+                <ion-icon name="menu"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-router-outlet  class="ion-page" id="content1"></ion-router-outlet>
 </ion-app>
 
-  
+

@@ -19,14 +19,24 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "@ionic-native/camera": "^5.22.0-beta-1",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/fcm": "^5.21.5",
+    "@ionic-native/file": "^5.22.0-beta-1",
+    "@ionic-native/file-path": "^5.22.0-beta-1",
+    "@ionic-native/ionic-webview": "^5.22.0-beta-1",
+    "@ionic-native/network": "^5.22.0-beta-1",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
     "@ionic/storage": "^2.2.0",
-    "cordova-android": "8.1.0",
+    "cordova": "^9.0.0",
+    "cordova-android": "^8.1.0",
+    "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-fcm-with-dependecy-updated": "^4.1.1",
+    "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-filepath": "^1.5.8",
+    "cordova-plugin-network-information": "^2.0.2",
     "cordova-sqlite-storage": "^4.0.0",
     "core-js": "^2.5.4",
     "ngx-autosize": "^1.7.5",
@@ -74,9 +84,7 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      },
+      "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-fcm-with-dependecy-updated": {
@@ -84,7 +92,13 @@
         "FCM_VERSION": "18.0.0",
         "GRADLE_TOOLS_VERSION": "3.5.0",
         "GOOGLE_SERVICES_VERSION": "4.2.0"
-      }
+      },
+      "cordova-plugin-file": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "cordova-plugin-filepath": {},
+      "cordova-plugin-network-information": {}
     },
     "platforms": [
       "android"

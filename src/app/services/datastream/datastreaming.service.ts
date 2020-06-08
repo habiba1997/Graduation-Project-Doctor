@@ -29,7 +29,7 @@ export class DatastreamingService {
     patient.age = element[4];
     patient.address = element[5];
     patient.relationId=element[6];
-    
+    patient.user_img=element[7];
     this.patientList.push(patient);
   }
   savePatientListToDataStore()
@@ -42,7 +42,7 @@ export class DatastreamingService {
   {
     (await patientList).forEach(element => {
       this.patientList.push(element);
-    });;
+    });
   }
    getPatientList()
    {
@@ -63,12 +63,12 @@ export class DatastreamingService {
      this.doctor.name = doctorData.user.name;
      this.doctor.mobile = doctorData.user.mobile;
      this.doctor.user_id = doctorData.user.id;
-    //  this.doctor.email = doctorData.user.email;
-     this.doctor.password = doctorData.user.password,
+     this.doctor.password = doctorData.user.password;
      this.doctor.type = doctorData.user.type;
      this.doctor.timestamp = doctorData.user.timestamp;
      this.doctor.years_experience = doctorData.years_experience;
-
+     this.doctor.profile_img=doctorData.user.user_image;
+       console.log("set doctor ",this.doctor);
      this.dataStore.saveDoctprLocally(this.doctor);
    }
    SetDoctorforLogin(mydoc)
@@ -77,11 +77,12 @@ export class DatastreamingService {
      this.doctor.mobile = mydoc.mobile;
      this.doctor.name = mydoc.name;
      this.doctor.user_id = mydoc.user_id;
-    //  this.doctor.email = mydoc.email;
-     this.doctor.password = mydoc.password,
+     this.doctor.password = mydoc.password;
      this.doctor.type = mydoc.type;
      this.doctor.timestamp = mydoc.timestamp;
      this.doctor.years_experience = mydoc.years_experience;
+     this.doctor.profile_img=mydoc.user_image;
+     console.log("doctor for login",this.doctor);
      this.dataStore.saveDoctprLocally(this.doctor);
    }
 
@@ -117,5 +118,15 @@ export class DatastreamingService {
     this.dataStore.saveDoctprLocally(this.doctor);
 
   }
+    getDoctorProfileImage():String{
+        console.log("patient profile image ",this.doctor.profile_img);
+        return this.doctor.profile_img;
+    }
+    changeDoctorProfileImage(imgPath:String){
+        this.doctor.profile_img=imgPath;
+        this.dataStore.saveDoctprLocally(this.doctor);
+
+    }
+
 
 }

@@ -5,9 +5,6 @@
         <ion-grid id="item">
           <ion-row>
             <ion-col size="4">
-              <ion-button (click)= "backClick()"  shape="round" color="light" >
-                <ion-icon name="arrow-round-back"></ion-icon>
-              </ion-button>
             </ion-col>
             <ion-col size="8">
               <h1>My Patients</h1>
@@ -49,13 +46,13 @@
                 <!--          //second nested row    -->
                 <ion-row >
                   <ion-col size="3">
-                    <img  class="small-icon" src="assets/doctor1.jpeg">
+                    <img  *ngIf="item.user_img" class="profile-img" src="{{item.user_img}}" align-self-sm-center alt="??">
                   </ion-col>
                   <ion-col size="9">
 
                     <ion-grid  id="item2">
 
-                      <ion-row >
+                      <ion-row (click)="GotoPatientProfile(item)" >
                         <h3>{{item.name}}</h3>
                       </ion-row>
                       <ion-row>

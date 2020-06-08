@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { Platform } from '@ionic/angular';
+import {MenuController, Platform, ToastController} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { DatastorageService } from './services/datastorage/datastorage.service';
@@ -8,6 +7,7 @@ import { NavigationService } from './home/NavService/navigation.service';
 import { DatastreamingService } from './services/datastream/datastreaming.service';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { HttpService } from './home/HttPService/http.service';
+import {timer} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -26,9 +26,17 @@ export class AppComponent {
     private datastream : DatastreamingService,
     public fcm : FCM,
     private http: HttpService,
+    private menu_controller:MenuController,
+    private toastController: ToastController,
+
 
   ) {
     this.initializeApp();
+  }
+  showSplash:boolean=true;
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter');
+    this.menu_controller.enable(true);
   }
   navigate =
   [
@@ -42,12 +50,7 @@ export class AppComponent {
       url   : "home/profile",
       icon  : "chatboxes"
     },
-    {
-      title : "Contacts",
-      url   : "/contacts",
-      icon  : "contacts"
-    },
-  ]
+  ];
 
    initializeApp() {
     this.platform.ready().then( () => {
@@ -60,32 +63,20 @@ export class AppComponent {
           {
             console.log(" app compoennt :: Token isnot expired:  "+isTokenExpired);
             await this.datastore.getDoctorData().then((doctor)=>{
-               that.datastream.SetDoctorforLogin(doctor);
+              console.log("calling set doctor for login",doctor);
+               this.datastream.SetDoctorforLogin(doctor);
                this.myName =this.datastream.getDoctorName();
                console.log("menu name",this.myName)
-            })
+            });
             await this.datastore.getDoctorToken().then((token)=>{
                that.datastream.setToken(token);
                
                 //recieveing Token For Development Only FOR NOW
-                this.fcm.getToken().then((fcmtoken)=>{
-                  this.http.editFCMToken(fcmtoken, token).subscribe((data)=>
-                  {
-                    console.log(JSON.stringify(data));
-                  }, 
-                  err=>{
-                    alert("Haven't Updated FCM Token");
-
-                  });
-
-                },
-                (err)=>{
-                  alert("ERROR in getting FCM token: "+JSON.stringify(err));
-                });
-            })
+                this.http.editFCMToken();
+            });
             await this.datastore.getPatientList().then((doctorList)=>{
-               that.datastream.restoreStreamDatalist(doctorList); 
-            })
+               this.datastream.restoreStreamDatalist(doctorList);
+            });
             this.nav.navigateTo('home');
             
           }
@@ -94,29 +85,56 @@ export class AppComponent {
      
        this.statusBar.styleLightContent();
        this.splashScreen.hide();
+      timer(3000).subscribe(()=>this.showSplash=false);
 
-      
+
 
       //recieveing notification
       this.fcm.onNotification().subscribe((data)=>
       {
-        if (data.wasTapped) 
+        if (data.wasTapped)
         {
-          alert("Data Tapped Message:"+ data.body);
+          this.presentToast("Tapped Message:"+ data.body);
           console.log("Tapped: "+ JSON.stringify(data));
         }
         else
         {
-          alert("Data Message:"+ data.body);
-          console.log(JSON.stringify(data));
+
+          this.presentToast("Message:"+ data.body);
+          console.log("tapping",JSON.stringify(data));
         }
       });
 
-      
-    
 
-     });
+
+
+
+
+    });
   }
+  async presentToast(text) {
+    const toast = await this.toastController.create({
+      header:"Consultation Answer Just Arrived",
+      message: text,
+      position: 'top',
+      duration: 3000,
+      color:'light',
+      showCloseButton: true,
+      closeButtonText: 'hide',
+    });
+    await toast.present();
+    toast.onDidDismiss().then((val) => {
+      console.log('Toast Dismissed');
+    });
+
+  }
+  async  openMenu() {
+    this.menu_controller.enable(true, 'first');
+    this.menu_controller.open('first');
+
+
+  }
+
   // vitalClick(){
   //   this.nav.navigateTo('home/vitals');
 
@@ -133,8 +151,15 @@ export class AppComponent {
     this.nav.navigateTo('home');
     console.log("trainer list")
   }
+
   outClick(){
+    this.datastream.clearData();
     this.nav.navigateTo('cover');
+
+
+  }
+  ConsultClick(){
+    this.nav.navigateTo('home/conversation');
 
   }
   

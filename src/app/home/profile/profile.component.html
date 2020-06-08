@@ -1,90 +1,149 @@
-<ion-content class="cont" >
-    <div *ngIf="showSplash" class="myBackground">
-        <div>
-            <img src="/assets/giphy.gif">
-        </div>
+<!--<ion-content class="cont" >-->
+<!--    <div *ngIf="showSplash" class="myBackground">-->
+<!--        <div>-->
+<!--            <img src="/assets/giphy.gif">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <ion-grid>-->
+<!--        <ion-row class ="myrow" >-->
+<!--            <ion-col size="12">-->
+<!--                <div class="wrapper" >-->
+<!--                    <div class="wave"></div>-->
+<!--                    <div>-->
+
+<!--                        <ion-button class="back" (click)= "backClick()"  shape="round" color="sub.severityLevel" style="color:black">-->
+<!--                            <ion-icon name="arrow-round-back" ></ion-icon>-->
+
+<!--                        </ion-button>-->
+<!--                    </div>-->
+
+<!--                    <div >-->
+<!--                        <h1 class="centered">-->
+<!--                            <ion-input clearInput #Name disabled={{notEnable}} (ionChange)="changeName()" #Name [(ngModel)]="myName" floating>-->
+<!--                                {{doctorName}}-->
+<!--                            </ion-input>-->
+<!--                        </h1>-->
+<!--                        <div class="space">-->
+<!--                            <ion-avatar class="avat"  >-->
+<!--                                <img src="assets/images.jpg" >-->
+<!--                            </ion-avatar>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--            <ion-col size="6">-->
+<!--                <div class="Srow">-->
+
+<!--                    <ion-item color="sub.severityLevel" >-->
+<!--                        <ion-icon name="business" class="pad"></ion-icon>-->
+
+<!--                        <ion-input  clearInput  [(ngModel)]="myYears" (ionChange)="changeExp()" #Years  disabled={{notEnable}}  floating>-->
+<!--                            Years of Experience: {{years_experience}}-->
+<!--                        </ion-input>-->
+
+<!--                    </ion-item>-->
+
+<!--                    <ion-item  color="sub.severityLevel" >-->
+<!--                        <ion-icon name="call" class="pad"></ion-icon>-->
+<!--                        <ion-label>-->
+<!--                            Mobile: {{mobile}}-->
+<!--                        </ion-label>-->
+<!--                    </ion-item>-->
+
+<!--                    <ion-item  color="sub.severityLevel" >-->
+<!--                        <ion-icon name="alarm" class="pad"></ion-icon>-->
+<!--                        <ion-label>-->
+<!--                            Coming session Date:12/12/2019-->
+<!--                        </ion-label>-->
+<!--                        <ion-icon name="construct" ></ion-icon>-->
+<!--                    </ion-item>-->
+
+<!--                    <ion-item color="sub.severityLevel" >-->
+<!--                        <ion-icon name="clock" class="pad"></ion-icon>-->
+
+<!--                        Latest session Date:12/12/2019-->
+
+<!--                    </ion-item>-->
+
+
+<!--                </div>-->
+<!--            </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row class="edit">-->
+<!--            <ion-col size="4">-->
+<!--                <ion-button shape="round" (click)="edit()" color="sub.severityLevel" style="color:black"> Edit </ion-button>-->
+<!--            </ion-col>-->
+<!--            <ion-col size="4" class="cancel">-->
+<!--                <ion-button  shape="round" (click)="save(Name.value,Years.value)" color="sub.severityLevel" style="color:black"> Save </ion-button>-->
+<!--            </ion-col>-->
+<!--            <ion-col size ="4" class="fab">-->
+<!--                <app-fab></app-fab>-->
+
+<!--            </ion-col>-->
+
+<!--        </ion-row>-->
+
+<!--    </ion-grid>-->
+<!--</ion-content>-->
+<div *ngIf="spinnerState" class="myBackground">
+    <div>
+        <img src="/assets/giphy.gif">
     </div>
+</div>
+<ion-content class="ion-content">
     <ion-grid>
-        <ion-row class ="myrow" >
-            <ion-col size="12">
-                <div class="wrapper" >
-                    <div class="wave"></div>
-                    <div>
+        <ion-row>
+            <ion-col size="3" sizeLg="3" sizeSm="1" sizeMd="2" sizeXs="2"></ion-col>
+            <ion-col size="6" sizeLg="6" sizeMd="8" sizeSm="10" sizeXs="8">
+                <ion-toolbar text-center>
+                    <p>My Profile</p>
+                    <div class="wrapper">
+                        <div class="profile-img-frame">
+                            <div class="profile-img-holder">
+                                <img *ngIf="image" class="profile-img" src="{{image.path}}" alt="profile image">
 
-                        <ion-button class="back" (click)= "backClick()"  shape="round" color="sub.severityLevel" style="color:black">
-                            <ion-icon name="arrow-round-back" ></ion-icon>
-
-                        </ion-button>
-                    </div>
-
-                    <div >
-                        <h1 class="centered">
-                            <ion-input clearInput #Name disabled={{notEnable}} (ionChange)="changeName()" #Name [(ngModel)]="myName" floating>
-                                {{doctorName}}
-                            </ion-input>
-                        </h1>
-                        <div class="space">
-                            <ion-avatar class="avat"  >
-                                <img src="assets/images.jpg" >
-                            </ion-avatar>
+                            </div>
+                        </div>
+                        <div class="camera" (click)="selectImage()" >
+                            <ion-icon name="camera"  color="white" size="large"></ion-icon>
                         </div>
                     </div>
+                    <p style="font-size: 0.9em" class="paragraph">{{InputData[0].value}} </p>
+                    <span style="font-size: 0.6em">{{InputData[2].value}} </span>
 
-                </div>
+                </ion-toolbar>
+
             </ion-col>
+            <ion-col size="3" sizeLg="3" sizeSm="1" sizeMd="2" sizeXs="2"></ion-col>
+
+
         </ion-row>
-        <ion-row>
-            <ion-col size="6">
-                <div class="Srow">
+        <ion-row class="inputs">
 
-                    <ion-item color="sub.severityLevel" >
-                        <ion-icon name="business" class="pad"></ion-icon>
-
-                        <ion-input  clearInput  [(ngModel)]="myYears" (ionChange)="changeExp()" #Years  disabled={{notEnable}}  floating>
-                            Years of Experience: {{years_experience}}
-                        </ion-input>
-
-                    </ion-item>
-
-                    <ion-item  color="sub.severityLevel" >
-                        <ion-icon name="call" class="pad"></ion-icon>
-                        <ion-label>
-                            Mobile: {{mobile}}
-                        </ion-label>
-                    </ion-item>
-
-                    <ion-item  color="sub.severityLevel" >
-                        <ion-icon name="alarm" class="pad"></ion-icon>
-                        <ion-label>
-                            Coming session Date:12/12/2019
-                        </ion-label>
-                        <ion-icon name="construct" ></ion-icon>
-                    </ion-item>
-
-                    <ion-item color="sub.severityLevel" >
-                        <ion-icon name="clock" class="pad"></ion-icon>
-
-                        Latest session Date:12/12/2019
-
-                    </ion-item>
+            <ion-item *ngFor="let item of InputData ;" class="ion-input">
+                <ion-label position="floating">{{item.label}}</ion-label>
+                <ion-input [(ngModel)]=item.value  type="{{item.type}}" #input  disabled="{{save_state}}"></ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-row  >
+            <ion-toolbar >
+                <div class="buttons-tool_bar">
+                    <ion-buttons >
+                        <ion-button class="ion-button" (click)="save()" > save </ion-button>
+                        <ion-button class="ion-button" (click)="edit()"> Edit </ion-button>
+                    </ion-buttons>
 
 
                 </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="edit">
-            <ion-col size="4">
-                <ion-button shape="round" (click)="edit()" color="sub.severityLevel" style="color:black"> Edit </ion-button>
-            </ion-col>
-            <ion-col size="4" class="cancel">
-                <ion-button  shape="round" (click)="save(Name.value,Years.value)" color="sub.severityLevel" style="color:black"> Save </ion-button>
-            </ion-col>
-            <ion-col size ="4" class="fab">
-                <app-fab></app-fab>
 
-            </ion-col>
+            </ion-toolbar>
 
         </ion-row>
 
     </ion-grid>
+
+
 </ion-content>

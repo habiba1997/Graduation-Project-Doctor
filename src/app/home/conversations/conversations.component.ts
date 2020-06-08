@@ -56,9 +56,6 @@ export class ConversationsComponent  {
 
 
     }
-back(){
-  this.navigation.navigateTo('home');
-}
 async CreateNew(){
   let actionSheetButtons = [];
    
@@ -71,7 +68,7 @@ async CreateNew(){
          this.reciever= row.name;
          console.log("Patient: "+this.reciever);
      
-        this.dataInteraction.sendDoctorNamefromconvtoMessage(row);
+        this.dataInteraction.sendPatientNamefromconvtoMessage(row);
         console.log("row"+row);
         this.navigation.navigateTo("home/message");
       }

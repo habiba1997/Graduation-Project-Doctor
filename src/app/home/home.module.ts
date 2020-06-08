@@ -17,6 +17,8 @@ import { ConversationsComponent } from './conversations/conversations.component'
 import { ConvListComponent } from './conv-list/conv-list.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AutosizeModule } from 'ngx-autosize';
+import {PatientProfileComponent} from "./patient-profile/patient-profile.component";
+import {NetworkService} from "../services/Network/network.service";
 
 @NgModule({
   imports: [
@@ -30,6 +32,7 @@ import { AutosizeModule } from 'ngx-autosize';
       
       {
         path:'doctorList',
+
         component: PatientListComponent
 
       }, 
@@ -64,6 +67,10 @@ import { AutosizeModule } from 'ngx-autosize';
             component: ConvListComponent
           }
          ]  
+      },
+      {
+        path:'patient-profile',
+        component:PatientProfileComponent
       }
       
 
@@ -71,7 +78,9 @@ import { AutosizeModule } from 'ngx-autosize';
   ],
   providers: [
     NavigationService,
-    HttpService, 
+    HttpService,
+    NetworkService,
+
   ],
   declarations: [HomePage,
     PatientListComponent,
@@ -82,7 +91,8 @@ import { AutosizeModule } from 'ngx-autosize';
     ChatComponent,
     ConversationsComponent,
     ConvListComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    PatientProfileComponent
   ]
 })
 export class HomePageModule {}

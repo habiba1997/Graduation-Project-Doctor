@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { newMessage } from 'src/app/model/newMessage';
 import { Iconvs } from 'src/app/model/conv';
+import {patientData} from "../../model/patientData";
 
 @Injectable({
   providedIn: 'root'
@@ -16,16 +17,14 @@ export class InteractionService {
  private CoversationState = new BehaviorSubject(1);
  currentStateConversation = this.CoversationState.asObservable();
 
- private communication= new BehaviorSubject<Iconvs>(null);
- getId =this.communication.asObservable();
-
  private Edit= new BehaviorSubject<number>(0);
  getName =this.Edit.asObservable();
- 
+ private patient =new BehaviorSubject<patientData>(null);
 
   constructor() { }
   
   UpdateName(name){
+
     this.Edit.next(name);
     console.log(name);
   }
@@ -37,13 +36,16 @@ export class InteractionService {
     this.CoversationState.next(state);
     console.log(state);
   }
-  sendDoctorNamefromconvtoMessage(doctorListfromconv){
-    this.getDocData.next(doctorListfromconv);
-    console.log(doctorListfromconv);
+  sendPatientNamefromconvtoMessage(patientListfromconv){
+    this.getDocData.next(patientListfromconv);
+    console.log(patientListfromconv);
 
   }
-  async getThreadIdfromMessageorConvListtoChat(id){
-    this.communication.next(id);
-    console.log(id);
+
+  sendPatientData(data:patientData){
+      this.patient.next(data);
+  }
+  getPatientData(){
+      return this.patient.getValue();
   }
 }

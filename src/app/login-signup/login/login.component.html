@@ -1,61 +1,115 @@
+<!--<ion-content>-->
+<!--<div *ngIf="showSplash" class="myBackground">-->
+<!--    <div>-->
+<!--    <img src="/assets/giphy.gif">-->
+<!--</div> -->
+<!--</div> -->
+<!--<div *ngIf="!showSplash">-->
+<!--  <ion-grid >-->
+<!--    <ion-row>-->
+<!--      <ion-col>-->
+<!--           -->
+<!--  -->
+<!--               <ion-button  (click)= "backClick()" color="light" shape ="round" >-->
+<!--                 <ion-icon name="arrow-round-back"></ion-icon>-->
+<!--               </ion-button>       -->
+<!--            -->
+
+<!--      </ion-col>-->
+<!--      <ion-col >-->
+<!--        <h1 style="height: 80px;"></h1> -->
+<!--        <img class = "space" src="/assets/logo02.png"/>-->
+<!--        <h1 class="fat-free">Log In</h1>-->
+<!--        -->
+<!--      </ion-col>-->
+<!--        <ion-col >-->
+<!--            <img src="/assets/path-6.png"/>-->
+<!--        </ion-col>-->
+
+<!--    </ion-row>-->
+<!--    -->
+<!--  -->
+<!--  </ion-grid>-->
+
+<!--        <div class="marginTop">-->
+<!--        -->
+
+
+<!--       -->
+<!--          <div class="centric">-->
+<!--              <ion-card>-->
+<!--                <ion-item>-->
+<!--                    <ion-input required placeholder="Enter Phone Number" type="email" #EmailInput></ion-input>-->
+<!--                  </ion-item>-->
+<!--                </ion-card>-->
+<!--           -->
+<!--            </div>-->
+<!--          <div class="centric">-->
+<!--            <ion-card>-->
+<!--              <ion-item>-->
+<!-- -->
+<!--                  <ion-input required placeholder="Enter Password" type="password" #PasswordInput></ion-input>-->
+<!--                </ion-item>-->
+<!--              </ion-card>-->
+<!--          </div>-->
+<!--       -->
+<!--        </div>-->
+<!--         -->
+
+<!--   <div class="marginTop centric"> <ion-button style="height: 40px; "class="marginTop button"  shape="round" (click)="login(EmailInput.value, PasswordInput.value)" color="light">Log In</ion-button></div>      -->
+<!--</div>-->
+<!--</ion-content>-->
+
+
+
+<!--<div *ngIf="showSplash" class="myBackground">-->
+<!--    <div>-->
+<!--    <img src="/assets/giphy.gif">-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+<ion-header no-border >
+
+<ion-toolbar class="wrapper">
+
+  <ion-title style="font-size: 20px; margin: 5%">Hello</ion-title>
+    <ion-title style="font-size: 30px; margin: 5%">Sign In ! </ion-title>
+</ion-toolbar>
+
+
+</ion-header>
 <ion-content>
-<div *ngIf="showSplash" class="myBackground">
-    <div>
-    <img src="/assets/giphy.gif">
-</div> 
-</div> 
-<div *ngIf="!showSplash">
-  <ion-grid >
-    <ion-row>
-      <ion-col>
-           
-  
-               <ion-button  (click)= "backClick()" color="light" shape ="round" >
-                 <ion-icon name="arrow-round-back"></ion-icon>
-               </ion-button>       
-            
 
-      </ion-col>
-      <ion-col >
-        <h1 style="height: 80px;"></h1> 
-        <img class = "space" src="/assets/logo02.png"/>
-        <h1 class="fat-free">Log In</h1>
-        
-      </ion-col>
-        <ion-col >
-            <img src="/assets/path-6.png"/>
-        </ion-col>
+    <ion-grid>
+        <ion-row class="inputs">
 
-    </ion-row>
-    
-  
-  </ion-grid>
+            <ion-item class="ion-input">
+                <ion-label position="floating">Mobile Number</ion-label>
+                <ion-input required placeholder="Enter Phone Number" type="email" #EmailInput></ion-input>
+            </ion-item>
+            <ion-item class="ion-input">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input required placeholder="Enter Password" type="password" #PasswordInput></ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-row  >
+            <ion-toolbar >
+                <div class="buttons-tool_bar">
+                    <ion-buttons >
+                        <ion-button class="ion-button" (click)="login(EmailInput.value, PasswordInput.value)" > Sign-In </ion-button>
 
-        <div class="marginTop">
-        
+                    </ion-buttons>
+                </div>
+                <div class="sign-up">
+                    <p>Don't Have an Account? <a (click)="SignUp()">Sign-Up</a></p>
+                </div>
 
+            </ion-toolbar>
 
-       
-          <div class="centric">
-              <ion-card>
-                <ion-item>
-                    <ion-input required placeholder="Enter Phone Number" type="email" #EmailInput></ion-input>
-                  </ion-item>
-                </ion-card>
-           
-            </div>
-          <div class="centric">
-            <ion-card>
-              <ion-item>
- 
-                  <ion-input required placeholder="Enter Password" type="password" #PasswordInput></ion-input>
-                </ion-item>
-              </ion-card>
-          </div>
-       
-        </div>
-         
+        </ion-row>
+    </ion-grid>
 
-   <div class="marginTop centric"> <ion-button style="height: 40px; "class="marginTop button"  shape="round" (click)="login(EmailInput.value, PasswordInput.value)" color="light">Log In</ion-button></div>      
-</div>
 </ion-content>
+

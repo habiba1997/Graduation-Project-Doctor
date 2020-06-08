@@ -1,59 +1,35 @@
 <ion-content [scrollEvents]="true" >
-<ion-grid >
-<ion-row>
-<ion-col size="12">
-<ion-grid>
-<ion-row *ngFor="let account of convList" class="img-holder" (click)="reply(account)">
-<ion-col size="3">
-<div>
-<img  class="small-icon" src="assets/doctor1.jpeg">
-</div>
-</ion-col>
-<ion-col size="9">
-<ion-grid >
-<ion-row >
-
-<article>
- <h4>{{ account.sender_name}}</h4>
-
-        <h5  [ngClass]="{'read' : !account.is_readed}">{{account.msg_subject}}</h5>
-
-</article>
-
-       
-
-</ion-row>
-<ion-row >
-<ion-col size="12">
-<div class="msg_holder">
-<p class="msg" > {{account.msg_body}} </p>
-</div>
-</ion-col>
-</ion-row>
-<ion-row>
-<ion-col size="3"></ion-col>
-<ion-col size="9">
-<p>   {{account.created_date}}</p>
-</ion-col>
-</ion-row>
-</ion-grid>
+    <ion-refresher slot="fixed"  pullFactor="0.3" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+                pullingIcon="chevron-down-circle-outline"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles"
+                refreshingText="Refreshing..."></ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+        <ion-item *ngFor="let account of convList;let i=index; "class="card card-1" (click)="reply(account)">
+            <ion-avatar slot="start" justify-content-center align-items-center>
+                <img  *ngIf="!account.profile_img" class="img" src="assets/doctor1.jpeg">
+                <img *ngIf="account.profile_img" class="img" src="{{account.profile_img}}">
+            </ion-avatar>
+            <ion-label>
+                <h2>{{ account.sender_name}}</h2>
+                <h3>{{account.msg_subject}}</h3>
+                <p>{{account.msg_body}}</p>
+            </ion-label>
+        </ion-item>
 
 
-</ion-col>
 
 
-</ion-row>
-</ion-grid>
+
+    </ion-list>
 
 
-</ion-col>
-
-</ion-row>
-</ion-grid>
-            <ion-infinite-scroll  (ionInfinite)="loadData($event)">
-            <ion-infinite-scroll-content
-                                loadingSpinner="bubbles"
-                                loadingText="Loading more data...">
-              </ion-infinite-scroll-content>
-              </ion-infinite-scroll>
-<ion-content>              
+    <ion-infinite-scroll  (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

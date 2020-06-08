@@ -20,7 +20,7 @@ export class NavigationService {
         .catch(err => 
           {
             console.log("error navigating to "+path +" + err");
-            this.presentAlert('Navigation Error: ', err.error.message);
+            this.presentAlert('Navigation Error: ', err);
 
 
         });

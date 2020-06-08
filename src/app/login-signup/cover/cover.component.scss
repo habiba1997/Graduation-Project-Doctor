@@ -1,42 +1,65 @@
+:root {
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+}
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(/assets/fonts/fonts/poppins/Poppins-Medium.ttf);
+}
+
+
+//background
 .cover {
-    background-image: url(/assets/cover.png);
-    background-position: center;
-    background-repeat: no-repeat;
+  //background: linear-gradient(rgba(81,184,207,1) 55%, #4cb8c4 80%);
+  //background: linear-gradient( #4fbceb,#51e6e8);
+  //background: linear-gradient(#7fddef 16%, #8de5d3 80%);
+  //blue one
+  //background: linear-gradient(rgba(0,194,206,1) 22%, rgba(32,150,214,1) 80%);
+  // blue and green one
+  background: rgb(2,170,176);
+  background: linear-gradient(rgba(2,170,176,1) 30%, rgba(6,190,182,1) 50%, rgba(0,205,172,1) 72%);
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100%;
-          }
-    
-     .clover {
-    
-      background-image: url(/assets/clover.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    }
-    
-    .fat-free {
-      text-align: center;
-      font-family: "Times New Roman", Times, serif;
-      font-weight: bold;
-      color: #ffffff;
-    
-    }
-    
-  .buttons{
-  
-          margin-top: 20%;
-          
-      
-    }
-    
-    .button{
-      margin: 2% 0%;
-      display: block;
-      width: 65%;
-      font-weight: 12%;
-     
-    }
-  
-    .btnDiv{
-      display: flex;
-      justify-content: center;
-    }
+}
+
+//to control rows height
+.grid {
+  display:grid;
+  grid-template-rows:  1fr 2fr 1fr ;
+  grid-gap:10px;
+  //height: calc(100vh - 10px);
+}
+//////////////////////////////
+//button
+.button{
+  margin: 2% 0%;
+  display: block;
+  width: 80%;
+  font-weight: normal;
+  font-family: Poppins-Medium;
+  font-size: 18px;
+  height: 45px;
+
+}
+
+.btnDiv{
+  display: flex;
+  justify-content: center;
+}
+
+//to apply gradient color on btn
+//
+//.btn_color{
+//  --background: linear-gradient(
+//                  to bottom,
+//                  var(--ion-color-primary) 30%,
+//                  var(--ion-color-primary-contrast) 100%
+//  );
+//}
+
+

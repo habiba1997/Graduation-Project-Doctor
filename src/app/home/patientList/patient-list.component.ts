@@ -5,7 +5,6 @@ import { NavigationService } from '../NavService/navigation.service';
 import { patientData } from 'src/app/model/patientData';
 import { HttpService } from '../HttPService/http.service';
 import { AlertController} from '@ionic/angular';
-import {InteractionService} from "../../services/datacommunication/interaction.service";
 
 
 @Component({
@@ -21,25 +20,18 @@ export class PatientListComponent implements OnInit {
   constructor(private datastream : DatastreamingService, 
     private navigation : NavigationService, 
     private addController : AlertController,
-    private http: HttpService,
-              private dataShare:InteractionService
+    private http: HttpService
     ) {
       // this.patientRow = this.datastream.getPatientList();      
      } 
   ngOnInit(){}
   ionViewWillEnter() {
     let that = this;
-    let token = this.datastream.getToken();
-    this.http.getPatientList(token)
-    .subscribe(
-      async response=>{
-        this.datastream.clearPatientList();
-        await response.forEach(element => {
-          this.datastream.addToPatientList(element);
-        }); 
-        this.patientRow = this.datastream.getPatientList();
-        this.patientArrayList = this.patientRow;
-        console.log("patient list ",this.patientRow);
+    this.datastream.clearPatientList();
+    this.http.getPatientList().subscribe(
+      (patient)=>{
+
+        this.datastream.patientList.push(patient);
                         
       }, 
       err =>
@@ -52,10 +44,12 @@ export class PatientListComponent implements OnInit {
           errorMessage=err.error.message;
         }
         console.log('HTTP Patient List Error: ', errorMessage);
-        this.presentAlert('HTTP Error: ',errorMessage);
+        alert('HTTP Error: '+ errorMessage);
       },
       () => 
       {
+        this.patientRow = this.datastream.getPatientList();
+        this.patientArrayList = this.patientRow;
         this.datastream.savePatientListToDataStore();
         console.log('HTTP request completed.');
       }
@@ -93,22 +87,8 @@ export class PatientListComponent implements OnInit {
     this.navigation.navigateTo('home');
 
   }
-  consultDoc(item:patientData){
-    this.dataShare.sendDoctorNamefromconvtoMessage(item);
-    console.log("doctor data from profile"+item);
-    this.navigation.navigateTo("home/message");
-  }
 
 
 
-  async presentAlert(subtitleString:string,messageString:string) {
-    const alert = await this.addController.create({
-      header: 'ERROR',
-      subHeader: subtitleString,
-      message: messageString,
-      buttons: ['OK']
-    });
 
-    await alert.present();
-  }
 }

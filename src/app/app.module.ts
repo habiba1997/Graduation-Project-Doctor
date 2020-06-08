@@ -13,6 +13,12 @@ import { IonicStorageModule } from '@ionic/storage';
 import { FormsModule } from '@angular/forms';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { HttpClientModule } from '@angular/common/http';
+import { Network } from '@ionic-native/network/ngx';
+import { Camera } from 'node_modules/@ionic-native/camera/ngx';
+import { File } from 'node_modules/@ionic-native/file/ngx';
+import { WebView } from 'node_modules/@ionic-native/ionic-webview/ngx';
+import { FilePath } from 'node_modules/@ionic-native/file-path/ngx';
+
 
 
 @NgModule({
@@ -30,6 +36,11 @@ import { HttpClientModule } from '@angular/common/http';
     DatastorageService,
     FCM,
     HttpService,
+    Camera,
+    File,
+    WebView,
+    FilePath,
+    Network,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

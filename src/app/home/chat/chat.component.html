@@ -1,54 +1,172 @@
+<!--<ion-content [scrollEvents]="true" class="cont">-->
+
+<!--  <ion-grid>-->
+<!--     <ion-row >-->
+<!--        <ion-toolbar class="tool" align-items-center> -->
+<!--           {{patName}}-->
+<!--         <ion-buttons slot="start">-->
+<!--            <ion-back-button defaultHref="home" (click)="goConv()"></ion-back-button>-->
+<!--         </ion-buttons>-->
+<!--        </ion-toolbar>-->
+<!--     </ion-row>-->
+
+
+<!--     <ion-row *ngFor="let newMsgs of newMessages">-->
+<!--         <ion-col offset="3" size="9" *ngIf="newMsgs.sender_id===dId ">-->
+<!--         <div  class="speech-bubble">-->
+<!--           -->
+<!--          -->
+<!--          <p class ="Cspace">{{newMsgs.msg_body}}</p><br>-->
+<!--          <div class="time" text-right>-->
+<!--            {{newMsgs.created_date}}-->
+<!--          </div>-->
+<!--         </div>-->
+<!--         </ion-col>-->
+<!--         <ion-col  size="9" *ngIf="newMsgs.sender_id!==dId ">-->
+<!--          <div color="sub.severityLevel" class="speech-bubbleR">-->
+<!--          -->
+<!--          <p class ="Cspace">{{newMsgs.msg_body}}</p><br>-->
+<!--          <div class="time" text-right>-->
+<!--            {{newMsgs.created_date}}-->
+<!--          </div>-->
+<!--         </div>-->
+<!--         </ion-col>-->
+<!--    -->
+<!--     </ion-row>-->
+
+<!--  </ion-grid>-->
+<!--</ion-content>-->
+<!--<ion-footer>-->
+<!-- <ion-toolbar>-->
+<!--     <ion-row  align-items-center no-padding no-margin>-->
+<!--       <ion-col size="10">-->
+<!--         <ion-item>-->
+<!--            <ion-textarea  [(ngModel)]="replyContent" placeholder="Type your Message here..."  cols ="8" rows="2" class="typing"></ion-textarea>-->
+<!--         </ion-item>-->
+<!--       </ion-col>-->
+<!--       <ion-col size="2">-->
+<!--         <ion-button class="btn" color="sub.severityLevel"  [disabled]="replyContent===''" (click)="sendReplyFun()">-->
+<!--            <ion-icon name="paper-plane" ></ion-icon>-->
+<!--         </ion-button>-->
+<!--       </ion-col>-->
+<!--     </ion-row>-->
+<!-- </ion-toolbar>-->
+<!--</ion-footer>-->
+<ion-header>
+    <ion-toolbar class="tool" >
+        <ion-grid>
+            <ion-row>
+                <ion-col size="10" sizeXs="9" sizeLg="4" no-padding padding-horizontal>
+                    <div class="wrapper">
+                        <div class="profile-img-frame">
+                            <div class="profile-img-holder">
+                                <img  class="profile-img" src="assets/doctor1.jpeg" alt="profile image">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title">
+                        <ion-title text-right> {{patName}}</ion-title>
+                    </div>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+    </ion-toolbar>
+</ion-header>
+
 <ion-content [scrollEvents]="true" class="cont">
+    <ion-grid>
 
-  <ion-grid>
-     <ion-row >
-        <ion-toolbar class="tool" align-items-center> 
-           {{patName}}
-         <ion-buttons slot="start">
-            <ion-back-button defaultHref="home" (click)="goConv()"></ion-back-button>
-         </ion-buttons>
-        </ion-toolbar>
-     </ion-row>
+        <ion-row *ngFor="let newMsgs of newMessages">
+            <!--         //////////////Sender Part -->
 
+            <ion-col offset="3" size="9" *ngIf="newMsgs.sender_id===dId ">
 
-     <ion-row *ngFor="let newMsgs of newMessages">
-         <ion-col offset="3" size="9" *ngIf="newMsgs.sender_id===dId ">
-         <div  class="speech-bubble">
-           
-          
-          <p class ="Cspace">{{newMsgs.msg_body}}</p><br>
-          <div class="time" text-right>
-            {{newMsgs.created_date}}
-          </div>
-         </div>
-         </ion-col>
-         <ion-col  size="9" *ngIf="newMsgs.sender_id!==dId ">
-          <div color="sub.severityLevel" class="speech-bubbleR">
-          
-          <p class ="Cspace">{{newMsgs.msg_body}}</p><br>
-          <div class="time" text-right>
-            {{newMsgs.created_date}}
-          </div>
-         </div>
-         </ion-col>
-    
-     </ion-row>
+                <ion-icon name="radio-button-on" size="medium" style="color: #94C2ED;"></ion-icon>
+                <span class="message-data-name" >You</span>
+                <!--             /////////////////////////////////////////////////////-->
 
-  </ion-grid>
+                <!--         //////////////// Msg Body Part-->
+                <div  class="speech-bubble" *ngIf="newMsgs.msg_body">
+                    <div class ="Cspace">{{newMsgs.msg_body}}</div>
+                    <div class="time">
+                        <span > {{newMsgs.created_date}}</span>
+                    </div>
+                </div>
+                <!--         //////////////// Media Part-->
+                <div *ngIf="newMsgs.media" class="media-wrapper">
+                    <img src="{{newMsgs.media}}" *ngIf="showSplash" class="profile-img"/>
+
+                </div>
+
+            </ion-col>
+            <!--         ////////////////////////////////////////-->
+
+            <!--         ////////////////////Receiver Part -->
+            <ion-col  size="9" *ngIf="newMsgs.sender_id!==dId ">
+                <ion-icon name="radio-button-on" size="medium"  style="color: #2cc67b"></ion-icon>
+                <span class="message-data-name" >{{patName}}</span>
+
+                <!--         //////////////// Msg Body Part-->
+                <div color="sub.severityLevel" class="speech-bubbleR" *ngIf="newMsgs.msg_body">
+                    <div class ="Cspace">{{newMsgs.msg_body}}</div>
+                    <div class="time">
+                        <span > {{newMsgs.created_date}}</span>
+                    </div>
+                </div>
+
+                <!--         //////////////// Media Part-->
+                <div *ngIf="newMsgs.media" class="media-wrapper">
+                    <img src="{{newMsgs.media}}" *ngIf="showSplash" class="profile-img"/>
+
+                </div>
+
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
 </ion-content>
-<ion-footer>
- <ion-toolbar>
-     <ion-row  align-items-center no-padding no-margin>
-       <ion-col size="10">
-         <ion-item>
-            <ion-textarea  [(ngModel)]="replyContent" placeholder="Type your Message here..."  cols ="8" rows="2" class="typing"></ion-textarea>
-         </ion-item>
-       </ion-col>
-       <ion-col size="2">
-         <ion-button class="btn" color="sub.severityLevel"  [disabled]="replyContent===''" (click)="sendReplyFun()">
-            <ion-icon name="paper-plane" ></ion-icon>
-         </ion-button>
-       </ion-col>
-     </ion-row>
- </ion-toolbar>
+
+
+
+
+<ion-footer no-border>
+    <ion-toolbar  class="ion-footer">
+        <ion-grid >
+            <ion-row class="ion-align-items-center ion-no-margin ion-no-padding" >
+                <ion-col size="9" no-padding padding-horizontal >
+                    <ion-item class="typing" text-start no-padding>
+                        <ion-textarea no-padding padding-horizontal [(ngModel)]="replyContent" placeholder="Type your Message here..."  cols ="8" rows="2" ></ion-textarea>
+                    </ion-item>
+
+                </ion-col>
+                <ion-col size="3" no-padding >
+                    <div class="buttons-tool_bar">
+                        <ion-buttons no-padding >
+                            <ion-button class="ion-button" (click)="sendReplyFun()"> <ion-icon name="send">
+
+                            </ion-icon> </ion-button>
+                            <ion-button class="ion-button"  style=" margin-left: 5px; margin-right: 10px" (click)="selectImage()">
+                                <ion-icon name="attach">
+
+                                </ion-icon>  </ion-button>
+                        </ion-buttons>
+
+                    </div>
+                </ion-col>
+                <!--             <ion-col size="1.5">-->
+                <!--                 <img src="assets/attach.png" (click)="selectImage()"/>-->
+                <!--             </ion-col>-->
+                <!--             <ion-col size="1.5">-->
+                <!--                 <img src="assets/circle-content.webp"  (click)="sendReplyFun()"/>-->
+                <!--             </ion-col>-->
+            </ion-row>
+
+        </ion-grid>
+
+
+    </ion-toolbar>
 </ion-footer>
