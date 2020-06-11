@@ -443,7 +443,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <ion-app>\r\n  <ion-router-outlet id=\"menu-content\"></ion-router-outlet>\r\n</ion-app> -->\r\n<ion-app>\r\n  <ion-menu color=\"sub.severityLevel\" side=\"start\" menuId=\"first\" contentId=\"content1\" type=\"overlay\" >\r\n   <ion-header >\r\n          <ion-toolbar> \r\n            <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item >\r\n                  \r\n                  <ion-avatar slot=\"start\">\r\n                    <img src=\"assets/images.jpg\">\r\n                  </ion-avatar>\r\n                  <ion-label>  {{myName}} </ion-label>\r\n                 </ion-item > \r\n             </ion-menu-toggle >\r\n          </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content  >\r\n          <ion-list >\r\n\r\n            <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n              <ion-item>\r\n                   \r\n                 <ion-label shape=\"round\" (click)= \"homeClick()\" expand=\"full\"  >\r\n                 <ion-icon name=\"person\"></ion-icon>\r\n                  Profile\r\n                 </ion-label>\r\n                \r\n    \r\n              </ion-item> \r\n            </ion-menu-toggle>\r\n            <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item>\r\n                     \r\n                   <ion-label shape=\"round\" (click)= \"dlistClick()\" expand=\"full\" >\r\n                    <ion-icon name=\"medkit\"></ion-icon>\r\n                    My Patients\r\n                   </ion-label>\r\n      \r\n                </ion-item> \r\n              </ion-menu-toggle>\r\n              <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item>\r\n                   <ion-label shape=\"round\" (click)= \"homClick()\" expand=\"full\" >\r\n                   <ion-icon name=\"body\"></ion-icon>\r\n                    Homepage\r\n                   </ion-label>\r\n      \r\n                </ion-item> \r\n              </ion-menu-toggle>\r\n             <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                  <ion-item>\r\n\r\n                      <ion-label shape=\"round\" (click)= \"ConsultClick()\" expand=\"full\" class = \"grad\">\r\n                          <ion-icon name=\"mail\"></ion-icon>\r\n                          Consultations\r\n                      </ion-label>\r\n\r\n                  </ion-item>\r\n              </ion-menu-toggle>\r\n              <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                  <ion-item>\r\n                       \r\n                     <ion-label shape=\"round\" (click)= \"outClick()\" expand=\"full\" class = \"grad\">\r\n                     <ion-icon name=\"power\"></ion-icon>\r\n                      Log out\r\n                     </ion-label>\r\n        \r\n                  </ion-item> \r\n                </ion-menu-toggle>\r\n          </ion-list>\r\n        \r\n        </ion-content>\r\n      \r\n    </ion-menu>\r\n    <ion-toolbar class=\"menu-bar\">\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button style=\"font-size: xx-large\" ></ion-menu-button>\r\n        </ion-buttons>\r\n    </ion-toolbar>\r\n<ion-router-outlet id=\"content1\"></ion-router-outlet>\r\n</ion-app>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <ion-app>\r\n  <ion-router-outlet id=\"menu-content\"></ion-router-outlet>\r\n</ion-app> -->\r\n<ion-app>\r\n    <div *ngIf=\"showSplash\" class=\"myBackground\">\r\n        <div>\r\n            <img src=\"/assets/animation_splash.gif\">\r\n        </div>\r\n    </div>\r\n    <ion-menu  side=\"start\" menuId=\"first\"   contentId=\"content1\" type=\"overlay\" >\r\n        <ion-header >\r\n            <ion-toolbar>\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item >\r\n\r\n                        <ion-avatar slot=\"start\">\r\n                            <img src=\"assets/images.jpg\">\r\n                        </ion-avatar>\r\n                        <ion-label>  </ion-label>\r\n                    </ion-item >\r\n                </ion-menu-toggle >\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content  >\r\n            <ion-list >\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item (click)= \"profileClick()\">\r\n\r\n                        <ion-label shape=\"round\"  expand=\"full\"  >\r\n                            <ion-icon name=\"person\"></ion-icon>\r\n                            Profile\r\n                        </ion-label>\r\n                    </ion-item>\r\n                    <ion-item (click)= \"ConsultClick()\">\r\n\r\n                        <ion-label shape=\"round\"  expand=\"full\"  >\r\n                            <ion-icon name=\"mail\"></ion-icon>\r\n                            Consultations\r\n                        </ion-label>\r\n                    </ion-item>\r\n                </ion-menu-toggle>\r\n                <br>\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item (click)= \"dlistClick()\" >\r\n\r\n                        <ion-label shape=\"round\" expand=\"full\" >\r\n                            <ion-icon name=\"medkit\"></ion-icon>\r\n                            My doctors\r\n                        </ion-label>\r\n\r\n                    </ion-item>\r\n                </ion-menu-toggle>\r\n                <br>\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item (click)= \"homClick()\" >\r\n\r\n\r\n                        <ion-label shape=\"round\" expand=\"full\" >\r\n                            <ion-icon name=\"body\"></ion-icon>\r\n                            Homepage\r\n                        </ion-label>\r\n\r\n\r\n                    </ion-item>\r\n                </ion-menu-toggle>\r\n                <br>\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item (click)= \"outClick()\">\r\n\r\n                        <ion-label shape=\"round\"  expand=\"full\" class = \"grad\">\r\n                            <ion-icon name=\"power\"></ion-icon>\r\n                            Log out\r\n                        </ion-label>\r\n\r\n                    </ion-item>\r\n                </ion-menu-toggle>\r\n            </ion-list>\r\n\r\n        </ion-content>\r\n\r\n    </ion-menu>\r\n    <ion-toolbar class=\"menu-bar\">\r\n        <ion-buttons slot=\"start\">\r\n\r\n            <ion-button style=\"font-size: x-large\"   (click)=\"openMenu()\" >\r\n                <ion-icon name=\"menu\"></ion-icon>\r\n            </ion-button>\r\n        </ion-buttons>\r\n    </ion-toolbar>\r\n    <ion-router-outlet  class=\"ion-page\" id=\"content1\"></ion-router-outlet>\r\n</ion-app>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -451,7 +451,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./node_modules/tslib/tslib.es6.js ***!
   \*****************************************/
-/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault */
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -464,6 +464,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__createBinding", function() { return __createBinding; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
@@ -476,19 +477,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function() { return __classPrivateFieldGet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function() { return __classPrivateFieldSet; });
 /*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
+Copyright (c) Microsoft Corporation.
 
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
 
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 /* global Reflect, Promise */
 
@@ -544,10 +547,11 @@ function __metadata(metadataKey, metadataValue) {
 }
 
 function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 }
@@ -580,19 +584,25 @@ function __generator(thisArg, body) {
     }
 }
 
+function __createBinding(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}
+
 function __exportStar(m, exports) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 
 function __values(o) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
-    return {
+    if (o && typeof o.length === "number") return {
         next: function () {
             if (o && i >= o.length) o = void 0;
             return { value: o && o[i++], done: !o };
         }
     };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 }
 
 function __read(o, n) {
@@ -673,6 +683,21 @@ function __importDefault(mod) {
     return (mod && mod.__esModule) ? mod : { default: mod };
 }
 
+function __classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
+}
+
+function __classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+    }
+    privateMap.set(receiver, value);
+    return value;
+}
+
 
 /***/ }),
 
@@ -745,6 +770,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/datastream/datastreaming.service */ "./src/app/services/datastream/datastreaming.service.ts");
 /* harmony import */ var _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/fcm/ngx */ "./node_modules/@ionic-native/fcm/ngx/index.js");
 /* harmony import */ var _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./home/HttPService/http.service */ "./src/app/home/HttPService/http.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
 
 
 
@@ -756,7 +783,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(platform, splashScreen, statusBar, datastore, nav, datastream, fcm, http) {
+    constructor(platform, splashScreen, statusBar, datastore, nav, datastream, fcm, http, menu_controller, toastController) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
@@ -765,6 +792,9 @@ let AppComponent = class AppComponent {
         this.datastream = datastream;
         this.fcm = fcm;
         this.http = http;
+        this.menu_controller = menu_controller;
+        this.toastController = toastController;
+        this.showSplash = true;
         this.navigate = [
             {
                 title: "Home",
@@ -776,13 +806,12 @@ let AppComponent = class AppComponent {
                 url: "home/profile",
                 icon: "chatboxes"
             },
-            {
-                title: "Contacts",
-                url: "/contacts",
-                icon: "contacts"
-            },
         ];
         this.initializeApp();
+    }
+    ionViewWillEnter() {
+        console.log('ionViewWillEnter');
+        this.menu_controller.enable(true);
     }
     initializeApp() {
         this.platform.ready().then(() => {
@@ -792,49 +821,66 @@ let AppComponent = class AppComponent {
                 if (!isTokenExpired) {
                     console.log(" app compoennt :: Token isnot expired:  " + isTokenExpired);
                     yield this.datastore.getDoctorData().then((doctor) => {
-                        that.datastream.SetDoctorforLogin(doctor);
+                        console.log("calling set doctor for login", doctor);
+                        this.datastream.SetDoctorforLogin(doctor);
                         this.myName = this.datastream.getDoctorName();
                         console.log("menu name", this.myName);
                     });
                     yield this.datastore.getDoctorToken().then((token) => {
                         that.datastream.setToken(token);
-                        //recieveing Token For Development Only FOR NOW
-                        this.fcm.getToken().then((fcmtoken) => {
-                            this.http.editFCMToken(fcmtoken, token).subscribe((data) => {
-                                console.log(JSON.stringify(data));
-                            }, err => {
-                                alert("Haven't Updated FCM Token");
-                            });
-                        }, (err) => {
-                            alert("ERROR in getting FCM token: " + JSON.stringify(err));
-                        });
+                        //receiving Token For Development Only FOR NOW
+                        this.http.editFCMToken();
                     });
                     yield this.datastore.getPatientList().then((doctorList) => {
-                        that.datastream.restoreStreamDatalist(doctorList);
+                        this.datastream.restoreStreamDatalist(doctorList);
                     });
                     this.nav.navigateTo('home');
                 }
             }));
             this.statusBar.styleLightContent();
             this.splashScreen.hide();
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_10__["timer"])(3000).subscribe(() => this.showSplash = false);
             //recieveing notification
             this.fcm.onNotification().subscribe((data) => {
                 if (data.wasTapped) {
-                    alert("Data Tapped Message:" + data.body);
+                    this.presentToast("Tapped Message:" + data.body);
                     console.log("Tapped: " + JSON.stringify(data));
                 }
                 else {
-                    alert("Data Message:" + data.body);
-                    console.log(JSON.stringify(data));
+                    this.presentToast("Message:" + data.body);
+                    console.log("tapping", JSON.stringify(data));
                 }
             });
+        });
+    }
+    presentToast(text) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const toast = yield this.toastController.create({
+                header: "Consultation Answer Just Arrived",
+                message: text,
+                position: 'top',
+                duration: 3000,
+                color: 'light',
+                showCloseButton: true,
+                closeButtonText: 'hide',
+            });
+            yield toast.present();
+            toast.onDidDismiss().then((val) => {
+                console.log('Toast Dismissed');
+            });
+        });
+    }
+    openMenu() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.menu_controller.enable(true, 'first');
+            this.menu_controller.open('first');
         });
     }
     // vitalClick(){
     //   this.nav.navigateTo('home/vitals');
     // }
-    homeClick() {
-        this.nav.navigateTo('home/Myprofile');
+    profileClick() {
+        this.nav.navigateTo('home/profile');
     }
     dlistClick() {
         this.nav.navigateTo('home/doctorList');
@@ -843,12 +889,12 @@ let AppComponent = class AppComponent {
         this.nav.navigateTo('home');
         console.log("trainer list");
     }
-    ConsultClick() {
-        this.nav.navigateTo('home/conversation');
-    }
     outClick() {
         this.datastream.clearData();
         this.nav.navigateTo('cover');
+    }
+    ConsultClick() {
+        this.nav.navigateTo('home/conversation');
     }
 };
 AppComponent.ctorParameters = () => [
@@ -859,7 +905,9 @@ AppComponent.ctorParameters = () => [
     { type: _home_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"] },
     { type: _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_7__["DatastreamingService"] },
     { type: _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_8__["FCM"] },
-    { type: _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"] }
+    { type: _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -874,7 +922,9 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _home_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"],
         _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_7__["DatastreamingService"],
         _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_8__["FCM"],
-        _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"]])
+        _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]])
 ], AppComponent);
 
 
@@ -907,6 +957,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/fcm/ngx */ "./node_modules/@ionic-native/fcm/ngx/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+/* harmony import */ var node_modules_ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! node_modules/@ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var node_modules_ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! node_modules/@ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
+/* harmony import */ var node_modules_ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! node_modules/@ionic-native/ionic-webview/ngx */ "./node_modules/@ionic-native/ionic-webview/ngx/index.js");
+/* harmony import */ var node_modules_ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! node_modules/@ionic-native/file-path/ngx */ "./node_modules/@ionic-native/file-path/ngx/index.js");
+
+
+
+
+
 
 
 
@@ -941,6 +1001,11 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_11__["DatastorageService"],
             _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_14__["FCM"],
             _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"],
+            node_modules_ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_17__["Camera"],
+            node_modules_ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__["File"],
+            node_modules_ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_19__["WebView"],
+            node_modules_ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_20__["FilePath"],
+            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_16__["Network"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -964,15 +1029,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/datastream/datastreaming.service */ "./src/app/services/datastream/datastreaming.service.ts");
+/* harmony import */ var _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/fcm/ngx */ "./node_modules/@ionic-native/fcm/ngx/index.js");
+/* harmony import */ var src_app_model_token__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/model/token */ "./src/app/model/token.ts");
+/* harmony import */ var src_app_model_patientData__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/model/patientData */ "./src/app/model/patientData.ts");
+/* harmony import */ var _model_ConsultationModel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../model/ConsultationModel */ "./src/app/model/ConsultationModel.ts");
+
+
+
+
+
+
 
 
 
 
 let HttpService = class HttpService {
-    constructor(http) {
+    constructor(http, dataStream, fcm) {
         this.http = http;
+        this.dataStream = dataStream;
+        this.fcm = fcm;
         this.Node_host = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/";
-        this.Java_Host_Port = "http://ec2-54-166-181-90.compute-1.amazonaws.com:8080";
+        // Node_host="http://dbea70375c2c.ngrok.io/";
+        // Java_Host_Port ="http://986b7152e0e7.ngrok.io";
+        this.Java_Host_Port = 'http://ec2-54-166-181-90.compute-1.amazonaws.com:8080';
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'Content-Type': 'application/json',
@@ -980,22 +1061,26 @@ let HttpService = class HttpService {
             })
         };
     }
-    addPatient(mobile, token) {
-        const httpOption = {
-            headers: this.httpGetTokenOptions(token)
+    gethttpOption() {
+        return {
+            headers: this.httpGetTokenOptions(this.dataStream.getToken())
         };
+    }
+    addPatient(mobile) {
         const url = this.Java_Host_Port + "/addPatient";
         return this.http.post(url, {
             "mobile": mobile
-        }, httpOption);
+        }, this.gethttpOption());
     }
     Login(email, pass) {
-        console.log("d5lt");
+        console.log(email, pass);
         const url = this.Java_Host_Port + "/signIn";
         return this.http.post(url, {
             "username": email,
             "password": pass
-        }, this.httpOptions);
+        }, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((token) => {
+            return new src_app_model_token__WEBPACK_IMPORTED_MODULE_6__["TokenClass"](token.token);
+        }));
     }
     httpGetTokenOptions(accessToken) {
         return new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
@@ -1005,51 +1090,61 @@ let HttpService = class HttpService {
         });
     }
     ;
-    getDoctorUsingToken(token) {
-        const httpOption = {
-            headers: this.httpGetTokenOptions(token)
-        };
+    getDoctorUsingToken() {
         const url = this.Java_Host_Port + "/doctor/getCurrentDoctorData";
-        return this.http.get(url, httpOption);
+        return this.http.get(url, this.gethttpOption());
     }
-    getPatientList(token) {
-        const httpOption = {
-            headers: this.httpGetTokenOptions(token)
-        };
+    getPatientList() {
         const url = this.Java_Host_Port + "/DoctorPatient/getMyPatientList/";
-        return this.http.get(url, httpOption);
+        return this.http.get(url, this.gethttpOption()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(doctors => doctors), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((patient) => {
+            console.log("patient inside htpp get service: ", patient);
+            return new src_app_model_patientData__WEBPACK_IMPORTED_MODULE_7__["patientData"](patient[0], patient[1], patient[2], patient[3], patient[4], patient[5], patient[6], patient[7]);
+        }));
+        ;
     }
-    //----------------------
-    editDoctorProfile(name, experience, token) {
-        console.log(name, experience, token);
-        const httpOption = {
-            headers: this.httpGetTokenOptions(token)
-        };
+    editDoctorProfile(name, experience) {
+        console.log(name, experience, this.dataStream.getToken());
         const url = this.Java_Host_Port + "/doctor/updateProfile";
         return this.http.post(url, {
             "name": name,
             "years_experience": experience
-        }, httpOption);
+        }, this.gethttpOption());
     }
-    //----------------------
-    editFCMToken(fcmtoken, token) {
-        const httpOption = {
-            headers: this.httpGetTokenOptions(token)
-        };
+    editFCMToken() {
+        console.log("EDIT FCM TOKEN ");
         const url = this.Java_Host_Port + "/doctor/updateToken";
-        return this.http.post(url, {
-            "fcmtoken": fcmtoken
-        }, httpOption);
+        this.fcm.getToken().then((fcmtoken) => {
+            this.http.post(url, {
+                "fcmtoken": fcmtoken
+            }, this.gethttpOption()).subscribe((error) => {
+                console.log("error in fcm: ", error);
+            }, () => {
+                console.log("fcm changed");
+            });
+        });
     }
-    getInbox(user_id, offset) {
-        const Url = this.Node_host + "api/users/threads/inbox/" + user_id + "/" + offset;
-        console.log("URL", Url);
-        return this.http.get(Url, this.httpOptions);
-    }
+    //-----------------------------------------------------------------------------
     getSent(user_id, offset) {
         const Url = this.Node_host + "api/users/threads/sent/" + user_id + "/" + offset;
         console.log("URL", Url);
         return this.http.get(Url, this.httpOptions);
+    }
+    getInbox(user_id, offset) {
+        const Url = this.Node_host + "api/users/threads/inbox/" + this.dataStream.getDoctorId() + "/" + offset;
+        console.log("URL", Url);
+        return this.http.get(Url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])((consult) => { console.log("consult", consult); return consult; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((consult) => {
+            console.log("map", consult);
+            console.log("patients", this.dataStream.getPatientList());
+            return new _model_ConsultationModel__WEBPACK_IMPORTED_MODULE_8__["inboxThread"](consult.sender_id, consult.receiver_id, consult.thread_id, consult.msg_subject, consult.created_date, consult.is_readed, consult.sender_name, consult.receiver_name, consult.msg_body, this.dataStream.getPatientList().find(patientData => patientData.patientId == consult.sender_id).user_img);
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["reduce"])((consults, consult) => {
+            if (consults.length) {
+                return [...consults, consult];
+            }
+            else {
+                console.log("consults,consult", [consults, consult]);
+                return [consults, consult];
+            }
+        }));
     }
     postThread(data, sender_id) {
         const Url = this.Node_host + "api/users/threads/" + sender_id;
@@ -1070,15 +1165,49 @@ let HttpService = class HttpService {
         console.log("URL", Url);
         return this.http.get(Url, this.httpOptions);
     }
+    ProfilegethttpOption() {
+        return {
+            headers: this.ProfilehttpGetTokenOptions(this.dataStream.getToken())
+        };
+    }
+    ProfilehttpGetTokenOptions(accessToken) {
+        return new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Authorization": "Bearer " + accessToken
+        });
+    }
+    postProfileImage(image) {
+        console.log("image file data inside http: ", image.getAll('file'));
+        const Url = this.Java_Host_Port + "/user/uploadImage";
+        console.log("URL", Url);
+        let data = JSON.stringify(image.getAll('file'));
+        console.log("data", data);
+        let auth = this.ProfilegethttpOption();
+        console.log(auth);
+        return this.http.post(Url, image, auth);
+    }
+    UplaodingMediaMsg(file, thread) {
+        console.log("entered");
+        console.log("My File is formData:  " + JSON.stringify(file));
+        let url = this.Node_host + "api/users/threads/msg/media/" + thread;
+        console.log("url: ", url);
+        console.log("file of formdata");
+        console.log(file.getAll('file'));
+        console.log("data of formdata  " + file.getAll('data'));
+        return this.http.post(url, file);
+    }
 };
 HttpService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"] },
+    { type: _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__["FCM"] }
 ];
 HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+        src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"],
+        _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__["FCM"]])
 ], HttpService);
 
 
@@ -1114,7 +1243,7 @@ let NavigationService = class NavigationService {
             .then(() => console.log("navigated to " + path))
             .catch(err => {
             console.log("error navigating to " + path + " + err");
-            this.presentAlert('Navigation Error: ', err.error.message);
+            this.presentAlert('Navigation Error: ', err);
         });
     }
     presentAlert(subtitleString, messageString) {
@@ -1143,6 +1272,37 @@ NavigationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
 ], NavigationService);
 
+
+
+/***/ }),
+
+/***/ "./src/app/model/ConsultationModel.ts":
+/*!********************************************!*\
+  !*** ./src/app/model/ConsultationModel.ts ***!
+  \********************************************/
+/*! exports provided: inboxThread */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inboxThread", function() { return inboxThread; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class inboxThread {
+    constructor(sender_id, receiver_id, thread_id, msg_subject, created_date, is_readed, sender_name, receiver_name, msg_body, profile_img) {
+        console.log("create new thread obj");
+        this.sender_id = sender_id;
+        this.receiver_id = receiver_id;
+        this.thread_id = thread_id;
+        this.msg_subject = msg_subject;
+        this.created_date = created_date;
+        this.is_readed = is_readed;
+        this.sender_name = sender_name;
+        this.receiver_name = receiver_name;
+        this.msg_body = msg_body;
+        this.profile_img = profile_img;
+    }
+}
 
 
 /***/ }),
@@ -1178,6 +1338,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 class patientData {
+    constructor(patientId, name, fcmtoken, mobile, age, address, relationid, user_img) {
+        this.patientId = patientId;
+        this.name = name;
+        this.fcmtoken = fcmtoken;
+        this.mobile = mobile;
+        this.age = age;
+        this.relationId = relationid;
+        this.address = address;
+        this.user_img = user_img;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/model/token.ts":
+/*!********************************!*\
+  !*** ./src/app/model/token.ts ***!
+  \********************************/
+/*! exports provided: TokenClass */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenClass", function() { return TokenClass; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class TokenClass {
+    constructor(token) {
+        this.token = token;
+    }
 }
 
 
@@ -1302,6 +1493,7 @@ let DatastreamingService = class DatastreamingService {
         patient.age = element[4];
         patient.address = element[5];
         patient.relationId = element[6];
+        patient.user_img = element[7];
         this.patientList.push(patient);
     }
     savePatientListToDataStore() {
@@ -1313,7 +1505,6 @@ let DatastreamingService = class DatastreamingService {
             (yield patientList).forEach(element => {
                 this.patientList.push(element);
             });
-            ;
         });
     }
     getPatientList() {
@@ -1330,11 +1521,12 @@ let DatastreamingService = class DatastreamingService {
         this.doctor.name = doctorData.user.name;
         this.doctor.mobile = doctorData.user.mobile;
         this.doctor.user_id = doctorData.user.id;
-        //  this.doctor.email = doctorData.user.email;
-        this.doctor.password = doctorData.user.password,
-            this.doctor.type = doctorData.user.type;
+        this.doctor.password = doctorData.user.password;
+        this.doctor.type = doctorData.user.type;
         this.doctor.timestamp = doctorData.user.timestamp;
         this.doctor.years_experience = doctorData.years_experience;
+        this.doctor.profile_img = doctorData.user.user_image;
+        console.log("set doctor ", this.doctor);
         this.dataStore.saveDoctprLocally(this.doctor);
     }
     SetDoctorforLogin(mydoc) {
@@ -1342,11 +1534,12 @@ let DatastreamingService = class DatastreamingService {
         this.doctor.mobile = mydoc.mobile;
         this.doctor.name = mydoc.name;
         this.doctor.user_id = mydoc.user_id;
-        //  this.doctor.email = mydoc.email;
-        this.doctor.password = mydoc.password,
-            this.doctor.type = mydoc.type;
+        this.doctor.password = mydoc.password;
+        this.doctor.type = mydoc.type;
         this.doctor.timestamp = mydoc.timestamp;
         this.doctor.years_experience = mydoc.years_experience;
+        this.doctor.profile_img = mydoc.user_image;
+        console.log("doctor for login", this.doctor);
         this.dataStore.saveDoctprLocally(this.doctor);
     }
     setToken(token) {
@@ -1372,6 +1565,14 @@ let DatastreamingService = class DatastreamingService {
     changeDoctorData(name, years_experience) {
         this.doctor.years_experience = years_experience;
         this.doctor.name = name;
+        this.dataStore.saveDoctprLocally(this.doctor);
+    }
+    getDoctorProfileImage() {
+        console.log("patient profile image ", this.doctor.profile_img);
+        return this.doctor.profile_img;
+    }
+    changeDoctorProfileImage(imgPath) {
+        this.doctor.profile_img = imgPath;
         this.dataStore.saveDoctprLocally(this.doctor);
     }
 };

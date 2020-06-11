@@ -231,7 +231,7 @@ export class ConvListComponent implements OnInit , OnDestroy {
     await this.httpService.getReplies(thread.thread_id, 0).subscribe((res) => {
 
       let newThread={
-        newMessages:res,
+        newMessages:res.reverse(),
         thread:thread,
         thread_id:thread.thread_id
       };

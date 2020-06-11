@@ -16,6 +16,7 @@ import {inboxThread} from "../../model/ConsultationModel";
 export class HttpService {
 
     Node_host ="http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/";
+    // Node_host="http://dbea70375c2c.ngrok.io/";
     // Java_Host_Port ="http://986b7152e0e7.ngrok.io";
     Java_Host_Port = 'http://ec2-54-166-181-90.compute-1.amazonaws.com:8080';
 
@@ -156,12 +157,12 @@ getDoctorUsingToken(): Observable<any>
             ,map((consult)=>{
                 console.log("map",consult);
                 console.log("patients",this.dataStream.getPatientList());
-                return new inboxThread(consult.sender_id, consult.reciever_id, consult.thread_id,
+                return new inboxThread(consult.sender_id, consult.receiver_id, consult.thread_id,
                     consult.msg_subject, consult.created_date,consult.is_readed,consult.sender_name,consult.receiver_name,consult.msg_body,
                     this.dataStream.getPatientList().find(patientData=>patientData.patientId==consult.sender_id).user_img)
             } ),reduce<any>((consults,consult)=>{
                 if (consults.length ) {
-                    return [consult,...consults];
+                    return [...consults,consult];
                 } else {
                     console.log("consults,consult",[consults,consult]);
                     return [consults, consult];
@@ -219,16 +220,12 @@ getDoctorUsingToken(): Observable<any>
         return this.http.post<any>(Url, image,auth);
 
     }
-    bgrb(file)
+    UplaodingMediaMsg(file,thread)
     {
         console.log("entered");
         console.log("My File is formData:  "+JSON.stringify(file));
-        let url = this.Java_Host_Port+ "/storage/uploadFile";
+        let url = this.Node_host+"api/users/threads/msg/media/"+thread;
         console.log("url: ", url);
-
-        // let formData = new FormData();
-        // formData.append('file', file);
-        // formData.append('data',  JSON.stringify(this.json()));
         console.log("file of formdata");
         console.log(file.getAll('file'));
         console.log("data of formdata  "+file.getAll('data'));

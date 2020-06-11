@@ -1,6 +1,10 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"], {
   /***/
@@ -36,13 +40,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    class Point {
-      constructor(x, y) {
-        this.x = x;
-        this.y = y;
-      }
+    var Point = function Point(x, y) {
+      _classCallCheck(this, Point);
 
-    }
+      this.x = x;
+      this.y = y;
+    };
     /**
      * Given a cubic-bezier curve, get the x value (time) given
      * the y value (progression).
@@ -57,8 +60,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const getTimeGivenProgression = (p0, p1, p2, p3, progression) => {
-      const tValues = solveCubicBezier(p0.y, p1.y, p2.y, p3.y, progression);
+    var getTimeGivenProgression = function getTimeGivenProgression(p0, p1, p2, p3, progression) {
+      var tValues = solveCubicBezier(p0.y, p1.y, p2.y, p3.y, progression);
       return solveCubicParametricEquation(p0.x, p1.x, p2.x, p3.x, tValues[0]); // TODO: Add better strategy for dealing with multiple solutions
     };
     /**
@@ -66,10 +69,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const solveCubicParametricEquation = (p0, p1, p2, p3, t) => {
-      const partA = 3 * p1 * Math.pow(t - 1, 2);
-      const partB = -3 * p2 * t + 3 * p2 + p3 * t;
-      const partC = p0 * Math.pow(t - 1, 3);
+    var solveCubicParametricEquation = function solveCubicParametricEquation(p0, p1, p2, p3, t) {
+      var partA = 3 * p1 * Math.pow(t - 1, 2);
+      var partB = -3 * p2 * t + 3 * p2 + p3 * t;
+      var partC = p0 * Math.pow(t - 1, 3);
       return t * (partA + t * partB) - partC;
     };
     /**
@@ -77,17 +80,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const solveCubicBezier = (p0, p1, p2, p3, refPoint) => {
+    var solveCubicBezier = function solveCubicBezier(p0, p1, p2, p3, refPoint) {
       p0 -= refPoint;
       p1 -= refPoint;
       p2 -= refPoint;
       p3 -= refPoint;
-      const roots = solveCubicEquation(p3 - 3 * p2 + 3 * p1 - p0, 3 * p2 - 6 * p1 + 3 * p0, 3 * p1 - 3 * p0, p0);
-      return roots.filter(root => root >= 0 && root <= 1);
+      var roots = solveCubicEquation(p3 - 3 * p2 + 3 * p1 - p0, 3 * p2 - 6 * p1 + 3 * p0, 3 * p1 - 3 * p0, p0);
+      return roots.filter(function (root) {
+        return root >= 0 && root <= 1;
+      });
     };
 
-    const solveQuadraticEquation = (a, b, c) => {
-      const discriminant = b * b - 4 * a * c;
+    var solveQuadraticEquation = function solveQuadraticEquation(a, b, c) {
+      var discriminant = b * b - 4 * a * c;
 
       if (discriminant < 0) {
         return [];
@@ -96,7 +101,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
 
-    const solveCubicEquation = (a, b, c, d) => {
+    var solveCubicEquation = function solveCubicEquation(a, b, c, d) {
       if (a === 0) {
         return solveQuadraticEquation(b, c, d);
       }
@@ -104,8 +109,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       b /= a;
       c /= a;
       d /= a;
-      const p = (3 * c - b * b) / 3;
-      const q = (2 * b * b * b - 9 * b * c + 27 * d) / 27;
+      var p = (3 * c - b * b) / 3;
+      var q = (2 * b * b * b - 9 * b * c + 27 * d) / 27;
 
       if (p === 0) {
         return [Math.pow(-q, 1 / 3)];
@@ -113,7 +118,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return [Math.sqrt(-p), -Math.sqrt(-p)];
       }
 
-      const discriminant = Math.pow(q / 2, 2) + Math.pow(p / 3, 3);
+      var discriminant = Math.pow(q / 2, 2) + Math.pow(p / 3, 3);
 
       if (discriminant === 0) {
         return [Math.pow(q / 2, 1 / 2) - b / 3];
@@ -121,9 +126,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return [Math.pow(-(q / 2) + Math.sqrt(discriminant), 1 / 3) - Math.pow(q / 2 + Math.sqrt(discriminant), 1 / 3) - b / 3];
       }
 
-      const r = Math.sqrt(Math.pow(-(p / 3), 3));
-      const phi = Math.acos(-(q / (2 * Math.sqrt(Math.pow(-(p / 3), 3)))));
-      const s = 2 * Math.pow(r, 1 / 3);
+      var r = Math.sqrt(Math.pow(-(p / 3), 3));
+      var phi = Math.acos(-(q / (2 * Math.sqrt(Math.pow(-(p / 3), 3)))));
+      var s = 2 * Math.pow(r, 1 / 3);
       return [s * Math.cos(phi / 3) - b / 3, s * Math.cos((phi + 2 * Math.PI) / 3) - b / 3, s * Math.cos((phi + 4 * Math.PI) / 3) - b / 3];
     };
     /***/
@@ -156,58 +161,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return detachComponent;
     });
 
-    const attachComponent =
-    /*#__PURE__*/
-    function () {
-      var _ref = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(delegate, container, component, cssClasses, componentProps) {
+    var attachComponent = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(delegate, container, component, cssClasses, componentProps) {
         var el;
         return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
-            case 0:
-              if (!delegate) {
-                _context.next = 2;
-                break;
-              }
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!delegate) {
+                  _context.next = 2;
+                  break;
+                }
 
-              return _context.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
+                return _context.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
 
-            case 2:
-              if (!(typeof component !== 'string' && !(component instanceof HTMLElement))) {
-                _context.next = 4;
-                break;
-              }
+              case 2:
+                if (!(typeof component !== 'string' && !(component instanceof HTMLElement))) {
+                  _context.next = 4;
+                  break;
+                }
 
-              throw new Error('framework delegate is missing');
+                throw new Error('framework delegate is missing');
 
-            case 4:
-              el = typeof component === 'string' ? container.ownerDocument && container.ownerDocument.createElement(component) : component;
+              case 4:
+                el = typeof component === 'string' ? container.ownerDocument && container.ownerDocument.createElement(component) : component;
 
-              if (cssClasses) {
-                cssClasses.forEach(c => el.classList.add(c));
-              }
+                if (cssClasses) {
+                  cssClasses.forEach(function (c) {
+                    return el.classList.add(c);
+                  });
+                }
 
-              if (componentProps) {
-                Object.assign(el, componentProps);
-              }
+                if (componentProps) {
+                  Object.assign(el, componentProps);
+                }
 
-              container.appendChild(el);
+                container.appendChild(el);
 
-              if (!el.componentOnReady) {
+                if (!el.componentOnReady) {
+                  _context.next = 11;
+                  break;
+                }
+
                 _context.next = 11;
-                break;
-              }
+                return el.componentOnReady();
 
-              _context.next = 11;
-              return el.componentOnReady();
+              case 11:
+                return _context.abrupt("return", el);
 
-            case 11:
-              return _context.abrupt("return", el);
-
-            case 12:
-            case "end":
-              return _context.stop();
+              case 12:
+              case "end":
+                return _context.stop();
+            }
           }
         }, _callee);
       }));
@@ -217,10 +222,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    const detachComponent = (delegate, element) => {
+    var detachComponent = function detachComponent(delegate, element) {
       if (element) {
         if (delegate) {
-          const container = element.parentElement;
+          var container = element.parentElement;
           return delegate.removeViewFromDom(container, element);
         }
 
@@ -281,8 +286,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const hapticSelection = () => {
-      const engine = window.TapticEngine;
+    var hapticSelection = function hapticSelection() {
+      var engine = window.TapticEngine;
 
       if (engine) {
         engine.selection();
@@ -293,8 +298,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const hapticSelectionStart = () => {
-      const engine = window.TapticEngine;
+    var hapticSelectionStart = function hapticSelectionStart() {
+      var engine = window.TapticEngine;
 
       if (engine) {
         engine.gestureSelectionStart();
@@ -305,8 +310,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const hapticSelectionChanged = () => {
-      const engine = window.TapticEngine;
+    var hapticSelectionChanged = function hapticSelectionChanged() {
+      var engine = window.TapticEngine;
 
       if (engine) {
         engine.gestureSelectionChanged();
@@ -318,8 +323,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const hapticSelectionEnd = () => {
-      const engine = window.TapticEngine;
+    var hapticSelectionEnd = function hapticSelectionEnd() {
+      var engine = window.TapticEngine;
 
       if (engine) {
         engine.gestureSelectionEnd();
@@ -354,7 +359,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const sanitizeDOMString = untrustedString => {
+    var sanitizeDOMString = function sanitizeDOMString(untrustedString) {
       try {
         if (typeof untrustedString !== 'string' || untrustedString === '') {
           return untrustedString;
@@ -366,8 +371,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
          */
 
 
-        const documentFragment = document.createDocumentFragment();
-        const workingDiv = document.createElement('div');
+        var documentFragment = document.createDocumentFragment();
+        var workingDiv = document.createElement('div');
         documentFragment.appendChild(workingDiv);
         workingDiv.innerHTML = untrustedString;
         /**
@@ -375,11 +380,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
          * that are blocked
          */
 
-        blockedTags.forEach(blockedTag => {
-          const getElementsToRemove = documentFragment.querySelectorAll(blockedTag);
+        blockedTags.forEach(function (blockedTag) {
+          var getElementsToRemove = documentFragment.querySelectorAll(blockedTag);
 
-          for (let elementIndex = getElementsToRemove.length - 1; elementIndex >= 0; elementIndex--) {
-            const element = getElementsToRemove[elementIndex];
+          for (var elementIndex = getElementsToRemove.length - 1; elementIndex >= 0; elementIndex--) {
+            var element = getElementsToRemove[elementIndex];
 
             if (element.parentNode) {
               element.parentNode.removeChild(element);
@@ -393,10 +398,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
              */
 
 
-            const childElements = getElementChildren(element);
+            var childElements = getElementChildren(element);
             /* tslint:disable-next-line */
 
-            for (let childIndex = 0; childIndex < childElements.length; childIndex++) {
+            for (var childIndex = 0; childIndex < childElements.length; childIndex++) {
               sanitizeElement(childElements[childIndex]);
             }
           }
@@ -407,18 +412,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
          */
         // IE does not support .children on document fragments, only .childNodes
 
-        const dfChildren = getElementChildren(documentFragment);
+        var dfChildren = getElementChildren(documentFragment);
         /* tslint:disable-next-line */
 
-        for (let childIndex = 0; childIndex < dfChildren.length; childIndex++) {
+        for (var childIndex = 0; childIndex < dfChildren.length; childIndex++) {
           sanitizeElement(dfChildren[childIndex]);
         } // Append document fragment to div
 
 
-        const fragmentDiv = document.createElement('div');
+        var fragmentDiv = document.createElement('div');
         fragmentDiv.appendChild(documentFragment); // First child is always the div we did our work in
 
-        const getInnerDiv = fragmentDiv.querySelector('div');
+        var getInnerDiv = fragmentDiv.querySelector('div');
         return getInnerDiv !== null ? getInnerDiv.innerHTML : fragmentDiv.innerHTML;
       } catch (err) {
         console.error(err);
@@ -432,15 +437,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const sanitizeElement = element => {
+    var sanitizeElement = function sanitizeElement(element) {
       // IE uses childNodes, so ignore nodes that are not elements
       if (element.nodeType && element.nodeType !== 1) {
         return;
       }
 
-      for (let i = element.attributes.length - 1; i >= 0; i--) {
-        const attribute = element.attributes.item(i);
-        const attributeName = attribute.name; // remove non-allowed attribs
+      for (var i = element.attributes.length - 1; i >= 0; i--) {
+        var attribute = element.attributes.item(i);
+        var attributeName = attribute.name; // remove non-allowed attribs
 
         if (!allowedAttributes.includes(attributeName.toLowerCase())) {
           element.removeAttribute(attributeName);
@@ -449,7 +454,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         // that attempt to do any JS funny-business
 
 
-        const attributeValue = attribute.value;
+        var attributeValue = attribute.value;
         /* tslint:disable-next-line */
 
         if (attributeValue != null && attributeValue.toLowerCase().includes('javascript:')) {
@@ -461,11 +466,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
        */
 
 
-      const childElements = getElementChildren(element);
+      var childElements = getElementChildren(element);
       /* tslint:disable-next-line */
 
-      for (let i = 0; i < childElements.length; i++) {
-        sanitizeElement(childElements[i]);
+      for (var _i = 0; _i < childElements.length; _i++) {
+        sanitizeElement(childElements[_i]);
       }
     };
     /**
@@ -474,12 +479,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const getElementChildren = el => {
+    var getElementChildren = function getElementChildren(el) {
       return el.children != null ? el.children : el.childNodes;
     };
 
-    const allowedAttributes = ['class', 'id', 'href', 'src', 'name', 'slot'];
-    const blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'embed'];
+    var allowedAttributes = ['class', 'id', 'href', 'src', 'name', 'slot'];
+    var blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'embed'];
     /***/
   },
 
@@ -539,30 +544,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /*! ./constants-3c3e1099.js */
     "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
 
-    const iosTransitionAnimation = () => __webpack_require__.e(
-    /*! import() | ios-transition-071bd421-js */
-    "ios-transition-071bd421-js").then(__webpack_require__.bind(null,
-    /*! ./ios.transition-071bd421.js */
-    "./node_modules/@ionic/core/dist/esm/ios.transition-071bd421.js"));
+    var iosTransitionAnimation = function iosTransitionAnimation() {
+      return __webpack_require__.e(
+      /*! import() | ios-transition-071bd421-js */
+      "ios-transition-071bd421-js").then(__webpack_require__.bind(null,
+      /*! ./ios.transition-071bd421.js */
+      "./node_modules/@ionic/core/dist/esm/ios.transition-071bd421.js"));
+    };
 
-    const mdTransitionAnimation = () => __webpack_require__.e(
-    /*! import() | md-transition-15a81b08-js */
-    "md-transition-15a81b08-js").then(__webpack_require__.bind(null,
-    /*! ./md.transition-15a81b08.js */
-    "./node_modules/@ionic/core/dist/esm/md.transition-15a81b08.js"));
+    var mdTransitionAnimation = function mdTransitionAnimation() {
+      return __webpack_require__.e(
+      /*! import() | md-transition-15a81b08-js */
+      "md-transition-15a81b08-js").then(__webpack_require__.bind(null,
+      /*! ./md.transition-15a81b08.js */
+      "./node_modules/@ionic/core/dist/esm/md.transition-15a81b08.js"));
+    };
 
-    const transition = opts => {
-      return new Promise((resolve, reject) => {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
+    var transition = function transition(opts) {
+      return new Promise(function (resolve, reject) {
+        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
           beforeTransition(opts);
-          runTransition(opts).then(result => {
+          runTransition(opts).then(function (result) {
             if (result.animation) {
               result.animation.destroy();
             }
 
             afterTransition(opts);
             resolve(result);
-          }, error => {
+          }, function (error) {
             afterTransition(opts);
             reject(error);
           });
@@ -570,9 +579,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
     };
 
-    const beforeTransition = opts => {
-      const enteringEl = opts.enteringEl;
-      const leavingEl = opts.leavingEl;
+    var beforeTransition = function beforeTransition(opts) {
+      var enteringEl = opts.enteringEl;
+      var leavingEl = opts.leavingEl;
       setZIndex(enteringEl, leavingEl, opts.direction);
 
       if (opts.showGoBack) {
@@ -588,28 +597,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
 
-    const runTransition =
-    /*#__PURE__*/
-    function () {
-      var _ref2 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(opts) {
+    var runTransition = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(opts) {
         var animationBuilder, ani;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return getAnimationBuilder(opts);
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return getAnimationBuilder(opts);
 
-            case 2:
-              animationBuilder = _context2.sent;
-              ani = animationBuilder ? animation(animationBuilder, opts) : noAnimation(opts); // fast path for no animation
+              case 2:
+                animationBuilder = _context2.sent;
+                ani = animationBuilder ? animation(animationBuilder, opts) : noAnimation(opts); // fast path for no animation
 
-              return _context2.abrupt("return", ani);
+                return _context2.abrupt("return", ani);
 
-            case 5:
-            case "end":
-              return _context2.stop();
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
           }
         }, _callee2);
       }));
@@ -619,9 +626,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    const afterTransition = opts => {
-      const enteringEl = opts.enteringEl;
-      const leavingEl = opts.leavingEl;
+    var afterTransition = function afterTransition(opts) {
+      var enteringEl = opts.enteringEl;
+      var leavingEl = opts.leavingEl;
       enteringEl.classList.remove('ion-page-invisible');
 
       if (leavingEl !== undefined) {
@@ -629,59 +636,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
 
-    const getAnimationBuilder =
-    /*#__PURE__*/
-    function () {
-      var _ref3 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3(opts) {
+    var getAnimationBuilder = /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(opts) {
         var getAnimation;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) switch (_context3.prev = _context3.next) {
-            case 0:
-              if (!(!opts.leavingEl || !opts.animated || opts.duration === 0)) {
-                _context3.next = 2;
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                if (!(!opts.leavingEl || !opts.animated || opts.duration === 0)) {
+                  _context3.next = 2;
+                  break;
+                }
+
+                return _context3.abrupt("return", undefined);
+
+              case 2:
+                if (!opts.animationBuilder) {
+                  _context3.next = 4;
+                  break;
+                }
+
+                return _context3.abrupt("return", opts.animationBuilder);
+
+              case 4:
+                if (!(opts.mode === 'ios')) {
+                  _context3.next = 10;
+                  break;
+                }
+
+                _context3.next = 7;
+                return iosTransitionAnimation();
+
+              case 7:
+                _context3.t0 = _context3.sent.iosTransitionAnimation;
+                _context3.next = 13;
                 break;
-              }
 
-              return _context3.abrupt("return", undefined);
+              case 10:
+                _context3.next = 12;
+                return mdTransitionAnimation();
 
-            case 2:
-              if (!opts.animationBuilder) {
-                _context3.next = 4;
-                break;
-              }
+              case 12:
+                _context3.t0 = _context3.sent.mdTransitionAnimation;
 
-              return _context3.abrupt("return", opts.animationBuilder);
+              case 13:
+                getAnimation = _context3.t0;
+                return _context3.abrupt("return", getAnimation);
 
-            case 4:
-              if (!(opts.mode === 'ios')) {
-                _context3.next = 10;
-                break;
-              }
-
-              _context3.next = 7;
-              return iosTransitionAnimation();
-
-            case 7:
-              _context3.t0 = _context3.sent.iosTransitionAnimation;
-              _context3.next = 13;
-              break;
-
-            case 10:
-              _context3.next = 12;
-              return mdTransitionAnimation();
-
-            case 12:
-              _context3.t0 = _context3.sent.mdTransitionAnimation;
-
-            case 13:
-              getAnimation = _context3.t0;
-              return _context3.abrupt("return", getAnimation);
-
-            case 15:
-            case "end":
-              return _context3.stop();
+              case 15:
+              case "end":
+                return _context3.stop();
+            }
           }
         }, _callee3);
       }));
@@ -691,67 +696,65 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    const animation =
-    /*#__PURE__*/
-    function () {
-      var _ref4 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee4(animationBuilder, opts) {
+    var animation = /*#__PURE__*/function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(animationBuilder, opts) {
         var trans, mod, didComplete;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
-          while (1) switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.next = 2;
-              return waitForReady(opts, true);
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return waitForReady(opts, true);
 
-            case 2:
-              _context4.prev = 2;
-              _context4.next = 5;
-              return __webpack_require__.e(
-              /*! import() | index-69c37885-js */
-              "index-69c37885-js").then(__webpack_require__.bind(null,
-              /*! ./index-69c37885.js */
-              "./node_modules/@ionic/core/dist/esm/index-69c37885.js"));
+              case 2:
+                _context4.prev = 2;
+                _context4.next = 5;
+                return __webpack_require__.e(
+                /*! import() | index-69c37885-js */
+                "index-69c37885-js").then(__webpack_require__.bind(null,
+                /*! ./index-69c37885.js */
+                "./node_modules/@ionic/core/dist/esm/index-69c37885.js"));
 
-            case 5:
-              mod = _context4.sent;
-              _context4.next = 8;
-              return mod.create(animationBuilder, opts.baseEl, opts);
+              case 5:
+                mod = _context4.sent;
+                _context4.next = 8;
+                return mod.create(animationBuilder, opts.baseEl, opts);
 
-            case 8:
-              trans = _context4.sent;
-              _context4.next = 14;
-              break;
+              case 8:
+                trans = _context4.sent;
+                _context4.next = 14;
+                break;
 
-            case 11:
-              _context4.prev = 11;
-              _context4.t0 = _context4["catch"](2);
-              trans = animationBuilder(opts.baseEl, opts);
+              case 11:
+                _context4.prev = 11;
+                _context4.t0 = _context4["catch"](2);
+                trans = animationBuilder(opts.baseEl, opts);
 
-            case 14:
-              fireWillEvents(opts.enteringEl, opts.leavingEl);
-              _context4.next = 17;
-              return playTransition(trans, opts);
+              case 14:
+                fireWillEvents(opts.enteringEl, opts.leavingEl);
+                _context4.next = 17;
+                return playTransition(trans, opts);
 
-            case 17:
-              didComplete = _context4.sent;
+              case 17:
+                didComplete = _context4.sent;
 
-              if (opts.progressCallback) {
-                opts.progressCallback(undefined);
-              }
+                if (opts.progressCallback) {
+                  opts.progressCallback(undefined);
+                }
 
-              if (didComplete) {
-                fireDidEvents(opts.enteringEl, opts.leavingEl);
-              }
+                if (didComplete) {
+                  fireDidEvents(opts.enteringEl, opts.leavingEl);
+                }
 
-              return _context4.abrupt("return", {
-                hasCompleted: didComplete,
-                animation: trans
-              });
+                return _context4.abrupt("return", {
+                  hasCompleted: didComplete,
+                  animation: trans
+                });
 
-            case 21:
-            case "end":
-              return _context4.stop();
+              case 21:
+              case "end":
+                return _context4.stop();
+            }
           }
         }, _callee4, null, [[2, 11]]);
       }));
@@ -761,31 +764,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    const noAnimation =
-    /*#__PURE__*/
-    function () {
-      var _ref5 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee5(opts) {
+    var noAnimation = /*#__PURE__*/function () {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(opts) {
         var enteringEl, leavingEl;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
-          while (1) switch (_context5.prev = _context5.next) {
-            case 0:
-              enteringEl = opts.enteringEl;
-              leavingEl = opts.leavingEl;
-              _context5.next = 4;
-              return waitForReady(opts, false);
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                enteringEl = opts.enteringEl;
+                leavingEl = opts.leavingEl;
+                _context5.next = 4;
+                return waitForReady(opts, false);
 
-            case 4:
-              fireWillEvents(enteringEl, leavingEl);
-              fireDidEvents(enteringEl, leavingEl);
-              return _context5.abrupt("return", {
-                hasCompleted: true
-              });
+              case 4:
+                fireWillEvents(enteringEl, leavingEl);
+                fireDidEvents(enteringEl, leavingEl);
+                return _context5.abrupt("return", {
+                  hasCompleted: true
+                });
 
-            case 7:
-            case "end":
-              return _context5.stop();
+              case 7:
+              case "end":
+                return _context5.stop();
+            }
           }
         }, _callee5);
       }));
@@ -795,28 +796,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    const waitForReady =
-    /*#__PURE__*/
-    function () {
-      var _ref6 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee6(opts, defaultDeep) {
+    var waitForReady = /*#__PURE__*/function () {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(opts, defaultDeep) {
         var deep, promises;
         return regeneratorRuntime.wrap(function _callee6$(_context6) {
-          while (1) switch (_context6.prev = _context6.next) {
-            case 0:
-              deep = opts.deepWait !== undefined ? opts.deepWait : defaultDeep;
-              promises = deep ? [deepReady(opts.enteringEl), deepReady(opts.leavingEl)] : [shallowReady(opts.enteringEl), shallowReady(opts.leavingEl)];
-              _context6.next = 4;
-              return Promise.all(promises);
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                deep = opts.deepWait !== undefined ? opts.deepWait : defaultDeep;
+                promises = deep ? [deepReady(opts.enteringEl), deepReady(opts.leavingEl)] : [shallowReady(opts.enteringEl), shallowReady(opts.leavingEl)];
+                _context6.next = 4;
+                return Promise.all(promises);
 
-            case 4:
-              _context6.next = 6;
-              return notifyViewReady(opts.viewIsReady, opts.enteringEl);
+              case 4:
+                _context6.next = 6;
+                return notifyViewReady(opts.viewIsReady, opts.enteringEl);
 
-            case 6:
-            case "end":
-              return _context6.stop();
+              case 6:
+              case "end":
+                return _context6.stop();
+            }
           }
         }, _callee6);
       }));
@@ -826,26 +825,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    const notifyViewReady =
-    /*#__PURE__*/
-    function () {
-      var _ref7 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee7(viewIsReady, enteringEl) {
+    var notifyViewReady = /*#__PURE__*/function () {
+      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(viewIsReady, enteringEl) {
         return regeneratorRuntime.wrap(function _callee7$(_context7) {
-          while (1) switch (_context7.prev = _context7.next) {
-            case 0:
-              if (!viewIsReady) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                if (!viewIsReady) {
+                  _context7.next = 3;
+                  break;
+                }
+
                 _context7.next = 3;
-                break;
-              }
+                return viewIsReady(enteringEl);
 
-              _context7.next = 3;
-              return viewIsReady(enteringEl);
-
-            case 3:
-            case "end":
-              return _context7.stop();
+              case 3:
+              case "end":
+                return _context7.stop();
+            }
           }
         }, _callee7);
       }));
@@ -855,11 +852,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    const playTransition = (trans, opts) => {
-      const progressCallback = opts.progressCallback; // TODO: Remove AnimationBuilder
+    var playTransition = function playTransition(trans, opts) {
+      var progressCallback = opts.progressCallback; // TODO: Remove AnimationBuilder
 
-      const promise = new Promise(resolve => {
-        trans.onFinish(currentStep => {
+      var promise = new Promise(function (resolve) {
+        trans.onFinish(function (currentStep) {
           if (typeof currentStep === 'number') {
             resolve(currentStep === 1);
           } else if (trans.hasCompleted !== undefined) {
@@ -884,19 +881,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return promise;
     };
 
-    const fireWillEvents = (enteringEl, leavingEl) => {
+    var fireWillEvents = function fireWillEvents(enteringEl, leavingEl) {
       lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["b"]);
       lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["L"]);
     };
 
-    const fireDidEvents = (enteringEl, leavingEl) => {
+    var fireDidEvents = function fireDidEvents(enteringEl, leavingEl) {
       lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["a"]);
       lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["c"]);
     };
 
-    const lifecycle = (el, eventName) => {
+    var lifecycle = function lifecycle(el, eventName) {
       if (el) {
-        const ev = new CustomEvent(eventName, {
+        var ev = new CustomEvent(eventName, {
           bubbles: false,
           cancelable: false
         });
@@ -904,7 +901,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
 
-    const shallowReady = el => {
+    var shallowReady = function shallowReady(el) {
       if (el && el.componentOnReady) {
         return el.componentOnReady();
       }
@@ -912,48 +909,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return Promise.resolve();
     };
 
-    const deepReady =
-    /*#__PURE__*/
-    function () {
-      var _ref8 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee8(el) {
+    var deepReady = /*#__PURE__*/function () {
+      var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(el) {
         var element, stencilEl;
         return regeneratorRuntime.wrap(function _callee8$(_context8) {
-          while (1) switch (_context8.prev = _context8.next) {
-            case 0:
-              element = el;
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                element = el;
 
-              if (!element) {
+                if (!element) {
+                  _context8.next = 10;
+                  break;
+                }
+
+                if (!(element.componentOnReady != null)) {
+                  _context8.next = 8;
+                  break;
+                }
+
+                _context8.next = 5;
+                return element.componentOnReady();
+
+              case 5:
+                stencilEl = _context8.sent;
+
+                if (!(stencilEl != null)) {
+                  _context8.next = 8;
+                  break;
+                }
+
+                return _context8.abrupt("return");
+
+              case 8:
                 _context8.next = 10;
-                break;
-              }
+                return Promise.all(Array.from(element.children).map(deepReady));
 
-              if (!(element.componentOnReady != null)) {
-                _context8.next = 8;
-                break;
-              }
-
-              _context8.next = 5;
-              return element.componentOnReady();
-
-            case 5:
-              stencilEl = _context8.sent;
-
-              if (!(stencilEl != null)) {
-                _context8.next = 8;
-                break;
-              }
-
-              return _context8.abrupt("return");
-
-            case 8:
-              _context8.next = 10;
-              return Promise.all(Array.from(element.children).map(deepReady));
-
-            case 10:
-            case "end":
-              return _context8.stop();
+              case 10:
+              case "end":
+                return _context8.stop();
+            }
           }
         }, _callee8);
       }));
@@ -963,7 +958,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    const setPageHidden = (el, hidden) => {
+    var setPageHidden = function setPageHidden(el, hidden) {
       if (hidden) {
         el.setAttribute('aria-hidden', 'true');
         el.classList.add('ion-page-hidden');
@@ -974,7 +969,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
 
-    const setZIndex = (enteringEl, leavingEl, direction) => {
+    var setZIndex = function setZIndex(enteringEl, leavingEl, direction) {
       if (enteringEl !== undefined) {
         enteringEl.style.zIndex = direction === 'back' ? '99' : '101';
       }
@@ -984,12 +979,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
 
-    const getIonPageElement = element => {
+    var getIonPageElement = function getIonPageElement(element) {
       if (element.classList.contains('ion-page')) {
         return element;
       }
 
-      const ionPage = element.querySelector(':scope > .ion-page, :scope > ion-nav, :scope > ion-tabs');
+      var ionPage = element.querySelector(':scope > .ion-page, :scope > ion-nav, :scope > ion-tabs');
 
       if (ionPage) {
         return ionPage;
@@ -1040,7 +1035,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return openURL;
     });
 
-    const hostContext = (selector, el) => {
+    var hostContext = function hostContext(selector, el) {
       return el.closest(selector) !== null;
     };
     /**
@@ -1048,70 +1043,75 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      */
 
 
-    const createColorClasses = color => {
-      return typeof color === 'string' && color.length > 0 ? {
-        'ion-color': true,
-        ["ion-color-".concat(color)]: true
-      } : undefined;
+    var createColorClasses = function createColorClasses(color) {
+      return typeof color === 'string' && color.length > 0 ? _defineProperty({
+        'ion-color': true
+      }, "ion-color-".concat(color), true) : undefined;
     };
 
-    const getClassList = classes => {
+    var getClassList = function getClassList(classes) {
       if (classes !== undefined) {
-        const array = Array.isArray(classes) ? classes : classes.split(' ');
-        return array.filter(c => c != null).map(c => c.trim()).filter(c => c !== '');
+        var array = Array.isArray(classes) ? classes : classes.split(' ');
+        return array.filter(function (c) {
+          return c != null;
+        }).map(function (c) {
+          return c.trim();
+        }).filter(function (c) {
+          return c !== '';
+        });
       }
 
       return [];
     };
 
-    const getClassMap = classes => {
-      const map = {};
-      getClassList(classes).forEach(c => map[c] = true);
+    var getClassMap = function getClassMap(classes) {
+      var map = {};
+      getClassList(classes).forEach(function (c) {
+        return map[c] = true;
+      });
       return map;
     };
 
-    const SCHEME = /^[a-z][a-z0-9+\-.]*:/;
+    var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
 
-    const openURL =
-    /*#__PURE__*/
-    function () {
-      var _ref9 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee9(url, ev, direction) {
+    var openURL = /*#__PURE__*/function () {
+      var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(url, ev, direction) {
         var router;
         return regeneratorRuntime.wrap(function _callee9$(_context9) {
-          while (1) switch (_context9.prev = _context9.next) {
-            case 0:
-              if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
-                _context9.next = 5;
-                break;
-              }
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
+                  _context9.next = 5;
+                  break;
+                }
 
-              router = document.querySelector('ion-router');
+                router = document.querySelector('ion-router');
 
-              if (!router) {
-                _context9.next = 5;
-                break;
-              }
+                if (!router) {
+                  _context9.next = 5;
+                  break;
+                }
 
-              if (ev != null) {
-                ev.preventDefault();
-              }
+                if (ev != null) {
+                  ev.preventDefault();
+                }
 
-              return _context9.abrupt("return", router.push(url, direction));
+                return _context9.abrupt("return", router.push(url, direction));
 
-            case 5:
-              return _context9.abrupt("return", false);
+              case 5:
+                return _context9.abrupt("return", false);
 
-            case 6:
-            case "end":
-              return _context9.stop();
+              case 6:
+              case "end":
+                return _context9.stop();
+            }
           }
         }, _callee9);
       }));
 
       return function openURL(_x16, _x17, _x18) {
-        return _ref9.apply(this, arguments);
+        return _ref10.apply(this, arguments);
       };
     }();
     /***/
@@ -1144,8 +1144,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return watchForOptions;
     });
 
-    const watchForOptions = (containerEl, tagName, onChange) => {
-      const mutation = new MutationObserver(mutationList => {
+    var watchForOptions = function watchForOptions(containerEl, tagName, onChange) {
+      var mutation = new MutationObserver(function (mutationList) {
         onChange(getSelectedOption(mutationList, tagName));
       });
       mutation.observe(containerEl, {
@@ -1155,24 +1155,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return mutation;
     };
 
-    const getSelectedOption = (mutationList, tagName) => {
-      let newOption;
-      mutationList.forEach(mut => {
+    var getSelectedOption = function getSelectedOption(mutationList, tagName) {
+      var newOption;
+      mutationList.forEach(function (mut) {
         // tslint:disable-next-line: prefer-for-of
-        for (let i = 0; i < mut.addedNodes.length; i++) {
+        for (var i = 0; i < mut.addedNodes.length; i++) {
           newOption = findCheckedOption(mut.addedNodes[i], tagName) || newOption;
         }
       });
       return newOption;
     };
 
-    const findCheckedOption = (el, tagName) => {
+    var findCheckedOption = function findCheckedOption(el, tagName) {
       if (el.nodeType !== 1) {
         return undefined;
       }
 
-      const options = el.tagName === tagName.toUpperCase() ? [el] : Array.from(el.querySelectorAll(tagName));
-      return options.find(o => o.checked === true);
+      var options = el.tagName === tagName.toUpperCase() ? [el] : Array.from(el.querySelectorAll(tagName));
+      return options.find(function (o) {
+        return o.checked === true;
+      });
     };
     /***/
 

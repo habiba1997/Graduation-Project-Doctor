@@ -37,7 +37,7 @@ import {NetworkService} from "../services/Network/network.service";
 
       }, 
       {
-        path:'Myprofile',
+        path:'profile',
         component:ProfileComponent
       } ,   
       {

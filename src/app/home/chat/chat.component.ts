@@ -18,7 +18,7 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import {NetworkService} from "../../services/Network/network.service";
 import {ImagePath} from "../DataModels";
 
-const STORAGE_KEY = 'my_images';
+const STORAGE_KEY = 'my_image';
 
 
 @Component({
@@ -66,6 +66,9 @@ export class ChatComponent implements OnInit {
     private image:any;
     private thread_id:number;
     showSplash: boolean=false;
+    private loading:boolean=false;
+    private scrollingPosition:number=0;
+    private pat_img:String='';
 
   
   
@@ -86,6 +89,7 @@ export class ChatComponent implements OnInit {
         });
     }
     ionViewWillEnter() {
+        this.showSplash=true;
         new Promise((resolve, reject) => {
             this.dId = this.dataStream.getDoctorId();
             if (this.dId == undefined) {
@@ -94,10 +98,10 @@ export class ChatComponent implements OnInit {
                 resolve();
             }
 
-        }).then(() => {
+        }).then( async () => {
             this.patientArray = this.dataStream.getPatientList();
             console.log("chat doctor list ",this.patientArray);
-            this.communication.msg.subscribe(
+            await this.communication.msg.subscribe(
                 (massagesFromMessageOrConvList)=> {
                     console.log("replies in chat: " ,massagesFromMessageOrConvList);
                     this.newMessages=massagesFromMessageOrConvList.newMessages;
@@ -105,39 +109,40 @@ export class ChatComponent implements OnInit {
                     this.thread_id=massagesFromMessageOrConvList.thread_id;
                     this.showSplash=true;
                     console.log("msg received  "+massagesFromMessageOrConvList);
-                    this.setMessege();
+                   this.setMessege();
                 });
 
-        });
+        }).then(()=>this.showSplash=false);
+    }
+    ionViewDidEnter(){
+        console.log("ion view did enter");
+        this.ScrollToBottom();
+
+    }
+    ScrollToBottom(){
+        setTimeout(()=>{
+            this.bigContent.scrollToBottom(100);
+        },1000);
+
     }
     
     ////////////////////
 
-    setMessege(){
+    async setMessege(){
       this.newMsgs=this.newMessages[0];
       console.log("newMsgs: ",this.newMsgs) ;
       if (this.newMsgs.sender_id==undefined){
         this.newMsgs.sender_id=this.dId;
-        console.log("newMsgs.sender_id"+this.newMsgs.sender_id)   
+        console.log("newMsgs.sender_id"+this.newMsgs.sender_id)  ;
         console.log("newMsgs if denderid is undefined"+this.newMsgs)   
   
       }
      
         console.log("myMsgs",this.newMsgs);
-
-        console.log("mypatientArray: ", this.patientArray);
-        for(let row of this.patientArray){
-          console.log("this.newMsgs.sender_id"+this.newMsgs.sender_id);
-          console.log("row.patientId"+row.patientId);
-          
-          if(this.newMsgs.sender_id==row.patientId || this.newMsgs.reciever_id==row.patientId){
-            console.log("row of patient",row);
-            this.userToRecieve=row;
-            console.log(this.userToRecieve+" id == "+row.patientId);
-            this.patName=row.name;
-           
-          }
-        }
+      await (this.userToRecieve=this.patientArray.find(patient=>patient.patientId==this.newMsgs.receiver_id||patient.patientId==this.newMsgs.sender_id));
+      this.patName=this.userToRecieve.name;
+      this.pat_img=this.userToRecieve.user_img;
+        console.log("patient to receive: ", this.patientArray);
        console.log("newMsgs.sender_id"+this.newMsgs.sender_id);
        console.log("sender",this.dId);    
     }
@@ -159,7 +164,7 @@ export class ChatComponent implements OnInit {
          //////////////////////////////////
          this.data={
                 sender_id:this.dId,
-                reciever_id:this.userToRecieve.patientId,
+                receiver_id:this.userToRecieve.patientId,
                 msg_body:this.replyContent,
                 thread_subject:this.thread.msg_subject,
                 fcm_token:this.userToRecieve.fcmtoken
@@ -172,11 +177,8 @@ export class ChatComponent implements OnInit {
 
                this.replyContent="";
    
-              this.bigContent.scrollToBottom(200);
+              this.ScrollToBottom();
               ////////////////////////////////////////////////////////////////////////////////////
-             
-  
-  
     }
   
     goConv(){
@@ -230,6 +232,17 @@ export class ChatComponent implements OnInit {
                                 correctPath: correctPath
                             };
                             this.startUpload(this.img.path);
+                            this.image={
+                                sender_id:this.dId,
+                                receiver_id:this.userToRecieve.patientId,
+                                msg_body:"",
+                                fcm_token:this.userToRecieve.fcmtoken,
+                                media:this.pathForImage(this.img.path)
+                            };
+                            this.newMessages.push(this.image);
+                            this.loading=true;
+                            this.ref.detectChanges();
+                            this.ScrollToBottom();
                             // this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
                         });
                 } else {
@@ -241,6 +254,18 @@ export class ChatComponent implements OnInit {
                         correctPath: correctPath
                     };
                     this.startUpload(this.img.path);
+                    this.image={
+                        sender_id:this.dId,
+                        receiver_id:this.userToRecieve.patientId,
+                        msg_body:"",
+                        fcm_token:this.userToRecieve.fcmtoken,
+                        media:this.pathForImage(this.img.path)
+                    };
+                    this.newMessages.push(this.image);
+                    this.loading=true;
+                    this.ref.detectChanges();
+                    this.ScrollToBottom();
+
                     // this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
 
                 }
@@ -293,16 +318,8 @@ export class ChatComponent implements OnInit {
             };
             console.log("newEntry"+newEntry);
             this.images = [newEntry, ...this.images];
-            this.image={
-                sender_id:this.dId,
-                reciever_id:this.userToRecieve.patientId,
-                msg_body:"",
-                created_date:new Date().toLocaleString(),
-                thread_subject:this.thread.msg_subject,
-                fcm_token:this.userToRecieve.fcmtoken,
-                media:resPath,
-            };
-            this.newMessages.push(this.image);
+            this.newMessages.find(msg=>msg.media==this.pathForImage(this.img.path)).media=resPath;
+            this.loading=false;
             this.ref.detectChanges();
         });
     }
@@ -323,7 +340,7 @@ export class ChatComponent implements OnInit {
         return {
             "thread_id":this.thread_id,
             "sender_id":this.dId,
-            "reciever_id":this.userToRecieve.patientId,
+            "receiver_id":this.userToRecieve.patientId,
             "msg_body":"",
             "fcm_token":this.userToRecieve.fcmtoken
         };}
@@ -339,35 +356,15 @@ export class ChatComponent implements OnInit {
             console.log("blob"+JSON.stringify(imgBlob));
             formData.append('file', imgBlob, file.name);
             formData.append('data',  JSON.stringify(this.json()));
-            this.httpService.bgrb(formData).subscribe(
+            this.httpService.UplaodingMediaMsg(formData,this.thread_id).subscribe(
                 (data)=>{
                     console.log(" allData ", data);
                     that.url = data.url;
-                    // this.image={
-                    //     sender_id:this.pId,
-                    //     reciever_id:this.doctor.doctorId,
-                    //     msg_body:"",
-                    //     created_date:new Date().toLocaleString(),
-                    //     thread_subject:this.thread.thread.msg_subject,
-                    //     fcm_token:this.doctor.fcmtoken,
-                    //     media:data.url,
-                    //
-                    // };
-                    //   // this.http.postReply(this.data,this.thread.thread_id).subscribe((res)=>{
-                    //   //   console.log("posted",res);
-
-
-                    // });
                     this.showSplash=false;
                     console.log("Data Came: ", that.url );
-                    // that.newMessages.push(this.image);
-                    this.showSplash=true;
-
                     that.setMessege();
-                    this.bigContent.scrollToBottom(500);
+                    this.ScrollToBottom();
                     this.copyFileToLocalDir(this.img.correctPath, this.img.currentName, this.createFileName());
-
-
                 },
                 (err)=>{
                     console.log("ERROR Occured will sending your msg");
@@ -379,7 +376,7 @@ export class ChatComponent implements OnInit {
                     console.log("Data Came:2 ", this.image);
 
                 }
-            )
+            );
 
             console.log("form  "+JSON.stringify(formData.getAll('file')));
 
@@ -387,6 +384,28 @@ export class ChatComponent implements OnInit {
         reader.readAsArrayBuffer(file);
         console.log("Data Came:2 ", that.url );
         console.log("Data Came:2 ", this.image);
+
+
+    }
+    doRefresh(event){
+        console.log("scrolling to top event",event);
+        this.scrollingPosition=this.scrollingPosition+10;
+        console.log("all msgs before refresh",this.newMessages);
+        this.httpService.getReplies(this.thread_id, this.scrollingPosition).subscribe((res) => {
+            let msgs=res.reverse();
+            console.log("msgs",msgs);
+            if(msgs.length){
+                this.newMessages=msgs.concat(this.newMessages);
+                console.log("all msgs",this.newMessages);
+                event.target.complete();
+                this.ref.detectChanges();
+                return;
+
+            }
+            event.target.complete();
+            this.ref.detectChanges();
+
+        });
 
 
     }

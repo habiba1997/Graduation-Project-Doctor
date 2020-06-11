@@ -1,3 +1,21 @@
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"], {
   /***/
   "./$$_lazy_route_resource lazy recursive":
@@ -161,7 +179,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <ion-app>\r\n  <ion-router-outlet id=\"menu-content\"></ion-router-outlet>\r\n</ion-app> -->\r\n<ion-app>\r\n  <ion-menu color=\"sub.severityLevel\" side=\"start\" menuId=\"first\" contentId=\"content1\" type=\"overlay\" >\r\n   <ion-header >\r\n          <ion-toolbar> \r\n            <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item >\r\n                  \r\n                  <ion-avatar slot=\"start\">\r\n                    <img src=\"assets/images.jpg\">\r\n                  </ion-avatar>\r\n                  <ion-label>  {{myName}} </ion-label>\r\n                 </ion-item > \r\n             </ion-menu-toggle >\r\n          </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content  >\r\n          <ion-list >\r\n\r\n            <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n              <ion-item>\r\n                   \r\n                 <ion-label shape=\"round\" (click)= \"homeClick()\" expand=\"full\"  >\r\n                 <ion-icon name=\"person\"></ion-icon>\r\n                  Profile\r\n                 </ion-label>\r\n                \r\n    \r\n              </ion-item> \r\n            </ion-menu-toggle>\r\n            <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item>\r\n                     \r\n                   <ion-label shape=\"round\" (click)= \"dlistClick()\" expand=\"full\" >\r\n                    <ion-icon name=\"medkit\"></ion-icon>\r\n                    My Patients\r\n                   </ion-label>\r\n      \r\n                </ion-item> \r\n              </ion-menu-toggle>\r\n              <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                <ion-item>\r\n                   <ion-label shape=\"round\" (click)= \"homClick()\" expand=\"full\" >\r\n                   <ion-icon name=\"body\"></ion-icon>\r\n                    Homepage\r\n                   </ion-label>\r\n      \r\n                </ion-item> \r\n              </ion-menu-toggle>\r\n             <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                  <ion-item>\r\n\r\n                      <ion-label shape=\"round\" (click)= \"ConsultClick()\" expand=\"full\" class = \"grad\">\r\n                          <ion-icon name=\"mail\"></ion-icon>\r\n                          Consultations\r\n                      </ion-label>\r\n\r\n                  </ion-item>\r\n              </ion-menu-toggle>\r\n              <br>\r\n              <ion-menu-toggle auto-hide=\"false\" >\r\n              \r\n                  <ion-item>\r\n                       \r\n                     <ion-label shape=\"round\" (click)= \"outClick()\" expand=\"full\" class = \"grad\">\r\n                     <ion-icon name=\"power\"></ion-icon>\r\n                      Log out\r\n                     </ion-label>\r\n        \r\n                  </ion-item> \r\n                </ion-menu-toggle>\r\n          </ion-list>\r\n        \r\n        </ion-content>\r\n      \r\n    </ion-menu>\r\n    <ion-toolbar class=\"menu-bar\">\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button style=\"font-size: xx-large\" ></ion-menu-button>\r\n        </ion-buttons>\r\n    </ion-toolbar>\r\n<ion-router-outlet id=\"content1\"></ion-router-outlet>\r\n</ion-app>\r\n\r\n";
+    __webpack_exports__["default"] = "<!-- <ion-app>\r\n  <ion-router-outlet id=\"menu-content\"></ion-router-outlet>\r\n</ion-app> -->\r\n<ion-app>\r\n    <div *ngIf=\"showSplash\" class=\"myBackground\">\r\n        <div>\r\n            <img src=\"/assets/animation_splash.gif\">\r\n        </div>\r\n    </div>\r\n    <ion-menu  side=\"start\" menuId=\"first\"   contentId=\"content1\" type=\"overlay\" >\r\n        <ion-header >\r\n            <ion-toolbar>\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item >\r\n\r\n                        <ion-avatar slot=\"start\">\r\n                            <img src=\"assets/images.jpg\">\r\n                        </ion-avatar>\r\n                        <ion-label>  </ion-label>\r\n                    </ion-item >\r\n                </ion-menu-toggle >\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content  >\r\n            <ion-list >\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item (click)= \"profileClick()\">\r\n\r\n                        <ion-label shape=\"round\"  expand=\"full\"  >\r\n                            <ion-icon name=\"person\"></ion-icon>\r\n                            Profile\r\n                        </ion-label>\r\n                    </ion-item>\r\n                    <ion-item (click)= \"ConsultClick()\">\r\n\r\n                        <ion-label shape=\"round\"  expand=\"full\"  >\r\n                            <ion-icon name=\"mail\"></ion-icon>\r\n                            Consultations\r\n                        </ion-label>\r\n                    </ion-item>\r\n                </ion-menu-toggle>\r\n                <br>\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item (click)= \"dlistClick()\" >\r\n\r\n                        <ion-label shape=\"round\" expand=\"full\" >\r\n                            <ion-icon name=\"medkit\"></ion-icon>\r\n                            My doctors\r\n                        </ion-label>\r\n\r\n                    </ion-item>\r\n                </ion-menu-toggle>\r\n                <br>\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item (click)= \"homClick()\" >\r\n\r\n\r\n                        <ion-label shape=\"round\" expand=\"full\" >\r\n                            <ion-icon name=\"body\"></ion-icon>\r\n                            Homepage\r\n                        </ion-label>\r\n\r\n\r\n                    </ion-item>\r\n                </ion-menu-toggle>\r\n                <br>\r\n                <ion-menu-toggle auto-hide=\"false\" >\r\n\r\n                    <ion-item (click)= \"outClick()\">\r\n\r\n                        <ion-label shape=\"round\"  expand=\"full\" class = \"grad\">\r\n                            <ion-icon name=\"power\"></ion-icon>\r\n                            Log out\r\n                        </ion-label>\r\n\r\n                    </ion-item>\r\n                </ion-menu-toggle>\r\n            </ion-list>\r\n\r\n        </ion-content>\r\n\r\n    </ion-menu>\r\n    <ion-toolbar class=\"menu-bar\">\r\n        <ion-buttons slot=\"start\">\r\n\r\n            <ion-button style=\"font-size: x-large\"   (click)=\"openMenu()\" >\r\n                <ion-icon name=\"menu\"></ion-icon>\r\n            </ion-button>\r\n        </ion-buttons>\r\n    </ion-toolbar>\r\n    <ion-router-outlet  class=\"ion-page\" id=\"content1\"></ion-router-outlet>\r\n</ion-app>\r\n\r\n\r\n";
     /***/
   },
 
@@ -171,7 +189,7 @@
     !*** ./node_modules/tslib/tslib.es6.js ***!
     \*****************************************/
 
-  /*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault */
+  /*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
 
   /***/
   function node_modulesTslibTslibEs6Js(module, __webpack_exports__, __webpack_require__) {
@@ -225,6 +243,12 @@
 
     __webpack_require__.d(__webpack_exports__, "__generator", function () {
       return __generator;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__createBinding", function () {
+      return __createBinding;
     });
     /* harmony export (binding) */
 
@@ -298,19 +322,31 @@
     __webpack_require__.d(__webpack_exports__, "__importDefault", function () {
       return __importDefault;
     });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function () {
+      return __classPrivateFieldGet;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function () {
+      return __classPrivateFieldSet;
+    });
     /*! *****************************************************************************
-    Copyright (c) Microsoft Corporation. All rights reserved.
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-    this file except in compliance with the License. You may obtain a copy of the
-    License at http://www.apache.org/licenses/LICENSE-2.0
+    Copyright (c) Microsoft Corporation.
     
-    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-    MERCHANTABLITY OR NON-INFRINGEMENT.
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
     
-    See the Apache Version 2.0 License for specific language governing permissions
-    and limitations under the License.
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
     /* global Reflect, Promise */
@@ -322,7 +358,9 @@
       } instanceof Array && function (d, b) {
         d.__proto__ = b;
       } || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        for (var p in b) {
+          if (b.hasOwnProperty(p)) d[p] = b[p];
+        }
       };
 
       return _extendStatics(d, b);
@@ -343,7 +381,9 @@
         for (var s, i = 1, n = arguments.length; i < n; i++) {
           s = arguments[i];
 
-          for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+          for (var p in s) {
+            if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+          }
         }
 
         return t;
@@ -355,7 +395,9 @@
     function __rest(s, e) {
       var t = {};
 
-      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+      }
 
       if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
@@ -367,7 +409,9 @@
       var c = arguments.length,
           r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
           d;
-      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+      }
       return c > 3 && r && Object.defineProperty(target, key, r), r;
     }
 
@@ -382,6 +426,12 @@
     }
 
     function __awaiter(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function (resolve) {
+          resolve(value);
+        });
+      }
+
       return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
           try {
@@ -400,9 +450,7 @@
         }
 
         function step(result) {
-          result.done ? resolve(result.value) : new P(function (resolve) {
-            resolve(result.value);
-          }).then(fulfilled, rejected);
+          result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
         }
 
         step((generator = generator.apply(thisArg, _arguments || [])).next());
@@ -440,74 +488,76 @@
       function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
 
-        while (_) try {
-          if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-          if (y = 0, t) op = [op[0] & 2, t.value];
+        while (_) {
+          try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
 
-          switch (op[0]) {
-            case 0:
-            case 1:
-              t = op;
-              break;
-
-            case 4:
-              _.label++;
-              return {
-                value: op[1],
-                done: false
-              };
-
-            case 5:
-              _.label++;
-              y = op[1];
-              op = [0];
-              continue;
-
-            case 7:
-              op = _.ops.pop();
-
-              _.trys.pop();
-
-              continue;
-
-            default:
-              if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
-                _ = 0;
-                continue;
-              }
-
-              if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
-                _.label = op[1];
-                break;
-              }
-
-              if (op[0] === 6 && _.label < t[1]) {
-                _.label = t[1];
+            switch (op[0]) {
+              case 0:
+              case 1:
                 t = op;
                 break;
-              }
 
-              if (t && _.label < t[2]) {
-                _.label = t[2];
+              case 4:
+                _.label++;
+                return {
+                  value: op[1],
+                  done: false
+                };
 
-                _.ops.push(op);
+              case 5:
+                _.label++;
+                y = op[1];
+                op = [0];
+                continue;
 
-                break;
-              }
+              case 7:
+                op = _.ops.pop();
 
-              if (t[2]) _.ops.pop();
+                _.trys.pop();
 
-              _.trys.pop();
+                continue;
 
-              continue;
+              default:
+                if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                  _ = 0;
+                  continue;
+                }
+
+                if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+                  _.label = op[1];
+                  break;
+                }
+
+                if (op[0] === 6 && _.label < t[1]) {
+                  _.label = t[1];
+                  t = op;
+                  break;
+                }
+
+                if (t && _.label < t[2]) {
+                  _.label = t[2];
+
+                  _.ops.push(op);
+
+                  break;
+                }
+
+                if (t[2]) _.ops.pop();
+
+                _.trys.pop();
+
+                continue;
+            }
+
+            op = body.call(thisArg, _);
+          } catch (e) {
+            op = [6, e];
+            y = 0;
+          } finally {
+            f = t = 0;
           }
-
-          op = body.call(thisArg, _);
-        } catch (e) {
-          op = [6, e];
-          y = 0;
-        } finally {
-          f = t = 0;
         }
 
         if (op[0] & 5) throw op[1];
@@ -518,15 +568,23 @@
       }
     }
 
+    function __createBinding(o, m, k, k2) {
+      if (k2 === undefined) k2 = k;
+      o[k2] = m[k];
+    }
+
     function __exportStar(m, exports) {
-      for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+      for (var p in m) {
+        if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
+      }
     }
 
     function __values(o) {
-      var m = typeof Symbol === "function" && o[Symbol.iterator],
+      var s = typeof Symbol === "function" && Symbol.iterator,
+          m = s && o[s],
           i = 0;
       if (m) return m.call(o);
-      return {
+      if (o && typeof o.length === "number") return {
         next: function next() {
           if (o && i >= o.length) o = void 0;
           return {
@@ -535,6 +593,7 @@
           };
         }
       };
+      throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
     }
 
     function __read(o, n) {
@@ -546,7 +605,9 @@
           e;
 
       try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+          ar.push(r.value);
+        }
       } catch (error) {
         e = {
           error: error
@@ -563,15 +624,23 @@
     }
 
     function __spread() {
-      for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
+      for (var ar = [], i = 0; i < arguments.length; i++) {
+        ar = ar.concat(__read(arguments[i]));
+      }
 
       return ar;
     }
 
     function __spreadArrays() {
-      for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+      for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
+        s += arguments[i].length;
+      }
 
-      for (var r = Array(s), k = 0, i = 0; i < il; i++) for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) r[k] = a[j];
+      for (var r = Array(s), k = 0, i = 0; i < il; i++) {
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
+          r[k] = a[j];
+        }
+      }
 
       return r;
     }
@@ -685,15 +754,34 @@
     function __importStar(mod) {
       if (mod && mod.__esModule) return mod;
       var result = {};
-      if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-      result.default = mod;
+      if (mod != null) for (var k in mod) {
+        if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+      }
+      result["default"] = mod;
       return result;
     }
 
     function __importDefault(mod) {
       return mod && mod.__esModule ? mod : {
-        default: mod
+        "default": mod
       };
+    }
+
+    function __classPrivateFieldGet(receiver, privateMap) {
+      if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+      }
+
+      return privateMap.get(receiver);
+    }
+
+    function __classPrivateFieldSet(receiver, privateMap, value) {
+      if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+      }
+
+      privateMap.set(receiver, value);
+      return value;
     }
     /***/
 
@@ -737,26 +825,38 @@
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
 
-    const routes = [{
+    var routes = [{
       path: '',
       redirectTo: 'cover',
       pathMatch: 'full'
     }, {
       path: 'home',
-      loadChildren: () => __webpack_require__.e(
-      /*! import() | home-home-module */
-      "home-home-module").then(__webpack_require__.bind(null,
-      /*! ./home/home.module */
-      "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | home-home-module */
+        "home-home-module").then(__webpack_require__.bind(null,
+        /*! ./home/home.module */
+        "./src/app/home/home.module.ts")).then(function (m) {
+          return m.HomePageModule;
+        });
+      }
     }, {
       path: 'cover',
-      loadChildren: () => __webpack_require__.e(
-      /*! import() | login-signup-login-signup-module */
-      "login-signup-login-signup-module").then(__webpack_require__.bind(null,
-      /*! ./login-signup/login-signup.module */
-      "./src/app/login-signup/login-signup.module.ts")).then(c => c.LoginSignupModule)
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | login-signup-login-signup-module */
+        "login-signup-login-signup-module").then(__webpack_require__.bind(null,
+        /*! ./login-signup/login-signup.module */
+        "./src/app/login-signup/login-signup.module.ts")).then(function (c) {
+          return c.LoginSignupModule;
+        });
+      }
     }];
-    let AppRoutingModule = class AppRoutingModule {};
+
+    var AppRoutingModule = function AppRoutingModule() {
+      _classCallCheck(this, AppRoutingModule);
+    };
+
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, {
         preloadingStrategy: _angular_router__WEBPACK_IMPORTED_MODULE_2__["PreloadAllModules"]
@@ -865,9 +965,17 @@
     var _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./home/HttPService/http.service */
     "./src/app/home/HttPService/http.service.ts");
+    /* harmony import */
 
-    let AppComponent = class AppComponent {
-      constructor(platform, splashScreen, statusBar, datastore, nav, datastream, fcm, http) {
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+
+    var AppComponent = /*#__PURE__*/function () {
+      function AppComponent(platform, splashScreen, statusBar, datastore, nav, datastream, fcm, http, menu_controller, toastController) {
+        _classCallCheck(this, AppComponent);
+
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
@@ -876,6 +984,9 @@
         this.datastream = datastream;
         this.fcm = fcm;
         this.http = http;
+        this.menu_controller = menu_controller;
+        this.toastController = toastController;
+        this.showSplash = true;
         this.navigate = [{
           title: "Home",
           url: "home",
@@ -884,138 +995,222 @@
           title: "Chat",
           url: "home/profile",
           icon: "chatboxes"
-        }, {
-          title: "Contacts",
-          url: "/contacts",
-          icon: "contacts"
         }];
         this.initializeApp();
       }
 
-      initializeApp() {
-        this.platform.ready().then(() => {
-          let that = this;
-          this.datastore.isTokenExpired().then(isTokenExpired => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee() {
-            return regeneratorRuntime.wrap(function _callee$(_context) {
-              while (1) switch (_context.prev = _context.next) {
-                case 0:
-                  console.log("isTokenExpired: " + isTokenExpired);
+      _createClass(AppComponent, [{
+        key: "ionViewWillEnter",
+        value: function ionViewWillEnter() {
+          console.log('ionViewWillEnter');
+          this.menu_controller.enable(true);
+        }
+      }, {
+        key: "initializeApp",
+        value: function initializeApp() {
+          var _this = this;
 
-                  if (isTokenExpired) {
-                    _context.next = 10;
-                    break;
+          this.platform.ready().then(function () {
+            var that = _this;
+
+            _this.datastore.isTokenExpired().then(function (isTokenExpired) {
+              return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _this2 = this;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                  while (1) {
+                    switch (_context.prev = _context.next) {
+                      case 0:
+                        console.log("isTokenExpired: " + isTokenExpired);
+
+                        if (isTokenExpired) {
+                          _context.next = 10;
+                          break;
+                        }
+
+                        console.log(" app compoennt :: Token isnot expired:  " + isTokenExpired);
+                        _context.next = 5;
+                        return this.datastore.getDoctorData().then(function (doctor) {
+                          console.log("calling set doctor for login", doctor);
+
+                          _this2.datastream.SetDoctorforLogin(doctor);
+
+                          _this2.myName = _this2.datastream.getDoctorName();
+                          console.log("menu name", _this2.myName);
+                        });
+
+                      case 5:
+                        _context.next = 7;
+                        return this.datastore.getDoctorToken().then(function (token) {
+                          that.datastream.setToken(token); //receiving Token For Development Only FOR NOW
+
+                          _this2.http.editFCMToken();
+                        });
+
+                      case 7:
+                        _context.next = 9;
+                        return this.datastore.getPatientList().then(function (doctorList) {
+                          _this2.datastream.restoreStreamDatalist(doctorList);
+                        });
+
+                      case 9:
+                        this.nav.navigateTo('home');
+
+                      case 10:
+                      case "end":
+                        return _context.stop();
+                    }
                   }
+                }, _callee, this);
+              }));
+            });
 
-                  console.log(" app compoennt :: Token isnot expired:  " + isTokenExpired);
-                  _context.next = 5;
-                  return this.datastore.getDoctorData().then(doctor => {
-                    that.datastream.SetDoctorforLogin(doctor);
-                    this.myName = this.datastream.getDoctorName();
-                    console.log("menu name", this.myName);
-                  });
+            _this.statusBar.styleLightContent();
 
-                case 5:
-                  _context.next = 7;
-                  return this.datastore.getDoctorToken().then(token => {
-                    that.datastream.setToken(token); //recieveing Token For Development Only FOR NOW
+            _this.splashScreen.hide();
 
-                    this.fcm.getToken().then(fcmtoken => {
-                      this.http.editFCMToken(fcmtoken, token).subscribe(data => {
-                        console.log(JSON.stringify(data));
-                      }, err => {
-                        alert("Haven't Updated FCM Token");
-                      });
-                    }, err => {
-                      alert("ERROR in getting FCM token: " + JSON.stringify(err));
-                    });
-                  });
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_10__["timer"])(3000).subscribe(function () {
+              return _this.showSplash = false;
+            }); //recieveing notification
 
-                case 7:
-                  _context.next = 9;
-                  return this.datastore.getPatientList().then(doctorList => {
-                    that.datastream.restoreStreamDatalist(doctorList);
-                  });
+            _this.fcm.onNotification().subscribe(function (data) {
+              if (data.wasTapped) {
+                _this.presentToast("Tapped Message:" + data.body);
 
-                case 9:
-                  this.nav.navigateTo('home');
+                console.log("Tapped: " + JSON.stringify(data));
+              } else {
+                _this.presentToast("Message:" + data.body);
 
-                case 10:
-                case "end":
-                  return _context.stop();
+                console.log("tapping", JSON.stringify(data));
               }
-            }, _callee, this);
-          })));
-          this.statusBar.styleLightContent();
-          this.splashScreen.hide(); //recieveing notification
-
-          this.fcm.onNotification().subscribe(data => {
-            if (data.wasTapped) {
-              alert("Data Tapped Message:" + data.body);
-              console.log("Tapped: " + JSON.stringify(data));
-            } else {
-              alert("Data Message:" + data.body);
-              console.log(JSON.stringify(data));
-            }
+            });
           });
-        });
-      } // vitalClick(){
-      //   this.nav.navigateTo('home/vitals');
-      // }
+        }
+      }, {
+        key: "presentToast",
+        value: function presentToast(text) {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+            var toast;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    _context2.next = 2;
+                    return this.toastController.create({
+                      header: "Consultation Answer Just Arrived",
+                      message: text,
+                      position: 'top',
+                      duration: 3000,
+                      color: 'light',
+                      showCloseButton: true,
+                      closeButtonText: 'hide'
+                    });
 
+                  case 2:
+                    toast = _context2.sent;
+                    _context2.next = 5;
+                    return toast.present();
 
-      homeClick() {
-        this.nav.navigateTo('home/Myprofile');
-      }
+                  case 5:
+                    toast.onDidDismiss().then(function (val) {
+                      console.log('Toast Dismissed');
+                    });
 
-      dlistClick() {
-        this.nav.navigateTo('home/doctorList');
-      }
+                  case 6:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
+        }
+      }, {
+        key: "openMenu",
+        value: function openMenu() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    this.menu_controller.enable(true, 'first');
+                    this.menu_controller.open('first');
 
-      homClick() {
-        this.nav.navigateTo('home');
-        console.log("trainer list");
-      }
+                  case 2:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this);
+          }));
+        } // vitalClick(){
+        //   this.nav.navigateTo('home/vitals');
+        // }
 
-      ConsultClick() {
-        this.nav.navigateTo('home/conversation');
-      }
+      }, {
+        key: "profileClick",
+        value: function profileClick() {
+          this.nav.navigateTo('home/profile');
+        }
+      }, {
+        key: "dlistClick",
+        value: function dlistClick() {
+          this.nav.navigateTo('home/doctorList');
+        }
+      }, {
+        key: "homClick",
+        value: function homClick() {
+          this.nav.navigateTo('home');
+          console.log("trainer list");
+        }
+      }, {
+        key: "outClick",
+        value: function outClick() {
+          this.datastream.clearData();
+          this.nav.navigateTo('cover');
+        }
+      }, {
+        key: "ConsultClick",
+        value: function ConsultClick() {
+          this.nav.navigateTo('home/conversation');
+        }
+      }]);
 
-      outClick() {
-        this.datastream.clearData();
-        this.nav.navigateTo('cover');
-      }
+      return AppComponent;
+    }();
 
+    AppComponent.ctorParameters = function () {
+      return [{
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]
+      }, {
+        type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"]
+      }, {
+        type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]
+      }, {
+        type: _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_5__["DatastorageService"]
+      }, {
+        type: _home_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"]
+      }, {
+        type: _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_7__["DatastreamingService"]
+      }, {
+        type: _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_8__["FCM"]
+      }, {
+        type: _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]
+      }];
     };
-
-    AppComponent.ctorParameters = () => [{
-      type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-    }, {
-      type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"]
-    }, {
-      type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]
-    }, {
-      type: _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_5__["DatastorageService"]
-    }, {
-      type: _home_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"]
-    }, {
-      type: _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_7__["DatastreamingService"]
-    }, {
-      type: _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_8__["FCM"]
-    }, {
-      type: _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"]
-    }];
 
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-root',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./app.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html")).default,
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html"))["default"],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./app.component.scss */
-      "./src/app/app.component.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_5__["DatastorageService"], _home_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"], _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_7__["DatastreamingService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_8__["FCM"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"]])], AppComponent);
+      "./src/app/app.component.scss"))["default"]]
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_5__["DatastorageService"], _home_NavService_navigation_service__WEBPACK_IMPORTED_MODULE_6__["NavigationService"], _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_7__["DatastreamingService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_8__["FCM"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]])], AppComponent);
     /***/
   },
 
@@ -1134,13 +1329,46 @@
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
 
-    let AppModule = class AppModule {};
+
+    var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! @ionic-native/network/ngx */
+    "./node_modules/@ionic-native/network/ngx/index.js");
+    /* harmony import */
+
+
+    var node_modules_ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! node_modules/@ionic-native/camera/ngx */
+    "./node_modules/@ionic-native/camera/ngx/index.js");
+    /* harmony import */
+
+
+    var node_modules_ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! node_modules/@ionic-native/file/ngx */
+    "./node_modules/@ionic-native/file/ngx/index.js");
+    /* harmony import */
+
+
+    var node_modules_ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! node_modules/@ionic-native/ionic-webview/ngx */
+    "./node_modules/@ionic-native/ionic-webview/ngx/index.js");
+    /* harmony import */
+
+
+    var node_modules_ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! node_modules/@ionic-native/file-path/ngx */
+    "./node_modules/@ionic-native/file-path/ngx/index.js");
+
+    var AppModule = function AppModule() {
+      _classCallCheck(this, AppModule);
+    };
+
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
       entryComponents: [],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _ionic_storage__WEBPACK_IMPORTED_MODULE_12__["IonicStorageModule"].forRoot(), _angular_common_http__WEBPACK_IMPORTED_MODULE_15__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"]],
-      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_10__["DatastreamingService"], _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_11__["DatastorageService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_14__["FCM"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], {
+      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_10__["DatastreamingService"], _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_11__["DatastorageService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_14__["FCM"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], node_modules_ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_17__["Camera"], node_modules_ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__["File"], node_modules_ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_19__["WebView"], node_modules_ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_20__["FilePath"], _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_16__["Network"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
       }],
@@ -1186,12 +1414,54 @@
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
 
-    let HttpService = class HttpService {
-      constructor(http) {
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/services/datastream/datastreaming.service */
+    "./src/app/services/datastream/datastreaming.service.ts");
+    /* harmony import */
+
+
+    var _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ionic-native/fcm/ngx */
+    "./node_modules/@ionic-native/fcm/ngx/index.js");
+    /* harmony import */
+
+
+    var src_app_model_token__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/model/token */
+    "./src/app/model/token.ts");
+    /* harmony import */
+
+
+    var src_app_model_patientData__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/model/patientData */
+    "./src/app/model/patientData.ts");
+    /* harmony import */
+
+
+    var _model_ConsultationModel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../../model/ConsultationModel */
+    "./src/app/model/ConsultationModel.ts");
+
+    var HttpService = /*#__PURE__*/function () {
+      function HttpService(http, dataStream, fcm) {
+        _classCallCheck(this, HttpService);
+
         this.http = http;
-        this.Node_host = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/";
-        this.Java_Host_Port = "http://ec2-54-166-181-90.compute-1.amazonaws.com:8080";
+        this.dataStream = dataStream;
+        this.fcm = fcm;
+        this.Node_host = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/"; // Node_host="http://dbea70375c2c.ngrok.io/";
+        // Java_Host_Port ="http://986b7152e0e7.ngrok.io";
+
+        this.Java_Host_Port = 'http://ec2-54-166-181-90.compute-1.amazonaws.com:8080';
         this.httpOptions = {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
             'Content-Type': 'application/json',
@@ -1200,116 +1470,201 @@
         };
       }
 
-      addPatient(mobile, token) {
-        const httpOption = {
-          headers: this.httpGetTokenOptions(token)
-        };
-        const url = this.Java_Host_Port + "/addPatient";
-        return this.http.post(url, {
-          "mobile": mobile
-        }, httpOption);
-      }
+      _createClass(HttpService, [{
+        key: "gethttpOption",
+        value: function gethttpOption() {
+          return {
+            headers: this.httpGetTokenOptions(this.dataStream.getToken())
+          };
+        }
+      }, {
+        key: "addPatient",
+        value: function addPatient(mobile) {
+          var url = this.Java_Host_Port + "/addPatient";
+          return this.http.post(url, {
+            "mobile": mobile
+          }, this.gethttpOption());
+        }
+      }, {
+        key: "Login",
+        value: function Login(email, pass) {
+          console.log(email, pass);
+          var url = this.Java_Host_Port + "/signIn";
+          return this.http.post(url, {
+            "username": email,
+            "password": pass
+          }, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (token) {
+            return new src_app_model_token__WEBPACK_IMPORTED_MODULE_6__["TokenClass"](token.token);
+          }));
+        }
+      }, {
+        key: "httpGetTokenOptions",
+        value: function httpGetTokenOptions(accessToken) {
+          return new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            "Authorization": "Bearer " + accessToken
+          });
+        }
+      }, {
+        key: "getDoctorUsingToken",
+        value: function getDoctorUsingToken() {
+          var url = this.Java_Host_Port + "/doctor/getCurrentDoctorData";
+          return this.http.get(url, this.gethttpOption());
+        }
+      }, {
+        key: "getPatientList",
+        value: function getPatientList() {
+          var url = this.Java_Host_Port + "/DoctorPatient/getMyPatientList/";
+          return this.http.get(url, this.gethttpOption()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(function (doctors) {
+            return doctors;
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (patient) {
+            console.log("patient inside htpp get service: ", patient);
+            return new src_app_model_patientData__WEBPACK_IMPORTED_MODULE_7__["patientData"](patient[0], patient[1], patient[2], patient[3], patient[4], patient[5], patient[6], patient[7]);
+          }));
+          ;
+        }
+      }, {
+        key: "editDoctorProfile",
+        value: function editDoctorProfile(name, experience) {
+          console.log(name, experience, this.dataStream.getToken());
+          var url = this.Java_Host_Port + "/doctor/updateProfile";
+          return this.http.post(url, {
+            "name": name,
+            "years_experience": experience
+          }, this.gethttpOption());
+        }
+      }, {
+        key: "editFCMToken",
+        value: function editFCMToken() {
+          var _this3 = this;
 
-      Login(email, pass) {
-        console.log("d5lt");
-        const url = this.Java_Host_Port + "/signIn";
-        return this.http.post(url, {
-          "username": email,
-          "password": pass
-        }, this.httpOptions);
-      }
+          console.log("EDIT FCM TOKEN ");
+          var url = this.Java_Host_Port + "/doctor/updateToken";
+          this.fcm.getToken().then(function (fcmtoken) {
+            _this3.http.post(url, {
+              "fcmtoken": fcmtoken
+            }, _this3.gethttpOption()).subscribe(function (error) {
+              console.log("error in fcm: ", error);
+            }, function () {
+              console.log("fcm changed");
+            });
+          });
+        } //-----------------------------------------------------------------------------
 
-      httpGetTokenOptions(accessToken) {
-        return new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          "Authorization": "Bearer " + accessToken
-        });
-      }
+      }, {
+        key: "getSent",
+        value: function getSent(user_id, offset) {
+          var Url = this.Node_host + "api/users/threads/sent/" + user_id + "/" + offset;
+          console.log("URL", Url);
+          return this.http.get(Url, this.httpOptions);
+        }
+      }, {
+        key: "getInbox",
+        value: function getInbox(user_id, offset) {
+          var _this4 = this;
 
-      getDoctorUsingToken(token) {
-        const httpOption = {
-          headers: this.httpGetTokenOptions(token)
-        };
-        const url = this.Java_Host_Port + "/doctor/getCurrentDoctorData";
-        return this.http.get(url, httpOption);
-      }
+          var Url = this.Node_host + "api/users/threads/inbox/" + this.dataStream.getDoctorId() + "/" + offset;
+          console.log("URL", Url);
+          return this.http.get(Url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(function (consult) {
+            console.log("consult", consult);
+            return consult;
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (consult) {
+            console.log("map", consult);
+            console.log("patients", _this4.dataStream.getPatientList());
+            return new _model_ConsultationModel__WEBPACK_IMPORTED_MODULE_8__["inboxThread"](consult.sender_id, consult.receiver_id, consult.thread_id, consult.msg_subject, consult.created_date, consult.is_readed, consult.sender_name, consult.receiver_name, consult.msg_body, _this4.dataStream.getPatientList().find(function (patientData) {
+              return patientData.patientId == consult.sender_id;
+            }).user_img);
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["reduce"])(function (consults, consult) {
+            if (consults.length) {
+              return [].concat(_toConsumableArray(consults), [consult]);
+            } else {
+              console.log("consults,consult", [consults, consult]);
+              return [consults, consult];
+            }
+          }));
+        }
+      }, {
+        key: "postThread",
+        value: function postThread(data, sender_id) {
+          var Url = this.Node_host + "api/users/threads/" + sender_id;
+          var thread = JSON.stringify(data);
+          console.log("JSON Thread_data", thread);
+          console.log("URL", Url);
+          return this.http.post(Url, thread, this.httpOptions);
+        }
+      }, {
+        key: "postReply",
+        value: function postReply(data, id) {
+          var Url = this.Node_host + "api/users/threads/msg/" + id;
+          var reply = JSON.stringify(data);
+          console.log("JSON Thread_data", reply);
+          console.log("URL", Url);
+          return this.http.post(Url, reply, this.httpOptions);
+        }
+      }, {
+        key: "getReplies",
+        value: function getReplies(thread_id, offset) {
+          var Url = this.Node_host + "api/users/threads/replies/" + thread_id + "/" + offset;
+          console.log("URL", Url);
+          return this.http.get(Url, this.httpOptions);
+        }
+      }, {
+        key: "ProfilegethttpOption",
+        value: function ProfilegethttpOption() {
+          return {
+            headers: this.ProfilehttpGetTokenOptions(this.dataStream.getToken())
+          };
+        }
+      }, {
+        key: "ProfilehttpGetTokenOptions",
+        value: function ProfilehttpGetTokenOptions(accessToken) {
+          return new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Authorization": "Bearer " + accessToken
+          });
+        }
+      }, {
+        key: "postProfileImage",
+        value: function postProfileImage(image) {
+          console.log("image file data inside http: ", image.getAll('file'));
+          var Url = this.Java_Host_Port + "/user/uploadImage";
+          console.log("URL", Url);
+          var data = JSON.stringify(image.getAll('file'));
+          console.log("data", data);
+          var auth = this.ProfilegethttpOption();
+          console.log(auth);
+          return this.http.post(Url, image, auth);
+        }
+      }, {
+        key: "UplaodingMediaMsg",
+        value: function UplaodingMediaMsg(file, thread) {
+          console.log("entered");
+          console.log("My File is formData:  " + JSON.stringify(file));
+          var url = this.Node_host + "api/users/threads/msg/media/" + thread;
+          console.log("url: ", url);
+          console.log("file of formdata");
+          console.log(file.getAll('file'));
+          console.log("data of formdata  " + file.getAll('data'));
+          return this.http.post(url, file);
+        }
+      }]);
 
-      getPatientList(token) {
-        const httpOption = {
-          headers: this.httpGetTokenOptions(token)
-        };
-        const url = this.Java_Host_Port + "/DoctorPatient/getMyPatientList/";
-        return this.http.get(url, httpOption);
-      } //----------------------
+      return HttpService;
+    }();
 
-
-      editDoctorProfile(name, experience, token) {
-        console.log(name, experience, token);
-        const httpOption = {
-          headers: this.httpGetTokenOptions(token)
-        };
-        const url = this.Java_Host_Port + "/doctor/updateProfile";
-        return this.http.post(url, {
-          "name": name,
-          "years_experience": experience
-        }, httpOption);
-      } //----------------------
-
-
-      editFCMToken(fcmtoken, token) {
-        const httpOption = {
-          headers: this.httpGetTokenOptions(token)
-        };
-        const url = this.Java_Host_Port + "/doctor/updateToken";
-        return this.http.post(url, {
-          "fcmtoken": fcmtoken
-        }, httpOption);
-      }
-
-      getInbox(user_id, offset) {
-        const Url = this.Node_host + "api/users/threads/inbox/" + user_id + "/" + offset;
-        console.log("URL", Url);
-        return this.http.get(Url, this.httpOptions);
-      }
-
-      getSent(user_id, offset) {
-        const Url = this.Node_host + "api/users/threads/sent/" + user_id + "/" + offset;
-        console.log("URL", Url);
-        return this.http.get(Url, this.httpOptions);
-      }
-
-      postThread(data, sender_id) {
-        const Url = this.Node_host + "api/users/threads/" + sender_id;
-        let thread = JSON.stringify(data);
-        console.log("JSON Thread_data", thread);
-        console.log("URL", Url);
-        return this.http.post(Url, thread, this.httpOptions);
-      }
-
-      postReply(data, id) {
-        const Url = this.Node_host + "api/users/threads/msg/" + id;
-        let reply = JSON.stringify(data);
-        console.log("JSON Thread_data", reply);
-        console.log("URL", Url);
-        return this.http.post(Url, reply, this.httpOptions);
-      }
-
-      getReplies(thread_id, offset) {
-        const Url = this.Node_host + "api/users/threads/replies/" + thread_id + "/" + offset;
-        console.log("URL", Url);
-        return this.http.get(Url, this.httpOptions);
-      }
-
+    HttpService.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }, {
+        type: src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"]
+      }, {
+        type: _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__["FCM"]
+      }];
     };
-
-    HttpService.ctorParameters = () => [{
-      type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
-    }];
 
     HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])], HttpService);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__["FCM"]])], HttpService);
     /***/
   },
 
@@ -1357,63 +1712,122 @@
     /*! @ionic/angular */
     "./node_modules/@ionic/angular/dist/fesm5.js");
 
-    let NavigationService = class NavigationService {
-      constructor(_router, route, addController) {
+    var NavigationService = /*#__PURE__*/function () {
+      function NavigationService(_router, route, addController) {
+        _classCallCheck(this, NavigationService);
+
         this._router = _router;
         this.route = route;
         this.addController = addController;
       }
 
-      navigateTo(path) {
-        this._router.navigate([path]).then(() => console.log("navigated to " + path)).catch(err => {
-          console.log("error navigating to " + path + " + err");
-          this.presentAlert('Navigation Error: ', err.error.message);
-        });
-      }
+      _createClass(NavigationService, [{
+        key: "navigateTo",
+        value: function navigateTo(path) {
+          var _this5 = this;
 
-      presentAlert(subtitleString, messageString) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-        /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee2() {
-          var alert;
-          return regeneratorRuntime.wrap(function _callee2$(_context2) {
-            while (1) switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.addController.create({
-                  header: 'ERROR',
-                  subHeader: subtitleString,
-                  message: messageString,
-                  buttons: ['OK']
-                });
+          this._router.navigate([path]).then(function () {
+            return console.log("navigated to " + path);
+          })["catch"](function (err) {
+            console.log("error navigating to " + path + " + err");
 
-              case 2:
-                alert = _context2.sent;
-                _context2.next = 5;
-                return alert.present();
+            _this5.presentAlert('Navigation Error: ', err);
+          });
+        }
+      }, {
+        key: "presentAlert",
+        value: function presentAlert(subtitleString, messageString) {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            var alert;
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+              while (1) {
+                switch (_context4.prev = _context4.next) {
+                  case 0:
+                    _context4.next = 2;
+                    return this.addController.create({
+                      header: 'ERROR',
+                      subHeader: subtitleString,
+                      message: messageString,
+                      buttons: ['OK']
+                    });
 
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
-          }, _callee2, this);
-        }));
-      }
+                  case 2:
+                    alert = _context4.sent;
+                    _context4.next = 5;
+                    return alert.present();
 
+                  case 5:
+                  case "end":
+                    return _context4.stop();
+                }
+              }
+            }, _callee4, this);
+          }));
+        }
+      }]);
+
+      return NavigationService;
+    }();
+
+    NavigationService.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]
+      }];
     };
-
-    NavigationService.ctorParameters = () => [{
-      type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-    }, {
-      type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-    }, {
-      type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]
-    }];
 
     NavigationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])], NavigationService);
     /***/
+  },
+
+  /***/
+  "./src/app/model/ConsultationModel.ts":
+  /*!********************************************!*\
+    !*** ./src/app/model/ConsultationModel.ts ***!
+    \********************************************/
+
+  /*! exports provided: inboxThread */
+
+  /***/
+  function srcAppModelConsultationModelTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "inboxThread", function () {
+      return inboxThread;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    var inboxThread = function inboxThread(sender_id, receiver_id, thread_id, msg_subject, created_date, is_readed, sender_name, receiver_name, msg_body, profile_img) {
+      _classCallCheck(this, inboxThread);
+
+      console.log("create new thread obj");
+      this.sender_id = sender_id;
+      this.receiver_id = receiver_id;
+      this.thread_id = thread_id;
+      this.msg_subject = msg_subject;
+      this.created_date = created_date;
+      this.is_readed = is_readed;
+      this.sender_name = sender_name;
+      this.receiver_name = receiver_name;
+      this.msg_body = msg_body;
+      this.profile_img = profile_img;
+    };
+    /***/
+
   },
 
   /***/
@@ -1442,7 +1856,9 @@
     /*! tslib */
     "./node_modules/tslib/tslib.es6.js");
 
-    class MyDoctor {}
+    var MyDoctor = function MyDoctor() {
+      _classCallCheck(this, MyDoctor);
+    };
     /***/
 
   },
@@ -1473,7 +1889,53 @@
     /*! tslib */
     "./node_modules/tslib/tslib.es6.js");
 
-    class patientData {}
+    var patientData = function patientData(patientId, name, fcmtoken, mobile, age, address, relationid, user_img) {
+      _classCallCheck(this, patientData);
+
+      this.patientId = patientId;
+      this.name = name;
+      this.fcmtoken = fcmtoken;
+      this.mobile = mobile;
+      this.age = age;
+      this.relationId = relationid;
+      this.address = address;
+      this.user_img = user_img;
+    };
+    /***/
+
+  },
+
+  /***/
+  "./src/app/model/token.ts":
+  /*!********************************!*\
+    !*** ./src/app/model/token.ts ***!
+    \********************************/
+
+  /*! exports provided: TokenClass */
+
+  /***/
+  function srcAppModelTokenTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "TokenClass", function () {
+      return TokenClass;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    var TokenClass = function TokenClass(token) {
+      _classCallCheck(this, TokenClass);
+
+      this.token = token;
+    };
     /***/
 
   },
@@ -1516,87 +1978,103 @@
     /*! @ionic/storage */
     "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
 
-    let DatastorageService = class DatastorageService {
-      constructor(storage) {
+    var DatastorageService = /*#__PURE__*/function () {
+      function DatastorageService(storage) {
+        _classCallCheck(this, DatastorageService);
+
         this.storage = storage;
       }
 
-      getPatientList() {
-        return this.storage.get('patientList');
-      }
+      _createClass(DatastorageService, [{
+        key: "getPatientList",
+        value: function getPatientList() {
+          return this.storage.get('patientList');
+        }
+      }, {
+        key: "savePatientList",
+        value: function savePatientList(patientList) {
+          this.storage.set('patientList', patientList);
+        }
+      }, {
+        key: "saveDoctprLocally",
+        value: function saveDoctprLocally(doctor) {
+          this.storage.set('doctor', doctor);
+        }
+      }, {
+        key: "getDoctorData",
+        value: function getDoctorData() {
+          return this.storage.get('doctor');
+        }
+      }, {
+        key: "saveTokenLocally",
+        value: function saveTokenLocally(token) {
+          console.log("data store save token locally");
+          this.storage.set('token', token);
+        }
+      }, {
+        key: "getDoctorToken",
+        value: function getDoctorToken() {
+          return this.storage.get('token');
+        }
+      }, {
+        key: "isTokenExpired",
+        value: function isTokenExpired() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+            var bool, that;
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+              while (1) {
+                switch (_context5.prev = _context5.next) {
+                  case 0:
+                    bool = true;
+                    console.log("is token expired");
+                    that = this;
+                    _context5.next = 5;
+                    return this.getDoctorToken().then(function (token) {
+                      if (token != null) {
+                        var obj = that.parseJwt(token);
 
-      savePatientList(patientList) {
-        this.storage.set('patientList', patientList);
-      }
+                        if (obj.exp > Date.now() / 1000) {
+                          bool = false;
+                          console.log("obj.exp > Date.now()/1000 || " + bool);
+                        }
+                      }
+                    });
 
-      saveDoctprLocally(doctor) {
-        this.storage.set('doctor', doctor);
-      }
+                  case 5:
+                    return _context5.abrupt("return", bool);
 
-      getDoctorData() {
-        return this.storage.get('doctor');
-      }
+                  case 6:
+                  case "end":
+                    return _context5.stop();
+                }
+              }
+            }, _callee5, this);
+          }));
+        }
+      }, {
+        key: "parseJwt",
+        value: function parseJwt(token) {
+          var base64Url = token.split('.')[1];
+          var base64 = base64Url.replace('-', '+').replace('_', '/');
+          return JSON.parse(window.atob(base64));
+        }
+      }, {
+        key: "clear",
+        value: function clear() {
+          this.storage.set('token', null);
+          this.storage.set('doctor', null);
+          this.storage.set('patientList', null);
+        }
+      }]);
 
-      saveTokenLocally(token) {
-        console.log("data store save token locally");
-        this.storage.set('token', token);
-      }
+      return DatastorageService;
+    }();
 
-      getDoctorToken() {
-        return this.storage.get('token');
-      }
-
-      isTokenExpired() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-        /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee3() {
-          var bool, that;
-          return regeneratorRuntime.wrap(function _callee3$(_context3) {
-            while (1) switch (_context3.prev = _context3.next) {
-              case 0:
-                bool = true;
-                console.log("is token expired");
-                that = this;
-                _context3.next = 5;
-                return this.getDoctorToken().then(token => {
-                  if (token != null) {
-                    let obj = that.parseJwt(token);
-
-                    if (obj.exp > Date.now() / 1000) {
-                      bool = false;
-                      console.log("obj.exp > Date.now()/1000 || " + bool);
-                    }
-                  }
-                });
-
-              case 5:
-                return _context3.abrupt("return", bool);
-
-              case 6:
-              case "end":
-                return _context3.stop();
-            }
-          }, _callee3, this);
-        }));
-      }
-
-      parseJwt(token) {
-        let base64Url = token.split('.')[1];
-        let base64 = base64Url.replace('-', '+').replace('_', '/');
-        return JSON.parse(window.atob(base64));
-      }
-
-      clear() {
-        this.storage.set('token', null);
-        this.storage.set('doctor', null);
-        this.storage.set('patientList', null);
-      }
-
+    DatastorageService.ctorParameters = function () {
+      return [{
+        type: _ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"]
+      }];
     };
-
-    DatastorageService.ctorParameters = () => [{
-      type: _ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"]
-    }];
 
     DatastorageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
@@ -1654,134 +2132,172 @@
     /*! src/app/model/patientData */
     "./src/app/model/patientData.ts");
 
-    let DatastreamingService = class DatastreamingService {
-      constructor(dataStore) {
+    var DatastreamingService = /*#__PURE__*/function () {
+      function DatastreamingService(dataStore) {
+        _classCallCheck(this, DatastreamingService);
+
         this.dataStore = dataStore;
         this.doctor = new src_app_model_MyData__WEBPACK_IMPORTED_MODULE_3__["MyDoctor"]();
         this.patientList = new Array();
       }
 
-      clearPatientList() {
-        this.patientList = [];
-      }
+      _createClass(DatastreamingService, [{
+        key: "clearPatientList",
+        value: function clearPatientList() {
+          this.patientList = [];
+        }
+      }, {
+        key: "addToPatientList",
+        value: function addToPatientList(element) {
+          var patient = new src_app_model_patientData__WEBPACK_IMPORTED_MODULE_4__["patientData"]();
+          patient.patientId = element[0];
+          patient.name = element[1];
+          patient.fcmtoken = element[2];
+          patient.mobile = element[3];
+          patient.age = element[4];
+          patient.address = element[5];
+          patient.relationId = element[6];
+          patient.user_img = element[7];
+          this.patientList.push(patient);
+        }
+      }, {
+        key: "savePatientListToDataStore",
+        value: function savePatientListToDataStore() {
+          console.log("save patient List in datastore from login: ", JSON.stringify(this.patientList));
+          this.dataStore.savePatientList(this.patientList);
+        }
+      }, {
+        key: "restoreStreamDatalist",
+        value: function restoreStreamDatalist(patientList) {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
+            var _this6 = this;
 
-      addToPatientList(element) {
-        const patient = new src_app_model_patientData__WEBPACK_IMPORTED_MODULE_4__["patientData"]();
-        patient.patientId = element[0];
-        patient.name = element[1];
-        patient.fcmtoken = element[2];
-        patient.mobile = element[3];
-        patient.age = element[4];
-        patient.address = element[5];
-        patient.relationId = element[6];
-        this.patientList.push(patient);
-      }
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+              while (1) {
+                switch (_context6.prev = _context6.next) {
+                  case 0:
+                    _context6.next = 2;
+                    return patientList;
 
-      savePatientListToDataStore() {
-        console.log("save patient List in datastore from login: ", JSON.stringify(this.patientList));
-        this.dataStore.savePatientList(this.patientList);
-      }
+                  case 2:
+                    _context6.sent.forEach(function (element) {
+                      _this6.patientList.push(element);
+                    });
 
-      restoreStreamDatalist(patientList) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-        /*#__PURE__*/
-        regeneratorRuntime.mark(function _callee4() {
-          return regeneratorRuntime.wrap(function _callee4$(_context4) {
-            while (1) switch (_context4.prev = _context4.next) {
-              case 0:
-                _context4.next = 2;
-                return patientList;
+                  case 3:
+                  case "end":
+                    return _context6.stop();
+                }
+              }
+            }, _callee6);
+          }));
+        }
+      }, {
+        key: "getPatientList",
+        value: function getPatientList() {
+          return this.patientList;
+        }
+      }, {
+        key: "getToken",
+        value: function getToken() {
+          return this.token;
+        }
+      }, {
+        key: "getDoctorId",
+        value: function getDoctorId() {
+          return this.doctor.doctor_id;
+        }
+      }, {
+        key: "setDoctor",
+        value: function setDoctor(doctorData) {
+          this.doctor.doctor_id = doctorData.id;
+          this.doctor.name = doctorData.user.name;
+          this.doctor.mobile = doctorData.user.mobile;
+          this.doctor.user_id = doctorData.user.id;
+          this.doctor.password = doctorData.user.password;
+          this.doctor.type = doctorData.user.type;
+          this.doctor.timestamp = doctorData.user.timestamp;
+          this.doctor.years_experience = doctorData.years_experience;
+          this.doctor.profile_img = doctorData.user.user_image;
+          console.log("set doctor ", this.doctor);
+          this.dataStore.saveDoctprLocally(this.doctor);
+        }
+      }, {
+        key: "SetDoctorforLogin",
+        value: function SetDoctorforLogin(mydoc) {
+          this.doctor.doctor_id = mydoc.doctor_id;
+          this.doctor.mobile = mydoc.mobile;
+          this.doctor.name = mydoc.name;
+          this.doctor.user_id = mydoc.user_id;
+          this.doctor.password = mydoc.password;
+          this.doctor.type = mydoc.type;
+          this.doctor.timestamp = mydoc.timestamp;
+          this.doctor.years_experience = mydoc.years_experience;
+          this.doctor.profile_img = mydoc.user_image;
+          console.log("doctor for login", this.doctor);
+          this.dataStore.saveDoctprLocally(this.doctor);
+        }
+      }, {
+        key: "setToken",
+        value: function setToken(token) {
+          console.log("data stream set Token");
+          this.token = token;
+          this.dataStore.saveTokenLocally(token);
+        }
+      }, {
+        key: "getDoctorName",
+        value: function getDoctorName() {
+          return this.doctor.name;
+        }
+      }, {
+        key: "clearData",
+        value: function clearData() {
+          this.dataStore.clear();
+        }
+      }, {
+        key: "getDoctorPassword",
+        value: function getDoctorPassword() {
+          return this.doctor.password;
+        }
+      }, {
+        key: "getDoctorYearsOfExperience",
+        value: function getDoctorYearsOfExperience() {
+          return this.doctor.years_experience;
+        }
+      }, {
+        key: "getDoctorMobile",
+        value: function getDoctorMobile() {
+          return this.doctor.mobile;
+        }
+      }, {
+        key: "changeDoctorData",
+        value: function changeDoctorData(name, years_experience) {
+          this.doctor.years_experience = years_experience;
+          this.doctor.name = name;
+          this.dataStore.saveDoctprLocally(this.doctor);
+        }
+      }, {
+        key: "getDoctorProfileImage",
+        value: function getDoctorProfileImage() {
+          console.log("patient profile image ", this.doctor.profile_img);
+          return this.doctor.profile_img;
+        }
+      }, {
+        key: "changeDoctorProfileImage",
+        value: function changeDoctorProfileImage(imgPath) {
+          this.doctor.profile_img = imgPath;
+          this.dataStore.saveDoctprLocally(this.doctor);
+        }
+      }]);
 
-              case 2:
-                _context4.t0 = element => {
-                  this.patientList.push(element);
-                };
+      return DatastreamingService;
+    }();
 
-                _context4.sent.forEach(_context4.t0);
-
-                ;
-
-              case 5:
-              case "end":
-                return _context4.stop();
-            }
-          }, _callee4, this);
-        }));
-      }
-
-      getPatientList() {
-        return this.patientList;
-      }
-
-      getToken() {
-        return this.token;
-      }
-
-      getDoctorId() {
-        return this.doctor.doctor_id;
-      }
-
-      setDoctor(doctorData) {
-        this.doctor.doctor_id = doctorData.id;
-        this.doctor.name = doctorData.user.name;
-        this.doctor.mobile = doctorData.user.mobile;
-        this.doctor.user_id = doctorData.user.id; //  this.doctor.email = doctorData.user.email;
-
-        this.doctor.password = doctorData.user.password, this.doctor.type = doctorData.user.type;
-        this.doctor.timestamp = doctorData.user.timestamp;
-        this.doctor.years_experience = doctorData.years_experience;
-        this.dataStore.saveDoctprLocally(this.doctor);
-      }
-
-      SetDoctorforLogin(mydoc) {
-        this.doctor.doctor_id = mydoc.doctor_id;
-        this.doctor.mobile = mydoc.mobile;
-        this.doctor.name = mydoc.name;
-        this.doctor.user_id = mydoc.user_id; //  this.doctor.email = mydoc.email;
-
-        this.doctor.password = mydoc.password, this.doctor.type = mydoc.type;
-        this.doctor.timestamp = mydoc.timestamp;
-        this.doctor.years_experience = mydoc.years_experience;
-        this.dataStore.saveDoctprLocally(this.doctor);
-      }
-
-      setToken(token) {
-        console.log("data stream set Token");
-        this.token = token;
-        this.dataStore.saveTokenLocally(token);
-      }
-
-      getDoctorName() {
-        return this.doctor.name;
-      }
-
-      clearData() {
-        this.dataStore.clear();
-      }
-
-      getDoctorPassword() {
-        return this.doctor.password;
-      }
-
-      getDoctorYearsOfExperience() {
-        return this.doctor.years_experience;
-      }
-
-      getDoctorMobile() {
-        return this.doctor.mobile;
-      }
-
-      changeDoctorData(name, years_experience) {
-        this.doctor.years_experience = years_experience;
-        this.doctor.name = name;
-        this.dataStore.saveDoctprLocally(this.doctor);
-      }
-
+    DatastreamingService.ctorParameters = function () {
+      return [{
+        type: _datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_2__["DatastorageService"]
+      }];
     };
-
-    DatastreamingService.ctorParameters = () => [{
-      type: _datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_2__["DatastorageService"]
-    }];
 
     DatastreamingService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
@@ -1818,7 +2334,7 @@
     // The list of file replacements can be found in `angular.json`.
 
 
-    const environment = {
+    var environment = {
       production: false
     };
     /*
@@ -1881,7 +2397,9 @@
       Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["enableProdMode"])();
     }
 
-    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"]).catch(err => console.log(err));
+    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])["catch"](function (err) {
+      return console.log(err);
+    });
     /***/
   },
 

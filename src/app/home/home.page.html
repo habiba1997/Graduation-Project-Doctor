@@ -6,20 +6,24 @@
 </div> 
   <ion-grid class="background">
     <ion-row>
-      <ion-col >
 
-            <!-- <img class ="icon"src="assets/talin.png" > -->
-  
-            <div class="center">
+        <ion-col size="3" sizeLg="3" sizeSm="1" sizeMd="2" sizeXs="2"></ion-col>
+        <ion-col size="6" sizeLg="6" sizeMd="8" sizeSm="10" sizeXs="8">
+            <ion-toolbar text-center>
+                <div class="wrapper">
+                    <div class="profile-img-frame">
+                        <div class="profile-img-holder">
+                            <img *ngIf="datastream.doctor.profile_img" class="profile-img"  src="{{datastream.doctor.profile_img}}" alt="profile image" (click)="NavigateMe('home/profile')">
+                            <img *ngIf="!datastream.doctor.profile_img" src="assets/avatar.jpg" (click)="NavigateMe('home/profile')">
+                        </div>
+                    </div>
+                </div>
+                <h1 class="middle-text user-name">{{datastream.doctor.name}}</h1>
 
-              <ion-avatar class="avat" >
-                  <img src="{{datastream.doctor.profile_img}}" (click)="NavigateMe('home/Myprofile')">
-             </ion-avatar>
-            </div>
-            <h1 class="middle-text user-name">{{datastream.doctor.name}}</h1>
-  
-              
-      </ion-col>
+            </ion-toolbar>
+
+        </ion-col>
+        <ion-col size="3" sizeLg="3" sizeSm="1" sizeMd="2" sizeXs="2"></ion-col>
 
     </ion-row>
   </ion-grid >

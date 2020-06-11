@@ -6,11 +6,13 @@
                 refreshingSpinner="circles"
                 refreshingText="Refreshing..."></ion-refresher-content>
     </ion-refresher>
-    <ion-list>
+    <ion-list >
         <ion-item *ngFor="let account of convList;let i=index; "class="card card-1" (click)="reply(account)">
             <ion-avatar slot="start" justify-content-center align-items-center>
-                <img  *ngIf="!account.profile_img" class="img" src="assets/doctor1.jpeg">
-                <img *ngIf="account.profile_img" class="img" src="{{account.profile_img}}">
+                <img  *ngIf="!account.profile_img && state==0" class="img" src="assets/avatar.jpg">
+                <img *ngIf="account.profile_img && state==0" class="img" src="{{account.profile_img}}">
+                <img *ngIf="state" class="img" src="{{DoctortData.doctor.profile_img}}">
+                <img *ngIf="state && !DoctortData.doctor.profile_img" class="img" src="assets/avatar.jpg">
             </ion-avatar>
             <ion-label>
                 <h2>{{ account.sender_name}}</h2>
@@ -18,10 +20,6 @@
                 <p>{{account.msg_body}}</p>
             </ion-label>
         </ion-item>
-
-
-
-
 
     </ion-list>
 

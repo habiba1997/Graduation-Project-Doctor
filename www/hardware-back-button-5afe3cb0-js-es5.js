@@ -23,92 +23,91 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return startHardwareBackButton;
     });
 
-    const startHardwareBackButton = () => {
-      const doc = document;
-      let busy = false;
-      doc.addEventListener('backbutton', () => {
+    var startHardwareBackButton = function startHardwareBackButton() {
+      var doc = document;
+      var busy = false;
+      doc.addEventListener('backbutton', function () {
         if (busy) {
           return;
         }
 
-        const handlers = [];
-        const ev = new CustomEvent('ionBackButton', {
+        var handlers = [];
+        var ev = new CustomEvent('ionBackButton', {
           bubbles: false,
           detail: {
-            register(priority, handler) {
+            register: function register(priority, handler) {
               handlers.push({
-                priority,
-                handler
+                priority: priority,
+                handler: handler
               });
             }
-
           }
         });
         doc.dispatchEvent(ev);
 
         if (handlers.length > 0) {
-          let selectedPriority = Number.MIN_SAFE_INTEGER;
-          let selectedHandler;
-          handlers.forEach(({
-            priority,
-            handler
-          }) => {
+          var selectedPriority = Number.MIN_SAFE_INTEGER;
+          var selectedHandler;
+          handlers.forEach(function (_ref) {
+            var priority = _ref.priority,
+                handler = _ref.handler;
+
             if (priority >= selectedPriority) {
               selectedPriority = priority;
               selectedHandler = handler;
             }
           });
           busy = true;
-          executeAction(selectedHandler).then(() => busy = false);
+          executeAction(selectedHandler).then(function () {
+            return busy = false;
+          });
         }
       });
     };
 
-    const executeAction =
-    /*#__PURE__*/
-    function () {
-      var _ref = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(handler) {
+    var executeAction = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(handler) {
         var result;
         return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
-            case 0:
-              _context.prev = 0;
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
 
-              if (!handler) {
+                if (!handler) {
+                  _context.next = 6;
+                  break;
+                }
+
+                result = handler();
+
+                if (!(result != null)) {
+                  _context.next = 6;
+                  break;
+                }
+
                 _context.next = 6;
+                return result;
+
+              case 6:
+                _context.next = 11;
                 break;
-              }
 
-              result = handler();
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+                console.error(_context.t0);
 
-              if (!(result != null)) {
-                _context.next = 6;
-                break;
-              }
-
-              _context.next = 6;
-              return result;
-
-            case 6:
-              _context.next = 11;
-              break;
-
-            case 8:
-              _context.prev = 8;
-              _context.t0 = _context["catch"](0);
-              console.error(_context.t0);
-
-            case 11:
-            case "end":
-              return _context.stop();
+              case 11:
+              case "end":
+                return _context.stop();
+            }
           }
         }, _callee, null, [[0, 8]]);
       }));
 
       return function executeAction(_x) {
-        return _ref.apply(this, arguments);
+        return _ref2.apply(this, arguments);
       };
     }();
     /***/

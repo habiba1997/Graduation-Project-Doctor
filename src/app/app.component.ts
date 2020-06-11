@@ -71,7 +71,7 @@ export class AppComponent {
             await this.datastore.getDoctorToken().then((token)=>{
                that.datastream.setToken(token);
                
-                //recieveing Token For Development Only FOR NOW
+                //receiving Token For Development Only FOR NOW
                 this.http.editFCMToken();
             });
             await this.datastore.getPatientList().then((doctorList)=>{
@@ -139,8 +139,8 @@ export class AppComponent {
   //   this.nav.navigateTo('home/vitals');
 
   // }
-  homeClick(){
-    this.nav.navigateTo('home/Myprofile');
+  profileClick(){
+    this.nav.navigateTo('home/profile');
 
   }
   dlistClick(){

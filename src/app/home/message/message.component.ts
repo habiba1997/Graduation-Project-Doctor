@@ -85,67 +85,73 @@ export class MessageComponent implements OnInit {
   
     await alert.present();
   }
-  send(){
+  async send(){
     if(this.Reciever_from_pat_list==""||this.Content_from_text_area==""||this.Subject_from_input==""){
         this.presentAlert('Can not send message', "Make sure you typed your Subject, Message and choose your Patient.");
     }
     else{
       this.thread={
-        reciever_id :this.patientRow.patientId,
+          sender_id:this.doctorId,
+        receiver_id :this.patientRow.patientId,
         msg_subject :this.Subject_from_input,
         is_readed:0,
-        reciever_name:this.Reciever_from_pat_list,
+        receiver_name:this.Reciever_from_pat_list,
         sender_name:this.doctorName,
-        msg_body:this.Content_from_text_area
+        msg_body:this.Content_from_text_area,
+          fcm_token:this.patientRow.fcmtoken
     
-       }
+       };
     this.newMessages.push(this.thread);
     console.log(this.Content_from_text_area);
     console.log(this.newMessages);
+    console.log("thread to go",this.thread);
 
 
    
    
-  //post new message in data base
-   this.data={
-    sender_id:this.doctorId,
-    reciever_id:this.thread.reciever_id,
-    msg_body:this.thread.msg_body,
-    thread_subject:this.Subject_from_input,
-    fcm_token:this.patientRow.fcmtoken
-   
-   };
+  // //post new message in data base
+  //  this.data={
+  //   sender_id:this.doctorId,
+  //   receiver_id:this.thread.receiver_id,
+  //   msg_body:this.thread.msg_body,
+  //   thread_subject:this.Subject_from_input,
+  //   fcm_token:this.patientRow.fcmtoken
+  //
+  //  };
 
 
   //  console.log("tthread"+this.thread.reciever_name)
   //  console.log("data"+this.data.sender_id)
-   this.httpService.postThread(this.thread,this.doctorId).subscribe((res)=>{
-    console.log("new thread data",res);
+   await this.httpService.postThread(this.thread,this.doctorId).subscribe((res)=>{
+    console.log("post thread res",res);
     this.thread_id=res.insertId;
+    console.log("thread id created",this.thread_id);
+
+       let newThread={
+           newMessages:this.newMessages.reverse(),
+           thread:this.thread,
+           thread_id:this.thread_id
+       };
+       console.log("thread for chatting",newThread);
+       this.interactiveCommunication.sendMSG(newThread);
+       this.navigation.navigateTo('home/chat');
 
      
 
-     console.log("hey tehre:", this.data);
-   this.httpService.postReply(this.data,res.insertId).subscribe((msg)=>{
-    console.log("heyyyyloo");
-    console.log("first thread message",msg);
-    console.log("NAVIGATIOM11");
-
-  this.navigation.navigateTo('home/chat');
-
-    });
+   // this.httpService.postReply(this.data,res.insertId).subscribe((msg)=>{
+   //  console.log("heyyyyloo");
+   //  console.log("first thread message",msg);
+   //  console.log("NAVIGATIOM11");
+   //
+   //
+   //
+   //  });
 
     
    });
 
   //send message content to chat component
-        let newThread={
-            newMessages:this.newMessages,
-            thread:this.thread,
-            thread_id:this.thread_id
-        };
 
-  this.interactiveCommunication.sendMSG(newThread);
   console.log("NAVIGATIOM");
 
   }

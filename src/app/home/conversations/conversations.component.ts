@@ -26,7 +26,7 @@ export class ConversationsComponent  {
     }
      
      private patientsArray = new Array<patientData>();
-     private reciever:String;
+     private receiver:String;
 
 
 
@@ -65,8 +65,8 @@ async CreateNew(){
       icon: 'person',
       handler: () => {
         
-         this.reciever= row.name;
-         console.log("Patient: "+this.reciever);
+         this.receiver= row.name;
+         console.log("Patient: "+this.receiver);
      
         this.dataInteraction.sendPatientNamefromconvtoMessage(row);
         console.log("row"+row);

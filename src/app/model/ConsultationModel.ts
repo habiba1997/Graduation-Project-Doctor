@@ -1,7 +1,7 @@
 export class inboxThread{
 
     sender_id:number;
-    reciever_id:number;
+    receiver_id:number;
     thread_id:number;
 ​​    msg_subject: string;
     created_date: string;
@@ -13,7 +13,7 @@ export class inboxThread{
 
 
     constructor(sender_id?: number,
-                reciever_id?:number,
+                receiver_id?:number,
                 thread_id?: number,
                 msg_subject?: string,
                 created_date?: string,
@@ -27,7 +27,7 @@ export class inboxThread{
 
         console.log("create new thread obj");
         this.sender_id=sender_id;
-        this.reciever_id=reciever_id;
+        this.receiver_id=receiver_id;
         this.thread_id=thread_id;
         this.msg_subject=msg_subject;
         this.created_date=created_date;

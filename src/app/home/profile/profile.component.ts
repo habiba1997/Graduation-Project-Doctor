@@ -18,7 +18,7 @@ import {Storage} from '@ionic/storage';
 import {FilePath} from '@ionic-native/file-path/ngx';
 import {finalize} from "rxjs/operators";
 import {NetworkService} from "../../services/Network/network.service";
-const STORAGE_KEY = 'my_images';
+const STORAGE_KEY = 'my_image';
 
 
 
@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
           if(this.InputData==undefined){reject("undefined User Data");}
           else {resolve();}
 
-      }).then(()=>{this.spinnerState=false; console.log("resolved");}
+      }).then(()=>{this.spinnerState=false; console.log("resolved",this.InputData);}
       ).catch((err) => alert('data stream error'+err));
   }
     DataSet(){
@@ -79,7 +79,7 @@ export class ProfileComponent implements OnInit {
             {
                 label:"Mobile",
                 value:this.datastream.getDoctorMobile(),
-                type:"number"},
+                type:"string"},
             {
                 label:"Specialization",
                 value:"",
