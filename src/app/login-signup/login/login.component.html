@@ -69,8 +69,15 @@
 <!--</div>-->
 
 
+<div *ngIf="showSplash" class="myBackground">-->
+   <div>
+   <img src="/assets/giphy.gif">
+   </div>
+</div>
 
-<ion-header no-border >
+<!-- <div *ngIf="!showSplash"> -->
+
+<ion-header *ngIf="!showSplash" no-border >
 
 <ion-toolbar class="wrapper">
 
@@ -80,7 +87,7 @@
 
 
 </ion-header>
-<ion-content>
+<ion-content *ngIf="!showSplash">
 
     <ion-grid>
         <ion-row class="inputs">
@@ -113,3 +120,4 @@
 
 </ion-content>
 
+<!-- </div> -->
