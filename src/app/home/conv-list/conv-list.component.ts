@@ -15,7 +15,7 @@ import {EventEmitterService} from "../../services/EventEmitterService/event-emit
   styleUrls: ['./conv-list.component.scss'],
 })
 export class ConvListComponent implements OnInit , OnDestroy {
-  private convList: any[];
+  private convList: any[]=[];
   private docId:number;
   private page:number;
   private scrollPosition:number;

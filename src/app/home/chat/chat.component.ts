@@ -18,7 +18,7 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import {NetworkService} from "../../services/Network/network.service";
 import {ImagePath} from "../DataModels";
 
-const STORAGE_KEY = 'my_image';
+const STORAGE_KEY = 'my_images';
 
 
 @Component({
