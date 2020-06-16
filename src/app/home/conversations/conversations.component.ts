@@ -27,6 +27,7 @@ export class ConversationsComponent  {
      
      private patientsArray = new Array<patientData>();
      private receiver:String;
+    private state:number=0;
 
 
 
@@ -42,6 +43,7 @@ export class ConversationsComponent  {
 
 
     inbox(){
+        this.state=0;
 
         console.log("inbox");
         this.eventEmitterService.OnComponentCall(0);
@@ -50,6 +52,7 @@ export class ConversationsComponent  {
 
     }
     sent(){
+        this.state=1;
         console.log("sent");
         this.eventEmitterService.OnComponentCall(1);
         console.log("sent button triggered the state Function ");

@@ -9,6 +9,7 @@ import {AlertController, IonContent} from '@ionic/angular';
 import { eventMethod } from '@ionic/core/dist/types/utils/overlays';
 import { NavigationService } from '../NavService/navigation.service';
 import {EventEmitterService} from "../../services/EventEmitterService/event-emitter.service";
+import {isArray} from "util";
 @Component({
   selector: 'app-conv-list',
   templateUrl: './conv-list.component.html',
@@ -89,11 +90,20 @@ export class ConvListComponent implements OnInit , OnDestroy {
       console.log('page', this.page);
       console.log('interaction works');
       this.httpService.getInbox(this.docId, this.page).subscribe(res=>{
-            if(res.length){
-              this.convList=res;
+            if (isArray(res)&&res.length==0){
+              console.log('your inbox list is empty');
+              this.convList=[];
+            }
+            else {
+              if(res.length){
+                console.log('should have length ', res.length);
+                this.convList=res;
 
-            }else {
-              this.convList=[res];
+              }
+              else {
+                console.log('should not  have length ');
+                this.convList=[res];
+              }
 
             }
 
@@ -103,12 +113,21 @@ export class ConvListComponent implements OnInit , OnDestroy {
     } else {
       console.log('page', this.page);
       this.httpService.getSent(this.docId, this.page).subscribe(res=>{
-            if(res.length){
-              this.convList=res;
-
+            if (isArray(res)&&res.length==0){
+              console.log('your inbox list is empty');
+              this.convList=[];
             }
             else {
-              this.convList=[res];
+              if(res.length){
+                console.log('should have length ', res.length);
+                this.convList=res;
+
+              }
+              else {
+                console.log('should not  have length ');
+                this.convList=[res];
+              }
+
             }
             console.log("Get sent res",res);
             this.detectChange.detectChanges();}

@@ -18,7 +18,7 @@ import {Storage} from '@ionic/storage';
 import {FilePath} from '@ionic-native/file-path/ngx';
 import {finalize} from "rxjs/operators";
 import {NetworkService} from "../../services/Network/network.service";
-const STORAGE_KEY = 'my_image';
+
 
 
 
@@ -37,6 +37,7 @@ export class ProfileComponent implements OnInit {
     public folder: string;
     // / hold image to render
     public image :any;
+    private STORAGE_KEY = 'my_image';
 
     private profileImage=new ImagePath();
   @ViewChild(IonSegment,{static:false}) ionSegment: IonSegment;
@@ -56,6 +57,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.STORAGE_KEY=this.STORAGE_KEY+this.datastream.getDoctorId();
       this.plt.ready().then(() => {
           this.loadStoredImages();
 
@@ -169,7 +171,7 @@ async save(){
 //Searching for image in our app storage first
 loadStoredImages() {
     console.log("load stored images");
-    this.storage.get(STORAGE_KEY).then(images => {
+    this.storage.get(this.STORAGE_KEY).then(images => {
         if (images) {
             console.log('stored images',images);
             const arr = JSON.parse(images);
@@ -289,10 +291,10 @@ copyFileToLocalDir(namePath, currentName, newFileName) {
 updateStoredImages(name) {
     console.log("update stored image ");
     new Promise((resolve, reject) => {
-        this.storage.get(STORAGE_KEY).then(images => {
+        this.storage.get(this.STORAGE_KEY).then(images => {
             let arr = JSON.parse(images);
             let newImage = [name];
-            this.storage.set(STORAGE_KEY, JSON.stringify(newImage));
+            this.storage.set(this.STORAGE_KEY, JSON.stringify(newImage));
             let filePath = this.file.dataDirectory + name;
             let resPath = this.pathForImage(filePath);
             // Data Object to hold new image data

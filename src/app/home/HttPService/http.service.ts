@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { newMessage } from 'src/app/model/newMessage';
-import {map, flatMap, reduce} from 'rxjs/operators';
+import {map, flatMap, reduce, defaultIfEmpty} from 'rxjs/operators';
 import {Iconvs, Reply} from 'src/app/model/conv'
 import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
 import { FCM } from '@ionic-native/fcm/ngx';
@@ -169,7 +169,7 @@ getDoctorUsingToken(): Observable<any>
 
                 }
 
-            })
+            }), defaultIfEmpty([])
         )
 
     }
