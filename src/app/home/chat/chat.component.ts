@@ -165,6 +165,8 @@ export class ChatComponent implements OnInit {
          this.data={
                 sender_id:this.dId,
                 receiver_id:this.userToRecieve.patientId,
+                sender_name:this.dataStream.doctor.name,
+                receiver_name:this.userToRecieve.name,
                 msg_body:this.replyContent,
                 thread_subject:this.thread.msg_subject,
                 fcm_token:this.userToRecieve.fcmtoken
@@ -340,6 +342,8 @@ export class ChatComponent implements OnInit {
         return {
             "thread_id":this.thread_id,
             "sender_id":this.dId,
+            'sender_name':this.dataStream.doctor.name,
+            'receiver_name':this.userToRecieve.name,
             "receiver_id":this.userToRecieve.patientId,
             "msg_body":"",
             "fcm_token":this.userToRecieve.fcmtoken
