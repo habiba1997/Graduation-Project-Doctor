@@ -30,6 +30,7 @@
   <ion-row class="main-card">
     <ion-grid>
       <ion-row>
+      
           <ion-col col-6 >
               <div class="mini-card" (click)="NavigateMe('home/doctorList')" >
                 <div class="center" >
@@ -59,31 +60,58 @@
       </ion-row>
       <ion-row>
           <ion-col col-6 >
-              <div class="mini-card" (click)="NavigateMe('home/conversation')">
+              <div class="mini-card" (click)="NavigateMe('home/doctor-schedule-1')">
                   <div class="center" >
-                      <img class="icon" src="assets/message.png">
+                      <img class="icon" src="assets/schedule.png">
   
                   </div>
                   
                   <div class="middle-text">
-                     Conversations
+                     Schedule
                   </div>
               </div>
             </ion-col>
             <ion-col col-6 >
-              <div  class="mini-card" (click)="newMessage(NavigateMe('home/message'))" >
+              <div  class="mini-card" (click)="NavigateMe('home/doctor-schedule/add-appointment')" >
                   <div class="center" >
-                      <img class="icon" src="assets/message.png">
+                      <img class="icon" src="assets/add_appointment.png">
   
                   </div>
                   
                   <div class="middle-text">
-                     New Message
+                     Add Appointments
                   </div>
               </div>
             </ion-col>
 
       </ion-row>
+      <ion-row>
+        <ion-col col-6 >
+            <div class="mini-card" (click)="NavigateMe('home/conversation')">
+                <div class="center" >
+                    <img class="icon" src="assets/message.png">
+
+                </div>
+                
+                <div class="middle-text">
+                   Conversations
+                </div>
+            </div>
+          </ion-col>
+          <ion-col col-6 >
+            <div  class="mini-card" (click)="newMessage(NavigateMe('home/message'))" >
+                <div class="center" >
+                    <img class="icon" src="assets/message.png">
+
+                </div>
+                
+                <div class="middle-text">
+                   New Message
+                </div>
+            </div>
+          </ion-col>
+
+    </ion-row>
       
     </ion-grid>
   </ion-row>

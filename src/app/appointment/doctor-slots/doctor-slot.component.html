@@ -1,0 +1,57 @@
+<ion-header >
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+ 
+    <ion-title > Schedule</ion-title>
+  
+  </ion-toolbar>
+    
+</ion-header>
+
+
+<ion-content >
+  <ion-grid style="width: 90%;margin-top: 2%;" >
+        <ion-row>
+                <ion-col [style.background-color]="checkIfEqualToday(2)? '#25b7d3' : 'transparent'" size="4">
+                        <div (click)="tabClick(2)">All</div>
+                </ion-col>
+                <ion-col class="border" [style.background-color]="checkIfEqualToday(1)? '#25b7d3' : 'transparent'" size="4" >
+                  <div (click)="tabClick(1)">Booked</div>
+                </ion-col>
+                <ion-col [style.background-color]="checkIfEqualToday(0)? '#25b7d3' : 'transparent'" size="4" >
+                  <div (click)="tabClick(0)">UnBooked</div>
+                </ion-col>
+            </ion-row>
+      </ion-grid>
+  
+
+  <ion-list>
+
+    <ion-item
+    *ngFor="let app of appointments" (click)="sendAndNavigate(app)" >
+      <ion-label >
+  
+        <h2 [style]="app.date == today? 'color: red;' : ''">   
+        <p  style="position: absolute;right: 2vh;"> 
+        {{checkOnSoon(app.booked,app.date,app.start_time)}} </p>
+         {{ app.date == today? ('Today') : (app.date) }} 
+        </h2>
+        <h4 class="colorGrey" *ngIf="app.patient">Patient: {{app.patient.name}}</h4>
+        <ion-icon style="position: absolute;right: 3%;color: #343a40;" name="chevron-forward-outline"></ion-icon>
+        <p class="colorGrey">Time: {{app.start_time}}</p>
+        <p class="colorGrey">Duration: {{app.slot_duration}} minutes </p>
+
+      </ion-label>
+    </ion-item>
+
+    
+  </ion-list>
+
+   <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="navigate.navigateTo('/home/doctor-schedule/add-appointment')">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+</ion-content>

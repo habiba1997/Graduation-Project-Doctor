@@ -1,0 +1,51 @@
+<ion-header >
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+ 
+    <ion-title > Schedule</ion-title>
+
+   
+  </ion-toolbar>
+    
+</ion-header>
+
+
+
+<ion-content >
+  <ion-grid style="width: 90%;margin-top: 2%;" >
+        <ion-row>
+                <ion-col [style.background-color]="checkIfEqualToday(1)? '#25b7d3' : 'transparent'" size="4">
+                        <div (click)="tabClick(1)">Past</div>
+                </ion-col>
+                <ion-col class="border" [style.background-color]="checkIfEqualToday(0)? '#25b7d3' : 'transparent'" size="4" >
+                  <div (click)="tabClick(0)">Today</div>
+                </ion-col>
+                <ion-col [style.background-color]="checkIfEqualToday(-1)? '#25b7d3' : 'transparent'" size="4" >
+                  <div (click)="tabClick(-1)">Upcoming</div>
+                </ion-col>
+            </ion-row>
+      </ion-grid>
+  
+  <ion-list>
+
+    <ion-item *ngFor="let app of appointments" (click)="sendAndNavigate(app)" >
+      <ion-label >  
+        <h2><p class="ion-text-end" style="color: red;position: absolute;right: 2vh;"> 
+        {{checkOnSoon(app.date,app.start_time)}} </p>
+        {{ app.date == today? ('Today') : (app.date) }} </h2>
+        
+        <ion-icon style="position: absolute;right: 3%;color: #343a40;"
+         name="chevron-forward-outline"></ion-icon>
+        <p class="colorGrey" > Start Time: {{app.start_time}}</p>
+        <p class="colorGrey" >End Time: {{app.end_time}}</p>
+        <!-- <p class="colorGrey">Slot Duration: {{app.slot_duration}} minutes </p> -->
+        
+      </ion-label>
+    </ion-item>
+
+    
+  </ion-list>
+
+</ion-content>
