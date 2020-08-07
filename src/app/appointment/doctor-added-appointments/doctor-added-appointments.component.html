@@ -1,0 +1,51 @@
+<ion-header >
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+ 
+    <ion-title >  Appointment </ion-title> 
+    <ion-buttons (click)="close()" slot="end">
+  
+      <ion-icon size="large" name="close-circle"></ion-icon>
+
+    </ion-buttons>   
+  </ion-toolbar>
+    
+</ion-header>
+ <ion-content >
+
+          <img src="/assets/02 (1).png"/>
+          
+<ion-list *ngFor="let uniqueDate of dates">
+    <ion-list-header style="color: #343a40;" >
+                _ {{uniqueDate}} _
+    </ion-list-header> 
+    <ion-card *ngFor="let card of cards"  style="z-index: 0;">
+      <div *ngIf="card.date == uniqueDate">
+      <ion-card-header>
+        <ion-label>   
+          Appointment Id : {{card.id}} 
+        </ion-label>
+      </ion-card-header>
+      <ion-card-content>
+     
+      <ion-item>
+        <ion-icon name="alarm"></ion-icon> 
+        <ion-label>  Start At: {{card.start_time}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="alarm"></ion-icon> 
+        <ion-label> End At: {{card.end_time}}</ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </div>
+</ion-card>
+  </ion-list>          
+ 
+ 
+
+
+</ion-content> 
+  

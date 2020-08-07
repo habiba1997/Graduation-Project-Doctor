@@ -1,6 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ActionSheetController } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
@@ -19,6 +19,15 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { AutosizeModule } from 'ngx-autosize';
 import {PatientProfileComponent} from "./patient-profile/patient-profile.component";
 import {NetworkService} from "../services/Network/network.service";
+import { VideoComponent } from '../appointment/video/video.component';
+import { DoctorSlotComponent } from '../appointment/doctor-slots/doctor-slot.component';
+import { DoctorScheduleComponent } from '../appointment/doctor-schedule/doctor-schedule-1.component';
+import { DoctorAppointmentsComponent } from '../appointment/doctor-appointments/doctor-appointments.component';
+import { DoctorAddedAppointmentsComponent } from '../appointment/doctor-added-appointments/doctor-added-appointments.component';
+import { DoctorAddAppointmentComponent } from '../appointment/doctor-add-appointment/doctor-add-appointment.component';
+import { InteractionService } from '../services/datacommunication/interaction.service';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { DatePicker } from '@ionic-native/date-picker/ngx';
 
 @NgModule({
   imports: [
@@ -59,6 +68,30 @@ import {NetworkService} from "../services/Network/network.service";
       } 
       ,
       {
+        path:'video/:id', 
+        component:VideoComponent
+      },
+      {
+        path:'doctor-slots', 
+        component:DoctorSlotComponent
+      },
+      {
+        path:'doctor-schedule-1', 
+        component:DoctorScheduleComponent
+      },
+      {
+        path:'doctor-appointment', 
+        component:DoctorAppointmentsComponent
+      },
+      {
+        path:'doctor-added-appointment', 
+        component:DoctorAddedAppointmentsComponent
+      },
+      {
+        path:'doctor-schedule/add-appointment', 
+        component:DoctorAddAppointmentComponent
+      } , 
+      {
         path: 'conversation',
         component: ConversationsComponent,
         children:[
@@ -78,8 +111,12 @@ import {NetworkService} from "../services/Network/network.service";
   ],
   providers: [
     NavigationService,
-    HttpService,
     NetworkService,
+    InteractionService,
+    HttpService,
+    DatePicker,
+    ActionSheetController,
+    AndroidPermissions,
 
   ],
   declarations: [HomePage,
@@ -92,7 +129,13 @@ import {NetworkService} from "../services/Network/network.service";
     ConversationsComponent,
     ConvListComponent,
     ScheduleComponent,
-    PatientProfileComponent
+    PatientProfileComponent,
+    DoctorAddAppointmentComponent, 
+    VideoComponent,
+    DoctorAppointmentsComponent,
+    DoctorScheduleComponent,
+    DoctorSlotComponent,
+    DoctorAddedAppointmentsComponent,
   ]
 })
 export class HomePageModule {}

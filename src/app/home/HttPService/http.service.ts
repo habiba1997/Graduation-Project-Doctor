@@ -10,6 +10,10 @@ import { FCM } from '@ionic-native/fcm/ngx';
 import { TokenClass } from 'src/app/model/token';
 import { patientData } from 'src/app/model/patientData';
 import {inboxThread} from "../../model/ConsultationModel";
+import { doctor_appointment } from 'src/app/model/doctor/doctor_appointment';
+import { PostReturnIdAndDate } from 'src/app/model/doctor/id_date';
+import { returnedDoctorSlotsSohaila } from 'src/app/model/doctor/returnedAppointmentSlotSohaila';
+import { DateFormatService } from 'src/app/services/dateFormatService/date-format.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +28,7 @@ export class HttpService {
 
   constructor(private http:HttpClient,
     private dataStream: DatastreamingService,
+    private format: DateFormatService,
         private fcm: FCM,){
 
   }
@@ -235,7 +240,101 @@ getDoctorUsingToken(): Observable<any>
     }
 
 
+// appointment
 
+getSlotsAfterDoctorPostApps(id,date)
+{
+  let url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/slots/"+id;
+  return this.http.get<any>(url,this.httpOptions).pipe(
+    flatMap(appointments => appointments),
+    map((app:doctor_appointment)=>
+    {
+        return new doctor_appointment(app.id,this.dataStream.doctor.doctor_id, app.schedule_id,
+          app.slot_duration,app.start_time, app.end_time, date, null, null, false ); 
+    })
+  );
+}
+
+
+postDoctorAppointmnets(appointments){
+  let url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/schedule/";
+  // let scheduleIds =[];
+  return this.http.post<any>(url, appointments).pipe(
+    flatMap(appointments => appointments),
+    map((appointmentObject: PostReturnIdAndDate)=>
+    {   
+      return new PostReturnIdAndDate(appointmentObject.id,  appointmentObject.date.split(" ", 2)[0]);
+        
+    })
+  );
+  
+}
+public getDoctorSchedule(){
+  let url="http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/schedule/"+
+  this.dataStream.doctor.doctor_id;
+  return this.http.get<any>(url, this.httpOptions).pipe(
+    flatMap(appointments => appointments),
+    map((appointment:doctor_appointment)=>
+    {
+        
+      let app = JSON.parse(JSON.stringify(appointment));
+
+     console.log(app.date);
+     
+     
+     app.date = this.format.formateJSONDateToDayMonthYear(app.date);
+  
+     console.log(app.date);
+      // app.start_time = this.format.formatJSONTimetoRemoveSeconds(app.start_time);
+      // app.end_time = this.format.formatJSONTimetoRemoveSeconds(app.end_time);
+      // console.log("app after change", app);
+      // console.log(app);
+
+        // let split = app.start_time.split(" ");
+        // app.date= split[0];
+        // app.start_time = split[1]+" "+ split[2];
+        // split= app.end_time.split(" ",3);
+        // app.end_time= split[1]+" "+ split[2];
+        // console.log(app);
+        return app;
+      
+    })
+  );
+}
+
+
+public getDoctorAppointmentSLots(id,date, slot_duration){
+  let url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/slots/"+id;
+  let bool = false;
+  return this.http.get<any>(url, this.httpOptions).pipe(
+    flatMap(slots => slots),
+    map((slot:returnedDoctorSlotsSohaila)=>
+    {
+      //slot.year+"-"+(slot.month<10?"0"+slot.month:slot.day)+"-"+ (slot.day<10?"0"+slot.day:slot.day)
+      if(slot.patient_id)
+      {
+       
+        let patientIndex = this.dataStream.patientList.findIndex((x)=>x.patientId ===slot.patient_id);
+        return new doctor_appointment(
+          slot.id,
+          this.dataStream.doctor.doctor_id,
+          slot.schedule_id,
+          slot_duration,slot.start_time, slot.end_time, 
+          date,slot.patient_id,
+          this.dataStream.patientList[patientIndex],
+          slot.booked.data[0]==0 ? false : true); 
+      }
+      else{
+        return new doctor_appointment(
+          slot.id,this.dataStream.doctor.doctor_id,
+          slot.schedule_id,
+          slot_duration,slot.start_time, slot.end_time, date,null,null,
+          slot.booked.data[0]==0 ? false : true); 
+      }
+      
+    })
+  );
+}
 
 }
 
