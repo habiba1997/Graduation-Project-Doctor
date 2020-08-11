@@ -256,6 +256,23 @@ getSlotsAfterDoctorPostApps(id,date)
 }
 
 
+getSessionToken()
+{
+
+  let url ="http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/token"
+  let obj = {
+      "sessionId": this.dataStream.doctor.sessionId,
+       "expireTime": this.dataStream.expireTime};
+  console.log("Object: ", obj);
+  return this.http.post<any>(url,obj, this.httpOptions).pipe(
+    map((token: TokenClass)=>{
+      console.log(token.token);
+      return token;
+    })
+  );
+}
+
+
 postDoctorAppointmnets(appointments){
   let url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/schedule/";
   // let scheduleIds =[];
