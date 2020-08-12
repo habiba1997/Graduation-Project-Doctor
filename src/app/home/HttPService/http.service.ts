@@ -234,6 +234,13 @@ getDoctorUsingToken(): Observable<any>
             file);
     }
 
+    getPatientVitals(patient_id):Observable<any[]>{
+        const Url =this.Node_host+"api/users/vitals/"+patient_id;
+        console.log("URL",Url);
+        return this.http.get<any>(Url, this.httpOptions);
+    }
+
+
 
 
 
