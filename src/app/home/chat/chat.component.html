@@ -104,10 +104,24 @@
                     </div>
                 </div>
                 <!--         //////////////// Media Part-->
-                <div *ngIf="newMsgs.media" class="media-wrapper">
-                    <img src="{{newMsgs.media}}"  class="profile-img"/>
+             <div *ngIf="newMsgs.media!=null">
+                             <!--         //////////////// Image-->
 
+                <div *ngIf="newMsgs.media.endsWith('jpg')" class="media-wrapper">
+                    <img src="{{newMsgs.media}}"  class="profile-img"/>
                 </div>
+<!--             ///////////////////// Audio-->
+             <div *ngIf="newMsgs.media.endsWith('mp3')|| newMsgs.media.endsWith('ogg')" class="media-wrapper">
+                 <ion-item  text-wrap>
+                     {{newMsgs.media.name}}
+
+                     <audio [controls]="true" [src]="newMsgs.media" (play)="play(newMsgs.media)" (pause)="pause()"  preload="metadata" [autoplay]="false"  >
+
+                     </audio>
+                 </ion-item>
+
+             </div>
+             </div>
                 <ion-spinner  *ngIf="loading && i+1==newMessages.length " name="crescent" style="color: #02C39A;" ></ion-spinner>
 
             </ion-col>
@@ -127,10 +141,24 @@
                 </div>
 
                 <!--         //////////////// Media Part-->
-                <div *ngIf="newMsgs.media" class="media-wrapper">
-                    <img src="{{newMsgs.media}}"  class="profile-img"/>
+             <div *ngIf="newMsgs.media!=null">
+                 <div *ngIf="newMsgs.media.endsWith('jpg')!" class="media-wrapper">
+                     <img src="{{newMsgs.media}}"  class="profile-img"/>
 
-                </div>
+                 </div>
+
+                 <!--             ///////////////////// Audio-->
+                 <div *ngIf="newMsgs.media.endsWith('mp3')||newMsgs.media.endsWith('ogg')" class="media-wrapper">
+                     <ion-item  text-wrap>
+                         {{newMsgs.media.name}}
+                         <audio [controls]="true" [src]="newMsgs.media" (play)="play(newMsgs.media)" (pause)="pause()"  preload="metadata" [autoplay]="false"  >
+                         </audio>
+
+                     </ion-item>
+
+                 </div>
+
+             </div>
 
             </ion-col>
 
