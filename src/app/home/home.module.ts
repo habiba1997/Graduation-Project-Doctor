@@ -26,9 +26,9 @@ import { DoctorAppointmentsComponent } from '../appointment/doctor-appointments/
 import { DoctorAddedAppointmentsComponent } from '../appointment/doctor-added-appointments/doctor-added-appointments.component';
 import { DoctorAddAppointmentComponent } from '../appointment/doctor-add-appointment/doctor-add-appointment.component';
 import { InteractionService } from '../services/datacommunication/interaction.service';
-
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+
 
 @NgModule({
   imports: [
@@ -68,6 +68,30 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
         component: ScheduleComponent
       } 
       ,
+      {
+        path:'video/:id', 
+        component:VideoComponent
+      },
+      {
+        path:'doctor-slots', 
+        component:DoctorSlotComponent
+      },
+      {
+        path:'doctor-schedule-1', 
+        component:DoctorScheduleComponent
+      },
+      {
+        path:'doctor-appointment', 
+        component:DoctorAppointmentsComponent
+      },
+      {
+        path:'doctor-added-appointment', 
+        component:DoctorAddedAppointmentsComponent
+      },
+      {
+        path:'doctor-schedule/add-appointment', 
+        component:DoctorAddAppointmentComponent
+      } , 
       {
         path: 'conversation',
         component: ConversationsComponent,
@@ -112,11 +136,11 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
   ],
   providers: [
     NavigationService,
-    HttpService,
     NetworkService,
     InteractionService,
     DatePicker,
     NavigationService,
+    HttpService,
     ActionSheetController,
     AndroidPermissions,
 
@@ -131,7 +155,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
     ConversationsComponent,
     ConvListComponent,
     ScheduleComponent,
-    PatientProfileComponent,
+    PatientProfileComponent, 
     VideoComponent,
     DoctorAppointmentsComponent,
     DoctorScheduleComponent,
@@ -139,6 +163,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
     DoctorAddAppointmentComponent, 
     DoctorAddedAppointmentsComponent,
   
+
   ]
 })
 export class HomePageModule {}

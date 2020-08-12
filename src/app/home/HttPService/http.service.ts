@@ -256,6 +256,30 @@ getSlotsAfterDoctorPostApps(id,date)
 }
 
 
+    getPatientVitals(patient_id):Observable<any[]>{
+        const Url =this.Node_host+"api/users/vitals/"+patient_id;
+        console.log("URL",Url);
+        return this.http.get<any>(Url, this.httpOptions);
+    }
+
+
+
+// appointment
+
+getSlotsAfterDoctorPostApps(id,date)
+{
+  let url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/slots/"+id;
+  return this.http.get<any>(url,this.httpOptions).pipe(
+    flatMap(appointments => appointments),
+    map((app:doctor_appointment)=>
+    {
+        return new doctor_appointment(app.id,this.dataStream.doctor.doctor_id, app.schedule_id,
+          app.slot_duration,app.start_time, app.end_time, date, null, null, false ); 
+    })
+  );
+}
+
+
 postDoctorAppointmnets(appointments){
   let url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/schedule/";
   // let scheduleIds =[];
@@ -271,6 +295,10 @@ postDoctorAppointmnets(appointments){
 }
 public getDoctorSchedule(){
   let url="http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/schedule/"+this.dataStream.doctor.doctor_id;
+// =======
+//   let url="http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/schedule/"+
+//   this.dataStream.doctor.doctor_id;
+// >>>>>>> master
   return this.http.get<any>(url, this.httpOptions).pipe(
     flatMap(appointments => appointments),
     map((appointment:doctor_appointment)=>
@@ -278,9 +306,17 @@ public getDoctorSchedule(){
         
       let app = JSON.parse(JSON.stringify(appointment));
 
+// <<<<<<< appointment
 
-      app.date = this.format.formateJSONDateToDayMonthYear("2020-08-07");
-       // console.log(app.date)
+//       app.date = this.format.formateJSONDateToDayMonthYear("2020-08-07");
+//        // console.log(app.date)
+// =======
+//      console.log(app.date);
+     
+     
+     app.date = this.format.formateJSONDateToDayMonthYear(app.date);
+  
+     console.log(app.date);
       // app.start_time = this.format.formatJSONTimetoRemoveSeconds(app.start_time);
       // app.end_time = this.format.formatJSONTimetoRemoveSeconds(app.end_time);
       // console.log("app after change", app);
@@ -331,7 +367,6 @@ public getDoctorAppointmentSLots(id,date, slot_duration){
     })
   );
 }
-
 
 }
 

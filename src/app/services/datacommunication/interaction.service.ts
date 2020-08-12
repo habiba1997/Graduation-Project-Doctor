@@ -54,6 +54,10 @@ export class InteractionService {
 
  
 private behavioralsubjForAppointment= new BehaviorSubject<any>(new doctor_appointment);
+// =======
+//   // appointment
+//   private behavioralsubjForAppointment= new BehaviorSubject<any>(new doctor_appointment);
+// >>>>>>> master
 observableForAppointment =this.behavioralsubjForAppointment.asObservable();
 
 

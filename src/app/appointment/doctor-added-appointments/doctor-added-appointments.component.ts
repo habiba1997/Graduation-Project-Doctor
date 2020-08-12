@@ -34,6 +34,7 @@ ionViewDidEnter()
   
                  this.dates.push(id.date);
 
+
   
       }
 
