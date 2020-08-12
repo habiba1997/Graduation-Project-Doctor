@@ -95,10 +95,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-android-permissions": {
+  "cordova-plugin-media-capture": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-android-permissions"
+      "id": "cordova-plugin-media-capture@3.0.3"
     },
     "is_top_level": true,
     "variables": {}

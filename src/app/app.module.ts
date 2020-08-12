@@ -18,6 +18,7 @@ import { Camera } from 'node_modules/@ionic-native/camera/ngx';
 import { File } from 'node_modules/@ionic-native/file/ngx';
 import { WebView } from 'node_modules/@ionic-native/ionic-webview/ngx';
 import { FilePath } from 'node_modules/@ionic-native/file-path/ngx';
+import {MediaCapture} from "@ionic-native/media-capture/ngx";
 
 
 
@@ -41,6 +42,7 @@ import { FilePath } from 'node_modules/@ionic-native/file-path/ngx';
     WebView,
     FilePath,
     Network,
+    MediaCapture,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

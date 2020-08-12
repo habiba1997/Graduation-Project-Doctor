@@ -48,6 +48,9 @@
     },
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "app.fortify.fitness"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "app.fortify.fitness"
     }
   },
   "dependent_plugins": {}

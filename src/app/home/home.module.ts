@@ -118,6 +118,7 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
     ActionSheetController,
     AndroidPermissions,
 
+
   ],
   declarations: [HomePage,
     PatientListComponent,
