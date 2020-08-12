@@ -26,8 +26,9 @@ import { DoctorAppointmentsComponent } from '../appointment/doctor-appointments/
 import { DoctorAddedAppointmentsComponent } from '../appointment/doctor-added-appointments/doctor-added-appointments.component';
 import { DoctorAddAppointmentComponent } from '../appointment/doctor-add-appointment/doctor-add-appointment.component';
 import { InteractionService } from '../services/datacommunication/interaction.service';
-import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+
 
 @NgModule({
   imports: [
@@ -104,7 +105,31 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
       {
         path:'patient-profile',
         component:PatientProfileComponent
-      }
+      },
+      {
+        path:'video/:id', 
+        component:VideoComponent
+      },
+      {
+        path:'doctor-slots', 
+        component:DoctorSlotComponent
+      },
+      {
+        path:'doctor-schedule-1', 
+        component:DoctorScheduleComponent
+      },
+      {
+        path:'doctor-appointment', 
+        component:DoctorAppointmentsComponent
+      },
+      {
+        path:'doctor-added-appointment', 
+        component:DoctorAddedAppointmentsComponent
+      },
+      {
+        path:'doctor-schedule/add-appointment', 
+        component:DoctorAddAppointmentComponent
+      } , 
       
 
     ])
@@ -113,8 +138,9 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
     NavigationService,
     NetworkService,
     InteractionService,
-    HttpService,
     DatePicker,
+    NavigationService,
+    HttpService,
     ActionSheetController,
     AndroidPermissions,
 
@@ -129,13 +155,15 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
     ConversationsComponent,
     ConvListComponent,
     ScheduleComponent,
-    PatientProfileComponent,
-    DoctorAddAppointmentComponent, 
+    PatientProfileComponent, 
     VideoComponent,
     DoctorAppointmentsComponent,
     DoctorScheduleComponent,
     DoctorSlotComponent,
+    DoctorAddAppointmentComponent, 
     DoctorAddedAppointmentsComponent,
+  
+
   ]
 })
 export class HomePageModule {}

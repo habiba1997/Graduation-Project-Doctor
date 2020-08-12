@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
-import { newMessage } from 'src/app/model/newMessage';
-import { Iconvs } from 'src/app/model/conv';
+import { BehaviorSubject } from 'rxjs';
 import {patientData} from "../../model/patientData";
 import { doctor_appointment } from 'src/app/model/doctor/doctor_appointment';
 import { PostReturnIdAndDate } from 'src/app/model/doctor/id_date';
@@ -50,8 +48,16 @@ export class InteractionService {
   getPatientData(){
       return this.patient.getValue();
   }
-  // appointment
-  private behavioralsubjForAppointment= new BehaviorSubject<any>(new doctor_appointment);
+
+
+  //Appointment section
+
+ 
+private behavioralsubjForAppointment= new BehaviorSubject<any>(new doctor_appointment);
+// =======
+//   // appointment
+//   private behavioralsubjForAppointment= new BehaviorSubject<any>(new doctor_appointment);
+// >>>>>>> master
 observableForAppointment =this.behavioralsubjForAppointment.asObservable();
 
 

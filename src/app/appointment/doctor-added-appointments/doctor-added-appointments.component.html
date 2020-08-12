@@ -21,8 +21,9 @@
     <ion-list-header style="color: #343a40;" >
                 _ {{uniqueDate}} _
     </ion-list-header> 
-    <ion-card *ngFor="let card of cards"  style="z-index: 0;">
-      <div *ngIf="card.date == uniqueDate">
+    <ion-card *ngFor="let card of cards" style="z-index: 0;">
+
+
       <ion-card-header>
         <ion-label>   
           Appointment Id : {{card.id}} 
@@ -31,16 +32,16 @@
       <ion-card-content>
      
       <ion-item>
-        <ion-icon name="alarm"></ion-icon> 
+        <ion-icon name="alarm-outline"></ion-icon> 
         <ion-label>  Start At: {{card.start_time}}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-icon name="alarm"></ion-icon> 
+        <ion-icon name="alarm-outline"></ion-icon> 
         <ion-label> End At: {{card.end_time}}</ion-label>
       </ion-item>
 
     </ion-card-content>
-  </div>
+
 </ion-card>
   </ion-list>          
  
