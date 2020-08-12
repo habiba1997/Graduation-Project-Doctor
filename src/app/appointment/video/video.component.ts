@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { NavigationService } from 'src/app/home/NavService/navigation.service';
@@ -15,7 +15,7 @@ declare var OT:any;
 })
 
 
-export class VideoComponent implements OnDestroy {
+export class VideoComponent implements OnDestroy, OnInit {
 
 
   ngOnDestroy() {
@@ -107,13 +107,14 @@ console.log("onDestroy");
   disableVideo:boolean;
 
 
-  async ionViewDidEnter()
+  ngOnInit()
   {
 
-    await this.http.getSessionToken().subscribe(
+     this.http.getSessionToken().subscribe(
       (tokenObj)=>{
 
           this.token = tokenObj.token;
+        
       },
       (error)=>{
         console.log("Error: ", error);
@@ -122,22 +123,20 @@ console.log("onDestroy");
       {
         console.log("token came");
         console.log(this.token);
-      }
-    )
+
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
+      result => console.log('Has permission?',result.hasPermission),
+      err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
+    );
     
-    // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-    //   result => console.log('Has permission?',result.hasPermission),
-    //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
-    // );
+    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
     
-    // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+      result => console.log('Has permission?',result.hasPermission),
+      err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+    );
     
-    // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
-    //   result => console.log('Has permission?',result.hasPermission),
-    //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
-    // );
-    
-    // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
 
 
     this.route.paramMap.subscribe((param:ParamMap)=> {
@@ -155,6 +154,9 @@ console.log("onDestroy");
     });
     this.startCall();
     this.disableVideo = false;
+      }
+    )
+    
   }
 
   ionViewDidLeave()

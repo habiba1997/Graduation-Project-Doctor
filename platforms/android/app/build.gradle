@@ -99,6 +99,8 @@ ext {
 
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "../cordova-plugin-fcm-with-dependecy-updated/fitness-FCMPlugin.gradle"
+apply from: "../cordova-plugin-opentok/fitness-build-extras.gradle"
+apply from: "../cordova-android-support-gradle-release/fitness-cordova-android-support-gradle-release.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -294,10 +296,13 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
+    implementation "com.android.support:support-v4:27.+"
     implementation "com.google.firebase:firebase-core:16.0.9"
     implementation "com.google.firebase:firebase-messaging:18.0.0"
     implementation "com.android.support:support-annotations:27.+"
-    implementation "com.android.support:support-v4:27.+"
+    implementation "com.android.support:appcompat-v7:23.1.0"
+    implementation "com.android.support:design:23.0.0"
+    implementation "com.android.volley:volley:1.1.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 
