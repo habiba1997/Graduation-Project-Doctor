@@ -81,6 +81,7 @@ import {NetworkService} from "../services/Network/network.service";
     HttpService,
     NetworkService,
 
+
   ],
   declarations: [HomePage,
     PatientListComponent,

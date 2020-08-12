@@ -12,7 +12,10 @@ export interface Iconvs{
 export interface Reply{
     sender_id: number,
     receiver_id	:number,
-    msg_body:String,
+    sender_name: String,
+    receiver_name:String,
+    msg_body:string,
     thread_subject:string,
     fcm_token:string
+
 }
