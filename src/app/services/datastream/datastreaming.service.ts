@@ -8,6 +8,8 @@ import { patientData } from 'src/app/model/patientData';
 })
 export class DatastreamingService {
  
+  expireTime:number=15;
+
    doctor = new MyDoctor;
    token: string;
    patientList = new Array<patientData>();
@@ -68,6 +70,7 @@ export class DatastreamingService {
      this.doctor.timestamp = doctorData.user.timestamp;
      this.doctor.years_experience = doctorData.years_experience;
      this.doctor.profile_img=doctorData.user.user_image;
+     this.doctor.sessionId = doctorData.sessionId;
        console.log("set doctor ",this.doctor);
      this.dataStore.saveDoctprLocally(this.doctor);
    }
@@ -82,8 +85,15 @@ export class DatastreamingService {
      this.doctor.timestamp = mydoc.timestamp;
      this.doctor.years_experience = mydoc.years_experience;
      this.doctor.profile_img=mydoc.user_image;
+     this.doctor.sessionId = mydoc.sessionId;
+
      console.log("doctor for login",this.doctor);
      this.dataStore.saveDoctprLocally(this.doctor);
+   }
+
+   getDoctorSessionId()
+   {
+     return this.doctor.sessionId;
    }
 
     setToken(token)

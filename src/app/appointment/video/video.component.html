@@ -42,21 +42,21 @@
          <!-- disabled={{myCondition}} -->
            <button   class="buttons" style="background-color: white;" (click)="speakerToggle()">
              <div *ngIf="!speaker"> 
-               <ion-icon class="iconss" name="volume-low-sharp"></ion-icon>
+               <ion-icon class="iconss" name="volume-low"></ion-icon>
                <!-- <ion-icon class="iconss" name="volume-mute-sharp"></ion-icon> -->
              </div> 
              <div *ngIf="speaker"> 
-               <ion-icon class="iconss" name="volume-high-sharp"></ion-icon>
+               <ion-icon class="iconss" name="volume-high"></ion-icon>
              </div> 
            </button>
        </ion-col>
        <ion-col>
            <button class="buttons" style="background-color: white;" (click)="muteToggle()">
              <div  *ngIf="!mute"> 
-               <ion-icon class="iconss" name="mic-sharp"></ion-icon>
+               <ion-icon class="iconss" name="mic"></ion-icon>
              </div> 
              <div *ngIf="mute">
-               <ion-icon class="iconss" name="mic-off-sharp"></ion-icon>
+               <ion-icon class="iconss" name="mic-off"></ion-icon>
              </div> 
            </button>
        </ion-col>

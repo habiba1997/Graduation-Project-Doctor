@@ -2,6 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { NavigationService } from 'src/app/home/NavService/navigation.service';
+import { DatastreamingService } from 'src/app/services/datastream/datastreaming.service';
+import { HttpService } from 'src/app/home/HttPService/http.service';
 
 
 declare var OT:any;
@@ -24,7 +26,7 @@ console.log("onDestroy");
   session: any;
   publisher: any;
   apiKey: any;
-  sessionId: string;
+  sessionId: String;
   token: string;
 
   speaker:boolean = true;
@@ -37,10 +39,14 @@ console.log("onDestroy");
   constructor(
     private androidPermissions: AndroidPermissions,
     private route : ActivatedRoute,
+    private datastream: DatastreamingService,
+    private http:HttpService,
     private navigate: NavigationService) {
     this.apiKey = "46767002";
-    this.sessionId = "1_MX40Njc2NzAwMn5-MTU5MjMwNTM4ODgwNn41eHlaT1N0YlhQcS9aRTlkakNXZDhIak5-UH4";
-    this.token = "T1==cGFydG5lcl9pZD00Njc2NzAwMiZzaWc9YzA3ZGJkOTA2Y2JmYTc0NjA5MGFkNjgyZDIwOTQ2NmFmOWUyNTc2YTpzZXNzaW9uX2lkPTFfTVg0ME5qYzJOekF3TW41LU1UVTVNak13TlRNNE9EZ3dObjQxZUhsYVQxTjBZbGhRY1M5YVJUbGtha05YWkRoSWFrNS1VSDQmY3JlYXRlX3RpbWU9MTU5NjYxODg3NiZub25jZT0wLjkzNzIzMTM0MTI0NTUxMTEmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU5NjYyMjQ3NSZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==";  
+
+    this.sessionId = this.datastream.doctor.sessionId;
+    console.log("session: ", this.sessionId);
+
     if (OT.checkSystemRequirements() == 1) {
       this.session = OT.initSession(this.apiKey, this.sessionId);
    } else {
@@ -101,21 +107,37 @@ console.log("onDestroy");
   disableVideo:boolean;
 
 
-  ionViewDidEnter()
+  async ionViewDidEnter()
   {
-    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-      result => console.log('Has permission?',result.hasPermission),
-      err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
-    );
+
+    await this.http.getSessionToken().subscribe(
+      (tokenObj)=>{
+
+          this.token = tokenObj.token;
+      },
+      (error)=>{
+        console.log("Error: ", error);
+      },
+      ()=>
+      {
+        console.log("token came");
+        console.log(this.token);
+      }
+    )
     
-    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+    // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
+    //   result => console.log('Has permission?',result.hasPermission),
+    //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
+    // );
     
-    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
-      result => console.log('Has permission?',result.hasPermission),
-      err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
-    );
+    // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
     
-    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+    // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+    //   result => console.log('Has permission?',result.hasPermission),
+    //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+    // );
+    
+    // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
 
 
     this.route.paramMap.subscribe((param:ParamMap)=> {

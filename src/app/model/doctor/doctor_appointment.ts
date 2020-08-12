@@ -16,6 +16,7 @@ export class doctor_appointment {
     patient_id: number;
     patient: patientData;
     booked:boolean;
+  token: string;
     
    
 

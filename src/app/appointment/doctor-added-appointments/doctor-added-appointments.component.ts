@@ -47,6 +47,7 @@ ionViewDidEnter()
           },
           ()=>{
             console.log("cards: ", this.cards);
+            console.log(JSON.stringify(this.cards));
 
           });
 
