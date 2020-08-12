@@ -42,6 +42,8 @@
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-sqlite-storage": "^4.0.0",
     "core-js": "^2.5.4",
+    "ionicons": "git://github.com/ionic-team/ionicons.git#3.0",
+    "ionicons-npm": "^2.0.1",
     "moment": "^2.27.0",
     "ngx-autosize": "^1.7.5",
     "opentok": "^2.10.0",

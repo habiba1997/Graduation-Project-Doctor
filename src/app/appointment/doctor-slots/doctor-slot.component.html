@@ -39,6 +39,7 @@
          {{ app.date == today? ('Today') : (app.date) }} 
         </h2>
         <h4 class="colorGrey" *ngIf="app.patient">Patient: {{app.patient.name}}</h4>
+
         <ion-icon style="position: absolute;right: 3%;color: #343a40;" name="arrow-forward"></ion-icon>
         <p class="colorGrey">Time: {{app.start_time}}</p>
         <p class="colorGrey">Duration: {{app.slot_duration}} minutes </p>

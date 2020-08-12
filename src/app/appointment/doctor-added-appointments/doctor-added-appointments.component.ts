@@ -32,7 +32,8 @@ ionViewDidEnter()
   
       } else{
   
-        this.dates.push(id.date);
+                 this.dates.push(id.date);
+
 
   
       }
