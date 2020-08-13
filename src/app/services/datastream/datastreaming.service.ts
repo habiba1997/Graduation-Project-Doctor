@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { DatastorageService } from '../datastorage/datastorage.service';
 import { MyDoctor } from 'src/app/model/MyData';
 import { patientData } from 'src/app/model/patientData';
+import { doctor_appointment } from 'src/app/model/doctor/doctor_appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class DatastreamingService {
    token: string;
    patientList = new Array<patientData>();
 
+   appointment: doctor_appointment;
+   
    constructor(
      private dataStore: DatastorageService,){}
 
@@ -68,6 +71,7 @@ export class DatastreamingService {
      this.doctor.timestamp = doctorData.user.timestamp;
      this.doctor.years_experience = doctorData.years_experience;
      this.doctor.profile_img=doctorData.user.user_image;
+     this.doctor.sessionId = doctorData.sessionId;
        console.log("set doctor ",this.doctor);
      this.dataStore.saveDoctprLocally(this.doctor);
    }
@@ -82,7 +86,10 @@ export class DatastreamingService {
      this.doctor.timestamp = mydoc.timestamp;
      this.doctor.years_experience = mydoc.years_experience;
      this.doctor.profile_img=mydoc.user_image;
+     this.doctor.sessionId = mydoc.sessionId;
+
      console.log("doctor for login",this.doctor);
+     
      this.dataStore.saveDoctprLocally(this.doctor);
    }
 

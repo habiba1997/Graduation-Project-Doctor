@@ -98,7 +98,7 @@
   "cordova-plugin-media-capture": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-media-capture@3.0.3"
+      "id": "cordova-plugin-media-capture@^3.0.3"
     },
     "is_top_level": true,
     "variables": {}

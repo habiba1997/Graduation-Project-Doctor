@@ -11,7 +11,7 @@ export class MyDoctor{
   username: String;
   years_experience: number;
   profile_img:String;
-
+  sessionId:String;
   
 }  
 
