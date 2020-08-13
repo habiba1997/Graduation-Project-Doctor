@@ -109,7 +109,7 @@ export class ChatComponent implements OnInit {
 
         }).then( async () => {
             this.patientArray = this.dataStream.getPatientList();
-            console.log("chat doctor list ",this.patientArray);
+            console.log("chat patient list ",this.patientArray);
             await this.communication.msg.subscribe(
                 (massagesFromMessageOrConvList)=> {
                     console.log("replies in chat: " ,massagesFromMessageOrConvList);
@@ -151,12 +151,12 @@ export class ChatComponent implements OnInit {
       await (this.userToRecieve=this.patientArray.find(patient=>patient.patientId==this.newMsgs.receiver_id||patient.patientId==this.newMsgs.sender_id));
       this.patName=this.userToRecieve.name;
       this.pat_img=this.userToRecieve.user_img;
-        console.log("patient to receive: ", this.patientArray);
+        console.log("patient to receive: ", this.userToRecieve);
        console.log("newMsgs.sender_id"+this.newMsgs.sender_id);
        console.log("sender",this.dId);  
-        for( let p of this.patientArray){
-            this.pId=p.patientId; 
-        }
+        // for( let p of this.patientArray){
+        //     this.pId=p.patientId;
+        // }
     }
   
   
@@ -270,7 +270,7 @@ export class ChatComponent implements OnInit {
                   .catch(err => {
                       console.log('Error while reading file.');
                   });
-        } 
+        }
         readAudio(file: any) {
           const that = this;
           const reader = new FileReader();
@@ -487,6 +487,7 @@ export class ChatComponent implements OnInit {
                 this.storage.set(STORAGE_KEY, JSON.stringify(arr));
             }
 
+
             let filePath = this.file.dataDirectory + name;
             let resPath = this.pathForImage(filePath);
 
@@ -497,7 +498,7 @@ export class ChatComponent implements OnInit {
             };
             console.log("newEntry"+newEntry);
             this.images = [newEntry, ...this.images];
-            this.newMessages.find(msg=>msg.media==this.pathForImage(this.img.path)).media=resPath;
+            this.newMessages.find(msg=>msg.media==this.pathForImage(this.med.path)).media=resPath;
             this.loading=false;
             this.ref.detectChanges();
         });
@@ -520,6 +521,8 @@ export class ChatComponent implements OnInit {
             "thread_id":this.thread_id,
             "sender_id":this.dId,
             "receiver_id":this.userToRecieve.patientId,
+            "sender_name":this.dataStream.doctor.name,
+            "receiver_name":this.userToRecieve.name,
             "msg_body":"",
             "fcm_token":this.userToRecieve.fcmtoken
         };}
@@ -541,7 +544,7 @@ export class ChatComponent implements OnInit {
                     that.url = data.url;
                     this.showSplash=false;
                     console.log("Data Came: ", that.url );
-                    that.setMessege();
+                    this.setMessege();
                     this.ScrollToBottom();
                     this.copyFileToLocalDir(this.img.correctPath, this.img.currentName, this.createFileName());
                 },

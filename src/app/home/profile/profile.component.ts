@@ -60,7 +60,6 @@ export class ProfileComponent implements OnInit {
       this.STORAGE_KEY=this.STORAGE_KEY+this.datastream.getDoctorId();
       this.plt.ready().then(() => {
           this.loadStoredImages();
-
       });
       new Promise((resolve, reject) => {
           this.DataSet();

@@ -1,3 +1,11 @@
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -160,6 +168,310 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     webpackAsyncContext.id = "./node_modules/@ionic/core/dist/esm lazy recursive ^\\.\\/.*\\.entry\\.js$ include: \\.entry\\.js$ exclude: \\.system\\.entry\\.js$";
     module.exports = webpackAsyncContext;
+    /***/
+  },
+
+  /***/
+  "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
+  /*!**************************************************!*\
+    !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
+    \**************************************************/
+
+  /*! no static exports found */
+
+  /***/
+  function node_modulesMomentLocaleSyncRecursive$(module, exports, __webpack_require__) {
+    var map = {
+      "./af": "./node_modules/moment/locale/af.js",
+      "./af.js": "./node_modules/moment/locale/af.js",
+      "./ar": "./node_modules/moment/locale/ar.js",
+      "./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+      "./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+      "./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+      "./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+      "./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+      "./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+      "./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+      "./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+      "./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+      "./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+      "./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+      "./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+      "./ar.js": "./node_modules/moment/locale/ar.js",
+      "./az": "./node_modules/moment/locale/az.js",
+      "./az.js": "./node_modules/moment/locale/az.js",
+      "./be": "./node_modules/moment/locale/be.js",
+      "./be.js": "./node_modules/moment/locale/be.js",
+      "./bg": "./node_modules/moment/locale/bg.js",
+      "./bg.js": "./node_modules/moment/locale/bg.js",
+      "./bm": "./node_modules/moment/locale/bm.js",
+      "./bm.js": "./node_modules/moment/locale/bm.js",
+      "./bn": "./node_modules/moment/locale/bn.js",
+      "./bn.js": "./node_modules/moment/locale/bn.js",
+      "./bo": "./node_modules/moment/locale/bo.js",
+      "./bo.js": "./node_modules/moment/locale/bo.js",
+      "./br": "./node_modules/moment/locale/br.js",
+      "./br.js": "./node_modules/moment/locale/br.js",
+      "./bs": "./node_modules/moment/locale/bs.js",
+      "./bs.js": "./node_modules/moment/locale/bs.js",
+      "./ca": "./node_modules/moment/locale/ca.js",
+      "./ca.js": "./node_modules/moment/locale/ca.js",
+      "./cs": "./node_modules/moment/locale/cs.js",
+      "./cs.js": "./node_modules/moment/locale/cs.js",
+      "./cv": "./node_modules/moment/locale/cv.js",
+      "./cv.js": "./node_modules/moment/locale/cv.js",
+      "./cy": "./node_modules/moment/locale/cy.js",
+      "./cy.js": "./node_modules/moment/locale/cy.js",
+      "./da": "./node_modules/moment/locale/da.js",
+      "./da.js": "./node_modules/moment/locale/da.js",
+      "./de": "./node_modules/moment/locale/de.js",
+      "./de-at": "./node_modules/moment/locale/de-at.js",
+      "./de-at.js": "./node_modules/moment/locale/de-at.js",
+      "./de-ch": "./node_modules/moment/locale/de-ch.js",
+      "./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+      "./de.js": "./node_modules/moment/locale/de.js",
+      "./dv": "./node_modules/moment/locale/dv.js",
+      "./dv.js": "./node_modules/moment/locale/dv.js",
+      "./el": "./node_modules/moment/locale/el.js",
+      "./el.js": "./node_modules/moment/locale/el.js",
+      "./en-au": "./node_modules/moment/locale/en-au.js",
+      "./en-au.js": "./node_modules/moment/locale/en-au.js",
+      "./en-ca": "./node_modules/moment/locale/en-ca.js",
+      "./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+      "./en-gb": "./node_modules/moment/locale/en-gb.js",
+      "./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+      "./en-ie": "./node_modules/moment/locale/en-ie.js",
+      "./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+      "./en-il": "./node_modules/moment/locale/en-il.js",
+      "./en-il.js": "./node_modules/moment/locale/en-il.js",
+      "./en-in": "./node_modules/moment/locale/en-in.js",
+      "./en-in.js": "./node_modules/moment/locale/en-in.js",
+      "./en-nz": "./node_modules/moment/locale/en-nz.js",
+      "./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+      "./en-sg": "./node_modules/moment/locale/en-sg.js",
+      "./en-sg.js": "./node_modules/moment/locale/en-sg.js",
+      "./eo": "./node_modules/moment/locale/eo.js",
+      "./eo.js": "./node_modules/moment/locale/eo.js",
+      "./es": "./node_modules/moment/locale/es.js",
+      "./es-do": "./node_modules/moment/locale/es-do.js",
+      "./es-do.js": "./node_modules/moment/locale/es-do.js",
+      "./es-us": "./node_modules/moment/locale/es-us.js",
+      "./es-us.js": "./node_modules/moment/locale/es-us.js",
+      "./es.js": "./node_modules/moment/locale/es.js",
+      "./et": "./node_modules/moment/locale/et.js",
+      "./et.js": "./node_modules/moment/locale/et.js",
+      "./eu": "./node_modules/moment/locale/eu.js",
+      "./eu.js": "./node_modules/moment/locale/eu.js",
+      "./fa": "./node_modules/moment/locale/fa.js",
+      "./fa.js": "./node_modules/moment/locale/fa.js",
+      "./fi": "./node_modules/moment/locale/fi.js",
+      "./fi.js": "./node_modules/moment/locale/fi.js",
+      "./fil": "./node_modules/moment/locale/fil.js",
+      "./fil.js": "./node_modules/moment/locale/fil.js",
+      "./fo": "./node_modules/moment/locale/fo.js",
+      "./fo.js": "./node_modules/moment/locale/fo.js",
+      "./fr": "./node_modules/moment/locale/fr.js",
+      "./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+      "./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+      "./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+      "./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+      "./fr.js": "./node_modules/moment/locale/fr.js",
+      "./fy": "./node_modules/moment/locale/fy.js",
+      "./fy.js": "./node_modules/moment/locale/fy.js",
+      "./ga": "./node_modules/moment/locale/ga.js",
+      "./ga.js": "./node_modules/moment/locale/ga.js",
+      "./gd": "./node_modules/moment/locale/gd.js",
+      "./gd.js": "./node_modules/moment/locale/gd.js",
+      "./gl": "./node_modules/moment/locale/gl.js",
+      "./gl.js": "./node_modules/moment/locale/gl.js",
+      "./gom-deva": "./node_modules/moment/locale/gom-deva.js",
+      "./gom-deva.js": "./node_modules/moment/locale/gom-deva.js",
+      "./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+      "./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+      "./gu": "./node_modules/moment/locale/gu.js",
+      "./gu.js": "./node_modules/moment/locale/gu.js",
+      "./he": "./node_modules/moment/locale/he.js",
+      "./he.js": "./node_modules/moment/locale/he.js",
+      "./hi": "./node_modules/moment/locale/hi.js",
+      "./hi.js": "./node_modules/moment/locale/hi.js",
+      "./hr": "./node_modules/moment/locale/hr.js",
+      "./hr.js": "./node_modules/moment/locale/hr.js",
+      "./hu": "./node_modules/moment/locale/hu.js",
+      "./hu.js": "./node_modules/moment/locale/hu.js",
+      "./hy-am": "./node_modules/moment/locale/hy-am.js",
+      "./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+      "./id": "./node_modules/moment/locale/id.js",
+      "./id.js": "./node_modules/moment/locale/id.js",
+      "./is": "./node_modules/moment/locale/is.js",
+      "./is.js": "./node_modules/moment/locale/is.js",
+      "./it": "./node_modules/moment/locale/it.js",
+      "./it-ch": "./node_modules/moment/locale/it-ch.js",
+      "./it-ch.js": "./node_modules/moment/locale/it-ch.js",
+      "./it.js": "./node_modules/moment/locale/it.js",
+      "./ja": "./node_modules/moment/locale/ja.js",
+      "./ja.js": "./node_modules/moment/locale/ja.js",
+      "./jv": "./node_modules/moment/locale/jv.js",
+      "./jv.js": "./node_modules/moment/locale/jv.js",
+      "./ka": "./node_modules/moment/locale/ka.js",
+      "./ka.js": "./node_modules/moment/locale/ka.js",
+      "./kk": "./node_modules/moment/locale/kk.js",
+      "./kk.js": "./node_modules/moment/locale/kk.js",
+      "./km": "./node_modules/moment/locale/km.js",
+      "./km.js": "./node_modules/moment/locale/km.js",
+      "./kn": "./node_modules/moment/locale/kn.js",
+      "./kn.js": "./node_modules/moment/locale/kn.js",
+      "./ko": "./node_modules/moment/locale/ko.js",
+      "./ko.js": "./node_modules/moment/locale/ko.js",
+      "./ku": "./node_modules/moment/locale/ku.js",
+      "./ku.js": "./node_modules/moment/locale/ku.js",
+      "./ky": "./node_modules/moment/locale/ky.js",
+      "./ky.js": "./node_modules/moment/locale/ky.js",
+      "./lb": "./node_modules/moment/locale/lb.js",
+      "./lb.js": "./node_modules/moment/locale/lb.js",
+      "./lo": "./node_modules/moment/locale/lo.js",
+      "./lo.js": "./node_modules/moment/locale/lo.js",
+      "./lt": "./node_modules/moment/locale/lt.js",
+      "./lt.js": "./node_modules/moment/locale/lt.js",
+      "./lv": "./node_modules/moment/locale/lv.js",
+      "./lv.js": "./node_modules/moment/locale/lv.js",
+      "./me": "./node_modules/moment/locale/me.js",
+      "./me.js": "./node_modules/moment/locale/me.js",
+      "./mi": "./node_modules/moment/locale/mi.js",
+      "./mi.js": "./node_modules/moment/locale/mi.js",
+      "./mk": "./node_modules/moment/locale/mk.js",
+      "./mk.js": "./node_modules/moment/locale/mk.js",
+      "./ml": "./node_modules/moment/locale/ml.js",
+      "./ml.js": "./node_modules/moment/locale/ml.js",
+      "./mn": "./node_modules/moment/locale/mn.js",
+      "./mn.js": "./node_modules/moment/locale/mn.js",
+      "./mr": "./node_modules/moment/locale/mr.js",
+      "./mr.js": "./node_modules/moment/locale/mr.js",
+      "./ms": "./node_modules/moment/locale/ms.js",
+      "./ms-my": "./node_modules/moment/locale/ms-my.js",
+      "./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+      "./ms.js": "./node_modules/moment/locale/ms.js",
+      "./mt": "./node_modules/moment/locale/mt.js",
+      "./mt.js": "./node_modules/moment/locale/mt.js",
+      "./my": "./node_modules/moment/locale/my.js",
+      "./my.js": "./node_modules/moment/locale/my.js",
+      "./nb": "./node_modules/moment/locale/nb.js",
+      "./nb.js": "./node_modules/moment/locale/nb.js",
+      "./ne": "./node_modules/moment/locale/ne.js",
+      "./ne.js": "./node_modules/moment/locale/ne.js",
+      "./nl": "./node_modules/moment/locale/nl.js",
+      "./nl-be": "./node_modules/moment/locale/nl-be.js",
+      "./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+      "./nl.js": "./node_modules/moment/locale/nl.js",
+      "./nn": "./node_modules/moment/locale/nn.js",
+      "./nn.js": "./node_modules/moment/locale/nn.js",
+      "./oc-lnc": "./node_modules/moment/locale/oc-lnc.js",
+      "./oc-lnc.js": "./node_modules/moment/locale/oc-lnc.js",
+      "./pa-in": "./node_modules/moment/locale/pa-in.js",
+      "./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+      "./pl": "./node_modules/moment/locale/pl.js",
+      "./pl.js": "./node_modules/moment/locale/pl.js",
+      "./pt": "./node_modules/moment/locale/pt.js",
+      "./pt-br": "./node_modules/moment/locale/pt-br.js",
+      "./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+      "./pt.js": "./node_modules/moment/locale/pt.js",
+      "./ro": "./node_modules/moment/locale/ro.js",
+      "./ro.js": "./node_modules/moment/locale/ro.js",
+      "./ru": "./node_modules/moment/locale/ru.js",
+      "./ru.js": "./node_modules/moment/locale/ru.js",
+      "./sd": "./node_modules/moment/locale/sd.js",
+      "./sd.js": "./node_modules/moment/locale/sd.js",
+      "./se": "./node_modules/moment/locale/se.js",
+      "./se.js": "./node_modules/moment/locale/se.js",
+      "./si": "./node_modules/moment/locale/si.js",
+      "./si.js": "./node_modules/moment/locale/si.js",
+      "./sk": "./node_modules/moment/locale/sk.js",
+      "./sk.js": "./node_modules/moment/locale/sk.js",
+      "./sl": "./node_modules/moment/locale/sl.js",
+      "./sl.js": "./node_modules/moment/locale/sl.js",
+      "./sq": "./node_modules/moment/locale/sq.js",
+      "./sq.js": "./node_modules/moment/locale/sq.js",
+      "./sr": "./node_modules/moment/locale/sr.js",
+      "./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+      "./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+      "./sr.js": "./node_modules/moment/locale/sr.js",
+      "./ss": "./node_modules/moment/locale/ss.js",
+      "./ss.js": "./node_modules/moment/locale/ss.js",
+      "./sv": "./node_modules/moment/locale/sv.js",
+      "./sv.js": "./node_modules/moment/locale/sv.js",
+      "./sw": "./node_modules/moment/locale/sw.js",
+      "./sw.js": "./node_modules/moment/locale/sw.js",
+      "./ta": "./node_modules/moment/locale/ta.js",
+      "./ta.js": "./node_modules/moment/locale/ta.js",
+      "./te": "./node_modules/moment/locale/te.js",
+      "./te.js": "./node_modules/moment/locale/te.js",
+      "./tet": "./node_modules/moment/locale/tet.js",
+      "./tet.js": "./node_modules/moment/locale/tet.js",
+      "./tg": "./node_modules/moment/locale/tg.js",
+      "./tg.js": "./node_modules/moment/locale/tg.js",
+      "./th": "./node_modules/moment/locale/th.js",
+      "./th.js": "./node_modules/moment/locale/th.js",
+      "./tk": "./node_modules/moment/locale/tk.js",
+      "./tk.js": "./node_modules/moment/locale/tk.js",
+      "./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+      "./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+      "./tlh": "./node_modules/moment/locale/tlh.js",
+      "./tlh.js": "./node_modules/moment/locale/tlh.js",
+      "./tr": "./node_modules/moment/locale/tr.js",
+      "./tr.js": "./node_modules/moment/locale/tr.js",
+      "./tzl": "./node_modules/moment/locale/tzl.js",
+      "./tzl.js": "./node_modules/moment/locale/tzl.js",
+      "./tzm": "./node_modules/moment/locale/tzm.js",
+      "./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+      "./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+      "./tzm.js": "./node_modules/moment/locale/tzm.js",
+      "./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+      "./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+      "./uk": "./node_modules/moment/locale/uk.js",
+      "./uk.js": "./node_modules/moment/locale/uk.js",
+      "./ur": "./node_modules/moment/locale/ur.js",
+      "./ur.js": "./node_modules/moment/locale/ur.js",
+      "./uz": "./node_modules/moment/locale/uz.js",
+      "./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+      "./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+      "./uz.js": "./node_modules/moment/locale/uz.js",
+      "./vi": "./node_modules/moment/locale/vi.js",
+      "./vi.js": "./node_modules/moment/locale/vi.js",
+      "./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+      "./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+      "./yo": "./node_modules/moment/locale/yo.js",
+      "./yo.js": "./node_modules/moment/locale/yo.js",
+      "./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+      "./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+      "./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+      "./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+      "./zh-mo": "./node_modules/moment/locale/zh-mo.js",
+      "./zh-mo.js": "./node_modules/moment/locale/zh-mo.js",
+      "./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+      "./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+    };
+
+    function webpackContext(req) {
+      var id = webpackContextResolve(req);
+      return __webpack_require__(id);
+    }
+
+    function webpackContextResolve(req) {
+      if (!__webpack_require__.o(map, req)) {
+        var e = new Error("Cannot find module '" + req + "'");
+        e.code = 'MODULE_NOT_FOUND';
+        throw e;
+      }
+
+      return map[req];
+    }
+
+    webpackContext.keys = function webpackContextKeys() {
+      return Object.keys(map);
+    };
+
+    webpackContext.resolve = webpackContextResolve;
+    module.exports = webpackContext;
+    webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
     /***/
   },
 
@@ -1359,6 +1671,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var node_modules_ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
     /*! node_modules/@ionic-native/file-path/ngx */
     "./node_modules/@ionic-native/file-path/ngx/index.js");
+    /* harmony import */
+
+
+    var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    /*! @ionic-native/media-capture/ngx */
+    "./node_modules/@ionic-native/media-capture/ngx/index.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -1368,7 +1686,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
       entryComponents: [],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _ionic_storage__WEBPACK_IMPORTED_MODULE_12__["IonicStorageModule"].forRoot(), _angular_common_http__WEBPACK_IMPORTED_MODULE_15__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"]],
-      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_10__["DatastreamingService"], _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_11__["DatastorageService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_14__["FCM"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], node_modules_ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_17__["Camera"], node_modules_ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__["File"], node_modules_ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_19__["WebView"], node_modules_ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_20__["FilePath"], _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_16__["Network"], {
+      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], _services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_10__["DatastreamingService"], _services_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_11__["DatastorageService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_14__["FCM"], _home_HttPService_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], node_modules_ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_17__["Camera"], node_modules_ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__["File"], node_modules_ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_19__["WebView"], node_modules_ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_20__["FilePath"], _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_16__["Network"], _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_21__["MediaCapture"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
       }],
@@ -1450,13 +1768,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _model_ConsultationModel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ../../model/ConsultationModel */
     "./src/app/model/ConsultationModel.ts");
+    /* harmony import */
+
+
+    var src_app_model_doctor_doctor_appointment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/model/doctor/doctor_appointment */
+    "./src/app/model/doctor/doctor_appointment.ts");
+    /* harmony import */
+
+
+    var src_app_model_doctor_id_date__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/model/doctor/id_date */
+    "./src/app/model/doctor/id_date.ts");
+    /* harmony import */
+
+
+    var src_app_services_dateFormatService_date_format_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/services/dateFormatService/date-format.service */
+    "./src/app/services/dateFormatService/date-format.service.ts");
 
     var HttpService = /*#__PURE__*/function () {
-      function HttpService(http, dataStream, fcm) {
+      function HttpService(http, dataStream, format, fcm) {
         _classCallCheck(this, HttpService);
 
         this.http = http;
         this.dataStream = dataStream;
+        this.format = format;
         this.fcm = fcm;
         this.Node_host = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/"; // Node_host="http://dbea70375c2c.ngrok.io/";
         // Java_Host_Port ="http://986b7152e0e7.ngrok.io";
@@ -1582,7 +1919,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log("consults,consult", [consults, consult]);
               return [consults, consult];
             }
-          }));
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["defaultIfEmpty"])([]));
         }
       }, {
         key: "postThread",
@@ -1647,6 +1984,85 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           console.log("data of formdata  " + file.getAll('data'));
           return this.http.post(url, file);
         }
+      }, {
+        key: "getPatientVitals",
+        value: function getPatientVitals(patient_id) {
+          var Url = this.Node_host + "api/users/vitals/" + patient_id;
+          console.log("URL", Url);
+          return this.http.get(Url, this.httpOptions);
+        } // appointment
+
+      }, {
+        key: "getSlotsAfterDoctorPostApps",
+        value: function getSlotsAfterDoctorPostApps(id, date) {
+          var _this5 = this;
+
+          var url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/slots/" + id;
+          return this.http.get(url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(function (appointments) {
+            return appointments;
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (app) {
+            return new src_app_model_doctor_doctor_appointment__WEBPACK_IMPORTED_MODULE_9__["doctor_appointment"](app.id, _this5.dataStream.doctor.doctor_id, app.schedule_id, app.slot_duration, app.start_time, app.end_time, date, null, null, false);
+          }));
+        }
+      }, {
+        key: "postDoctorAppointmnets",
+        value: function postDoctorAppointmnets(appointments) {
+          var url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/schedule/"; // let scheduleIds =[];
+
+          return this.http.post(url, appointments).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(function (appointments) {
+            return appointments;
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (appointmentObject) {
+            return new src_app_model_doctor_id_date__WEBPACK_IMPORTED_MODULE_10__["PostReturnIdAndDate"](appointmentObject.id, appointmentObject.date.split(" ", 2)[0]);
+          }));
+        }
+      }, {
+        key: "getDoctorSchedule",
+        value: function getDoctorSchedule() {
+          var _this6 = this;
+
+          var url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/schedule/" + this.dataStream.doctor.doctor_id;
+          return this.http.get(url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(function (appointments) {
+            return appointments;
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (appointment) {
+            var app = JSON.parse(JSON.stringify(appointment));
+            console.log(app.date);
+            app.date = _this6.format.formateJSONDateToDayMonthYear(app.date);
+            console.log(app.date); // app.start_time = this.format.formatJSONTimetoRemoveSeconds(app.start_time);
+            // app.end_time = this.format.formatJSONTimetoRemoveSeconds(app.end_time);
+            // console.log("app after change", app);
+            // console.log(app);
+            // let split = app.start_time.split(" ");
+            // app.date= split[0];
+            // app.start_time = split[1]+" "+ split[2];
+            // split= app.end_time.split(" ",3);
+            // app.end_time= split[1]+" "+ split[2];
+            // console.log(app);
+
+            return app;
+          }));
+        }
+      }, {
+        key: "getDoctorAppointmentSLots",
+        value: function getDoctorAppointmentSLots(id, date, slot_duration) {
+          var _this7 = this;
+
+          var url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/slots/" + id;
+          var bool = false;
+          return this.http.get(url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(function (slots) {
+            return slots;
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (slot) {
+            //slot.year+"-"+(slot.month<10?"0"+slot.month:slot.day)+"-"+ (slot.day<10?"0"+slot.day:slot.day)
+            if (slot.patient_id) {
+              var patientIndex = _this7.dataStream.patientList.findIndex(function (x) {
+                return x.patientId === slot.patient_id;
+              });
+
+              return new src_app_model_doctor_doctor_appointment__WEBPACK_IMPORTED_MODULE_9__["doctor_appointment"](slot.id, _this7.dataStream.doctor.doctor_id, slot.schedule_id, slot_duration, slot.start_time, slot.end_time, date, slot.patient_id, _this7.dataStream.patientList[patientIndex], slot.booked.data[0] == 0 ? false : true);
+            } else {
+              return new src_app_model_doctor_doctor_appointment__WEBPACK_IMPORTED_MODULE_9__["doctor_appointment"](slot.id, _this7.dataStream.doctor.doctor_id, slot.schedule_id, slot_duration, slot.start_time, slot.end_time, date, null, null, slot.booked.data[0] == 0 ? false : true);
+            }
+          }));
+        }
       }]);
 
       return HttpService;
@@ -1658,13 +2074,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"]
       }, {
+        type: src_app_services_dateFormatService_date_format_service__WEBPACK_IMPORTED_MODULE_11__["DateFormatService"]
+      }, {
         type: _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__["FCM"]
       }];
     };
 
     HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__["FCM"]])], HttpService);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], src_app_services_datastream_datastreaming_service__WEBPACK_IMPORTED_MODULE_4__["DatastreamingService"], src_app_services_dateFormatService_date_format_service__WEBPACK_IMPORTED_MODULE_11__["DateFormatService"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_5__["FCM"]])], HttpService);
     /***/
   },
 
@@ -1724,14 +2142,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(NavigationService, [{
         key: "navigateTo",
         value: function navigateTo(path) {
-          var _this5 = this;
+          var _this8 = this;
 
           this._router.navigate([path]).then(function () {
             return console.log("navigated to " + path);
           })["catch"](function (err) {
             console.log("error navigating to " + path + " + err");
 
-            _this5.presentAlert('Navigation Error: ', err);
+            _this8.presentAlert('Navigation Error: ', err);
           });
         }
       }, {
@@ -1858,6 +2276,86 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var MyDoctor = function MyDoctor() {
       _classCallCheck(this, MyDoctor);
+    };
+    /***/
+
+  },
+
+  /***/
+  "./src/app/model/doctor/doctor_appointment.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/model/doctor/doctor_appointment.ts ***!
+    \****************************************************/
+
+  /*! exports provided: doctor_appointment */
+
+  /***/
+  function srcAppModelDoctorDoctor_appointmentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "doctor_appointment", function () {
+      return doctor_appointment;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    var doctor_appointment = function doctor_appointment(id, doc_id, schedule_id, slot_duration, start_time, end_time, date, patient_id, patient, booked) {
+      _classCallCheck(this, doctor_appointment);
+
+      this.id = id;
+      this.doc_id = doc_id;
+      this.schedule_id = schedule_id;
+      this.slot_duration = slot_duration;
+      this.start_time = start_time;
+      this.end_time = end_time;
+      this.date = date;
+      this.patient_id = patient_id;
+      this.patient = patient;
+      this.booked = booked;
+    };
+    /***/
+
+  },
+
+  /***/
+  "./src/app/model/doctor/id_date.ts":
+  /*!*****************************************!*\
+    !*** ./src/app/model/doctor/id_date.ts ***!
+    \*****************************************/
+
+  /*! exports provided: PostReturnIdAndDate */
+
+  /***/
+  function srcAppModelDoctorId_dateTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "PostReturnIdAndDate", function () {
+      return PostReturnIdAndDate;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    var PostReturnIdAndDate = function PostReturnIdAndDate(id, date) {
+      _classCallCheck(this, PostReturnIdAndDate);
+
+      this.id = id;
+      this.date = date;
     };
     /***/
 
@@ -2170,7 +2668,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "restoreStreamDatalist",
         value: function restoreStreamDatalist(patientList) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
-            var _this6 = this;
+            var _this9 = this;
 
             return regeneratorRuntime.wrap(function _callee6$(_context6) {
               while (1) {
@@ -2181,7 +2679,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 2:
                     _context6.sent.forEach(function (element) {
-                      _this6.patientList.push(element);
+                      _this9.patientList.push(element);
                     });
 
                   case 3:
@@ -2302,6 +2800,206 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     DatastreamingService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_datastorage_datastorage_service__WEBPACK_IMPORTED_MODULE_2__["DatastorageService"]])], DatastreamingService);
+    /***/
+  },
+
+  /***/
+  "./src/app/services/dateFormatService/date-format.service.ts":
+  /*!*******************************************************************!*\
+    !*** ./src/app/services/dateFormatService/date-format.service.ts ***!
+    \*******************************************************************/
+
+  /*! exports provided: DateFormatService */
+
+  /***/
+  function srcAppServicesDateFormatServiceDateFormatServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DateFormatService", function () {
+      return DateFormatService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+
+    var DateFormatService = /*#__PURE__*/function () {
+      function DateFormatService() {
+        _classCallCheck(this, DateFormatService);
+      } // Monday, June 15, 2020 
+
+
+      _createClass(DateFormatService, [{
+        key: "formateJSONDateToDayMonthYear",
+        value: function formateJSONDateToDayMonthYear(myDate) {
+          return moment__WEBPACK_IMPORTED_MODULE_2__(myDate).format('dddd, MMMM DD, YYYY');
+        }
+      }, {
+        key: "formateDateToJSON",
+        value: function formateDateToJSON(myDate) {
+          var date = moment__WEBPACK_IMPORTED_MODULE_2__(myDate).format();
+          return date.slice(0, 10);
+        }
+      }, {
+        key: "formatJSONTimetoRemoveSeconds",
+        value: function formatJSONTimetoRemoveSeconds(myTime) {
+          var splitted = myTime.split(" ", 2);
+          var time = splitted[0].slice(0, 5);
+          return time + " " + splitted[1];
+        }
+      }, {
+        key: "formatTimetoJSONADDSeconds",
+        value: function formatTimetoJSONADDSeconds(myTime) {
+          var splitted = myTime.split(" ", 2);
+          return splitted[0] + ":00" + " " + splitted[1];
+        }
+      }, {
+        key: "formatTime24",
+        value: function formatTime24(time) {
+          return moment__WEBPACK_IMPORTED_MODULE_2__(time).format('HH:mm');
+        }
+      }, {
+        key: "getTime",
+        value: function getTime(time) {
+          return moment__WEBPACK_IMPORTED_MODULE_2__(time).format();
+        }
+      }, {
+        key: "convertTime12to24",
+        value: function convertTime12to24(time12h) {
+          var _time12h$split = time12h.split(' '),
+              _time12h$split2 = _slicedToArray(_time12h$split, 2),
+              time = _time12h$split2[0],
+              modifier = _time12h$split2[1];
+
+          var _time$split = time.split(':'),
+              _time$split2 = _slicedToArray(_time$split, 2),
+              hours = _time$split2[0],
+              minutes = _time$split2[1];
+
+          if (hours === '12') {
+            hours = '00';
+          }
+
+          if (modifier === 'PM') {
+            hours = parseInt(hours, 10) + 12;
+          }
+
+          return "".concat(hours, ":").concat(minutes);
+        }
+      }, {
+        key: "formatAMPM",
+        value: function formatAMPM(time) {
+          return moment__WEBPACK_IMPORTED_MODULE_2__(time).format('hh:mm A'); // var hours = date[0];
+          // var minutes = date[1];
+          // var ampm = hours >= 12 ? 'PM' : 'AM';
+          // hours = hours % 12;
+          // hours = hours ? hours : 12;
+          // minutes = minutes < 10 ? '0'+minutes : minutes;
+          // var strTime = hours + ':' + minutes + ' ' + ampm;
+          // return strTime;
+        }
+      }, {
+        key: "returnStringDescripingCurrentSituation",
+        value: function returnStringDescripingCurrentSituation(time, num) {
+          var now = new Date();
+          time = new Date(this.getTime(now.toJSON().slice(0, 10) + " " + time)); // let hours = time.getHours();
+          // let nowHours = now.getHours();
+          // get total seconds between the times
+
+          var delta = Math.abs(now.getTime() - time.getTime()) / 1000;
+          var sign = Math.sign(now.getTime() - time.getTime()); // calculate (and subtract) whole days
+
+          var days = Math.floor(delta / 86400);
+          delta -= days * 86400; // calculate (and subtract) whole hours
+
+          var hours = Math.floor(delta / 3600) % 24;
+          delta -= hours * 3600;
+
+          if (Math.abs(hours) < num) {
+            // calculate (and subtract) whole minutes
+            var minutes = Math.floor(delta / 60) % 60; // delta -= minutes * 60;
+
+            if (minutes < 10) {
+              return "0" + hours + ":0" + minutes + (sign < 0 ? ' left' : ' passed');
+            }
+
+            return "0" + hours + ":" + minutes + (sign < 0 ? ' left' : ' passed');
+          }
+
+          return null; // // what's left is seconds
+          // var seconds = delta % 60;  
+
+          console.log(hours);
+          console.log(minutes);
+          console.log('');
+        }
+      }, {
+        key: "OldReturnStringDescripingCurrentSituation",
+        value: function OldReturnStringDescripingCurrentSituation(time, num) {
+          time = new Date(this.getTime("2020-06-01 " + time));
+          var now = new Date();
+          var hours = time.getHours();
+          var nowHours = now.getHours();
+
+          if (Math.abs(nowHours - hours) < num) {
+            var minutes = time.getMinutes();
+            var nowMinutes = now.getMinutes();
+            return "0" + Math.abs(nowHours - hours) + ":" + Math.abs(nowMinutes - minutes) + (nowHours - hours < 0 ? ' left' : ' passed');
+          }
+
+          return null;
+        }
+      }, {
+        key: "compareDate",
+        value: function compareDate(date1, date2) {
+          // With Date object we can compare dates them using the >, <, <= or >=.
+          // The ==, !=, ===, and !== operators require to use date.getTime(),
+          // so we need to create a new instance of Date with 'new Date()'
+          var d1 = moment__WEBPACK_IMPORTED_MODULE_2__(date1).format();
+          ;
+          var d2 = moment__WEBPACK_IMPORTED_MODULE_2__(date2).format();
+          ; // console.log(d1);
+          // console.log(d2);
+          // console.log(" ");
+          // Check if the dates are equal
+
+          var same = d1 === d2;
+          if (same) return 0; // Check if the first is greater than second
+
+          if (d1 > d2) return 1; // Check if the first is less than second
+
+          if (d1 < d2) return -1;
+        }
+      }]);
+
+      return DateFormatService;
+    }();
+
+    DateFormatService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])], DateFormatService);
     /***/
   },
 
