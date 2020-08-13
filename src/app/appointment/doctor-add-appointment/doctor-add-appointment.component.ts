@@ -130,7 +130,7 @@ today;
       },
     ()=>
       {
-        console.log(scheduleIds); 
+        console.log(JSON.stringify(scheduleIds)); 
         this.comm.sendScheduleIds(scheduleIds);
         // this.navigate.navigateTo('/home/doctor-appointment');
         this.navigate.navigateTo('/home/doctor-added-appointment')

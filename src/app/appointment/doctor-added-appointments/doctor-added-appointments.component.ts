@@ -39,13 +39,14 @@ ionViewDidEnter()
 
           that.http.getSlotsAfterDoctorPostApps(id.id,id.date).subscribe(
             (appointmentSlots)=>{
+              
               that.cards.push(appointmentSlots);
           },
           (error)=>{
             console.log("Error: " , error);
           },
           ()=>{
-            console.log("cards: ", this.cards);
+            console.log("cards: ", JSON.stringify(this.cards));
 
           });
 
