@@ -34,7 +34,7 @@
       <ion-label >
   
         <h2 [style]="app.date == today? 'color: red;' : ''">   
-        <p  style="position: absolute;right: 2vh;"> 
+        <p  style="color: red;position: absolute;right: 2vh;"> 
         {{checkOnSoon(app.booked,app.date,app.start_time)}} </p>
          {{ app.date == today? ('Today') : (app.date) }} 
         </h2>
