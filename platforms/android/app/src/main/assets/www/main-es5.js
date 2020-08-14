@@ -1444,10 +1444,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               while (1) {
                 switch (_context3.prev = _context3.next) {
                   case 0:
+                    console.log("open menu");
                     this.menu_controller.enable(true, 'first');
                     this.menu_controller.open('first');
 
-                  case 2:
+                  case 3:
                   case "end":
                     return _context3.stop();
                 }
@@ -2002,6 +2003,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return appointments;
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (app) {
             return new src_app_model_doctor_doctor_appointment__WEBPACK_IMPORTED_MODULE_9__["doctor_appointment"](app.id, _this5.dataStream.doctor.doctor_id, app.schedule_id, app.slot_duration, app.start_time, app.end_time, date, null, null, false);
+          }));
+        }
+      }, {
+        key: "getSessionToken",
+        value: function getSessionToken() {
+          var url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/token";
+          var obj = {
+            "sessionId": this.dataStream.doctor.sessionId,
+            "expireTime": this.dataStream.appointment.slot_duration
+          };
+          console.log("Object: ", obj);
+          return this.http.post(url, obj, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (token) {
+            console.log(token.token);
+            return token;
           }));
         }
       }, {
@@ -2717,6 +2732,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.doctor.timestamp = doctorData.user.timestamp;
           this.doctor.years_experience = doctorData.years_experience;
           this.doctor.profile_img = doctorData.user.user_image;
+          this.doctor.sessionId = doctorData.sessionId;
           console.log("set doctor ", this.doctor);
           this.dataStore.saveDoctprLocally(this.doctor);
         }
@@ -2732,6 +2748,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.doctor.timestamp = mydoc.timestamp;
           this.doctor.years_experience = mydoc.years_experience;
           this.doctor.profile_img = mydoc.user_image;
+          this.doctor.sessionId = mydoc.sessionId;
           console.log("doctor for login", this.doctor);
           this.dataStore.saveDoctprLocally(this.doctor);
         }

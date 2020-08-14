@@ -1170,6 +1170,7 @@ let AppComponent = class AppComponent {
     }
     openMenu() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("open menu");
             this.menu_controller.enable(true, 'first');
             this.menu_controller.open('first');
         });
@@ -1513,6 +1514,18 @@ let HttpService = class HttpService {
         let url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/api/users/doctor/slots/" + id;
         return this.http.get(url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(appointments => appointments), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((app) => {
             return new src_app_model_doctor_doctor_appointment__WEBPACK_IMPORTED_MODULE_9__["doctor_appointment"](app.id, this.dataStream.doctor.doctor_id, app.schedule_id, app.slot_duration, app.start_time, app.end_time, date, null, null, false);
+        }));
+    }
+    getSessionToken() {
+        let url = "http://ec2-3-87-1-35.compute-1.amazonaws.com:3000/token";
+        let obj = {
+            "sessionId": this.dataStream.doctor.sessionId,
+            "expireTime": this.dataStream.appointment.slot_duration
+        };
+        console.log("Object: ", obj);
+        return this.http.post(url, obj, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((token) => {
+            console.log(token.token);
+            return token;
         }));
     }
     postDoctorAppointmnets(appointments) {
@@ -1942,6 +1955,7 @@ let DatastreamingService = class DatastreamingService {
         this.doctor.timestamp = doctorData.user.timestamp;
         this.doctor.years_experience = doctorData.years_experience;
         this.doctor.profile_img = doctorData.user.user_image;
+        this.doctor.sessionId = doctorData.sessionId;
         console.log("set doctor ", this.doctor);
         this.dataStore.saveDoctprLocally(this.doctor);
     }
@@ -1955,6 +1969,7 @@ let DatastreamingService = class DatastreamingService {
         this.doctor.timestamp = mydoc.timestamp;
         this.doctor.years_experience = mydoc.years_experience;
         this.doctor.profile_img = mydoc.user_image;
+        this.doctor.sessionId = mydoc.sessionId;
         console.log("doctor for login", this.doctor);
         this.dataStore.saveDoctprLocally(this.doctor);
     }

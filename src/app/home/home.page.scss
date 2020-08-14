@@ -14,6 +14,17 @@ ion-toolbar{
   margin: 0px;
   padding: 0px;
   background:#25b7d3;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius:70px ;
+  height: 45%;
+
+}
+.logo{
+  position: relative;
+  max-width: 100px;
+  min-width: 50px;
+  height: auto;
+  margin-top: 3%;
 
 }
 
@@ -29,8 +40,9 @@ ion-toolbar{
   transition: transform 0.5s;
   border-radius: 10px;
   transform-style: preserve-3d;
-  background:white;
-  margin-top: 10%;
+  background:transparent;
+  margin-top: -15%;
+
   
 }
 .mini-card{
@@ -40,6 +52,8 @@ ion-toolbar{
   transform-style: preserve-3d;
   margin-top: 10%;
   border: whitesmoke solid 2px;
+  background-color: white;
+
 }
 .icon{
   width:35%;
@@ -55,7 +69,7 @@ ion-toolbar{
 }
 .user-name{
   color: white;
-  font: 1em Open-sans;
+  font: 1.7em Open-sans;
 }
 .grad  {
   margin-left: 10px;
@@ -97,6 +111,10 @@ ion-toolbar{
 
 .wrapper{
   position: relative;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 .profile-img-frame{
   display: flex;

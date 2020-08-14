@@ -129,6 +129,7 @@ export class AppComponent {
 
   }
   async  openMenu() {
+     console.log("open menu");
     this.menu_controller.enable(true, 'first');
     this.menu_controller.open('first');
 
