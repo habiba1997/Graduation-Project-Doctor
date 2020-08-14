@@ -35,12 +35,16 @@
     "@ionic/storage": "^2.2.0",
     "cordova": "^9.0.0",
     "cordova-android": "^8.1.0",
+    "cordova-plugin-androidx": "^2.0.0",
+    "cordova-plugin-androidx-adapter": "^1.1.1",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-fcm-with-dependecy-updated": "^4.1.1",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-filepath": "^1.5.8",
     "cordova-plugin-media-capture": "^3.0.3",
     "cordova-plugin-network-information": "^2.0.2",
+    "cordova-plugin-opentok": "^3.4.3",
+    "cordova-plugin-opentokjs": "^0.1.2",
     "cordova-sqlite-storage": "^4.0.0",
     "core-js": "^2.5.4",
     "moment": "^2.27.0",
@@ -105,7 +109,10 @@
       },
       "cordova-plugin-filepath": {},
       "cordova-plugin-network-information": {},
-      "cordova-plugin-media-capture": {}
+      "cordova-plugin-media-capture": {},
+      "cordova-plugin-opentok": {},
+      "cordova-plugin-androidx-adapter": {},
+      "cordova-plugin-androidx": {}
     },
     "platforms": [
       "android"
